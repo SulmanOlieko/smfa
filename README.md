@@ -34,6 +34,7 @@ if (!require("devtools")) install.packages("devtools")
 # Install metafrontieR from GitHub
 devtools::install_github("SulmanOlieko/metafrontieR")
 ```
+>**Note** You do not need to install `sfaR` manually, `metafrontieR` take care of that automatically.
 
 ---
 
@@ -45,7 +46,7 @@ The following sections provide comprehensive examples covering all three group-l
 
 ## Section 1: Standard SFA Group Frontier (`groupType = "sfacross"`)
 
-Group boundaries are observed (a farm-size variable). Each group's frontier is estimated separately by `sfacross` from the `sfaR` package.
+Let's use the `ricephil` data from `sfaR`. In this data, group boundaries are observed (a farm-size variable). If we assume that the production technology varies by farm size, we can try to estimate three frontiers that correspond to three types of farm sizes, namely small, medium and large. We can create a group variable `group` that captures these groups. We can then estimate each group's frontier separately using `sfacross`  from the `sfaR` package. So, we will specify the option `groupType  = "sfacross"` in the `sfametafrontier()`. 
 
 ### Data Preparation
 
@@ -61,7 +62,7 @@ ricephil$group <- cut(ricephil$AREA,
 )
 table(ricephil$group)
 ```
-
+This is the distrubition of the various farm types:
 ```plaintext
  small medium  large 
    125    104    115 
@@ -71,7 +72,7 @@ table(ricephil$group)
 
 ### 1a. LP Metafrontier (`groupType = "sfacross"`, `metaMethod = "lp"`)
 
-Deterministic linear programming envelope (Battese, Rao & O'Donnell, 2004). The metafrontier parameter vector minimises the sum of absolute deviations while staying at or above all group frontier predictions.
+We can begin by estimating a deterministic linear programming envelope (Battese, Rao & O'Donnell, 2004) over the three group frontiers. The metafrontier parameter vector minimises the sum of absolute deviations while staying at or above all group frontier predictions. We will be using a Cobb-Douglas functional form with rice production `PROD` as the response variable, and `AREA`, `LABOR` and `NPK` as the inputs.
 
 ```r
 meta_sfacross_lp <- sfametafrontier(
@@ -153,9 +154,12 @@ AIC: 184.5788   BIC: 253.7103   HQIC: 212.113
 ```
 </details>
 
+To harvest individual efficiency, metafrontier efficiency and MTR estimates:
 ```r
-# Retrieve individual efficiency and MTR estimates
 ef_lp <- efficiencies(meta_sfacross_lp)
+head(ef_lp)
+
+#To subset only for small farms
 head(ef_lp[ef_lp$group == "small", ])
 ```
 
@@ -163,7 +167,7 @@ head(ef_lp[ef_lp$group == "small", ])
 
 ### 1b. QP Metafrontier (`groupType = "sfacross"`, `metaMethod = "qp"`)
 
-Quadratic programming envelope — minimises the sum of squared deviations from group frontier predictions subject to the envelope constraint.
+We can also estimate a quadratic programming envelope that minimises the sum of squared deviations from group frontier predictions subject to the envelope constraint. We now switch to `metaMethod = "qp"`.
 
 ```r
 meta_sfacross_qp <- sfametafrontier(
@@ -209,6 +213,10 @@ TE_meta_BC=0.6777   TE_meta_JLMS=0.6727
 MTR_BC=0.9357     MTR_JLMS=0.9357
 ```
 </details>
+
+The two approaches produce almost identical outputs. 
+
+>**Note:** The estimation of the group frontiers use the same method, `sfacross`, and the only difference is in how we compute the metafrontier.
 
 ---
 
