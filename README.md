@@ -91,13 +91,14 @@ summary(meta_sfacross_lp)
   <summary>Toggle to see the output</summary>
 
 ```plaintext
-sfametafrontier(
+ > meta_sfacross_lp <- sfametafrontier(
 +   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data       = ricephil,
 +   group      = "group",
 +   S          = 1,
 +   udist      = "hnormal",
-+   metaMethod = "lp" # LP envelope: max group beta across all obs
++   groupType  = "sfacross",
++   metaMethod = "lp"
 + )
 Estimating group-specific stochastic frontiers (sfacross) ...
   Group: small 
@@ -105,8 +106,7 @@ Estimating group-specific stochastic frontiers (sfacross) ...
   Group: large 
 Group frontiers estimated.
 Estimating metafrontier using method: Linear Programming (LP) Metafrontier 
-> 
-> summary(meta_lp)
+> summary(meta_sfacross_lp)
 ============================================================ 
 Stochastic Metafrontier Analysis
 Metafrontier method: Linear Programming (LP) Metafrontier 
@@ -122,110 +122,194 @@ Distribution       : hnormal
 ------------------------------------------------------------ 
 Group: small (N = 125)  Log-likelihood: -50.98578
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -1.587445   0.512745 -3.0960  0.001962 ** 
-log(AREA)         0.240139   0.118343  2.0292  0.042441 *  
-log(LABOR)        0.434645   0.122915  3.5361  0.000406 ***
-log(NPK)          0.305164   0.057015  5.3523 8.682e-08 ***
-Zu_(Intercept)   -1.450932   0.298670 -4.8580 1.186e-06 ***
-Zv_(Intercept)   -2.934055   0.354013 -8.2880 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.234352   0.069994  3.3482 0.0008135 ***
-Sigma(u)                      0.484099   0.072293  6.6963 2.137e-11 ***
-Sigma-squared(v)              0.053181   0.018827  2.8248 0.0047317 ** 
-Sigma(v)                      0.230610   0.040819  5.6495 1.609e-08 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.536221   0.054820  9.7814 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.815044   0.090288  9.0271 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    2.099212   0.628650  3.3392 0.0008401 ***
-E[u]                          0.386255          -       -         -    
-E[exp(-u)]                    0.706426          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          42 
+Log likelihood value:                                                  -50.98578 
+Log likelihood gradient norm:                                        9.40653e-06 
+Estimation based on:                                         N =  125 and K =  6 
+Inf. Cr:                                           AIC  =  114.0 AIC/N  =  0.912 
+                                                   BIC  =  130.9 BIC/N  =  1.048 
+                                                   HQIC =  120.9 HQIC/N =  0.967 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05318 
+           Sigma(v)           =                                          0.05318 
+           Sigma-squared(u)   =                                          0.23435 
+           Sigma(u)           =                                          0.23435 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.53622 
+Gamma = sigma(u)^2/sigma^2    =                                          0.81504 
+Lambda = sigma(u)/sigma(v)    =                                          2.09921 
+Var[u]/{Var[u]+Var[v]}        =                                          0.61558 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.38626 
+Average efficiency E[exp(-ui)] =                                         0.70643 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -54.80277 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                     7.63398 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -54.80277 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                         7.63398 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -3.57676 
-M3T: p.value                   =                     0.00035 
+M3T: z                         =                                        -3.57676 
+M3T: p.value                   =                                         0.00035 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.58745    0.51274 -3.0960  0.001962 ** 
+log(AREA)          0.24014    0.11834  2.0292  0.042440 *  
+log(LABOR)         0.43464    0.12292  3.5361  0.000406 ***
+log(NPK)           0.30516    0.05701  5.3523 8.682e-08 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.45093    0.29867  -4.858 1.186e-06 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:27 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: medium (N = 104)  Log-likelihood: -15.28164
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -0.081817   0.506685 -0.1615 0.8717187    
-log(AREA)         0.474101   0.139839  3.3903 0.0006981 ***
-log(LABOR)        0.179351   0.102014  1.7581 0.0787310 .  
-log(NPK)          0.202545   0.081302  2.4913 0.0127289 *  
-Zu_(Intercept)   -1.513671   0.235495 -6.4276 1.296e-10 ***
-Zv_(Intercept)   -4.548464   0.764291 -5.9512 2.661e-09 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.2201004  0.0518325  4.2464 2.173e-05 ***
-Sigma(u)                      0.4691486  0.0552410  8.4928 < 2.2e-16 ***
-Sigma-squared(v)              0.0105834  0.0080888  1.3084  0.190737    
-Sigma(v)                      0.1028759  0.0393135  2.6168  0.008876 ** 
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4802956  0.0487215  9.8580 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9541214  0.0410801 23.2259 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    4.5603356  2.1398573  2.1311  0.033078 *  
-E[u]                          0.3743264          -       -         -    
-E[exp(-u)]                    0.7132967          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          41 
+Log likelihood value:                                                  -15.28164 
+Log likelihood gradient norm:                                        3.83566e-05 
+Estimation based on:                                         N =  104 and K =  6 
+Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
+                                                    BIC  =  58.4 BIC/N  =  0.562 
+                                                    HQIC =  49.0 HQIC/N =  0.471 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01058 
+           Sigma(v)           =                                          0.01058 
+           Sigma-squared(u)   =                                          0.22010 
+           Sigma(u)           =                                          0.22010 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.48030 
+Gamma = sigma(u)^2/sigma^2    =                                          0.95412 
+Lambda = sigma(u)/sigma(v)    =                                          4.56034 
+Var[u]/{Var[u]+Var[v]}        =                                          0.88314 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.37433 
+Average efficiency E[exp(-ui)] =                                         0.71330 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -21.11323 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    11.66318 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -21.11323 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        11.66318 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -2.91021 
-M3T: p.value                   =                     0.00361 
+M3T: z                         =                                        -2.91021 
+M3T: p.value                   =                                         0.00361 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -0.08182    0.50668 -0.1615 0.8717190    
+log(AREA)          0.47410    0.13984  3.3903 0.0006981 ***
+log(LABOR)         0.17935    0.10201  1.7581 0.0787310 .  
+log(NPK)           0.20255    0.08130  2.4913 0.0127289 *  
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.51367    0.23549 -6.4276 1.296e-10 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:27 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: large (N = 115)  Log-likelihood: -8.02197
 ------------------------------------------------------------ 
-               Coefficient Std. Error  z value  Pr(>|z|)    
-(Intercept)      -1.311937   0.418592  -3.1342 0.0017234 ** 
-log(AREA)         0.382776   0.142975   2.6772 0.0074236 ** 
-log(LABOR)        0.421047   0.109924   3.8303 0.0001280 ***
-log(NPK)          0.231427   0.060646   3.8160 0.0001356 ***
-Zu_(Intercept)   -1.786729   0.201765  -8.8555 < 2.2e-16 ***
-Zv_(Intercept)   -4.269633   0.405838 -10.5205 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.1675072  0.0337970  4.9563 7.186e-07 ***
-Sigma(u)                      0.4092764  0.0412888  9.9125 < 2.2e-16 ***
-Sigma-squared(v)              0.0139869  0.0056764  2.4640 0.0137381 *  
-Sigma(v)                      0.1182663  0.0239985  4.9281 8.304e-07 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4260212  0.0369471 11.5306 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9229346  0.0378850 24.3615 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    3.4606346  0.9216422  3.7549 0.0001734 ***
-E[u]                          0.3265553          -       -         -    
-E[exp(-u)]                    0.7419464          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          68 
+Log likelihood value:                                                   -8.02197 
+Log likelihood gradient norm:                                        4.01301e-05 
+Estimation based on:                                         N =  115 and K =  6 
+Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
+                                                    BIC  =  44.5 BIC/N  =  0.387 
+                                                    HQIC =  34.7 HQIC/N =  0.302 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01399 
+           Sigma(v)           =                                          0.01399 
+           Sigma-squared(u)   =                                          0.16751 
+           Sigma(u)           =                                          0.16751 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.42602 
+Gamma = sigma(u)^2/sigma^2    =                                          0.92293 
+Lambda = sigma(u)/sigma(v)    =                                          3.46063 
+Var[u]/{Var[u]+Var[v]}        =                                          0.81315 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.32656 
+Average efficiency E[exp(-ui)] =                                         0.74195 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -16.96836 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    17.89279 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -16.96836 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        17.89279 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -4.12175 
-M3T: p.value                   =                     0.00004 
+M3T: z                         =                                        -4.12175 
+M3T: p.value                   =                                         0.00004 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.31194    0.41859 -3.1342 0.0017234 ** 
+log(AREA)          0.38278    0.14297  2.6772 0.0074236 ** 
+log(LABOR)         0.42105    0.10992  3.8303 0.0001280 ***
+log(NPK)           0.23143    0.06065  3.8160 0.0001356 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.78673    0.20176 -8.8555 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:27 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (lp):
@@ -247,7 +331,7 @@ MTR_BC=0.9403     MTR_JLMS=0.9403
 Total Log-likelihood: -74.28939 
 AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:06 
+Model was estimated on : Mar Tue 03, 2026 at 00:27
 ```
 </details>
 
@@ -255,12 +339,27 @@ Model was estimated on : Mar Mon 02, 2026 at 12:06
 
 To harvest individual efficiency, metafrontier efficiency and MTR estimates:
 ```r
-ef_lp <- efficiencies(meta_sfacross_lp)
-head(ef_lp)
+efficiencies(meta_sfacross_lp)
+head(efficiencies(meta_sfacross_lp))
 
 #To subset only for small farms
-head(ef_lp[ef_lp$group == "small", ])
+#head(efficiencies(meta_sfacross_lp)[efficiencies(meta_sfacross_lp)$group == "small", ])
 ```
+
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+> head(efficiencies(meta_sfacross_lp))
+  id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal       uLB_g     uUB_g        m_g TE_group_mode  teBCLB_g  teBCUB_g    u_meta TE_meta_JLMS TE_meta_BC  MTR_JLMS    MTR_BC
+1  1 medium 0.2697165     0.7635959   0.7673345               1.316036 0.077581942 0.4657010 0.26858570     0.7644599 0.6276949 0.9253512 0.3944439    0.6740548  0.6773549 0.8827375 0.8827375
+2  2  large 0.3515642     0.7035867   0.7080897               1.430406 0.130356248 0.5739174 0.35118207     0.7038556 0.5633144 0.8777827 0.3779836    0.6852418  0.6896274 0.9739266 0.9739266
+3  3  large 0.2774565     0.7577085   0.7623358               1.327899 0.065447909 0.4980807 0.27501606     0.7595599 0.6076959 0.9366478 0.3049531    0.7371580  0.7416598 0.9728780 0.9728780
+4  4 medium 0.1710417     0.8427864   0.8461331               1.191355 0.018022507 0.3583190 0.15885675     0.8531186 0.6988501 0.9821389 0.1710417    0.8427864  0.8461331 1.0000000 1.0000000
+5  5  large 0.2119629     0.8089947   0.8133556               1.242901 0.027125654 0.4268531 0.20231520     0.8168374 0.6525594 0.9732389 0.2379271    0.7882601  0.7925093 0.9743700 0.9743700
+6  6  small 0.1987499     0.8197549   0.8275685               1.232467 0.009050601 0.5251973 0.07998025     0.9231346 0.5914386 0.9909902 0.3295263    0.7192644  0.7261201 0.8774139 0.8774139
+```
+</details>
 
 ---
 
@@ -285,13 +384,14 @@ summary(meta_sfacross_qp)
   <summary>Toggle to see the output</summary>
 
 ```plaintext
-> meta_qp <- sfametafrontier(
+> meta_sfacross_qp <- sfametafrontier(
 +   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data       = ricephil,
 +   group      = "group",
 +   S          = 1,
 +   udist      = "hnormal",
-+   metaMethod = "qp" 
++   groupType  = "sfacross",
++   metaMethod = "qp"
 + )
 Estimating group-specific stochastic frontiers (sfacross) ...
   Group: small 
@@ -299,8 +399,7 @@ Estimating group-specific stochastic frontiers (sfacross) ...
   Group: large 
 Group frontiers estimated.
 Estimating metafrontier using method: Quadratic Programming (QP) Metafrontier 
-> 
-> summary(meta_qp)
+> summary(meta_sfacross_qp)
 ============================================================ 
 Stochastic Metafrontier Analysis
 Metafrontier method: Quadratic Programming (QP) Metafrontier 
@@ -316,110 +415,194 @@ Distribution       : hnormal
 ------------------------------------------------------------ 
 Group: small (N = 125)  Log-likelihood: -50.98578
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -1.587445   0.512745 -3.0960  0.001962 ** 
-log(AREA)         0.240139   0.118343  2.0292  0.042441 *  
-log(LABOR)        0.434645   0.122915  3.5361  0.000406 ***
-log(NPK)          0.305164   0.057015  5.3523 8.682e-08 ***
-Zu_(Intercept)   -1.450932   0.298670 -4.8580 1.186e-06 ***
-Zv_(Intercept)   -2.934055   0.354013 -8.2880 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.234352   0.069994  3.3482 0.0008135 ***
-Sigma(u)                      0.484099   0.072293  6.6963 2.137e-11 ***
-Sigma-squared(v)              0.053181   0.018827  2.8248 0.0047317 ** 
-Sigma(v)                      0.230610   0.040819  5.6495 1.609e-08 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.536221   0.054820  9.7814 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.815044   0.090288  9.0271 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    2.099212   0.628650  3.3392 0.0008401 ***
-E[u]                          0.386255          -       -         -    
-E[exp(-u)]                    0.706426          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          42 
+Log likelihood value:                                                  -50.98578 
+Log likelihood gradient norm:                                        9.40653e-06 
+Estimation based on:                                         N =  125 and K =  6 
+Inf. Cr:                                           AIC  =  114.0 AIC/N  =  0.912 
+                                                   BIC  =  130.9 BIC/N  =  1.048 
+                                                   HQIC =  120.9 HQIC/N =  0.967 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05318 
+           Sigma(v)           =                                          0.05318 
+           Sigma-squared(u)   =                                          0.23435 
+           Sigma(u)           =                                          0.23435 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.53622 
+Gamma = sigma(u)^2/sigma^2    =                                          0.81504 
+Lambda = sigma(u)/sigma(v)    =                                          2.09921 
+Var[u]/{Var[u]+Var[v]}        =                                          0.61558 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.38626 
+Average efficiency E[exp(-ui)] =                                         0.70643 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -54.80277 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                     7.63398 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -54.80277 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                         7.63398 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -3.57676 
-M3T: p.value                   =                     0.00035 
+M3T: z                         =                                        -3.57676 
+M3T: p.value                   =                                         0.00035 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.58745    0.51274 -3.0960  0.001962 ** 
+log(AREA)          0.24014    0.11834  2.0292  0.042440 *  
+log(LABOR)         0.43464    0.12292  3.5361  0.000406 ***
+log(NPK)           0.30516    0.05701  5.3523 8.682e-08 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.45093    0.29867  -4.858 1.186e-06 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:34 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: medium (N = 104)  Log-likelihood: -15.28164
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -0.081817   0.506685 -0.1615 0.8717187    
-log(AREA)         0.474101   0.139839  3.3903 0.0006981 ***
-log(LABOR)        0.179351   0.102014  1.7581 0.0787310 .  
-log(NPK)          0.202545   0.081302  2.4913 0.0127289 *  
-Zu_(Intercept)   -1.513671   0.235495 -6.4276 1.296e-10 ***
-Zv_(Intercept)   -4.548464   0.764291 -5.9512 2.661e-09 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.2201004  0.0518325  4.2464 2.173e-05 ***
-Sigma(u)                      0.4691486  0.0552410  8.4928 < 2.2e-16 ***
-Sigma-squared(v)              0.0105834  0.0080888  1.3084  0.190737    
-Sigma(v)                      0.1028759  0.0393135  2.6168  0.008876 ** 
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4802956  0.0487215  9.8580 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9541214  0.0410801 23.2259 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    4.5603356  2.1398573  2.1311  0.033078 *  
-E[u]                          0.3743264          -       -         -    
-E[exp(-u)]                    0.7132967          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          41 
+Log likelihood value:                                                  -15.28164 
+Log likelihood gradient norm:                                        3.83566e-05 
+Estimation based on:                                         N =  104 and K =  6 
+Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
+                                                    BIC  =  58.4 BIC/N  =  0.562 
+                                                    HQIC =  49.0 HQIC/N =  0.471 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01058 
+           Sigma(v)           =                                          0.01058 
+           Sigma-squared(u)   =                                          0.22010 
+           Sigma(u)           =                                          0.22010 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.48030 
+Gamma = sigma(u)^2/sigma^2    =                                          0.95412 
+Lambda = sigma(u)/sigma(v)    =                                          4.56034 
+Var[u]/{Var[u]+Var[v]}        =                                          0.88314 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.37433 
+Average efficiency E[exp(-ui)] =                                         0.71330 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -21.11323 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    11.66318 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -21.11323 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        11.66318 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -2.91021 
-M3T: p.value                   =                     0.00361 
+M3T: z                         =                                        -2.91021 
+M3T: p.value                   =                                         0.00361 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -0.08182    0.50668 -0.1615 0.8717190    
+log(AREA)          0.47410    0.13984  3.3903 0.0006981 ***
+log(LABOR)         0.17935    0.10201  1.7581 0.0787310 .  
+log(NPK)           0.20255    0.08130  2.4913 0.0127289 *  
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.51367    0.23549 -6.4276 1.296e-10 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:34 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: large (N = 115)  Log-likelihood: -8.02197
 ------------------------------------------------------------ 
-               Coefficient Std. Error  z value  Pr(>|z|)    
-(Intercept)      -1.311937   0.418592  -3.1342 0.0017234 ** 
-log(AREA)         0.382776   0.142975   2.6772 0.0074236 ** 
-log(LABOR)        0.421047   0.109924   3.8303 0.0001280 ***
-log(NPK)          0.231427   0.060646   3.8160 0.0001356 ***
-Zu_(Intercept)   -1.786729   0.201765  -8.8555 < 2.2e-16 ***
-Zv_(Intercept)   -4.269633   0.405838 -10.5205 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.1675072  0.0337970  4.9563 7.186e-07 ***
-Sigma(u)                      0.4092764  0.0412888  9.9125 < 2.2e-16 ***
-Sigma-squared(v)              0.0139869  0.0056764  2.4640 0.0137381 *  
-Sigma(v)                      0.1182663  0.0239985  4.9281 8.304e-07 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4260212  0.0369471 11.5306 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9229346  0.0378850 24.3615 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    3.4606346  0.9216422  3.7549 0.0001734 ***
-E[u]                          0.3265553          -       -         -    
-E[exp(-u)]                    0.7419464          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          68 
+Log likelihood value:                                                   -8.02197 
+Log likelihood gradient norm:                                        4.01301e-05 
+Estimation based on:                                         N =  115 and K =  6 
+Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
+                                                    BIC  =  44.5 BIC/N  =  0.387 
+                                                    HQIC =  34.7 HQIC/N =  0.302 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01399 
+           Sigma(v)           =                                          0.01399 
+           Sigma-squared(u)   =                                          0.16751 
+           Sigma(u)           =                                          0.16751 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.42602 
+Gamma = sigma(u)^2/sigma^2    =                                          0.92293 
+Lambda = sigma(u)/sigma(v)    =                                          3.46063 
+Var[u]/{Var[u]+Var[v]}        =                                          0.81315 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.32656 
+Average efficiency E[exp(-ui)] =                                         0.74195 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -16.96836 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    17.89279 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -16.96836 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        17.89279 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -4.12175 
-M3T: p.value                   =                     0.00004 
+M3T: z                         =                                        -4.12175 
+M3T: p.value                   =                                         0.00004 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.31194    0.41859 -3.1342 0.0017234 ** 
+log(AREA)          0.38278    0.14297  2.6772 0.0074236 ** 
+log(LABOR)         0.42105    0.10992  3.8303 0.0001280 ***
+log(NPK)           0.23143    0.06065  3.8160 0.0001356 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.78673    0.20176 -8.8555 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:34 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (qp):
@@ -447,12 +630,11 @@ MTR_BC=0.9357     MTR_JLMS=0.9357
 Total Log-likelihood: -74.28939 
 AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:08 
-
+Model was estimated on : Mar Tue 03, 2026 at 00:34 
 ```
 </details>
 
-The two approaches produce almost identical outputs. 
+As expected, the two approaches produce almost identical outputs. 
 
 >**Note:** The estimation of the group frontiers use the same method, `sfacross`, and the only difference is in how we compute the metafrontier. QP estimates a deterministic frontier, no stochastic variance parameters are returned.
 
@@ -516,110 +698,194 @@ Distribution       : hnormal
 ------------------------------------------------------------ 
 Group: small (N = 125)  Log-likelihood: -50.98578
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -1.587445   0.512745 -3.0960  0.001962 ** 
-log(AREA)         0.240139   0.118343  2.0292  0.042441 *  
-log(LABOR)        0.434645   0.122915  3.5361  0.000406 ***
-log(NPK)          0.305164   0.057015  5.3523 8.682e-08 ***
-Zu_(Intercept)   -1.450932   0.298670 -4.8580 1.186e-06 ***
-Zv_(Intercept)   -2.934055   0.354013 -8.2880 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.234352   0.069994  3.3482 0.0008135 ***
-Sigma(u)                      0.484099   0.072293  6.6963 2.137e-11 ***
-Sigma-squared(v)              0.053181   0.018827  2.8248 0.0047317 ** 
-Sigma(v)                      0.230610   0.040819  5.6495 1.609e-08 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.536221   0.054820  9.7814 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.815044   0.090288  9.0271 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    2.099212   0.628650  3.3392 0.0008401 ***
-E[u]                          0.386255          -       -         -    
-E[exp(-u)]                    0.706426          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          42 
+Log likelihood value:                                                  -50.98578 
+Log likelihood gradient norm:                                        9.40653e-06 
+Estimation based on:                                         N =  125 and K =  6 
+Inf. Cr:                                           AIC  =  114.0 AIC/N  =  0.912 
+                                                   BIC  =  130.9 BIC/N  =  1.048 
+                                                   HQIC =  120.9 HQIC/N =  0.967 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05318 
+           Sigma(v)           =                                          0.05318 
+           Sigma-squared(u)   =                                          0.23435 
+           Sigma(u)           =                                          0.23435 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.53622 
+Gamma = sigma(u)^2/sigma^2    =                                          0.81504 
+Lambda = sigma(u)/sigma(v)    =                                          2.09921 
+Var[u]/{Var[u]+Var[v]}        =                                          0.61558 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.38626 
+Average efficiency E[exp(-ui)] =                                         0.70643 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -54.80277 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                     7.63398 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -54.80277 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                         7.63398 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -3.57676 
-M3T: p.value                   =                     0.00035 
+M3T: z                         =                                        -3.57676 
+M3T: p.value                   =                                         0.00035 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.58745    0.51274 -3.0960  0.001962 ** 
+log(AREA)          0.24014    0.11834  2.0292  0.042440 *  
+log(LABOR)         0.43464    0.12292  3.5361  0.000406 ***
+log(NPK)           0.30516    0.05701  5.3523 8.682e-08 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.45093    0.29867  -4.858 1.186e-06 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:36 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: medium (N = 104)  Log-likelihood: -15.28164
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -0.081817   0.506685 -0.1615 0.8717187    
-log(AREA)         0.474101   0.139839  3.3903 0.0006981 ***
-log(LABOR)        0.179351   0.102014  1.7581 0.0787310 .  
-log(NPK)          0.202545   0.081302  2.4913 0.0127289 *  
-Zu_(Intercept)   -1.513671   0.235495 -6.4276 1.296e-10 ***
-Zv_(Intercept)   -4.548464   0.764291 -5.9512 2.661e-09 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.2201004  0.0518325  4.2464 2.173e-05 ***
-Sigma(u)                      0.4691486  0.0552410  8.4928 < 2.2e-16 ***
-Sigma-squared(v)              0.0105834  0.0080888  1.3084  0.190737    
-Sigma(v)                      0.1028759  0.0393135  2.6168  0.008876 ** 
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4802956  0.0487215  9.8580 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9541214  0.0410801 23.2259 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    4.5603356  2.1398573  2.1311  0.033078 *  
-E[u]                          0.3743264          -       -         -    
-E[exp(-u)]                    0.7132967          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          41 
+Log likelihood value:                                                  -15.28164 
+Log likelihood gradient norm:                                        3.83566e-05 
+Estimation based on:                                         N =  104 and K =  6 
+Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
+                                                    BIC  =  58.4 BIC/N  =  0.562 
+                                                    HQIC =  49.0 HQIC/N =  0.471 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01058 
+           Sigma(v)           =                                          0.01058 
+           Sigma-squared(u)   =                                          0.22010 
+           Sigma(u)           =                                          0.22010 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.48030 
+Gamma = sigma(u)^2/sigma^2    =                                          0.95412 
+Lambda = sigma(u)/sigma(v)    =                                          4.56034 
+Var[u]/{Var[u]+Var[v]}        =                                          0.88314 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.37433 
+Average efficiency E[exp(-ui)] =                                         0.71330 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -21.11323 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    11.66318 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -21.11323 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        11.66318 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -2.91021 
-M3T: p.value                   =                     0.00361 
+M3T: z                         =                                        -2.91021 
+M3T: p.value                   =                                         0.00361 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -0.08182    0.50668 -0.1615 0.8717190    
+log(AREA)          0.47410    0.13984  3.3903 0.0006981 ***
+log(LABOR)         0.17935    0.10201  1.7581 0.0787310 .  
+log(NPK)           0.20255    0.08130  2.4913 0.0127289 *  
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.51367    0.23549 -6.4276 1.296e-10 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:36 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: large (N = 115)  Log-likelihood: -8.02197
 ------------------------------------------------------------ 
-               Coefficient Std. Error  z value  Pr(>|z|)    
-(Intercept)      -1.311937   0.418592  -3.1342 0.0017234 ** 
-log(AREA)         0.382776   0.142975   2.6772 0.0074236 ** 
-log(LABOR)        0.421047   0.109924   3.8303 0.0001280 ***
-log(NPK)          0.231427   0.060646   3.8160 0.0001356 ***
-Zu_(Intercept)   -1.786729   0.201765  -8.8555 < 2.2e-16 ***
-Zv_(Intercept)   -4.269633   0.405838 -10.5205 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.1675072  0.0337970  4.9563 7.186e-07 ***
-Sigma(u)                      0.4092764  0.0412888  9.9125 < 2.2e-16 ***
-Sigma-squared(v)              0.0139869  0.0056764  2.4640 0.0137381 *  
-Sigma(v)                      0.1182663  0.0239985  4.9281 8.304e-07 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4260212  0.0369471 11.5306 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9229346  0.0378850 24.3615 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    3.4606346  0.9216422  3.7549 0.0001734 ***
-E[u]                          0.3265553          -       -         -    
-E[exp(-u)]                    0.7419464          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          68 
+Log likelihood value:                                                   -8.02197 
+Log likelihood gradient norm:                                        4.01301e-05 
+Estimation based on:                                         N =  115 and K =  6 
+Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
+                                                    BIC  =  44.5 BIC/N  =  0.387 
+                                                    HQIC =  34.7 HQIC/N =  0.302 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01399 
+           Sigma(v)           =                                          0.01399 
+           Sigma-squared(u)   =                                          0.16751 
+           Sigma(u)           =                                          0.16751 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.42602 
+Gamma = sigma(u)^2/sigma^2    =                                          0.92293 
+Lambda = sigma(u)/sigma(v)    =                                          3.46063 
+Var[u]/{Var[u]+Var[v]}        =                                          0.81315 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.32656 
+Average efficiency E[exp(-ui)] =                                         0.74195 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -16.96836 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    17.89279 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -16.96836 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        17.89279 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -4.12175 
-M3T: p.value                   =                     0.00004 
+M3T: z                         =                                        -4.12175 
+M3T: p.value                   =                                         0.00004 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.31194    0.41859 -3.1342 0.0017234 ** 
+log(AREA)          0.38278    0.14297  2.6772 0.0074236 ** 
+log(LABOR)         0.42105    0.10992  3.8303 0.0001280 ***
+log(NPK)           0.23143    0.06065  3.8160 0.0001356 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.78673    0.20176 -8.8555 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:36 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (sfa):
@@ -632,27 +898,67 @@ log(NPK)     0.2648079  0.0058572  45.211 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-  Meta-frontier Variance & Efficiency Statistics:
-                                Estimate Std. Error z value Pr(>|z|)    
-Sigma-squared(u)              3.9304e-07 6.8527e-05  0.0057   0.9954    
-Sigma(u)                      6.2693e-04 5.4653e-02  0.0115   0.9908    
-Sigma-squared(v)              2.3459e-03 1.8058e-04 12.9904   <2e-16 ***
-Sigma(v)                      4.8434e-02 1.8642e-03 25.9808   <2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 4.8438e-02 1.9010e-03 25.4805   <2e-16 ***
-Gamma = sigma(u)^2/sigma^2    1.6752e-04 2.9204e-02  0.0057   0.9954    
-Lambda = sigma(u)/sigma(v)    1.2944e-02 1.1285e+00  0.0115   0.9908    
-E[u]                          5.0022e-04          -       -        -    
-E[exp(-u)]                    9.9950e-01          -       -        -    
+  Meta-frontier model details:
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                          group_fitted_values 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         582 
+Log likelihood value:                                                  553.35240 
+Log likelihood gradient norm:                                        5.34979e-04 
+Estimation based on:                                         N =  344 and K =  6 
+Inf. Cr:                                        AIC  =  -1094.7 AIC/N  =  -3.182 
+                                                BIC  =  -1071.7 BIC/N  =  -3.115 
+                                                HQIC =  -1085.5 HQIC/N =  -3.156 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.00235 
+           Sigma(v)           =                                          0.00235 
+           Sigma-squared(u)   =                                          0.00000 
+           Sigma(u)           =                                          0.00000 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.04844 
+Gamma = sigma(u)^2/sigma^2    =                                          0.00017 
+Lambda = sigma(u)/sigma(v)    =                                          0.01294 
+Var[u]/{Var[u]+Var[v]}        =                                          0.00006 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.00050 
+Average efficiency E[exp(-ui)] =                                         0.99950 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   553.35242 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    -0.00003 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       553.35242 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00003 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                     4.16139 
-M3T: p.value                   =                     0.00003 
+M3T: z                         =                                         4.16139 
+M3T: p.value                   =                                         0.00003 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.00314    0.05689 -17.634 < 2.2e-16 ***
+.X2                0.36702    0.00915  40.097 < 2.2e-16 ***
+.X3                0.32979    0.00965  34.160 < 2.2e-16 ***
+.X4                0.26481    0.00586  45.211 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value Pr(>|z|)
+Zu_(Intercept)     -14.749    174.352 -0.0846   0.9326
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -6.05510    0.07698 -78.658 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:36 
+Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
@@ -671,7 +977,7 @@ MTR_BC=0.9995     MTR_JLMS=0.9995
 Total Log-likelihood: 479.063 
 AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:09 
+Model was estimated on : Mar Tue 03, 2026 at 00:36  
 ```
 </details>
 
@@ -735,110 +1041,194 @@ Distribution       : hnormal
 ------------------------------------------------------------ 
 Group: small (N = 125)  Log-likelihood: -50.98578
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -1.587445   0.512745 -3.0960  0.001962 ** 
-log(AREA)         0.240139   0.118343  2.0292  0.042441 *  
-log(LABOR)        0.434645   0.122915  3.5361  0.000406 ***
-log(NPK)          0.305164   0.057015  5.3523 8.682e-08 ***
-Zu_(Intercept)   -1.450932   0.298670 -4.8580 1.186e-06 ***
-Zv_(Intercept)   -2.934055   0.354013 -8.2880 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.234352   0.069994  3.3482 0.0008135 ***
-Sigma(u)                      0.484099   0.072293  6.6963 2.137e-11 ***
-Sigma-squared(v)              0.053181   0.018827  2.8248 0.0047317 ** 
-Sigma(v)                      0.230610   0.040819  5.6495 1.609e-08 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.536221   0.054820  9.7814 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.815044   0.090288  9.0271 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    2.099212   0.628650  3.3392 0.0008401 ***
-E[u]                          0.386255          -       -         -    
-E[exp(-u)]                    0.706426          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          42 
+Log likelihood value:                                                  -50.98578 
+Log likelihood gradient norm:                                        9.40653e-06 
+Estimation based on:                                         N =  125 and K =  6 
+Inf. Cr:                                           AIC  =  114.0 AIC/N  =  0.912 
+                                                   BIC  =  130.9 BIC/N  =  1.048 
+                                                   HQIC =  120.9 HQIC/N =  0.967 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05318 
+           Sigma(v)           =                                          0.05318 
+           Sigma-squared(u)   =                                          0.23435 
+           Sigma(u)           =                                          0.23435 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.53622 
+Gamma = sigma(u)^2/sigma^2    =                                          0.81504 
+Lambda = sigma(u)/sigma(v)    =                                          2.09921 
+Var[u]/{Var[u]+Var[v]}        =                                          0.61558 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.38626 
+Average efficiency E[exp(-ui)] =                                         0.70643 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -54.80277 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                     7.63398 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -54.80277 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                         7.63398 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -3.57676 
-M3T: p.value                   =                     0.00035 
+M3T: z                         =                                        -3.57676 
+M3T: p.value                   =                                         0.00035 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.58745    0.51274 -3.0960  0.001962 ** 
+log(AREA)          0.24014    0.11834  2.0292  0.042440 *  
+log(LABOR)         0.43464    0.12292  3.5361  0.000406 ***
+log(NPK)           0.30516    0.05701  5.3523 8.682e-08 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.45093    0.29867  -4.858 1.186e-06 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:37 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: medium (N = 104)  Log-likelihood: -15.28164
 ------------------------------------------------------------ 
-               Coefficient Std. Error z value  Pr(>|z|)    
-(Intercept)      -0.081817   0.506685 -0.1615 0.8717187    
-log(AREA)         0.474101   0.139839  3.3903 0.0006981 ***
-log(LABOR)        0.179351   0.102014  1.7581 0.0787310 .  
-log(NPK)          0.202545   0.081302  2.4913 0.0127289 *  
-Zu_(Intercept)   -1.513671   0.235495 -6.4276 1.296e-10 ***
-Zv_(Intercept)   -4.548464   0.764291 -5.9512 2.661e-09 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.2201004  0.0518325  4.2464 2.173e-05 ***
-Sigma(u)                      0.4691486  0.0552410  8.4928 < 2.2e-16 ***
-Sigma-squared(v)              0.0105834  0.0080888  1.3084  0.190737    
-Sigma(v)                      0.1028759  0.0393135  2.6168  0.008876 ** 
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4802956  0.0487215  9.8580 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9541214  0.0410801 23.2259 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    4.5603356  2.1398573  2.1311  0.033078 *  
-E[u]                          0.3743264          -       -         -    
-E[exp(-u)]                    0.7132967          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          41 
+Log likelihood value:                                                  -15.28164 
+Log likelihood gradient norm:                                        3.83566e-05 
+Estimation based on:                                         N =  104 and K =  6 
+Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
+                                                    BIC  =  58.4 BIC/N  =  0.562 
+                                                    HQIC =  49.0 HQIC/N =  0.471 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01058 
+           Sigma(v)           =                                          0.01058 
+           Sigma-squared(u)   =                                          0.22010 
+           Sigma(u)           =                                          0.22010 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.48030 
+Gamma = sigma(u)^2/sigma^2    =                                          0.95412 
+Lambda = sigma(u)/sigma(v)    =                                          4.56034 
+Var[u]/{Var[u]+Var[v]}        =                                          0.88314 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.37433 
+Average efficiency E[exp(-ui)] =                                         0.71330 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -21.11323 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    11.66318 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -21.11323 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        11.66318 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -2.91021 
-M3T: p.value                   =                     0.00361 
+M3T: z                         =                                        -2.91021 
+M3T: p.value                   =                                         0.00361 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -0.08182    0.50668 -0.1615 0.8717190    
+log(AREA)          0.47410    0.13984  3.3903 0.0006981 ***
+log(LABOR)         0.17935    0.10201  1.7581 0.0787310 .  
+log(NPK)           0.20255    0.08130  2.4913 0.0127289 *  
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.51367    0.23549 -6.4276 1.296e-10 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:37 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Group: large (N = 115)  Log-likelihood: -8.02197
 ------------------------------------------------------------ 
-               Coefficient Std. Error  z value  Pr(>|z|)    
-(Intercept)      -1.311937   0.418592  -3.1342 0.0017234 ** 
-log(AREA)         0.382776   0.142975   2.6772 0.0074236 ** 
-log(LABOR)        0.421047   0.109924   3.8303 0.0001280 ***
-log(NPK)          0.231427   0.060646   3.8160 0.0001356 ***
-Zu_(Intercept)   -1.786729   0.201765  -8.8555 < 2.2e-16 ***
-Zv_(Intercept)   -4.269633   0.405838 -10.5205 < 2.2e-16 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                               Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              0.1675072  0.0337970  4.9563 7.186e-07 ***
-Sigma(u)                      0.4092764  0.0412888  9.9125 < 2.2e-16 ***
-Sigma-squared(v)              0.0139869  0.0056764  2.4640 0.0137381 *  
-Sigma(v)                      0.1182663  0.0239985  4.9281 8.304e-07 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4260212  0.0369471 11.5306 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.9229346  0.0378850 24.3615 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    3.4606346  0.9216422  3.7549 0.0001734 ***
-E[u]                          0.3265553          -       -         -    
-E[exp(-u)]                    0.7419464          -       -         -    
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                    log(PROD) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          68 
+Log likelihood value:                                                   -8.02197 
+Log likelihood gradient norm:                                        4.01301e-05 
+Estimation based on:                                         N =  115 and K =  6 
+Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
+                                                    BIC  =  44.5 BIC/N  =  0.387 
+                                                    HQIC =  34.7 HQIC/N =  0.302 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.01399 
+           Sigma(v)           =                                          0.01399 
+           Sigma-squared(u)   =                                          0.16751 
+           Sigma(u)           =                                          0.16751 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.42602 
+Gamma = sigma(u)^2/sigma^2    =                                          0.92293 
+Lambda = sigma(u)/sigma(v)    =                                          3.46063 
+Var[u]/{Var[u]+Var[v]}        =                                          0.81315 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.32656 
+Average efficiency E[exp(-ui)] =                                         0.74195 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   -16.96836 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    17.89279 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       -16.96836 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        17.89279 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    -4.12175 
-M3T: p.value                   =                     0.00004 
+M3T: z                         =                                        -4.12175 
+M3T: p.value                   =                                         0.00004 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.31194    0.41859 -3.1342 0.0017234 ** 
+log(AREA)          0.38278    0.14297  2.6772 0.0074236 ** 
+log(LABOR)         0.42105    0.10992  3.8303 0.0001280 ***
+log(NPK)           0.23143    0.06065  3.8160 0.0001356 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -1.78673    0.20176 -8.8555 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:37 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (sfa):
@@ -851,27 +1241,67 @@ log(NPK)     0.2409454  0.0046573  51.735 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-  Meta-frontier Variance & Efficiency Statistics:
-                                Estimate Std. Error z value Pr(>|z|)    
-Sigma-squared(u)              1.8630e-07 3.2100e-05  0.0058   0.9954    
-Sigma(u)                      4.3162e-04 3.7185e-02  0.0116   0.9907    
-Sigma-squared(v)              1.4832e-03 1.1369e-04 13.0462   <2e-16 ***
-Sigma(v)                      3.8512e-02 1.4760e-03 26.0925   <2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 3.8515e-02 1.4922e-03 25.8100   <2e-16 ***
-Gamma = sigma(u)^2/sigma^2    1.2559e-04 2.1638e-02  0.0058   0.9954    
-Lambda = sigma(u)/sigma(v)    1.1207e-02 9.6559e-01  0.0116   0.9907    
-E[u]                          3.4438e-04          -       -        -    
-E[exp(-u)]                    9.9966e-01          -       -        -    
+  Meta-frontier model details:
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                  lp_envelope 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         436 
+Log likelihood value:                                                  632.20951 
+Log likelihood gradient norm:                                        5.34711e-02 
+Estimation based on:                                         N =  344 and K =  6 
+Inf. Cr:                                        AIC  =  -1252.4 AIC/N  =  -3.641 
+                                                BIC  =  -1229.4 BIC/N  =  -3.574 
+                                                HQIC =  -1243.2 HQIC/N =  -3.614 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.00148 
+           Sigma(v)           =                                          0.00148 
+           Sigma-squared(u)   =                                          0.00000 
+           Sigma(u)           =                                          0.00000 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.03851 
+Gamma = sigma(u)^2/sigma^2    =                                          0.00013 
+Lambda = sigma(u)/sigma(v)    =                                          0.01121 
+Var[u]/{Var[u]+Var[v]}        =                                          0.00005 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.00034 
+Average efficiency E[exp(-ui)] =                                         0.99966 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   632.20952 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    -0.00003 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       632.20952 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00003 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                     6.24028 
-M3T: p.value                   =                     0.00000 
+M3T: z                         =                                         6.24028 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -0.61143    0.04150 -14.734 < 2.2e-16 ***
+.X2                0.39378    0.00728  54.105 < 2.2e-16 ***
+.X3                0.27913    0.00768  36.361 < 2.2e-16 ***
+.X4                0.24095    0.00466  51.735 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value Pr(>|z|)
+Zu_(Intercept)     -15.496    172.306 -0.0899   0.9283
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -6.51356    0.07665 -84.978 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 00:37 
+Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
@@ -890,12 +1320,18 @@ MTR_BC=1.4701     MTR_JLMS=1.4829
 Total Log-likelihood: 557.9201 
 AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:15 
+Model was estimated on : Mar Tue 03, 2026 at 00:37 
 Warning message:
 344 MTR value(s) > 1 detected in O'Donnell SFA approach. This typically occurs when the second-stage SFA estimates near-zero inefficiency (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider using metaMethod='lp' or sfaApproach='huang' instead. 
-
 ```
 </details>
+
+O'Donnell et al. (2008) approach involves taking the deterministic envelope (the maximum) of all group frontier values at each data point (yMeta = apply(groupFrontierMat, 1, max)). Because this new yMeta surface is the maximum of several hyperplanes, its shape is purely convex and completely lacks statistical noise. When the second-stage sfacross tries to fit a single straight line (hyperplane) through this convex envelope, the residuals predominantly curve upward away from the line. In production frontiers, this results in right-skewed OLS residuals. SFA models naturally interpret right-skewed residuals as having near-zero inefficiency (sigma_u -> 0). Because the meta-inefficiency is estimated as near zero (u_meta -> 0), the meta-efficiency approaches 1 (TE_meta ~= 1). Because TE_meta = TE_group * MTR, we get MTR = TE_meta / TE_group. Since TE_meta is ~1 and TE_group < 1, this mathematically forces MTR > 1.
+Why does this happen? Because fitting a stochastic frontier via Maximum Likelihood onto a purely mathematical LP envelope does not strictly enforce the bounding constraint MTR <= 1 at every individual data point. The SFA line will inevitably cut through the LP envelope rather than sitting strictly above it for all points. This is a well-known theoretical and computational limitation of the producing MTR value(s) > 1, which is partly why Huang et al. (2014) proposed their alternative method.
+
+How to solve it? This is exactly why the warning message was added to the code. If you require MTR <= 1 bounds:
+(1) Use metaMethod = "lp" or "qp" (which explicitly enforce the mathematical envelope constraints).
+(2) Use sfaApproach = "huang", which avoids this "wrong skewness" problem by using the actual observations' own-group fitted values (yhat_group) as the SFA dependent variable, and directly estimating the technology gap U_i, inherently bounding MTR = exp(-U_i) <= 1.
 
 ---
 
@@ -929,7 +1365,7 @@ summary(meta_lcm_lp)
 <details>
   <summary>Toggle to see the output</summary>
 
-```plaintext
+```plaintext 
 > meta_lcm_lp <- sfametafrontier(
 +   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data       = utility,
@@ -1025,18 +1461,40 @@ Class 2       74.5            0.646
 Total Log-likelihood: 61.35325 
 AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:18 
+Model was estimated on : Mar Tue 03, 2026 at 00:55  
 ```
 </details>
 
+Retrieve efficiencies including per-class posterior probabilities
 ```r
 # Retrieve efficiencies including per-class posterior probabilities
-ef_lcm_lp <- efficiencies(meta_lcm_lp)
+head(efficiencies(meta_lcm_lp))
 # Columns include: Group_c, u_g, TE_group_JLMS, TE_group_BC, TE_group_BC_reciprocal,
 #                  PosteriorProb_c, PosteriorProb_c1, PosteriorProb_c2,
 #                  PriorProb_c1, PriorProb_c2, u_c1, u_c2,
 #                  teBC_c1, teBC_c2, u_meta, TE_meta_JLMS, TE_meta_BC, MTR_JLMS, MTR_BC
 ```
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+> head(efficiencies(meta_lcm_lp))
+  id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal PosteriorProb_c PosteriorProb_c1 PriorProb_c1       u_c1   teBC_c1 teBC_reciprocal_c1 PosteriorProb_c2
+1  1       2 0.15842759     0.8534848   0.8557686               1.174838       0.7249992        0.2750008    0.3539715 0.19428008 0.8234272           1.214436        0.7249992
+2  2       2 0.11418774     0.8920905   0.8939942               1.123406       0.7334016        0.2665984    0.3539715 0.16086081 0.8514106           1.174521        0.7334016
+3  3       2 0.08540291     0.9181423   0.9196136               1.090950       0.7039780        0.2960220    0.3539715 0.10301513 0.9021133           1.108508        0.7039780
+4  4       2 0.08020641     0.9229258   0.9243036               1.085175       0.6909119        0.3090881    0.3539715 0.07745685 0.9254670           1.080536        0.6909119
+5  5       2 0.05774132     0.9438941   0.9448245               1.060519       0.5808752        0.4191248    0.3539715 0.05410185 0.9473356           1.055592        0.5808752
+6  6       2 0.08181796     0.9214397   0.9228469               1.086964       0.6927818        0.3072182    0.3539715 0.05781993 0.9438199           1.059524        0.6927818
+  PriorProb_c2       u_c2   teBC_c2 teBC_reciprocal_c2 ineff_c1   ineff_c2 effBC_c1  effBC_c2 ReffBC_c1 ReffBC_c2     u_meta TE_meta_JLMS TE_meta_BC MTR_JLMS MTR_BC
+1    0.6460285 0.15842759 0.8557686           1.174838       NA 0.15842759       NA 0.8557686        NA  1.174838 0.15842759    0.8534848  0.8557686        1      1
+2    0.6460285 0.11418774 0.8939942           1.123406       NA 0.11418774       NA 0.8939942        NA  1.123406 0.11418774    0.8920905  0.8939942        1      1
+3    0.6460285 0.08540291 0.9196136           1.090950       NA 0.08540291       NA 0.9196136        NA  1.090950 0.08540291    0.9181423  0.9196136        1      1
+4    0.6460285 0.08020641 0.9243036           1.085175       NA 0.08020641       NA 0.9243036        NA  1.085175 0.08020641    0.9229258  0.9243036        1      1
+5    0.6460285 0.05774132 0.9448245           1.060519       NA 0.05774132       NA 0.9448245        NA  1.060519 0.05774132    0.9438941  0.9448245        1      1
+6    0.6460285 0.08181796 0.9228469           1.086964       NA 0.08181796       NA 0.9228469        NA  1.086964 0.08181796    0.9214397  0.9228469        1      1
+```
+</details>
 
 ---
 
@@ -1159,7 +1617,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 61.35325 
 AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:21
+Model was estimated on : Mar Tue 03, 2026 at 01:01 
 ```
 </details>
 
@@ -1266,27 +1724,67 @@ log(wk/wf)   0.7890986  0.0143801  54.8745 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-  Meta-frontier Variance & Efficiency Statistics:
-                                Estimate Std. Error  z value  Pr(>|z|)    
-Sigma-squared(u)              2.7127e-02 1.5306e-03  17.7234 < 2.2e-16 ***
-Sigma(u)                      1.6470e-01 4.6465e-03  35.4468 < 2.2e-16 ***
-Sigma-squared(v)              6.8006e-04 8.8176e-05   7.7125 1.234e-14 ***
-Sigma(v)                      2.6078e-02 1.6906e-03  15.4250 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.6676e-01 4.5860e-03  36.3616 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    9.7554e-01 3.4242e-03 284.8977 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    6.3159e+00 4.5324e-01  13.9348 < 2.2e-16 ***
-E[u]                          1.3141e-01          -        -         -    
-E[exp(-u)]                    8.8105e-01          -        -         -    
+  Meta-frontier model details:
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                          group_fitted_values 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          58 
+Log likelihood value:                                                  759.62892 
+Log likelihood gradient norm:                                        2.06059e-03 
+Estimation based on:                                         N =  791 and K =  6 
+Inf. Cr:                                        AIC  =  -1507.3 AIC/N  =  -1.906 
+                                                BIC  =  -1479.2 BIC/N  =  -1.870 
+                                                HQIC =  -1496.5 HQIC/N =  -1.892 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.00068 
+           Sigma(v)           =                                          0.00068 
+           Sigma-squared(u)   =                                          0.02713 
+           Sigma(u)           =                                          0.02713 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.16676 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97554 
+Lambda = sigma(u)/sigma(v)    =                                          6.31586 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93546 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.13141 
+Average efficiency E[exp(-ui)] =                                         0.88105 
+-------------------------------------------------------------------------------- 
+Stochastic Cost Frontier, e = v + u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   588.58962 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                   342.07861 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                       588.58962 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                       342.07861 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    10.23625 
-M3T: p.value                   =                     0.00000 
+M3T: z                         =                                        10.23625 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error  z value  Pr(>|z|)    
+(Intercept)       -2.24951    0.06866 -32.7616 < 2.2e-16 ***
+.X2                0.99099    0.00247 401.4291 < 2.2e-16 ***
+.X3                0.03996    0.01062   3.7638 0.0001674 ***
+.X4                0.78910    0.01438  54.8745 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -3.60721    0.05642 -63.932 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -7.29334    0.12966  -56.25 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:03 
+Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
@@ -1311,7 +1809,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 820.9822 
 AIC: -1603.964   BIC: -1515.172   HQIC: -1569.836 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:24 
+Model was estimated on : Mar Tue 03, 2026 at 01:03  
 ```
 </details>
 
@@ -1419,27 +1917,67 @@ log(wk/wf)   4.4325e-01  1.1455e-05   38693 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-  Meta-frontier Variance & Efficiency Statistics:
-                                Estimate Std. Error    z value  Pr(>|z|)    
-Sigma-squared(u)              1.6953e-03 5.8226e-16 2.9115e+12 < 2.2e-16 ***
-Sigma(u)                      4.1173e-02 7.0708e-15 5.8230e+12 < 2.2e-16 ***
-Sigma-squared(v)              6.7659e-17 5.8805e-29 1.1506e+12 < 2.2e-16 ***
-Sigma(v)                      8.2255e-09 3.5746e-21 2.3011e+12 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 4.1173e-02 7.0708e-15 5.8230e+12 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    1.0000e+00 2.0953e-26 4.7727e+25 < 2.2e-16 ***
-Lambda = sigma(u)/sigma(v)    5.0056e+06 1.3157e-06 3.8045e+12 < 2.2e-16 ***
-E[u]                          3.2852e-02          -          -         -    
-E[exp(-u)]                    9.6798e-01          -          -         -    
+  Meta-frontier model details:
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                  lp_envelope 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                        1139 
+Log likelihood value:                                                 1949.16740 
+Log likelihood gradient norm:                                        3.76958e+02 
+Estimation based on:                                         N =  791 and K =  6 
+Inf. Cr:                                        AIC  =  -3886.3 AIC/N  =  -4.913 
+                                                BIC  =  -3858.3 BIC/N  =  -4.878 
+                                                HQIC =  -3875.6 HQIC/N =  -4.900 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.00000 
+           Sigma(v)           =                                          0.00000 
+           Sigma-squared(u)   =                                          0.00170 
+           Sigma(u)           =                                          0.00170 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.04117 
+Gamma = sigma(u)^2/sigma^2    =                                          1.00000 
+Lambda = sigma(u)/sigma(v)    =                                    5005571.02335 
+Var[u]/{Var[u]+Var[v]}        =                                          1.00000 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.03285 
+Average efficiency E[exp(-ui)] =                                         0.96798 
+-------------------------------------------------------------------------------- 
+Stochastic Cost Frontier, e = v + u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                  1595.35974 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                   707.61532 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                      1595.35974 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                       707.61532 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                    30.29500 
-M3T: p.value                   =                     0.00000 
+M3T: z                         =                                        30.29500 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)       -1.46554    0.00001  -99822 < 2.2e-16 ***
+.X2                0.85052    0.00000  416655 < 2.2e-16 ***
+.X3                0.34196    0.00001   41483 < 2.2e-16 ***
+.X4                0.44325    0.00001   38693 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error     z value  Pr(>|z|)    
+Zu_(Intercept)     -6.3799     0.0000 -1.8575e+13 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error     z value  Pr(>|z|)    
+Zv_(Intercept)     -37.232      0.000 -4.2838e+13 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:04 
+Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
@@ -1464,7 +2002,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 2010.521 
 AIC: -3983.041   BIC: -3894.249   HQIC: -3948.913 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:25 
+Model was estimated on : Mar Tue 03, 2026 at 01:04 
 Warning message:
 761 MTR value(s) > 1 detected in O'Donnell SFA approach. This typically occurs when the second-stage SFA estimates near-zero inefficiency (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider using metaMethod='lp' or sfaApproach='huang' instead. 
 ```
@@ -1489,16 +2027,16 @@ ds <- z1 + z2 + e1
 d  <- ifelse(ds > 0, 1, 0)        # binary selection indicator: 1 = selected
 group <- ifelse(g > 0, 1, 0)      # two technology groups
 u  <- abs(rnorm(N))
-x1 <- rnorm(N); x2 <- rnorm(N)
-y  <- x1 + x2 + e2 - u
+x1 <- abs(rnorm(N)); x2 <- abs(rnorm(N))
+y  <- abs(x1 + x2 + e2 - u)
 dat <- as.data.frame(cbind(y=y, x1=x1, x2=x2, z1=z1, z2=z2, d=d, group=group))
 # About 50% of observations are selected:
 table(dat$d)
 ```
 
 ```plaintext
-  0   1 
- 987 1013 
+     0    1 
+  1013  987
 ```
 
 ---
@@ -1507,7 +2045,7 @@ table(dat$d)
 
 ```r
 meta_sel_lp <- sfametafrontier(
-  formula    = y ~ x1 + x2,
+  formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,
   data       = dat,
   group      = "group",
@@ -1530,7 +2068,7 @@ summary(meta_sel_lp)
 
 ```plaintext
 > meta_sel_lp <- sfametafrontier(
-+   formula    = y ~ x1 + x2,
++   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF = d ~ z1 + z2,
 +   data       = dat,
 +   group      = "group",
@@ -1568,70 +2106,122 @@ Distribution       : hnormal
 ============================================================ 
 
 ------------------------------------------------------------ 
-Group: 0 (N = 994)  Log-likelihood: -920.25257
+Group: 0 (N = 994)  Log-likelihood: -799.94522
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.246183   0.136535  1.8031  0.07138 .  
-x1             0.932107   0.049870 18.6909  < 2e-16 ***
-x2             1.030221   0.047076 21.8844  < 2e-16 ***
-  Var(u) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.33533    0.26007  1.2894   0.1973
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)    -0.21841    0.16628 -1.3135    0.189
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.70836    0.10708  6.6155 3.703e-11 ***
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         349 
+Log likelihood value:                                                 -799.94522 
+Log likelihood gradient norm:                                        3.41571e+01 
+Estimation based on:                             N =  489 of 994 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1611.9 AIC/N  =  3.296 
+                                                  BIC  =  1637.0 BIC/N  =  3.348 
+                                                  HQIC =  1621.8 HQIC/N =  3.317 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05814 
+           Sigma(v)           =                                          0.05814 
+           Sigma-squared(u)   =                                          2.29587 
+           Sigma(u)           =                                          2.29587 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.53428 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97530 
+Lambda = sigma(u)/sigma(v)    =                                          6.28402 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93485 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.20897 
+Average efficiency E[exp(-ui)] =                                         0.40883 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.27249    0.05191 24.5133 < 2.2e-16 ***
+log(x1)            0.13811    0.02289  6.0339 1.601e-09 ***
+log(x2)            0.18668    0.02252  8.2892 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.83111    0.06438   12.91 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.84491    0.33126 -8.5882 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value Pr(>|z|)   
+rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.398400   0.363684  3.8451 0.0001205 ***
-Sigma(u)                      1.182540   0.153773  7.6902 1.469e-14 ***
-Sigma-squared(v)              0.803796   0.133653  6.0140 1.810e-09 ***
-Sigma(v)                      0.896547   0.074538 12.0281 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.483980   0.093223 15.9186 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.635003   0.092925  6.8335 8.286e-12 ***
-Lambda = sigma(u)/sigma(v)    1.318994   0.264411  4.9884 6.087e-07 ***
-E[u]                          0.943530          -       -         -    
-E[exp(-u)]                    0.476861          -       -         -    
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:08 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
-Group: 1 (N = 1006)  Log-likelihood: -979.61766
+Group: 1 (N = 1006)  Log-likelihood: -851.19119
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.052396   0.133373  0.3929   0.6944    
-x1             1.033472   0.047833 21.6057   <2e-16 ***
-x2             1.044373   0.054269 19.2442   <2e-16 ***
-  Var(u) parameters:
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          75 
+Log likelihood value:                                                 -851.19119 
+Log likelihood gradient norm:                                        7.36354e-06 
+Estimation based on:                            N =  498 of 1006 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1714.4 AIC/N  =  3.443 
+                                                  BIC  =  1739.6 BIC/N  =  3.493 
+                                                  HQIC =  1724.3 HQIC/N =  3.462 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.06106 
+           Sigma(v)           =                                          0.06106 
+           Sigma-squared(u)   =                                          2.36720 
+           Sigma(u)           =                                          2.36720 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.55829 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97485 
+Lambda = sigma(u)/sigma(v)    =                                          6.22643 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93372 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.22760 
+Average efficiency E[exp(-ui)] =                                         0.40470 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.33000    0.06335 20.9937 < 2.2e-16 ***
+log(x1)            0.18342    0.02349  7.8098 5.727e-15 ***
+log(x2)            0.09987    0.01918  5.2061 1.928e-07 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.86171    0.06328  13.618 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.79590    0.33567 -8.3292 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
                Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.31432    0.30540  1.0292   0.3034
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)     0.10555    0.13478  0.7831   0.4336
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.88016    0.10556  8.3376 < 2.2e-16 ***
+rho                0.40516    0.35322   1.147   0.2514
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.369321   0.418188  3.2744  0.001059 ** 
-Sigma(u)                      1.170180   0.178685  6.5488 5.799e-11 ***
-Sigma-squared(v)              1.111317   0.149783  7.4195 1.176e-13 ***
-Sigma(v)                      1.054190   0.071042 14.8390 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.575004   0.104483 15.0742 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.552004   0.101937  5.4151 6.124e-08 ***
-Lambda = sigma(u)/sigma(v)    1.110027   0.228781  4.8519 1.223e-06 ***
-E[u]                          0.933669          -       -         -    
-E[exp(-u)]                    0.479768          -       -         -    
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:08 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (lp):
@@ -1641,35 +2231,53 @@ Metafrontier Coefficients (lp):
 Efficiency Statistics (group means):
 ------------------------------------------------------------ 
   N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC MTR_JLMS
-0   994     489     0.41302       0.37188    0.41254      0.37145 0.99892  0.99892
-1  1006     498     0.40229       0.36337    0.33354      0.30120 0.82816  0.82816
+0   994     489     0.38742       0.38227    0.35455      0.34983 0.91286  0.91286
+1  1006     498     0.41484       0.40585    0.41112      0.40220 0.99226  0.99226
 
 Overall:
-TE_group_BC=0.4077  TE_group_JLMS=0.3676
-TE_meta_BC=0.3730   TE_meta_JLMS=0.3363
-MTR_BC=0.9135     MTR_JLMS=0.9135
+TE_group_BC=0.4011  TE_group_JLMS=0.3941
+TE_meta_BC=0.3828   TE_meta_JLMS=0.3760
+MTR_BC=0.9526     MTR_JLMS=0.9526
 ------------------------------------------------------------ 
-Total Log-likelihood: -1899.87 
-AIC: 3823.74   BIC: 3890.951   HQIC: 3848.419 
+Total Log-likelihood: -1651.136 
+AIC: 3326.273   BIC: 3393.484   HQIC: 3350.951 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:32
+Model was estimated on : Mar Tue 03, 2026 at 01:08
 ```
 </details>
 
 ```r
 # Efficiencies: non-selected observations have NA
 ef_sel_lp <- efficiencies(meta_sel_lp)
+head(ef_sel_lp)
+
 # Selected observations in group 0:
-head(ef_sel_lp[ef_sel_lp$group == 0 & !is.na(ef_sel_lp$TE_group_BC), ])
+#head(ef_sel_lp[ef_sel_lp$group == 0 & !is.na(ef_sel_lp$TE_group_BC), ])
 ```
 
+<details>
+  <summary>Toggle to see the output</summary>
+  
+```plaintext
+> ef_sel_lp <- efficiencies(meta_sel_lp)
+> head(ef_sel_lp)
+  id group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal    u_meta TE_meta_JLMS TE_meta_BC  MTR_JLMS    MTR_BC
+1  1     0        NA            NA          NA                     NA        NA           NA         NA        NA        NA
+2  2     0 3.0260520    0.04850676  0.04908457              20.872707 3.2369372   0.03928403 0.03975198 0.8098671 0.8098671
+3  3     1        NA            NA          NA                     NA        NA           NA         NA        NA        NA
+4  4     0        NA            NA          NA                     NA        NA           NA         NA        NA        NA
+5  5     1 0.9405135    0.39042730  0.40073806               2.629065 0.9405135   0.39042730 0.40073806 1.0000000 1.0000000
+6  6     0        NA            NA          NA                     NA        NA           NA         NA        NA        NA
+```
+</details>
+  
 ---
 
 ### 3b. sfaselectioncross + QP Metafrontier
 
 ```r
 meta_sel_qp <- sfametafrontier(
-  formula    = y ~ x1 + x2,
+  formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,
   data       = dat,
   group      = "group",
@@ -1692,7 +2300,7 @@ summary(meta_sel_qp)
 
 ```plaintext
 > meta_sel_qp <- sfametafrontier(
-+   formula    = y ~ x1 + x2,
++   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF = d ~ z1 + z2,
 +   data       = dat,
 +   group      = "group",
@@ -1730,77 +2338,129 @@ Distribution       : hnormal
 ============================================================ 
 
 ------------------------------------------------------------ 
-Group: 0 (N = 994)  Log-likelihood: -920.25257
+Group: 0 (N = 994)  Log-likelihood: -799.94522
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.246183   0.136535  1.8031  0.07138 .  
-x1             0.932107   0.049870 18.6909  < 2e-16 ***
-x2             1.030221   0.047076 21.8844  < 2e-16 ***
-  Var(u) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.33533    0.26007  1.2894   0.1973
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)    -0.21841    0.16628 -1.3135    0.189
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.70836    0.10708  6.6155 3.703e-11 ***
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         349 
+Log likelihood value:                                                 -799.94522 
+Log likelihood gradient norm:                                        3.41571e+01 
+Estimation based on:                             N =  489 of 994 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1611.9 AIC/N  =  3.296 
+                                                  BIC  =  1637.0 BIC/N  =  3.348 
+                                                  HQIC =  1621.8 HQIC/N =  3.317 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05814 
+           Sigma(v)           =                                          0.05814 
+           Sigma-squared(u)   =                                          2.29587 
+           Sigma(u)           =                                          2.29587 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.53428 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97530 
+Lambda = sigma(u)/sigma(v)    =                                          6.28402 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93485 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.20897 
+Average efficiency E[exp(-ui)] =                                         0.40883 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.27249    0.05191 24.5133 < 2.2e-16 ***
+log(x1)            0.13811    0.02289  6.0339 1.601e-09 ***
+log(x2)            0.18668    0.02252  8.2892 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.83111    0.06438   12.91 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.84491    0.33126 -8.5882 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value Pr(>|z|)   
+rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.398400   0.363684  3.8451 0.0001205 ***
-Sigma(u)                      1.182540   0.153773  7.6902 1.469e-14 ***
-Sigma-squared(v)              0.803796   0.133653  6.0140 1.810e-09 ***
-Sigma(v)                      0.896547   0.074538 12.0281 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.483980   0.093223 15.9186 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.635003   0.092925  6.8335 8.286e-12 ***
-Lambda = sigma(u)/sigma(v)    1.318994   0.264411  4.9884 6.087e-07 ***
-E[u]                          0.943530          -       -         -    
-E[exp(-u)]                    0.476861          -       -         -    
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:14 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
-Group: 1 (N = 1006)  Log-likelihood: -979.61766
+Group: 1 (N = 1006)  Log-likelihood: -851.19119
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.052396   0.133373  0.3929   0.6944    
-x1             1.033472   0.047833 21.6057   <2e-16 ***
-x2             1.044373   0.054269 19.2442   <2e-16 ***
-  Var(u) parameters:
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          75 
+Log likelihood value:                                                 -851.19119 
+Log likelihood gradient norm:                                        7.36354e-06 
+Estimation based on:                            N =  498 of 1006 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1714.4 AIC/N  =  3.443 
+                                                  BIC  =  1739.6 BIC/N  =  3.493 
+                                                  HQIC =  1724.3 HQIC/N =  3.462 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.06106 
+           Sigma(v)           =                                          0.06106 
+           Sigma-squared(u)   =                                          2.36720 
+           Sigma(u)           =                                          2.36720 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.55829 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97485 
+Lambda = sigma(u)/sigma(v)    =                                          6.22643 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93372 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.22760 
+Average efficiency E[exp(-ui)] =                                         0.40470 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.33000    0.06335 20.9937 < 2.2e-16 ***
+log(x1)            0.18342    0.02349  7.8098 5.727e-15 ***
+log(x2)            0.09987    0.01918  5.2061 1.928e-07 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.86171    0.06328  13.618 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.79590    0.33567 -8.3292 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
                Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.31432    0.30540  1.0292   0.3034
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)     0.10555    0.13478  0.7831   0.4336
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.88016    0.10556  8.3376 < 2.2e-16 ***
+rho                0.40516    0.35322   1.147   0.2514
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.369321   0.418188  3.2744  0.001059 ** 
-Sigma(u)                      1.170180   0.178685  6.5488 5.799e-11 ***
-Sigma-squared(v)              1.111317   0.149783  7.4195 1.176e-13 ***
-Sigma(v)                      1.054190   0.071042 14.8390 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.575004   0.104483 15.0742 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.552004   0.101937  5.4151 6.124e-08 ***
-Lambda = sigma(u)/sigma(v)    1.110027   0.228781  4.8519 1.223e-06 ***
-E[u]                          0.933669          -       -         -    
-E[exp(-u)]                    0.479768          -       -         -    
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:15 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (qp):
               Estimate Std. Error z value  Pr(>|z|)    
-(Intercept) 0.24720807 0.00027233  907.77 < 2.2e-16 ***
-x1          0.93504406 0.00027298 3425.32 < 2.2e-16 ***
-x2          1.03090304 0.00028044 3675.96 < 2.2e-16 ***
+(Intercept) 1.33523296 0.00074356 1795.74 < 2.2e-16 ***
+log(x1)     0.16970553 0.00054744  310.00 < 2.2e-16 ***
+log(x2)     0.10714467 0.00050675  211.44 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -1808,18 +2468,18 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 Efficiency Statistics (group means):
 ------------------------------------------------------------ 
   N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC MTR_JLMS
-0   994     489     0.41302       0.37188    0.41227      0.37121 0.99818  0.99818
-1  1006     498     0.40229       0.36337    0.33314      0.30084 0.82722  0.82722
+0   994     489     0.38742       0.38227    0.35331      0.34860 0.90889  0.90889
+1  1006     498     0.41484       0.40585    0.41052      0.40162 0.98932  0.98932
 
 Overall:
-TE_group_BC=0.4077  TE_group_JLMS=0.3676
-TE_meta_BC=0.3727   TE_meta_JLMS=0.3360
-MTR_BC=0.9127     MTR_JLMS=0.9127
+TE_group_BC=0.4011  TE_group_JLMS=0.3941
+TE_meta_BC=0.3819   TE_meta_JLMS=0.3751
+MTR_BC=0.9491     MTR_JLMS=0.9491
 ------------------------------------------------------------ 
-Total Log-likelihood: -1899.87 
-AIC: 3829.74   BIC: 3913.754   HQIC: 3860.588 
+Total Log-likelihood: -1651.136 
+AIC: 3332.273   BIC: 3416.286   HQIC: 3363.121 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:39 
+Model was estimated on : Mar Tue 03, 2026 at 01:15 
 ```
 </details>
 
@@ -1829,7 +2489,7 @@ Model was estimated on : Mar Mon 02, 2026 at 12:39
 
 ```r
 meta_sel_huang <- sfametafrontier(
-  formula     = y ~ x1 + x2,
+  formula    = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
   data        = dat,
   group       = "group",
@@ -1859,7 +2519,7 @@ summary(meta_sel_huang)
 
 ```plaintext
 > meta_sel_huang <- sfametafrontier(
-+   formula     = y ~ x1 + x2,
++   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF  = d ~ z1 + z2,
 +   data        = dat,
 +   group       = "group",
@@ -1890,9 +2550,6 @@ First step probit model...
 Second step Frontier model...
 Group frontiers estimated.
 Estimating metafrontier using method: SFA Metafrontier [Huang et al. (2014), two-stage] 
-Warning message:
-The residuals of the OLS are right-skewed. This may indicate the absence of inefficiency or
-  model misspecification or sample 'bad luck' 
 > summary(meta_sel_huang)
 ============================================================ 
 Stochastic Metafrontier Analysis
@@ -1908,120 +2565,211 @@ Distribution       : hnormal
 ============================================================ 
 
 ------------------------------------------------------------ 
-Group: 0 (N = 994)  Log-likelihood: -920.25257
+Group: 0 (N = 994)  Log-likelihood: -799.94522
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.246183   0.136535  1.8031  0.07138 .  
-x1             0.932107   0.049870 18.6909  < 2e-16 ***
-x2             1.030221   0.047076 21.8844  < 2e-16 ***
-  Var(u) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.33533    0.26007  1.2894   0.1973
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)    -0.21841    0.16628 -1.3135    0.189
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.70836    0.10708  6.6155 3.703e-11 ***
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         349 
+Log likelihood value:                                                 -799.94522 
+Log likelihood gradient norm:                                        3.41571e+01 
+Estimation based on:                             N =  489 of 994 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1611.9 AIC/N  =  3.296 
+                                                  BIC  =  1637.0 BIC/N  =  3.348 
+                                                  HQIC =  1621.8 HQIC/N =  3.317 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05814 
+           Sigma(v)           =                                          0.05814 
+           Sigma-squared(u)   =                                          2.29587 
+           Sigma(u)           =                                          2.29587 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.53428 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97530 
+Lambda = sigma(u)/sigma(v)    =                                          6.28402 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93485 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.20897 
+Average efficiency E[exp(-ui)] =                                         0.40883 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.27249    0.05191 24.5133 < 2.2e-16 ***
+log(x1)            0.13811    0.02289  6.0339 1.601e-09 ***
+log(x2)            0.18668    0.02252  8.2892 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.83111    0.06438   12.91 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.84491    0.33126 -8.5882 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value Pr(>|z|)   
+rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.398400   0.363684  3.8451 0.0001205 ***
-Sigma(u)                      1.182540   0.153773  7.6902 1.469e-14 ***
-Sigma-squared(v)              0.803796   0.133653  6.0140 1.810e-09 ***
-Sigma(v)                      0.896547   0.074538 12.0281 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.483980   0.093223 15.9186 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.635003   0.092925  6.8335 8.286e-12 ***
-Lambda = sigma(u)/sigma(v)    1.318994   0.264411  4.9884 6.087e-07 ***
-E[u]                          0.943530          -       -         -    
-E[exp(-u)]                    0.476861          -       -         -    
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:17 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
-Group: 1 (N = 1006)  Log-likelihood: -979.61766
+Group: 1 (N = 1006)  Log-likelihood: -851.19119
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.052396   0.133373  0.3929   0.6944    
-x1             1.033472   0.047833 21.6057   <2e-16 ***
-x2             1.044373   0.054269 19.2442   <2e-16 ***
-  Var(u) parameters:
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          75 
+Log likelihood value:                                                 -851.19119 
+Log likelihood gradient norm:                                        7.36354e-06 
+Estimation based on:                            N =  498 of 1006 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1714.4 AIC/N  =  3.443 
+                                                  BIC  =  1739.6 BIC/N  =  3.493 
+                                                  HQIC =  1724.3 HQIC/N =  3.462 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.06106 
+           Sigma(v)           =                                          0.06106 
+           Sigma-squared(u)   =                                          2.36720 
+           Sigma(u)           =                                          2.36720 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.55829 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97485 
+Lambda = sigma(u)/sigma(v)    =                                          6.22643 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93372 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.22760 
+Average efficiency E[exp(-ui)] =                                         0.40470 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.33000    0.06335 20.9937 < 2.2e-16 ***
+log(x1)            0.18342    0.02349  7.8098 5.727e-15 ***
+log(x2)            0.09987    0.01918  5.2061 1.928e-07 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.86171    0.06328  13.618 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.79590    0.33567 -8.3292 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
                Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.31432    0.30540  1.0292   0.3034
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)     0.10555    0.13478  0.7831   0.4336
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.88016    0.10556  8.3376 < 2.2e-16 ***
+rho                0.40516    0.35322   1.147   0.2514
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.369321   0.418188  3.2744  0.001059 ** 
-Sigma(u)                      1.170180   0.178685  6.5488 5.799e-11 ***
-Sigma-squared(v)              1.111317   0.149783  7.4195 1.176e-13 ***
-Sigma(v)                      1.054190   0.071042 14.8390 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.575004   0.104483 15.0742 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.552004   0.101937  5.4151 6.124e-08 ***
-Lambda = sigma(u)/sigma(v)    1.110027   0.228781  4.8519 1.223e-06 ***
-E[u]                          0.933669          -       -         -    
-E[exp(-u)]                    0.479768          -       -         -    
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:17 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (sfa):
 Meta-optim solver  : BFGS maximization 
-             Estimate Std. Error  z value Pr(>|z|)    
-(Intercept) 0.1482335  0.1139691   1.3006   0.1934    
-x1          0.9895976  0.0034280 288.6802   <2e-16 ***
-x2          1.0337159  0.0035217 293.5249   <2e-16 ***
+             Estimate Std. Error z value  Pr(>|z|)    
+(Intercept) 1.3636175  0.0018936  720.12 < 2.2e-16 ***
+log(x1)     0.1610981  0.0014891  108.19 < 2.2e-16 ***
+log(x2)     0.1094264  0.0010363  105.59 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-  Meta-frontier Variance & Efficiency Statistics:
-                                Estimate Std. Error z value Pr(>|z|)    
-Sigma-squared(u)              2.6613e-06 4.6583e-04  0.0057   0.9954    
-Sigma(u)                      1.6313e-03 1.4277e-01  0.0114   0.9909    
-Sigma-squared(v)              1.1523e-02 5.4559e-04 21.1204   <2e-16 ***
-Sigma(v)                      1.0735e-01 2.5413e-03 42.2407   <2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.0736e-01 2.7835e-03 38.5688   <2e-16 ***
-Gamma = sigma(u)^2/sigma^2    2.3090e-04 4.0411e-02  0.0057   0.9954    
-Lambda = sigma(u)/sigma(v)    1.5197e-02 1.3302e+00  0.0114   0.9909    
-E[u]                          1.3016e-03          -       -        -    
-E[exp(-u)]                    9.9870e-01          -       -        -    
+  Meta-frontier model details:
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                          group_fitted_values 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         130 
+Log likelihood value:                                                 1332.99378 
+Log likelihood gradient norm:                                        1.60687e-04 
+Estimation based on:                                         N =  987 and K =  5 
+Inf. Cr:                                        AIC  =  -2656.0 AIC/N  =  -2.691 
+                                                BIC  =  -2631.5 BIC/N  =  -2.666 
+                                                HQIC =  -2646.7 HQIC/N =  -2.682 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.00025 
+           Sigma(v)           =                                          0.00025 
+           Sigma-squared(u)   =                                          0.01270 
+           Sigma(u)           =                                          0.01270 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.11381 
+Gamma = sigma(u)^2/sigma^2    =                                          0.98050 
+Lambda = sigma(u)/sigma(v)    =                                          7.09083 
+Var[u]/{Var[u]+Var[v]}        =                                          0.94811 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.08992 
+Average efficiency E[exp(-ui)] =                                         0.91607 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                   802.15961 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    -0.00003 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                      1227.26017 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                       211.46722 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                     1.42383 
-M3T: p.value                   =                     0.15450 
+M3T: z                         =                                        -1.05865 
+M3T: p.value                   =                                         0.28976 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.36362    0.00189  720.12 < 2.2e-16 ***
+.X2                0.16110    0.00149  108.19 < 2.2e-16 ***
+.X3                0.10943    0.00104  105.59 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)    -4.36616    0.05277 -82.743 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -8.28377    0.17628 -46.992 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:17 
+Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
 Efficiency Statistics (group means):
 ------------------------------------------------------------ 
   N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC MTR_JLMS
-0   994     489     0.41302       0.37188    0.41248      0.37140 0.99871  0.99871
-1  1006     498     0.40229       0.36337    0.40176      0.36290 0.99869  0.99869
+0   994     489     0.38742       0.38227    0.34425      0.33963 0.88461  0.88451
+1  1006     498     0.41484       0.40585    0.39861      0.38993 0.95990  0.95980
 
 Overall:
-TE_group_BC=0.4077  TE_group_JLMS=0.3676
-TE_meta_BC=0.4071   TE_meta_JLMS=0.3671
-MTR_BC=0.9987     MTR_JLMS=0.9987
+TE_group_BC=0.4011  TE_group_JLMS=0.3941
+TE_meta_BC=0.3714   TE_meta_JLMS=0.3648
+MTR_BC=0.9223     MTR_JLMS=0.9222
 ------------------------------------------------------------ 
-Total Log-likelihood: -1097.711 
-AIC: 2229.421   BIC: 2324.637   HQIC: 2264.382 
+Total Log-likelihood: -318.1426 
+AIC: 670.2853   BIC: 765.5006   HQIC: 705.2464 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:41
+Model was estimated on : Mar Tue 03, 2026 at 01:17 
 ```
 </details>
 
@@ -2031,7 +2779,7 @@ Model was estimated on : Mar Mon 02, 2026 at 12:41
 
 ```r
 meta_sel_odonnell <- sfametafrontier(
-  formula     = y ~ x1 + x2,
+  formula    = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
   data        = dat,
   group       = "group",
@@ -2054,7 +2802,7 @@ summary(meta_sel_odonnell)
 
   ```plaintext
 > meta_sel_odonnell <- sfametafrontier(
-+   formula     = y ~ x1 + x2,
++   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF  = d ~ z1 + z2,
 +   data        = dat,
 +   group       = "group",
@@ -2097,122 +2845,213 @@ Distribution       : hnormal
 ============================================================ 
 
 ------------------------------------------------------------ 
-Group: 0 (N = 994)  Log-likelihood: -920.25257
+Group: 0 (N = 994)  Log-likelihood: -799.94522
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.246183   0.136535  1.8031  0.07138 .  
-x1             0.932107   0.049870 18.6909  < 2e-16 ***
-x2             1.030221   0.047076 21.8844  < 2e-16 ***
-  Var(u) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.33533    0.26007  1.2894   0.1973
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)    -0.21841    0.16628 -1.3135    0.189
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.70836    0.10708  6.6155 3.703e-11 ***
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         349 
+Log likelihood value:                                                 -799.94522 
+Log likelihood gradient norm:                                        3.41571e+01 
+Estimation based on:                             N =  489 of 994 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1611.9 AIC/N  =  3.296 
+                                                  BIC  =  1637.0 BIC/N  =  3.348 
+                                                  HQIC =  1621.8 HQIC/N =  3.317 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.05814 
+           Sigma(v)           =                                          0.05814 
+           Sigma-squared(u)   =                                          2.29587 
+           Sigma(u)           =                                          2.29587 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.53428 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97530 
+Lambda = sigma(u)/sigma(v)    =                                          6.28402 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93485 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.20897 
+Average efficiency E[exp(-ui)] =                                         0.40883 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.27249    0.05191 24.5133 < 2.2e-16 ***
+log(x1)            0.13811    0.02289  6.0339 1.601e-09 ***
+log(x2)            0.18668    0.02252  8.2892 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.83111    0.06438   12.91 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.84491    0.33126 -8.5882 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value Pr(>|z|)   
+rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.398400   0.363684  3.8451 0.0001205 ***
-Sigma(u)                      1.182540   0.153773  7.6902 1.469e-14 ***
-Sigma-squared(v)              0.803796   0.133653  6.0140 1.810e-09 ***
-Sigma(v)                      0.896547   0.074538 12.0281 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.483980   0.093223 15.9186 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.635003   0.092925  6.8335 8.286e-12 ***
-Lambda = sigma(u)/sigma(v)    1.318994   0.264411  4.9884 6.087e-07 ***
-E[u]                          0.943530          -       -         -    
-E[exp(-u)]                    0.476861          -       -         -    
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:19 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
-Group: 1 (N = 1006)  Log-likelihood: -979.61766
+Group: 1 (N = 1006)  Log-likelihood: -851.19119
 ------------------------------------------------------------ 
-  Frontier equation:
-            Coefficient Std. Error z value Pr(>|z|)    
-(Intercept)    0.052396   0.133373  0.3929   0.6944    
-x1             1.033472   0.047833 21.6057   <2e-16 ***
-x2             1.044373   0.054269 19.2442   <2e-16 ***
-  Var(u) parameters:
+-------------------------------------------------------------------------------- 
+Sample Selection Correction Stochastic Frontier Model 
+Dependent Variable:                                                       log(y) 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                          75 
+Log likelihood value:                                                 -851.19119 
+Log likelihood gradient norm:                                        7.36354e-06 
+Estimation based on:                            N =  498 of 1006 obs. and K =  6 
+Inf. Cr:                                          AIC  =  1714.4 AIC/N  =  3.443 
+                                                  BIC  =  1739.6 BIC/N  =  3.493 
+                                                  HQIC =  1724.3 HQIC/N =  3.462 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.06106 
+           Sigma(v)           =                                          0.06106 
+           Sigma-squared(u)   =                                          2.36720 
+           Sigma(u)           =                                          2.36720 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          1.55829 
+Gamma = sigma(u)^2/sigma^2    =                                          0.97485 
+Lambda = sigma(u)/sigma(v)    =                                          6.22643 
+Var[u]/{Var[u]+Var[v]}        =                                          0.93372 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         1.22760 
+Average efficiency E[exp(-ui)] =                                         0.40470 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
+Estimator is 2 step Maximum Likelihood 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.33000    0.06335 20.9937 < 2.2e-16 ***
+log(x1)            0.18342    0.02349  7.8098 5.727e-15 ***
+log(x2)            0.09987    0.01918  5.2061 1.928e-07 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zu_(Intercept)     0.86171    0.06328  13.618 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -2.79590    0.33567 -8.3292 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                            Selection bias parameter 
+-------------------------------------------------------------------------------- 
                Coefficient Std. Error z value Pr(>|z|)
-Zu_(Intercept)     0.31432    0.30540  1.0292   0.3034
-  Var(v) parameters:
-               Coefficient Std. Error z value Pr(>|z|)
-Zv_(Intercept)     0.10555    0.13478  0.7831   0.4336
-  Selection bias parameter (rho):
-    Coefficient Std. Error z value  Pr(>|z|)    
-rho     0.88016    0.10556  8.3376 < 2.2e-16 ***
+rho                0.40516    0.35322   1.147   0.2514
 ---
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-  Variance & Efficiency Statistics (delta-method SEs):
-                              Estimate Std. Error z value  Pr(>|z|)    
-Sigma-squared(u)              1.369321   0.418188  3.2744  0.001059 ** 
-Sigma(u)                      1.170180   0.178685  6.5488 5.799e-11 ***
-Sigma-squared(v)              1.111317   0.149783  7.4195 1.176e-13 ***
-Sigma(v)                      1.054190   0.071042 14.8390 < 2.2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 1.575004   0.104483 15.0742 < 2.2e-16 ***
-Gamma = sigma(u)^2/sigma^2    0.552004   0.101937  5.4151 6.124e-08 ***
-Lambda = sigma(u)/sigma(v)    1.110027   0.228781  4.8519 1.223e-06 ***
-E[u]                          0.933669          -       -         -    
-E[exp(-u)]                    0.479768          -       -         -    
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:19 
 Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (sfa):
 Meta-optim solver  : BFGS maximization 
               Estimate Std. Error z value  Pr(>|z|)    
-(Intercept) 0.24728533 0.00124850  198.07 < 2.2e-16 ***
-x1          0.93504408 0.00027256 3430.57 < 2.2e-16 ***
-x2          1.03090304 0.00028002 3681.59 < 2.2e-16 ***
+(Intercept) 1.33534799 0.00637899  209.34 < 2.2e-16 ***
+log(x1)     0.16970553 0.00054661  310.47 < 2.2e-16 ***
+log(x2)     0.10714469 0.00050598  211.76 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-  Meta-frontier Variance & Efficiency Statistics:
-                                Estimate Std. Error z value Pr(>|z|)    
-Sigma-squared(u)              9.3791e-09 2.9581e-07  0.0317   0.9747    
-Sigma(u)                      9.6846e-05 1.5272e-03  0.0634   0.9494    
-Sigma-squared(v)              7.2851e-05 3.2810e-06 22.2042   <2e-16 ***
-Sigma(v)                      8.5353e-03 1.9220e-04 44.4083   <2e-16 ***
-Sigma = Sqrt[(s^2(u)+s^2(v))] 8.5358e-03 1.9245e-04 44.3534   <2e-16 ***
-Gamma = sigma(u)^2/sigma^2    1.2873e-04 4.0596e-03  0.0317   0.9747    
-Lambda = sigma(u)/sigma(v)    1.1347e-02 1.7894e-01  0.0634   0.9494    
-E[u]                          7.7272e-05          -       -        -    
-E[exp(-u)]                    9.9992e-01          -       -        -    
+  Meta-frontier model details:
+-------------------------------------------------------------------------------- 
+Normal-Half Normal SF Model 
+Dependent Variable:                                                  lp_envelope 
+Log likelihood solver:                                         BFGS maximization 
+Log likelihood iter:                                                         336 
+Log likelihood value:                                                 2562.82127 
+Log likelihood gradient norm:                                        7.45486e-02 
+Estimation based on:                                         N =  987 and K =  5 
+Inf. Cr:                                        AIC  =  -5115.6 AIC/N  =  -5.183 
+                                                BIC  =  -5091.2 BIC/N  =  -5.158 
+                                                HQIC =  -5106.3 HQIC/N =  -5.174 
+-------------------------------------------------------------------------------- 
+Variances: Sigma-squared(v)   =                                          0.00033 
+           Sigma(v)           =                                          0.00033 
+           Sigma-squared(u)   =                                          0.00000 
+           Sigma(u)           =                                          0.00000 
+Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.01803 
+Gamma = sigma(u)^2/sigma^2    =                                          0.00006 
+Lambda = sigma(u)/sigma(v)    =                                          0.00799 
+Var[u]/{Var[u]+Var[v]}        =                                          0.00002 
+-------------------------------------------------------------------------------- 
+Average inefficiency E[ui]     =                                         0.00012 
+Average efficiency E[exp(-ui)] =                                         0.99988 
+-------------------------------------------------------------------------------- 
+Stochastic Production/Profit Frontier, e = v - u 
 -----[ Tests vs. No Inefficiency ]-----
 Likelihood Ratio Test of Inefficiency
-Deg. freedom for inefficiency model                        1 
-Log Likelihood for OLS Log(H0) =                  3301.09851 
-LR statistic: 
-Chisq = 2*[LogL(H0)-LogL(H1)]  =                    -0.00090 
-Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Deg. freedom for inefficiency model                                            1 
+Log Likelihood for OLS Log(H0) =                                      2562.82131 
+LR statistic:  
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00007 
+Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 Coelli (1995) skewness test on OLS residuals
-M3T: z                         =                   112.09944 
-M3T: p.value                   =                     0.00000 
+M3T: z                         =                                        25.86056 
+M3T: p.value                   =                                         0.00000 
+Final maximum likelihood estimates 
+-------------------------------------------------------------------------------- 
+                         Deterministic Component of SFA 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)        1.33535    0.00638  209.34 < 2.2e-16 ***
+.X2                0.16971    0.00055  310.47 < 2.2e-16 ***
+.X3                0.10714    0.00051  211.76 < 2.2e-16 ***
+-------------------------------------------------------------------------------- 
+                  Parameter in variance of u (one-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value Pr(>|z|)
+Zu_(Intercept)     -17.689    110.175 -0.1606   0.8724
+-------------------------------------------------------------------------------- 
+                 Parameters in variance of v (two-sided error) 
+-------------------------------------------------------------------------------- 
+               Coefficient Std. Error z value  Pr(>|z|)    
+Zv_(Intercept)    -8.03105    0.04509 -178.12 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+-------------------------------------------------------------------------------- 
+Model was estimated on : Mar Tue 03, 2026 at 01:19 
+Log likelihood status: successful convergence  
+--------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
 Efficiency Statistics (group means):
 ------------------------------------------------------------ 
   N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC MTR_JLMS
-0   994     489     0.41302       0.37188    0.99992      0.99992 4.03645  4.68616
-1  1006     498     0.40229       0.36337    0.99992      0.99992 4.95917  5.61055
+0   994     489     0.38742       0.38227    0.99989      0.99988 8.54748  8.65155
+1  1006     498     0.41484       0.40585    0.99988      0.99988 8.59832  8.82540
 
 Overall:
-TE_group_BC=0.4077  TE_group_JLMS=0.3676
+TE_group_BC=0.4011  TE_group_JLMS=0.3941
 TE_meta_BC=0.9999   TE_meta_JLMS=0.9999
-MTR_BC=4.4978     MTR_JLMS=5.1484
+MTR_BC=8.5729     MTR_JLMS=8.7385
 ------------------------------------------------------------ 
-Total Log-likelihood: 1401.228 
-AIC: -2768.456   BIC: -2673.24   HQIC: -2733.495 
+Total Log-likelihood: 911.6848 
+AIC: -1789.37   BIC: -1694.154   HQIC: -1754.409 
 ------------------------------------------------------------ 
-Model was estimated on : Mar Mon 02, 2026 at 12:43 
+Model was estimated on : Mar Tue 03, 2026 at 01:19 
 Warning message:
-987 MTR value(s) > 1 detected in O'Donnell SFA approach. This typically occurs when the second-stage SFA estimates near-zero inefficiency (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider using metaMethod='lp' or sfaApproach='huang' instead. 
+987 MTR value(s) > 1 detected in O'Donnell SFA approach. This typically occurs when the second-stage SFA estimates near-zero inefficiency (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider using metaMethod='lp' or sfaApproach='huang' instead.  
   ```
 </details>
 ---
