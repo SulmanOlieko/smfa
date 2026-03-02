@@ -34,7 +34,7 @@ if (!require("devtools")) install.packages("devtools")
 # Install metafrontieR from GitHub
 devtools::install_github("SulmanOlieko/metafrontieR")
 ```
->**Note** You do not need to install `sfaR` manually, `metafrontieR` take care of that automatically.
+>**Note** You do not need to install `sfaR` manually, `metafrontieR` takes care of that automatically.
 
 ---
 
@@ -91,6 +91,22 @@ summary(meta_sfacross_lp)
   <summary>Toggle to see the output</summary>
 
 ```plaintext
+sfametafrontier(
++   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
++   data       = ricephil,
++   group      = "group",
++   S          = 1,
++   udist      = "hnormal",
++   metaMethod = "lp" # LP envelope: max group beta across all obs
++ )
+Estimating group-specific stochastic frontiers (sfacross) ...
+  Group: small 
+  Group: medium 
+  Group: large 
+Group frontiers estimated.
+Estimating metafrontier using method: Linear Programming (LP) Metafrontier 
+> 
+> summary(meta_lp)
 ============================================================ 
 Stochastic Metafrontier Analysis
 Metafrontier method: Linear Programming (LP) Metafrontier 
@@ -114,7 +130,7 @@ log(NPK)          0.305164   0.057015  5.3523 8.682e-08 ***
 Zu_(Intercept)   -1.450932   0.298670 -4.8580 1.186e-06 ***
 Zv_(Intercept)   -2.934055   0.354013 -8.2880 < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
   Variance & Efficiency Statistics (delta-method SEs):
                               Estimate Std. Error z value  Pr(>|z|)    
@@ -122,15 +138,94 @@ Sigma-squared(u)              0.234352   0.069994  3.3482 0.0008135 ***
 Sigma(u)                      0.484099   0.072293  6.6963 2.137e-11 ***
 Sigma-squared(v)              0.053181   0.018827  2.8248 0.0047317 ** 
 Sigma(v)                      0.230610   0.040819  5.6495 1.609e-08 ***
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.536221   0.054820  9.7814 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.815044   0.090288  9.0271 < 2.2e-16 ***
 Lambda = sigma(u)/sigma(v)    2.099212   0.628650  3.3392 0.0008401 ***
 E[u]                          0.386255          -       -         -    
 E[exp(-u)]                    0.706426          -       -         -    
 -----[ Tests vs. No Inefficiency ]-----
-Chisq = 2*[LogL(H0)-LogL(H1)]  =   7.63398 
-Kodde-Palm C*:  95%: 2.70554   99%: 5.41189 
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -54.80277 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                     7.63398 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -3.57676 
+M3T: p.value                   =                     0.00035 
 Log likelihood status: successful convergence  
 
-[... Group medium and large output omitted for brevity ...]
+------------------------------------------------------------ 
+Group: medium (N = 104)  Log-likelihood: -15.28164
+------------------------------------------------------------ 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)      -0.081817   0.506685 -0.1615 0.8717187    
+log(AREA)         0.474101   0.139839  3.3903 0.0006981 ***
+log(LABOR)        0.179351   0.102014  1.7581 0.0787310 .  
+log(NPK)          0.202545   0.081302  2.4913 0.0127289 *  
+Zu_(Intercept)   -1.513671   0.235495 -6.4276 1.296e-10 ***
+Zv_(Intercept)   -4.548464   0.764291 -5.9512 2.661e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                               Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.2201004  0.0518325  4.2464 2.173e-05 ***
+Sigma(u)                      0.4691486  0.0552410  8.4928 < 2.2e-16 ***
+Sigma-squared(v)              0.0105834  0.0080888  1.3084  0.190737    
+Sigma(v)                      0.1028759  0.0393135  2.6168  0.008876 ** 
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4802956  0.0487215  9.8580 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.9541214  0.0410801 23.2259 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    4.5603356  2.1398573  2.1311  0.033078 *  
+E[u]                          0.3743264          -       -         -    
+E[exp(-u)]                    0.7132967          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -21.11323 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                    11.66318 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -2.91021 
+M3T: p.value                   =                     0.00361 
+Log likelihood status: successful convergence  
+
+------------------------------------------------------------ 
+Group: large (N = 115)  Log-likelihood: -8.02197
+------------------------------------------------------------ 
+               Coefficient Std. Error  z value  Pr(>|z|)    
+(Intercept)      -1.311937   0.418592  -3.1342 0.0017234 ** 
+log(AREA)         0.382776   0.142975   2.6772 0.0074236 ** 
+log(LABOR)        0.421047   0.109924   3.8303 0.0001280 ***
+log(NPK)          0.231427   0.060646   3.8160 0.0001356 ***
+Zu_(Intercept)   -1.786729   0.201765  -8.8555 < 2.2e-16 ***
+Zv_(Intercept)   -4.269633   0.405838 -10.5205 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                               Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.1675072  0.0337970  4.9563 7.186e-07 ***
+Sigma(u)                      0.4092764  0.0412888  9.9125 < 2.2e-16 ***
+Sigma-squared(v)              0.0139869  0.0056764  2.4640 0.0137381 *  
+Sigma(v)                      0.1182663  0.0239985  4.9281 8.304e-07 ***
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4260212  0.0369471 11.5306 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.9229346  0.0378850 24.3615 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    3.4606346  0.9216422  3.7549 0.0001734 ***
+E[u]                          0.3265553          -       -         -    
+E[exp(-u)]                    0.7419464          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -16.96836 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                    17.89279 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -4.12175 
+M3T: p.value                   =                     0.00004 
+Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (lp):
@@ -140,19 +235,23 @@ Metafrontier Coefficients (lp):
 Efficiency Statistics (group means):
 ------------------------------------------------------------ 
        N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC MTR_JLMS
-small    125     125     0.71065       0.70090    0.64126      0.63256 0.89981  0.90007
-medium   104     104     0.71253       0.70965    0.68204      0.67938 0.95597  0.95703
-large    115     115     0.74772       0.74406    0.72186      0.71844 0.96521  0.96558
+small    125     125     0.71065       0.70090    0.64126      0.63244 0.89981  0.89981
+medium   104     104     0.71253       0.70965    0.68204      0.67929 0.95597  0.95597
+large    115     115     0.74772       0.74406    0.72186      0.71834 0.96521  0.96521
 
 Overall:
 TE_group_BC=0.7236  TE_group_JLMS=0.7182
-TE_meta_BC=0.6817   TE_meta_JLMS=0.6769
-MTR_BC=0.9403     MTR_JLMS=0.9421
+TE_meta_BC=0.6817   TE_meta_JLMS=0.6767
+MTR_BC=0.9403     MTR_JLMS=0.9403
 ------------------------------------------------------------ 
 Total Log-likelihood: -74.28939 
 AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
+------------------------------------------------------------ 
+Model was estimated on : Mar Mon 02, 2026 at 12:06 
 ```
 </details>
+
+>**Note:** Since the metafrontier is estimated via linear programming, no estimated parameters are returned.
 
 To harvest individual efficiency, metafrontier efficiency and MTR estimates:
 ```r
@@ -186,10 +285,141 @@ summary(meta_sfacross_qp)
   <summary>Toggle to see the output</summary>
 
 ```plaintext
+> meta_qp <- sfametafrontier(
++   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
++   data       = ricephil,
++   group      = "group",
++   S          = 1,
++   udist      = "hnormal",
++   metaMethod = "qp" 
++ )
+Estimating group-specific stochastic frontiers (sfacross) ...
+  Group: small 
+  Group: medium 
+  Group: large 
+Group frontiers estimated.
+Estimating metafrontier using method: Quadratic Programming (QP) Metafrontier 
+> 
+> summary(meta_qp)
 ============================================================ 
 Stochastic Metafrontier Analysis
 Metafrontier method: Quadratic Programming (QP) Metafrontier 
-... [group coefficients identical to LP above] ...
+Stochastic Production/Profit Frontier, e = v - u 
+Group approach     : Stochastic Frontier Analysis 
+Group estimator    : sfacross 
+Group optim solver : BFGS maximization 
+Groups ( 3 ): small, medium, large 
+Total observations : 344 
+Distribution       : hnormal 
+============================================================ 
+
+------------------------------------------------------------ 
+Group: small (N = 125)  Log-likelihood: -50.98578
+------------------------------------------------------------ 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)      -1.587445   0.512745 -3.0960  0.001962 ** 
+log(AREA)         0.240139   0.118343  2.0292  0.042441 *  
+log(LABOR)        0.434645   0.122915  3.5361  0.000406 ***
+log(NPK)          0.305164   0.057015  5.3523 8.682e-08 ***
+Zu_(Intercept)   -1.450932   0.298670 -4.8580 1.186e-06 ***
+Zv_(Intercept)   -2.934055   0.354013 -8.2880 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                              Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.234352   0.069994  3.3482 0.0008135 ***
+Sigma(u)                      0.484099   0.072293  6.6963 2.137e-11 ***
+Sigma-squared(v)              0.053181   0.018827  2.8248 0.0047317 ** 
+Sigma(v)                      0.230610   0.040819  5.6495 1.609e-08 ***
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.536221   0.054820  9.7814 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.815044   0.090288  9.0271 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    2.099212   0.628650  3.3392 0.0008401 ***
+E[u]                          0.386255          -       -         -    
+E[exp(-u)]                    0.706426          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -54.80277 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                     7.63398 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -3.57676 
+M3T: p.value                   =                     0.00035 
+Log likelihood status: successful convergence  
+
+------------------------------------------------------------ 
+Group: medium (N = 104)  Log-likelihood: -15.28164
+------------------------------------------------------------ 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)      -0.081817   0.506685 -0.1615 0.8717187    
+log(AREA)         0.474101   0.139839  3.3903 0.0006981 ***
+log(LABOR)        0.179351   0.102014  1.7581 0.0787310 .  
+log(NPK)          0.202545   0.081302  2.4913 0.0127289 *  
+Zu_(Intercept)   -1.513671   0.235495 -6.4276 1.296e-10 ***
+Zv_(Intercept)   -4.548464   0.764291 -5.9512 2.661e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                               Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.2201004  0.0518325  4.2464 2.173e-05 ***
+Sigma(u)                      0.4691486  0.0552410  8.4928 < 2.2e-16 ***
+Sigma-squared(v)              0.0105834  0.0080888  1.3084  0.190737    
+Sigma(v)                      0.1028759  0.0393135  2.6168  0.008876 ** 
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4802956  0.0487215  9.8580 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.9541214  0.0410801 23.2259 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    4.5603356  2.1398573  2.1311  0.033078 *  
+E[u]                          0.3743264          -       -         -    
+E[exp(-u)]                    0.7132967          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -21.11323 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                    11.66318 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -2.91021 
+M3T: p.value                   =                     0.00361 
+Log likelihood status: successful convergence  
+
+------------------------------------------------------------ 
+Group: large (N = 115)  Log-likelihood: -8.02197
+------------------------------------------------------------ 
+               Coefficient Std. Error  z value  Pr(>|z|)    
+(Intercept)      -1.311937   0.418592  -3.1342 0.0017234 ** 
+log(AREA)         0.382776   0.142975   2.6772 0.0074236 ** 
+log(LABOR)        0.421047   0.109924   3.8303 0.0001280 ***
+log(NPK)          0.231427   0.060646   3.8160 0.0001356 ***
+Zu_(Intercept)   -1.786729   0.201765  -8.8555 < 2.2e-16 ***
+Zv_(Intercept)   -4.269633   0.405838 -10.5205 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                               Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.1675072  0.0337970  4.9563 7.186e-07 ***
+Sigma(u)                      0.4092764  0.0412888  9.9125 < 2.2e-16 ***
+Sigma-squared(v)              0.0139869  0.0056764  2.4640 0.0137381 *  
+Sigma(v)                      0.1182663  0.0239985  4.9281 8.304e-07 ***
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4260212  0.0369471 11.5306 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.9229346  0.0378850 24.3615 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    3.4606346  0.9216422  3.7549 0.0001734 ***
+E[u]                          0.3265553          -       -         -    
+E[exp(-u)]                    0.7419464          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -16.96836 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                    17.89279 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -4.12175 
+M3T: p.value                   =                     0.00004 
+Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (qp):
@@ -198,6 +428,8 @@ Metafrontier Coefficients (qp):
 log(AREA)    0.3937843  0.0073209  53.789 < 2.2e-16 ***
 log(LABOR)   0.2791273  0.0077215  36.150 < 2.2e-16 ***
 log(NPK)     0.2409454  0.0046846  51.434 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 ------------------------------------------------------------ 
 Efficiency Statistics (group means):
@@ -211,18 +443,24 @@ Overall:
 TE_group_BC=0.7236  TE_group_JLMS=0.7182
 TE_meta_BC=0.6777   TE_meta_JLMS=0.6727
 MTR_BC=0.9357     MTR_JLMS=0.9357
+------------------------------------------------------------ 
+Total Log-likelihood: -74.28939 
+AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
+------------------------------------------------------------ 
+Model was estimated on : Mar Mon 02, 2026 at 12:08 
+
 ```
 </details>
 
 The two approaches produce almost identical outputs. 
 
->**Note:** The estimation of the group frontiers use the same method, `sfacross`, and the only difference is in how we compute the metafrontier.
+>**Note:** The estimation of the group frontiers use the same method, `sfacross`, and the only difference is in how we compute the metafrontier. QP estimates a deterministic frontier, no stochastic variance parameters are returned.
 
 ---
 
 ### 1c. Two-stage SFA Metafrontier — Huang et al. (2014) (`sfaApproach = "huang"`)
 
-The group-specific fitted frontier values serve as the dependent variable in a second-stage pooled SFA. The technology gap `U` and noise `V` are estimated stochastically.
+In this approach, the group-specific fitted frontier values are pooled together and serve as the dependent variable in a second-stage pooled SFA. The technology gap `U` and noise `V` are estimated stochastically. 
 
 ```r
 meta_sfacross_huang <- sfametafrontier(
@@ -242,36 +480,198 @@ summary(meta_sfacross_huang)
   <summary>Toggle to see the output</summary>
 
 ```plaintext
+> meta_sfacross_huang <- sfametafrontier(
++   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
++   data        = ricephil,
++   group       = "group",
++   S           = 1,
++   udist       = "hnormal",
++   groupType   = "sfacross",
++   metaMethod  = "sfa",
++   sfaApproach = "huang"
++ )
+Estimating group-specific stochastic frontiers (sfacross) ...
+  Group: small 
+  Group: medium 
+  Group: large 
+Group frontiers estimated.
+Estimating metafrontier using method: SFA Metafrontier [Huang et al. (2014), two-stage] 
+Warning message:
+The residuals of the OLS are right-skewed. This may indicate the absence of inefficiency or
+  model misspecification or sample 'bad luck' 
+> summary(meta_sfacross_huang)
 ============================================================ 
 Stochastic Metafrontier Analysis
 Metafrontier method: SFA Metafrontier [Huang et al. (2014), two-stage] 
+Stochastic Production/Profit Frontier, e = v - u 
 SFA approach       : huang 
+Group approach     : Stochastic Frontier Analysis 
 Group estimator    : sfacross 
+Group optim solver : BFGS maximization 
 Groups ( 3 ): small, medium, large 
 Total observations : 344 
+Distribution       : hnormal 
 ============================================================ 
 
-[... group output identical to LP/QP above ...]
+------------------------------------------------------------ 
+Group: small (N = 125)  Log-likelihood: -50.98578
+------------------------------------------------------------ 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)      -1.587445   0.512745 -3.0960  0.001962 ** 
+log(AREA)         0.240139   0.118343  2.0292  0.042441 *  
+log(LABOR)        0.434645   0.122915  3.5361  0.000406 ***
+log(NPK)          0.305164   0.057015  5.3523 8.682e-08 ***
+Zu_(Intercept)   -1.450932   0.298670 -4.8580 1.186e-06 ***
+Zv_(Intercept)   -2.934055   0.354013 -8.2880 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                              Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.234352   0.069994  3.3482 0.0008135 ***
+Sigma(u)                      0.484099   0.072293  6.6963 2.137e-11 ***
+Sigma-squared(v)              0.053181   0.018827  2.8248 0.0047317 ** 
+Sigma(v)                      0.230610   0.040819  5.6495 1.609e-08 ***
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.536221   0.054820  9.7814 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.815044   0.090288  9.0271 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    2.099212   0.628650  3.3392 0.0008401 ***
+E[u]                          0.386255          -       -         -    
+E[exp(-u)]                    0.706426          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -54.80277 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                     7.63398 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -3.57676 
+M3T: p.value                   =                     0.00035 
+Log likelihood status: successful convergence  
+
+------------------------------------------------------------ 
+Group: medium (N = 104)  Log-likelihood: -15.28164
+------------------------------------------------------------ 
+               Coefficient Std. Error z value  Pr(>|z|)    
+(Intercept)      -0.081817   0.506685 -0.1615 0.8717187    
+log(AREA)         0.474101   0.139839  3.3903 0.0006981 ***
+log(LABOR)        0.179351   0.102014  1.7581 0.0787310 .  
+log(NPK)          0.202545   0.081302  2.4913 0.0127289 *  
+Zu_(Intercept)   -1.513671   0.235495 -6.4276 1.296e-10 ***
+Zv_(Intercept)   -4.548464   0.764291 -5.9512 2.661e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                               Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.2201004  0.0518325  4.2464 2.173e-05 ***
+Sigma(u)                      0.4691486  0.0552410  8.4928 < 2.2e-16 ***
+Sigma-squared(v)              0.0105834  0.0080888  1.3084  0.190737    
+Sigma(v)                      0.1028759  0.0393135  2.6168  0.008876 ** 
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4802956  0.0487215  9.8580 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.9541214  0.0410801 23.2259 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    4.5603356  2.1398573  2.1311  0.033078 *  
+E[u]                          0.3743264          -       -         -    
+E[exp(-u)]                    0.7132967          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -21.11323 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                    11.66318 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -2.91021 
+M3T: p.value                   =                     0.00361 
+Log likelihood status: successful convergence  
+
+------------------------------------------------------------ 
+Group: large (N = 115)  Log-likelihood: -8.02197
+------------------------------------------------------------ 
+               Coefficient Std. Error  z value  Pr(>|z|)    
+(Intercept)      -1.311937   0.418592  -3.1342 0.0017234 ** 
+log(AREA)         0.382776   0.142975   2.6772 0.0074236 ** 
+log(LABOR)        0.421047   0.109924   3.8303 0.0001280 ***
+log(NPK)          0.231427   0.060646   3.8160 0.0001356 ***
+Zu_(Intercept)   -1.786729   0.201765  -8.8555 < 2.2e-16 ***
+Zv_(Intercept)   -4.269633   0.405838 -10.5205 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+  Variance & Efficiency Statistics (delta-method SEs):
+                               Estimate Std. Error z value  Pr(>|z|)    
+Sigma-squared(u)              0.1675072  0.0337970  4.9563 7.186e-07 ***
+Sigma(u)                      0.4092764  0.0412888  9.9125 < 2.2e-16 ***
+Sigma-squared(v)              0.0139869  0.0056764  2.4640 0.0137381 *  
+Sigma(v)                      0.1182663  0.0239985  4.9281 8.304e-07 ***
+Sigma = Sqrt[(s^2(u)+s^2(v))] 0.4260212  0.0369471 11.5306 < 2.2e-16 ***
+Gamma = sigma(u)^2/sigma^2    0.9229346  0.0378850 24.3615 < 2.2e-16 ***
+Lambda = sigma(u)/sigma(v)    3.4606346  0.9216422  3.7549 0.0001734 ***
+E[u]                          0.3265553          -       -         -    
+E[exp(-u)]                    0.7419464          -       -         -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   -16.96836 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                    17.89279 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                    -4.12175 
+M3T: p.value                   =                     0.00004 
+Log likelihood status: successful convergence  
 
 ------------------------------------------------------------ 
 Metafrontier Coefficients (sfa):
 Meta-optim solver  : BFGS maximization 
               Estimate Std. Error z value  Pr(>|z|)    
-(Intercept) -0.6114342  0.0414990 -14.734 < 2.2e-16 ***
-log(AREA)    0.3937848  0.0072782  54.105 < 2.2e-16 ***
-log(LABOR)   0.2791270  0.0076764  36.361 < 2.2e-16 ***
-log(NPK)     0.2409454  0.0046573  51.735 < 2.2e-16 ***
+(Intercept) -1.0031443  0.0568874 -17.634 < 2.2e-16 ***
+log(AREA)    0.3670206  0.0091533  40.097 < 2.2e-16 ***
+log(LABOR)   0.3297853  0.0096542  34.160 < 2.2e-16 ***
+log(NPK)     0.2648079  0.0058572  45.211 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
   Meta-frontier Variance & Efficiency Statistics:
                                 Estimate Std. Error z value Pr(>|z|)    
-Sigma-squared(u)              1.8630e-07 3.2100e-05  0.0058   0.9954    
-Sigma(u)                      4.3162e-04 3.7185e-02  0.0116   0.9907    
-Sigma-squared(v)              1.4832e-03 1.1369e-04 13.0462   <2e-16 ***
-Sigma(v)                      3.8512e-02 1.4760e-03 26.0925   <2e-16 ***
-E[u]                          3.4438e-04          -       -        -    
-E[exp(-u)]                    9.9966e-01          -       -        -    
+Sigma-squared(u)              3.9304e-07 6.8527e-05  0.0057   0.9954    
+Sigma(u)                      6.2693e-04 5.4653e-02  0.0115   0.9908    
+Sigma-squared(v)              2.3459e-03 1.8058e-04 12.9904   <2e-16 ***
+Sigma(v)                      4.8434e-02 1.8642e-03 25.9808   <2e-16 ***
+Sigma = Sqrt[(s^2(u)+s^2(v))] 4.8438e-02 1.9010e-03 25.4805   <2e-16 ***
+Gamma = sigma(u)^2/sigma^2    1.6752e-04 2.9204e-02  0.0057   0.9954    
+Lambda = sigma(u)/sigma(v)    1.2944e-02 1.1285e+00  0.0115   0.9908    
+E[u]                          5.0022e-04          -       -        -    
+E[exp(-u)]                    9.9950e-01          -       -        -    
+-----[ Tests vs. No Inefficiency ]-----
+Likelihood Ratio Test of Inefficiency
+Deg. freedom for inefficiency model                        1 
+Log Likelihood for OLS Log(H0) =                   553.35242 
+LR statistic: 
+Chisq = 2*[LogL(H0)-LogL(H1)]  =                    -0.00003 
+Kodde-Palm C*:       95%: 2.70554               99%: 5.41189 
+Coelli (1995) skewness test on OLS residuals
+M3T: z                         =                     4.16139 
+M3T: p.value                   =                     0.00003 
+Log likelihood status: successful convergence  
 
-[Note: Degenerate second-stage is expected with near-identical group fitted value surfaces]
+------------------------------------------------------------ 
+Efficiency Statistics (group means):
+------------------------------------------------------------ 
+       N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC MTR_JLMS
+small    125     125     0.71065       0.70090    0.71030      0.70055 0.99950  0.99950
+medium   104     104     0.71253       0.70965    0.71217      0.70930 0.99950  0.99950
+large    115     115     0.74772       0.74406    0.74734      0.74369 0.99950  0.99950
+
+Overall:
+TE_group_BC=0.7236  TE_group_JLMS=0.7182
+TE_meta_BC=0.7233   TE_meta_JLMS=0.7178
+MTR_BC=0.9995     MTR_JLMS=0.9995
+------------------------------------------------------------ 
+Total Log-likelihood: 479.063 
+AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
+------------------------------------------------------------ 
+Model was estimated on : Mar Mon 02, 2026 at 12:09 
 ```
 </details>
 
@@ -279,7 +679,7 @@ E[exp(-u)]                    9.9966e-01          -       -        -
 
 ### 1d. Two-stage SFA Metafrontier — O'Donnell et al. (2008) (`sfaApproach = "ordonnell"`)
 
-The LP deterministic envelope is used as the dependent variable in the second stage; the SFA quantifies the stochastic variation around the envelope.
+In this approach, the LP deterministic envelope is used as the response variable in the second stage and the SFA quantifies the stochastic variation around this envelope.
 
 ```r
 meta_sfacross_odonnell <- sfametafrontier(
@@ -294,6 +694,14 @@ meta_sfacross_odonnell <- sfametafrontier(
 )
 summary(meta_sfacross_odonnell)
 ```
+
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+
+```
+</details>
 
 ---
 
