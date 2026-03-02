@@ -3062,6 +3062,7 @@ The `efficiencies()` function returns a data frame with one row per observation 
 
 | Column | Description |
 |---|----|
+| `id` | Observation identifier |
 | `group` / `Group_c` | Technology group identifier |
 | `u_g` | Group-specific inefficiency — Jondrow et al. (1982) |
 | `TE_group_JLMS` | Group TE — Jondrow et al. (1982): exp(−*u*) |
