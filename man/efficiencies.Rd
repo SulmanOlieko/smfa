@@ -30,6 +30,12 @@ containing the following columns. The exact set of columns depends on
 
 \strong{Columns present for all model types:}
 \describe{
+\item{\code{id}}{
+Observation identifier. Contains the row name of each observation as
+it appeared in the data supplied to \code{\link{sfametafrontier}}.
+When the data frame has no explicit row names, sequential integers
+(\code{"1"}, \code{"2"}, \ldots) are used. This column is always the
+first column of the returned data frame.}
 \item{\code{<group>} or \code{Group_c}}{
 The technology group identifier for each observation. For
 \code{groupType = "sfacross"} and \code{"sfaselectioncross"}, this

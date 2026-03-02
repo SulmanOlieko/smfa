@@ -24,7 +24,7 @@ sfametafrontier(
   modelType = "greene10",
   groupType = "sfacross",
   metaMethod = "lp",
-  sfaApproach = "huang",
+  sfaApproach = "ordonnell",
   selectionF = NULL,
   lcmClasses = 2L,
   whichStart = 2L,
@@ -35,7 +35,7 @@ sfametafrontier(
   uBound = Inf,
   intol = 1e-06,
   method = "bfgs",
-  hessianType = 1L,
+  hessianType = NULL,
   simType = "halton",
   Nsim = 100L,
   prime = 2L,
@@ -223,7 +223,11 @@ determined by \code{sfaApproach}.
 \code{metaMethod = "sfa"}. Determines how the second-stage SFA is
 constructed:
 \itemize{
-\item \code{"huang"} (default): the group-specific fitted frontier value
+\item \code{"ordonnell"} (default): The LP envelope of the group frontier
+predicted values is re-estimated with a stochastic frontier, following
+O'Donnell, Rao, and Battese (2008). The second-stage SFA directly
+targets the global technology envelope.
+\item \code{"huang"}: the group-specific fitted frontier value
 \eqn{\ln \hat{y}^g_i} for each observation is used as the dependent
 variable in a pooled cross-sectional SFA
 (Huang, Huang, and Liu, 2014). The technology gap \eqn{U_i \ge 0} and
@@ -337,16 +341,25 @@ the inverse Hessian and soft line search (see
 \code{\link[stats]{nlminb}}).
 }}
 
-\item{hessianType}{Integer. Determines how the Hessian is computed for the
-group-level models.
+\item{hessianType}{Integer. Specifies which Hessian is returned for the
+group-level frontier estimation. The accepted values match those of the
+underlying \code{sfaR} function for each \code{groupType}:
 \itemize{
-\item \code{1} (default for \code{"sfacross"} and \code{"sfalcmcross"}):
-analytic Hessian.
-\item \code{2} (default for \code{"sfaselectioncross"}): BHHH
-approximation \eqn{\mathbf{G}'\mathbf{G}}, where \eqn{\mathbf{G}} is
-the matrix of individual score contributions. This default applies to
-the selection model because estimation is conducted in two steps.
-}}
+\item For \code{groupType = "sfacross"}: if \code{1} (default), the
+analytic Hessian is returned; if \code{2}, the BHHH Hessian
+\eqn{\mathbf{G}'\mathbf{G}} is estimated.
+\item For \code{groupType = "sfalcmcross"}: if \code{1} (default),
+the analytic Hessian is returned; if \code{2}, the BHHH Hessian is
+estimated.
+\item For \code{groupType = "sfaselectioncross"}: if \code{1}, the
+analytic Hessian is returned; if \code{2} (default), the BHHH
+Hessian \eqn{\mathbf{G}'\mathbf{G}} is estimated. The BHHH default
+reflects the two-step nature of the selection estimator.
+}
+When \code{NULL} (the package default), each group-level model uses the
+natural default of the corresponding \code{sfaR} function, ensuring that
+standard errors computed by \code{sfametafrontier} are identical to those
+from a standalone \code{sfaR} call on the same group subset.}
 
 \item{simType}{Character string. Simulation method for maximum simulated
 likelihood (MSL). Applicable to \code{groupType = "sfacross"} when
@@ -421,8 +434,14 @@ one per technology group. Each element is of class \code{"sfacross"},
 \code{groupType}.}
 \item{metaSfaObj}{The fitted metafrontier object. For
 \code{metaMethod = "sfa"}, an object of class \code{"sfacross"}
-from the second-stage SFA. For \code{metaMethod = "lp"} or
-\code{"qp"}, a list containing the optimisation result and the
+from the second-stage SFA. The dependent variable column in
+\code{metaSfaObj$dataTable} is named according to the approach used:
+\code{"lp_envelope"} when \code{sfaApproach = "ordonnell"} (the
+column-wise maximum of all group-evaluated frontier values is the
+dependent variable) and \code{"group_fitted_values"} when
+\code{sfaApproach = "huang"} (each observation's own-group fitted
+frontier value is the dependent variable). For \code{metaMethod = "lp"}
+or \code{"qp"}, a list containing the optimisation result and the
 estimated envelope coefficients.}
 \item{metaRes}{Estimated metafrontier coefficients (with standard errors,
 z-values, and p-values for \code{metaMethod = "sfa"}, or the plain
@@ -531,7 +550,7 @@ are provided for each measure. See \code{\link{efficiencies}} for details.
 
 data("ricephil", package = "sfaR")
 ricephil$group <- cut(ricephil$AREA,
-  breaks = quantile(ricephil$AREA, probs = c(0, 1/3, 2/3, 1), na.rm = TRUE),
+  breaks = quantile(ricephil$AREA, probs = c(0, 1 / 3, 2 / 3, 1), na.rm = TRUE),
   labels = c("small", "medium", "large"),
   include.lowest = TRUE
 )
@@ -608,7 +627,7 @@ data("utility", package = "sfaR")
 
 ## 2a. sfalcmcross (pooled, 2 classes) + LP metafrontier
 meta_lcm_lp <- sfametafrontier(
-  formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  formula    = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
   data       = utility,
   S          = -1,
   groupType  = "sfalcmcross",
@@ -622,7 +641,7 @@ ef_lcm_lp <- efficiencies(meta_lcm_lp)
 
 ## 2b. sfalcmcross (pooled, 2 classes) + QP metafrontier
 meta_lcm_qp <- sfametafrontier(
-  formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  formula    = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
   data       = utility,
   S          = -1,
   groupType  = "sfalcmcross",
@@ -634,7 +653,7 @@ summary(meta_lcm_qp)
 ## 2c. sfalcmcross (pooled, 2 classes) + Two-stage SFA metafrontier
 ##     (Huang et al., 2014)
 meta_lcm_huang <- sfametafrontier(
-  formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  formula     = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
   data        = utility,
   S           = -1,
   groupType   = "sfalcmcross",
@@ -647,7 +666,7 @@ ef_lcm_huang <- efficiencies(meta_lcm_huang)
 
 ## 2d. sfalcmcross (pooled, 2 classes) + O'Donnell et al. (2008)
 meta_lcm_odonnell <- sfametafrontier(
-  formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  formula     = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
   data        = utility,
   S           = -1,
   groupType   = "sfalcmcross",
@@ -664,19 +683,23 @@ summary(meta_lcm_odonnell)
 ## Efficiency estimates for non-selected observations are NA.           ##
 ###########################################################################
 
-N <- 2000; set.seed(12345)
-z1 <- rnorm(N); z2 <- rnorm(N)
-v1 <- rnorm(N); v2 <- rnorm(N)
-g  <- rnorm(N)
+N <- 2000
+set.seed(12345)
+z1 <- rnorm(N)
+z2 <- rnorm(N)
+v1 <- rnorm(N)
+v2 <- rnorm(N)
+g <- rnorm(N)
 e1 <- v1
 e2 <- 0.7071 * (v1 + v2)
 ds <- z1 + z2 + e1
-d  <- ifelse(ds > 0, 1, 0)        # binary selection indicator
-group <- ifelse(g > 0, 1, 0)      # two technology groups (0 and 1)
-u  <- abs(rnorm(N))
-x1 <- rnorm(N); x2 <- rnorm(N)
-y  <- x1 + x2 + e2 - u
-dat <- as.data.frame(cbind(y=y, x1=x1, x2=x2, z1=z1, z2=z2, d=d, group=group))
+d <- ifelse(ds > 0, 1, 0) # binary selection indicator
+group <- ifelse(g > 0, 1, 0) # two technology groups (0 and 1)
+u <- abs(rnorm(N))
+x1 <- rnorm(N)
+x2 <- rnorm(N)
+y <- x1 + x2 + e2 - u
+dat <- as.data.frame(cbind(y = y, x1 = x1, x2 = x2, z1 = z1, z2 = z2, d = d, group = group))
 
 ## 3a. sfaselectioncross + LP metafrontier
 ##     Selection bias is corrected via the Greene (2010) two-step probit

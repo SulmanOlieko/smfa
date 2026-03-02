@@ -54,7 +54,7 @@
 #' @param metaMethod character string for metafrontier method
 #' @param sfaApproach character string for SFA approach ("ordonnell" or "huang")
 #' @noRd
-mfauxdist <- function(metaMethod, sfaApproach = "huang") {
+mfauxdist <- function(metaMethod, sfaApproach = "ordonnell") {
   base <- switch(metaMethod,
     lp = "Linear Programming (LP) Metafrontier",
     qp = "Quadratic Programming (QP) Metafrontier",
@@ -109,7 +109,7 @@ mf_sfa_ordonnell <- function(Xvar, groupFrontierMat, S, method, udist, ...) {
   yMeta <- apply(groupFrontierMat, 1, max, na.rm = TRUE)
   mf_sfa_fit(
     Xvar = Xvar, yMeta = yMeta, S = S, method = method,
-    udist = udist, ...
+    udist = udist, depname = "lp_envelope", ...
   )
 }
 
@@ -125,13 +125,13 @@ mf_sfa_ordonnell <- function(Xvar, groupFrontierMat, S, method, udist, ...) {
 mf_huang <- function(Xvar, yhat_group, S, method, udist, ...) {
   mf_sfa_fit(
     Xvar = Xvar, yMeta = yhat_group, S = S, method = method,
-    udist = udist, ...
+    udist = udist, depname = "group_fitted_values", ...
   )
 }
 
 # Shared second-stage sfacross fitting routine ---------------------------------
 #' @noRd
-mf_sfa_fit <- function(Xvar, yMeta, S, method, udist, ...) {
+mf_sfa_fit <- function(Xvar, yMeta, S, method, udist, depname = ".yMeta", ...) {
   # Use safe syntactic names internally to avoid issues when original Xvar
   # column names contain expressions like "log(df$var)", spaces, or operators.
   K <- ncol(Xvar)
@@ -141,17 +141,17 @@ mf_sfa_fit <- function(Xvar, yMeta, S, method, udist, ...) {
   hasIntercept <- orig_names[1L] == "(Intercept)"
 
   df_meta <- setNames(as.data.frame(Xvar), safe_names)
-  df_meta[[".yMeta"]] <- yMeta
+  df_meta[[depname]] <- yMeta
 
   if (hasIntercept) {
     rhs_parts <- safe_names[-1L]
     fStr <- if (length(rhs_parts) > 0L) {
-      paste(".yMeta ~", paste(rhs_parts, collapse = " + "))
+      paste(depname, "~", paste(rhs_parts, collapse = " + "))
     } else {
-      ".yMeta ~ 1"
+      paste(depname, "~ 1")
     }
   } else {
-    fStr <- paste(".yMeta ~ -1 +", paste(safe_names, collapse = " + "))
+    fStr <- paste(depname, "~ -1 +", paste(safe_names, collapse = " + "))
   }
   fml <- as.formula(fStr)
 
@@ -217,7 +217,7 @@ extract_lcm_fitted <- function(lcmObj) {
 #' @param effMeta_sfa optional data.frame of efficiency estimates from second-stage SFA
 #' @noRd
 compute_mtr <- function(yhat_group, yhat_meta, teGroup_BC, teGroup_JLMS, uGroup, S,
-                        metaMethod = "lp", sfaApproach = "huang",
+                        metaMethod = "lp", sfaApproach = "ordonnell",
                         effMeta_sfa = NULL) {
   if (metaMethod %in% c("lp", "qp")) {
     gap <- S * (yhat_meta - yhat_group)

@@ -44,6 +44,12 @@
 #'
 #'   \strong{Columns present for all model types:}
 #'   \describe{
+#'     \item{\code{id}}{
+#'       Observation identifier. Contains the row name of each observation as
+#'       it appeared in the data supplied to \code{\link{sfametafrontier}}.
+#'       When the data frame has no explicit row names, sequential integers
+#'       (\code{"1"}, \code{"2"}, \ldots) are used. This column is always the
+#'       first column of the returned data frame.}
 #'     \item{\code{<group>} or \code{Group_c}}{
 #'       The technology group identifier for each observation. For
 #'       \code{groupType = "sfacross"} and \code{"sfaselectioncross"}, this
@@ -442,7 +448,7 @@ efficiencies.sfametafrontier <- function(
   yhat_group <- dataFull$.mf_yhat_group
   yhat_meta <- dataFull$.mf_yhat_meta
   metaMethod <- object$metaMethod
-  sfaApproach <- if (!is.null(object$sfaApproach)) object$sfaApproach else "huang"
+  sfaApproach <- if (!is.null(object$sfaApproach)) object$sfaApproach else "ordonnell"
 
   if (metaMethod %in% c("lp", "qp")) {
     mtrRes <- compute_mtr(
@@ -493,15 +499,16 @@ efficiencies.sfametafrontier <- function(
     u_meta <- mtrRes$u_meta
   }
 
-  # ===========================================================================
-  # ---- Assemble result data frame ----
-  # ===========================================================================
+  # 0. Observation id (mirrors sfaR's 'IdObs'; shown first for easy lookup)
+  id_col <- rownames(dataFull)
+  if (is.null(id_col)) id_col <- as.character(seq_len(N))
+
   # 1. Group identifier
   if (groupType == "sfalcmcross") {
-    res <- data.frame(Group_c = group_col, stringsAsFactors = FALSE)
+    res <- data.frame(id = id_col, Group_c = group_col, stringsAsFactors = FALSE)
   } else {
-    res <- data.frame(group_col = group_col, stringsAsFactors = FALSE)
-    names(res)[1] <- groupVar
+    res <- data.frame(id = id_col, group_col = group_col, stringsAsFactors = FALSE)
+    names(res)[2] <- groupVar
   }
 
   # 2. Core group-level columns (always present)

@@ -198,127 +198,11 @@ summary.sfametafrontier <- function(object, ...) {
   return(object)
 }
 
-# ---- Helper: compute delta-method variance statistics table ----
-# Returns a data.frame with Estimate / SE / z / p for:
-#   sigma_u, sigma_v, sigma, gamma, lambda (for hnormal/tnormal)
-# Falls back to NA-filled table if hessian not available.
-.mf_var_stats <- function(sm, digits = 3) {
-  # Retrieve fields stored by summary.sfacross / summary.sfaselectioncross
-  # (sfalcmcross summary doesn't carry these; handled separately)
-  su2 <- sm$sigmauSq
-  sv2 <- sm$sigmavSq
-  Eu <- sm$Eu
-  Exp <- sm$Expu
-
-  if (is.null(su2) || is.null(sv2) || is.na(su2) || is.na(sv2)) {
-    return(NULL)
-  }
-
-  su <- sqrt(su2)
-  sv <- sqrt(sv2)
-  sig <- sqrt(su2 + sv2)
-  gam <- su2 / (su2 + sv2)
-  lam <- su / sv
-
-  vals <- c(
-    `Sigma-squared(u)` = su2,
-    `Sigma(u)` = su,
-    `Sigma-squared(v)` = sv2,
-    `Sigma(v)` = sv,
-    `Sigma = Sqrt[(s^2(u)+s^2(v))]` = sig,
-    `Gamma = sigma(u)^2/sigma^2` = gam,
-    `Lambda = sigma(u)/sigma(v)` = lam
-  )
-
-  # Try delta-method SEs if invHessian is available
-  ih <- sm$invHessian
-  if (!is.null(ih) && is.matrix(ih)) {
-    # Identify parameter positions from sm fields
-    nX <- sm$nXvar
-    nU <- sm$nuZUvar
-    nV <- sm$nvZVvar
-    np <- nrow(ih)
-
-    # log sigma_u^2 = Zu_intercept (position nX+1 assuming single intercept)
-    # log sigma_v^2 = Zv_intercept (position nX+nU+1)
-    pos_lsu2 <- nX + 1L # log(sigma_u^2) param
-    pos_lsv2 <- nX + nU + 1L # log(sigma_v^2) param
-
-    if (pos_lsu2 <= np && pos_lsv2 <= np) {
-      grad <- function(nm) {
-        g <- numeric(np)
-        if (nm == "Sigma(u)") {
-          g[pos_lsu2] <- su / 2 # d(su)/d(log su2) = su/2
-        } else if (nm == "Sigma(v)") {
-          g[pos_lsv2] <- sv / 2
-        } else if (nm == "Sigma = Sqrt[(s^2(u)+s^2(v))]") {
-          g[pos_lsu2] <- su2 / (2 * sig) # d(sig)/d(log su2) = su2/(2*sig)
-          g[pos_lsv2] <- sv2 / (2 * sig)
-        } else if (nm == "Sigma-squared(u)") {
-          g[pos_lsu2] <- su2
-        } else if (nm == "Sigma-squared(v)") {
-          g[pos_lsv2] <- sv2
-        } else if (nm == "Gamma = sigma(u)^2/sigma^2") {
-          # gamma = su2/(su2+sv2)
-          # d(gamma)/d(log su2) = su2 * sv2/(su2+sv2)^2 = gamma*(1-gamma)
-          g[pos_lsu2] <- gam * (1 - gam)
-          g[pos_lsv2] <- -gam * (1 - gam)
-        } else if (nm == "Lambda = sigma(u)/sigma(v)") {
-          # lambda = su/sv => d/d(log su2) = lambda/2; d/d(log sv2) = -lambda/2
-          g[pos_lsu2] <- lam / 2
-          g[pos_lsv2] <- -lam / 2
-        }
-        g
-      }
-      se_vec <- setNames(
-        sapply(names(vals), function(nm) {
-          g <- grad(nm)
-          sqrt(max(0, t(g) %*% ih %*% g))
-        }),
-        names(vals)
-      )
-    } else {
-      se_vec <- rep(NA_real_, length(vals))
-    }
-  } else {
-    se_vec <- rep(NA_real_, length(vals))
-  }
-  names(se_vec) <- names(vals)
-
-  zv <- ifelse(se_vec > 0, vals / se_vec, NA_real_)
-  pv <- ifelse(!is.na(zv), 2 * pnorm(-abs(zv)), NA_real_)
-
-  tab <- cbind(
-    Estimate = vals,
-    `Std. Error` = se_vec,
-    `z value` = zv,
-    `Pr(>|z|)` = pv
-  )
-
-  # Append E[u] and E[exp(-u)] as Estimates only (no SE available from stored fields)
-  extras <- c()
-  if (!is.null(Eu) && !is.na(Eu)) {
-    extras <- c(extras, `E[u]` = Eu)
-  }
-  if (!is.null(Exp) && !is.na(Exp)) {
-    extras <- c(extras, `E[exp(-u)]` = Exp)
-  }
-  if (length(extras) > 0) {
-    extra_tab <- cbind(
-      Estimate = extras,
-      `Std. Error` = NA_real_,
-      `z value` = NA_real_,
-      `Pr(>|z|)` = NA_real_
-    )
-    tab <- rbind(tab, extra_tab)
-  }
-
-  tab
-}
 
 # print for summary.sfametafrontier ----------
 #' @rdname summary
 #' @aliases print.summary.sfametafrontier
+#' @importFrom utils capture.output
 #' @export
 print.summary.sfametafrontier <- function(
   x,
@@ -542,26 +426,20 @@ print.summary.sfametafrontier <- function(
       cat(sep, "\n")
 
       if (x$groupType == "sfacross") {
-        # ------- standard sfacross: flat table -------
-        if (!is.null(mlR)) {
-          printCoefmat(
-            mlR,
-            P.values = TRUE,
-            digits = digits,
-            signif.legend = TRUE,
-            na.print = "NA"
-          )
-        }
-        # Variance derived stats with delta-method SEs
-        vs <- tryCatch(.mf_var_stats(sm, digits), error = function(e) NULL)
-        if (!is.null(vs)) {
-          cat("\n  Variance & Efficiency Statistics (delta-method SEs):\n")
-          printCoefmat(
-            vs,
-            P.values = TRUE,
-            digits = digits,
-            signif.legend = FALSE,
-            na.print = "-"
+        # ------- sfacross: delegate entirely to sfaR's own print method -------
+        # This guarantees SEs, z-values, p-values, and derived variance statistics
+        # (sigma_u, sigma_v, gamma, lambda, E[u], E[exp(-u)]) are rendered
+        # exactly as sfaR would display them - no custom delta-method block.
+        out_lines <- tryCatch(
+          utils::capture.output(print(sm, digits = digits)),
+          error = function(e) NULL
+        )
+        if (!is.null(out_lines)) {
+          cat(paste(out_lines, collapse = "\n"), "\n")
+        } else if (!is.null(mlR)) {
+          printCoefmat(mlR,
+            P.values = TRUE, digits = digits,
+            signif.legend = TRUE, na.print = "NA"
           )
         }
       } else if (x$groupType == "sfalcmcross") {
@@ -638,63 +516,29 @@ print.summary.sfametafrontier <- function(
           )
         }
       } else if (x$groupType == "sfaselectioncross") {
-        nX <- m$nXvar
-        nU <- m$nuZUvar
-        nV <- m$nvZVvar
-        e_b <- nX
-        e_u <- nX + nU
-        e_v <- nX + nU + nV
-        nr <- nrow(mlR)
-        cat("  Frontier equation:\n")
-        printCoefmat(
-          mlR[1:e_b, , drop = FALSE],
-          P.values = TRUE,
-          digits = digits,
-          signif.legend = FALSE,
-          na.print = "NA"
+        # ------- sfaselectioncross: delegate to sfaR's own print method -------
+        out_lines <- tryCatch(
+          utils::capture.output(print(sm, digits = digits)),
+          error = function(e) NULL
         )
-        cat("  Var(u) parameters:\n")
-        printCoefmat(
-          mlR[(e_b + 1):e_u, , drop = FALSE],
-          P.values = TRUE,
-          digits = digits,
-          signif.legend = FALSE,
-          na.print = "NA"
-        )
-        cat("  Var(v) parameters:\n")
-        printCoefmat(
-          mlR[(e_u + 1):e_v, , drop = FALSE],
-          P.values = TRUE,
-          digits = digits,
-          signif.legend = FALSE,
-          na.print = "NA"
-        )
-        if (nr > e_v) {
-          cat("  Selection bias parameter (rho):\n")
-          printCoefmat(
-            mlR[(e_v + 1):nr, , drop = FALSE],
-            P.values = TRUE,
-            digits = digits,
-            signif.legend = TRUE,
-            na.print = "NA"
-          )
-        }
-        # Variance derived stats with delta-method SEs
-        vs <- tryCatch(.mf_var_stats(sm, digits), error = function(e) NULL)
-        if (!is.null(vs)) {
-          cat("\n  Variance & Efficiency Statistics (delta-method SEs):\n")
-          printCoefmat(
-            vs,
-            P.values = TRUE,
-            digits = digits,
-            signif.legend = FALSE,
-            na.print = "-"
+        if (!is.null(out_lines)) {
+          cat(paste(out_lines, collapse = "\n"), "\n")
+        } else if (!is.null(mlR)) {
+          printCoefmat(mlR,
+            P.values = TRUE, digits = digits,
+            signif.legend = TRUE, na.print = "NA"
           )
         }
       }
-      .print_tests(sm)
-      if (!is.null(m$optStatus)) {
-        cat("Log likelihood status:", m$optStatus, "\n")
+      # For sfalcmcross, sfaR's print.summary.sfalcmcross does NOT include the
+      # tests / optStatus block, so we emit it explicitly here.
+      # For sfacross / sfaselectioncross, sfaR's print.summary.* already emits
+      # these, so we skip them to avoid duplication.
+      if (x$groupType == "sfalcmcross") {
+        .print_tests(sm)
+        if (!is.null(m$optStatus)) {
+          cat("Log likelihood status:", m$optStatus, "\n")
+        }
       }
       cat("\n")
     }
@@ -716,22 +560,22 @@ print.summary.sfametafrontier <- function(
     )
     # Metafrontier variance stats (SFA method only)
     if (x$metaMethod == "sfa" && !is.null(x$metaSfaObj)) {
-      vs_meta <- tryCatch(
-        .mf_var_stats(summary(x$metaSfaObj), digits),
-        error = function(e) NULL
-      )
-      if (!is.null(vs_meta)) {
-        cat("\n  Meta-frontier Variance & Efficiency Statistics:\n")
-        printCoefmat(
-          vs_meta,
-          P.values = TRUE,
-          digits = digits,
-          signif.legend = FALSE,
-          na.print = "-"
-        )
-      }
+      # Delegate metafrontier SFA display to sfaR's own print method so that
+      # variance statistics (sigma_u, sigma_v, gamma, lambda, E[u]) are shown
+      # exactly as sfaR would display them, with correct Hessian-based SEs.
       meta_sm <- suppressWarnings(tryCatch(summary(x$metaSfaObj), error = function(e) NULL))
-      if (!is.null(meta_sm)) .print_tests(meta_sm)
+      if (!is.null(meta_sm)) {
+        cat("\n  Meta-frontier model details:\n")
+        out_meta <- tryCatch(
+          utils::capture.output(print(meta_sm, digits = digits)),
+          error = function(e) NULL
+        )
+        if (!is.null(out_meta)) {
+          cat(paste(out_meta, collapse = "\n"), "\n")
+        } else {
+          .print_tests(meta_sm)
+        }
+      }
       if (!is.null(x$metaSfaObj$optStatus)) {
         cat("Log likelihood status:", x$metaSfaObj$optStatus, "\n")
       }
@@ -764,11 +608,14 @@ print.summary.sfametafrontier <- function(
       sm_eff[, c("TE_group_BC", "TE_group_JLMS", "TE_meta_BC", "TE_meta_JLMS", "MTR_BC", "MTR_JLMS"), drop = FALSE],
       na.rm = TRUE
     )
+    # colMeans returns NaN (not NA) when all values in a column are NA — fix that
+    ov[is.nan(ov)] <- NA_real_
+    fmt_val <- function(v) if (is.na(v)) "NA" else sprintf("%.4f", v)
     cat(sprintf(
-      "\nOverall:\nTE_group_BC=%.4f  TE_group_JLMS=%.4f\nTE_meta_BC=%.4f   TE_meta_JLMS=%.4f\nMTR_BC=%.4f     MTR_JLMS=%.4f\n",
-      ov["TE_group_BC"], ov["TE_group_JLMS"],
-      ov["TE_meta_BC"], ov["TE_meta_JLMS"],
-      ov["MTR_BC"], ov["MTR_JLMS"]
+      "\nOverall:\nTE_group_BC=%s  TE_group_JLMS=%s\nTE_meta_BC=%s   TE_meta_JLMS=%s\nMTR_BC=%s     MTR_JLMS=%s\n",
+      fmt_val(ov["TE_group_BC"]), fmt_val(ov["TE_group_JLMS"]),
+      fmt_val(ov["TE_meta_BC"]), fmt_val(ov["TE_meta_JLMS"]),
+      fmt_val(ov["MTR_BC"]), fmt_val(ov["MTR_JLMS"])
     ))
 
     # LCM: posterior class proportions
