@@ -424,10 +424,10 @@ print(x, ...)
     [`mla`](https://rdrr.io/pkg/marqLevAlg/man/marqLevAlg.html)).
 
   - `"sr1"`: Symmetric Rank 1 trust-region method (see
-    [`trust.optim`](https://rdrr.io/pkg/trustOptim/man/trust.optim.html)).
+    [`trust.optim`](https://braunm.github.io/trustOptim/reference/trust.optim.html)).
 
   - `"sparse"`: trust-region method with sparse Hessian (see
-    [`trust.optim`](https://rdrr.io/pkg/trustOptim/man/trust.optim.html)).
+    [`trust.optim`](https://braunm.github.io/trustOptim/reference/trust.optim.html)).
 
   - `"nlminb"`: PORT routines optimisation (see
     [`nlminb`](https://rdrr.io/r/stats/nlminb.html)).
