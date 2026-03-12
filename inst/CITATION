@@ -5,7 +5,7 @@ citHeader("To cite the 'metafrontieR' package in publications please use:")
 
 bibentry(
    bibtype = "Manual",
-   title = "{metafrontieR}: Metafrontier Analysis in R.",
+   title = "metafrontieR: Metafrontier Analysis in R.",
    author = c(person("Sulman Olieko", "Owili")),
    year = year,
    note = vers,
