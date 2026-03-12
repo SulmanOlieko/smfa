@@ -62,13 +62,13 @@ navbar:
     lightswitch:
       html: |
         <li class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
-            <span class="fa fa-sun"></span>
+          <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-theme="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
+            <span class="fas fa-sun"></span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
-            <li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun me-2"></span> Light</button></li>
-            <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon me-2"></span> Dark</button></li>
-            <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust me-2"></span> Auto</button></li>
+            <li><button class="dropdown-item" data-bs-theme-value="light"><span class="fas fa-sun me-2"></span> Light</button></li>
+            <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fas fa-moon me-2"></span> Dark</button></li>
+            <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fas fa-adjust me-2"></span> Auto</button></li>
           </ul>
         </li>
     github:
