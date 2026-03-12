@@ -8,3 +8,6 @@
 ^\.\.Rcheck$
 ^\.\.pdf$
 ^.*\.Rcheck$
+^_pkgdown\.yml$
+^pkgdown$
+^docs$
