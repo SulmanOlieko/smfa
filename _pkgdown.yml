@@ -60,7 +60,7 @@ navbar:
       - text: "Extracting Efficiencies and MTRs"
         href: articles/efficiency-extraction.html
     lightswitch:
-      html: |
+      text: |
         <li class="nav-item dropdown">
           <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-theme="dropdown" aria-expanded="false" aria-label="Toggle theme (light)">
             <span class="fas fa-sun"></span>
