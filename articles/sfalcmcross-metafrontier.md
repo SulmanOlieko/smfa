@@ -146,9 +146,9 @@ with(eff_lcm, table(Group_c)) / nrow(eff_lcm) * 100   # % in each class
 
 ## Key Difference from `sfacross`
 
-| Feature | `sfacross` | `sfalcmcross` |
-|----|----|----|
-| Group variable | Required | Not required |
-| Group estimation | Separate SFA per group | Pooled LCM simultaneously |
-| Output | Group-level SFA summaries | Pooled LCM summary with class-specific parameters |
-| Extra efficiency columns | Confidence bounds | Posterior class probabilities |
+| Feature                  | `sfacross`                | `sfalcmcross`                                     |
+|--------------------------|---------------------------|---------------------------------------------------|
+| Group variable           | Required                  | Not required                                      |
+| Group estimation         | Separate SFA per group    | Pooled LCM simultaneously                         |
+| Output                   | Group-level SFA summaries | Pooled LCM summary with class-specific parameters |
+| Extra efficiency columns | Confidence bounds         | Posterior class probabilities                     |

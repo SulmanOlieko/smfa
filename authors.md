@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`inst/CITATION`](https://github.com/SulmanOlieko/metafrontieR/blob/HEAD/inst/CITATION)
+[`inst/CITATION`](https://github.com/SulmanOlieko/metafrontieR/blob/main/inst/CITATION)
 
 Owili SO. (2026). metafrontieR: Metafrontier Analysis in R. R package
 version 1.0.0.

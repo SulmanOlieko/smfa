@@ -54,22 +54,22 @@ head(eff)
 
 ### Column Reference
 
-| Column | `sfacross` | `sfalcmcross` | `sfaselectioncross` |
-|----|:--:|:--:|:--:|
-| `id` | ✓ | ✓ | ✓ |
-| `group` / `Group_c` | ✓ | ✓ | ✓ |
-| `u_g` | ✓ | ✓ | ✓ |
-| `TE_group_JLMS` | ✓ | ✓ | ✓ |
-| `TE_group_BC` | ✓ | ✓ | ✓ |
-| `TE_group_BC_reciprocal` | ✓ | ✓ | ✓ |
-| `uLB_g`, `uUB_g` | ✓ | — | — |
-| `m_g`, `TE_group_mode` | ✓ | — | — |
-| `PosteriorProb_c`, `PosteriorProb_c1` … | — | ✓ | — |
-| `u_meta` | ✓ | ✓ | ✓ |
-| `TE_meta_JLMS` | ✓ | ✓ | ✓ |
-| `TE_meta_BC` | ✓ | ✓ | ✓ |
-| `MTR_JLMS` | ✓ | ✓ | ✓ |
-| `MTR_BC` | ✓ | ✓ | ✓ |
+| Column                                  | `sfacross` | `sfalcmcross` | `sfaselectioncross` |
+|-----------------------------------------|:----------:|:-------------:|:-------------------:|
+| `id`                                    |     ✓      |       ✓       |          ✓          |
+| `group` / `Group_c`                     |     ✓      |       ✓       |          ✓          |
+| `u_g`                                   |     ✓      |       ✓       |          ✓          |
+| `TE_group_JLMS`                         |     ✓      |       ✓       |          ✓          |
+| `TE_group_BC`                           |     ✓      |       ✓       |          ✓          |
+| `TE_group_BC_reciprocal`                |     ✓      |       ✓       |          ✓          |
+| `uLB_g`, `uUB_g`                        |     ✓      |       —       |          —          |
+| `m_g`, `TE_group_mode`                  |     ✓      |       —       |          —          |
+| `PosteriorProb_c`, `PosteriorProb_c1` … |     —      |       ✓       |          —          |
+| `u_meta`                                |     ✓      |       ✓       |          ✓          |
+| `TE_meta_JLMS`                          |     ✓      |       ✓       |          ✓          |
+| `TE_meta_BC`                            |     ✓      |       ✓       |          ✓          |
+| `MTR_JLMS`                              |     ✓      |       ✓       |          ✓          |
+| `MTR_BC`                                |     ✓      |       ✓       |          ✓          |
 
 ### Subsetting by Group
 

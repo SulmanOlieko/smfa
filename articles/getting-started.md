@@ -29,9 +29,7 @@ This allows researchers to disentangle:
 
 ## Conceptual Framework
 
-``` math
-\text{MTR}_i = \frac{\text{TE\_meta}_i}{\text{TE\_group}_i}
-```
+$$\text{MTR}_{i} = \frac{\text{TE\_meta}_{i}}{\text{TE\_group}_{i}}$$
 
 A **MTR close to 1** means the group’s technology is near the
 metafrontier (advanced technology). A **MTR far below 1** means the
@@ -42,20 +40,20 @@ group operates under a less advanced technology.
 `metafrontieR` supports four metafrontier estimation methods
 (`metaMethod`):
 
-| Method | Description |
-|----|----|
-| `"lp"` | Linear programming deterministic envelope — Battese, Rao & O’Donnell (2004) |
-| `"qp"` | Quadratic programming deterministic envelope |
-| `"sfa"` (`sfaApproach = "huang"`) | Two-stage stochastic metafrontier — Huang, Huang & Liu (2014) |
-| `"sfa"` (`sfaApproach = "ordonnell"`) | Two-stage SFA on LP envelope — O’Donnell, Rao & Battese (2008) |
+| Method                                | Description                                                                 |
+|---------------------------------------|-----------------------------------------------------------------------------|
+| `"lp"`                                | Linear programming deterministic envelope — Battese, Rao & O’Donnell (2004) |
+| `"qp"`                                | Quadratic programming deterministic envelope                                |
+| `"sfa"` (`sfaApproach = "huang"`)     | Two-stage stochastic metafrontier — Huang, Huang & Liu (2014)               |
+| `"sfa"` (`sfaApproach = "ordonnell"`) | Two-stage SFA on LP envelope — O’Donnell, Rao & Battese (2008)              |
 
 And three group frontier types (`groupType`):
 
-| Group Type | When to Use |
-|----|----|
-| `"sfacross"` | Technology groups are *observed* (e.g., a group variable exists) |
-| `"sfalcmcross"` | Technology groups are *unobserved* — latent class model identifies them |
-| `"sfaselectioncross"` | Sample selection bias is present (e.g., a binary selection indicator) |
+| Group Type            | When to Use                                                             |
+|-----------------------|-------------------------------------------------------------------------|
+| `"sfacross"`          | Technology groups are *observed* (e.g., a group variable exists)        |
+| `"sfalcmcross"`       | Technology groups are *unobserved* — latent class model identifies them |
+| `"sfaselectioncross"` | Sample selection bias is present (e.g., a binary selection indicator)   |
 
 ## Installation
 

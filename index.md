@@ -3129,22 +3129,22 @@ function returns a data frame with one row per observation containing
 group-specific and metafrontier efficiency estimates and MTRs. The
 columns present depend on `groupType`:
 
-| Column | Description |
-|----|----|
-| `id` | Observation identifier |
-| `group` / `Group_c` | Technology group identifier |
-| `u_g` | Group-specific inefficiency — Jondrow et al. (1982) |
-| `TE_group_JLMS` | Group TE — Jondrow et al. (1982): exp(−*u*) |
-| `TE_group_BC` | Group TE — Battese & Coelli (1988): E\[exp(−*u*)\|*ε*\] |
-| `TE_group_BC_reciprocal` | Reciprocal of Battese & Coelli (1988) group TE |
-| `uLB_g`, `uUB_g` | Confidence bounds for *u* (*sfacross* only) |
-| `m_g`, `TE_group_mode` | Mode-based inefficiency and TE (*sfacross* only) |
-| `PosteriorProb_c`, `PosteriorProb_c1` … | Posterior class probabilities (*sfalcmcross* only) |
-| `u_meta` | Metafrontier technology gap *U* |
-| `TE_meta_JLMS` | Metafrontier TE (JLMS basis): TE_group_JLMS × MTR |
-| `TE_meta_BC` | Metafrontier TE (BC basis): TE_group_BC × MTR |
-| `MTR_JLMS` | Metatechnology ratio (JLMS basis) |
-| `MTR_BC` | Metatechnology ratio (BC basis) |
+| Column                                  | Description                                             |
+|-----------------------------------------|---------------------------------------------------------|
+| `id`                                    | Observation identifier                                  |
+| `group` / `Group_c`                     | Technology group identifier                             |
+| `u_g`                                   | Group-specific inefficiency — Jondrow et al. (1982)     |
+| `TE_group_JLMS`                         | Group TE — Jondrow et al. (1982): exp(−*u*)             |
+| `TE_group_BC`                           | Group TE — Battese & Coelli (1988): E\[exp(−*u*)\|*ε*\] |
+| `TE_group_BC_reciprocal`                | Reciprocal of Battese & Coelli (1988) group TE          |
+| `uLB_g`, `uUB_g`                        | Confidence bounds for *u* (*sfacross* only)             |
+| `m_g`, `TE_group_mode`                  | Mode-based inefficiency and TE (*sfacross* only)        |
+| `PosteriorProb_c`, `PosteriorProb_c1` … | Posterior class probabilities (*sfalcmcross* only)      |
+| `u_meta`                                | Metafrontier technology gap *U*                         |
+| `TE_meta_JLMS`                          | Metafrontier TE (JLMS basis): TE_group_JLMS × MTR       |
+| `TE_meta_BC`                            | Metafrontier TE (BC basis): TE_group_BC × MTR           |
+| `MTR_JLMS`                              | Metatechnology ratio (JLMS basis)                       |
+| `MTR_BC`                                | Metatechnology ratio (BC basis)                         |
 
 ``` r
 # Example: extract and print for group 1 selected farms only

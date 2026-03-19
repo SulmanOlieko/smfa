@@ -167,10 +167,10 @@ equation noise.
 # correction is important.
 ```
 
-| `rho` value | Interpretation |
-|----|----|
-| ≈ 0, p \> 0.05 | No significant selection bias; standard SFA may be sufficient |
-| \> 0, p \< 0.05 | Positive selection — efficient firms are more likely selected |
+| `rho` value     | Interpretation                                                  |
+|-----------------|-----------------------------------------------------------------|
+| ≈ 0, p \> 0.05  | No significant selection bias; standard SFA may be sufficient   |
+| \> 0, p \< 0.05 | Positive selection — efficient firms are more likely selected   |
 | \< 0, p \< 0.05 | Negative selection — inefficient firms are more likely selected |
 
 ## Extracting Efficiencies
