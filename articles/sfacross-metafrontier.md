@@ -33,17 +33,18 @@ library(smfa)
 #> See also: citation("sfaR")
 #> 
 #> * For any questions, suggestions, or comments on the 'sfaR' package, you can contact directly the authors or visit:  https://github.com/hdakpo/sfaR/issues
-#>                                 .              .o88o.                      
-#>                               .o8              888 `"                      
-#> ooo. .oo.  .oo.    .ooooo.  .o888oo  .oooo.   o888oo  oooo d8b  .ooooo.  oo
-#> `888P"Y88bP"Y88b  d88' `88b   888   `P  )88b   888    `888""8P d88' `88b `8
-#>  888   888   888  888ooo888   888    .oP"888   888     888     888   888  8
-#>  888   888   888  888    .o   888 . d8(  888   888     888     888   888  8
-#> o888o o888o o888o `Y8bod8P'   "888" `Y888""8o o888o   d888b    `Y8      88 88 88
-#>                                                                    version 1.0.0
+#>                         .d888         
+#>                        d88P"          
+#>                        888            
+#> .d8888b  88888b.d88b.  888888 8888b.  
+#> 88K      888 "888 "88b 888       "88b 
+#> Y8888b. 888  888  888 888   .d888888 
+#>      X88 888  888  888 888   888  888 
+#>  88888P' 888  888  888 888   "Y888888
+#>                          version 1.0.0
 #> 
 #> * Please cite the 'smfa' package as:
-#> Owili, SO. (2026). smfa: Metafrontier Analysis in R. R package version 1.0.0.
+#> Owili, S. O. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.0.
 #> 
 #> See also: citation("smfa")
 #> 
@@ -156,7 +157,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -220,7 +221,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -284,7 +285,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -312,7 +313,7 @@ summary(meta_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54
 ```
 
 > **Note:** Since the LP metafrontier is estimated via linear
@@ -410,7 +411,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -474,7 +475,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -538,7 +539,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -572,7 +573,7 @@ summary(meta_qp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54
 ```
 
 ## Method 3: Stochastic Metafrontier — Huang et al. (2014)
@@ -670,7 +671,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -734,7 +735,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -798,7 +799,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -871,7 +872,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -896,7 +897,7 @@ summary(meta_huang)
 #> Total Log-likelihood: 479.063 
 #> AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54
 ```
 
 ## Method 4: Stochastic Envelope — O’Donnell et al. (2008)
@@ -1001,7 +1002,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1065,7 +1066,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1129,7 +1130,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1202,7 +1203,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50 
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -1227,7 +1228,7 @@ summary(meta_ordonnell)
 #> Total Log-likelihood: 557.9201 
 #> AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 13:50
+#> Model was estimated on : Apr Fri 24, 2026 at 13:54
 ```
 
 ## Comparing Methods
