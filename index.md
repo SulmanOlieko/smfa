@@ -1,12 +1,12 @@
-# metafrontieR: Stochastic and Deterministic Metafrontier Analysis
+# smfa: Stochastic and Deterministic Metafrontier Analysis
 
-![metafrontieR logo](reference/figures/logo.png)
+![smfa logo](reference/figures/logo.png)
 
-[![CodeFactor](https://www.codefactor.io/repository/github/SulmanOlieko/metafrontieR/badge)](https://www.codefactor.io/repository/github/SulmanOlieko/metafrontieR)
-[![R-CMD-check](https://github.com/SulmanOlieko/metafrontieR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SulmanOlieko/metafrontieR/actions/workflows/R-CMD-check.yaml)
-[![](https://img.shields.io/badge/devel%20version-1.0.0-darkred.svg)](https://github.com/SulmanOlieko/metafrontieR)
-[![](https://img.shields.io/badge/license-GPL-blue)](https://github.com/SulmanOlieko/metafrontieR)
-[![](https://img.shields.io/github/languages/code-size/SulmanOlieko/metafrontieR.svg)](https://github.com/SulmanOlieko/metafrontieR)
+[![CodeFactor](https://www.codefactor.io/repository/github/SulmanOlieko/smfa/badge)](https://www.codefactor.io/repository/github/SulmanOlieko/smfa)
+[![R-CMD-check](https://github.com/SulmanOlieko/smfa/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SulmanOlieko/smfa/actions/workflows/R-CMD-check.yaml)
+[![](https://img.shields.io/badge/devel%20version-1.0.0-darkred.svg)](https://github.com/SulmanOlieko/smfa)
+[![](https://img.shields.io/badge/license-GPL-blue)](https://github.com/SulmanOlieko/smfa)
+[![](https://img.shields.io/github/languages/code-size/SulmanOlieko/smfa.svg)](https://github.com/SulmanOlieko/smfa)
 
 > **Stochastic and Deterministic Metafrontier Analysis**
 
@@ -16,7 +16,7 @@ assessing technical efficiencies (TE), metafrontier technical
 efficiencies (MTE), and computing metatechnology ratios (MTRs) for firms
 operating under different technologies.
 
-`metafrontieR` provides routines for:
+`smfa` provides routines for:
 
 1.  **Deterministic envelope metafrontier** via **linear programming
     (LP)** and **quadratic programming (QP)**, following [Battese, Rao &
@@ -43,7 +43,7 @@ In addition, the package implements:
   (2010)](https://doi.org/10.1007/s11123-009-0159-1), [Greene
   (2003)](https://elibrary.pearson.de/book/99.150005/9781292231150).
 
-> **Dependency:** `metafrontieR` depends on the
+> **Dependency:** `smfa` depends on the
 > [`sfaR`](https://CRAN.R-project.org/package=sfaR) package by [Dakpo,
 > Desjeux & Latruffe (2023)](https://CRAN.R-project.org/package=sfaR),
 > which provides the underlying stochastic frontier estimation routines
@@ -57,12 +57,12 @@ In addition, the package implements:
 # Install devtools if not already installed
 if (!require("devtools")) install.packages("devtools")
 
-# Install metafrontieR from GitHub
-devtools::install_github("SulmanOlieko/metafrontieR")
+# Install smfa from GitHub
+devtools::install_github("SulmanOlieko/smfa")
 ```
 
-> **Note** You do not need to install `sfaR` manually, `metafrontieR`
-> takes care of that automatically.
+> **Note** You do not need to install `sfaR` manually, `smfa` takes care
+> of that automatically.
 
 ------------------------------------------------------------------------
 
@@ -85,12 +85,12 @@ medium and large. We can create a group variable `group` that captures
 these groups. We can then estimate each group’s frontier separately
 using `sfacross` from the `sfaR` package. So, we will specify the option
 `groupType = "sfacross"` in the
-[`sfametafrontier()`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+[`smfa()`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 ### Data Preparation
 
 ``` r
-library(metafrontieR)
+library(smfa)
 data("ricephil", package = "sfaR")
 
 # Create three technology groups based on farm area terciles
@@ -121,7 +121,7 @@ using a Cobb-Douglas functional form with rice production `PROD` as the
 response variable, and `AREA`, `LABOR` and `NPK` as the inputs.
 
 ``` r
-meta_sfacross_lp <- sfametafrontier(
+meta_sfacross_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
   group      = "group",
@@ -136,7 +136,7 @@ summary(meta_sfacross_lp)
 Toggle to see the output
 
 ``` plaintext
- > meta_sfacross_lp <- sfametafrontier(
+ > meta_sfacross_lp <- smfa(
 +   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data       = ricephil,
 +   group      = "group",
@@ -415,7 +415,7 @@ sum of squared deviations from group frontier predictions subject to the
 envelope constraint. We now switch to `metaMethod = "qp"`.
 
 ``` r
-meta_sfacross_qp <- sfametafrontier(
+meta_sfacross_qp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
   group      = "group",
@@ -430,7 +430,7 @@ summary(meta_sfacross_qp)
 Toggle to see the output
 
 ``` plaintext
-> meta_sfacross_qp <- sfametafrontier(
+> meta_sfacross_qp <- smfa(
 +   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data       = ricephil,
 +   group      = "group",
@@ -695,7 +695,7 @@ together and serve as the dependent variable in a second-stage pooled
 SFA. The technology gap `U` and noise `V` are estimated stochastically.
 
 ``` r
-meta_sfacross_huang <- sfametafrontier(
+meta_sfacross_huang <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
   group       = "group",
@@ -711,7 +711,7 @@ summary(meta_sfacross_huang)
 Toggle to see the output
 
 ``` plaintext
-> meta_sfacross_huang <- sfametafrontier(
+> meta_sfacross_huang <- smfa(
 +   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data        = ricephil,
 +   group       = "group",
@@ -1038,7 +1038,7 @@ variable in the second stage and the SFA quantifies the stochastic
 variation around this envelope.
 
 ``` r
-meta_sfacross_odonnell <- sfametafrontier(
+meta_sfacross_odonnell <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
   group       = "group",
@@ -1054,7 +1054,7 @@ summary(meta_sfacross_odonnell)
 Toggle to see the output
 
 ``` plaintext
-> meta_sfacross_odonnell <- sfametafrontier(
+> meta_sfacross_odonnell <- smfa(
 +   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data        = ricephil,
 +   group       = "group",
@@ -1425,7 +1425,7 @@ data("utility", package = "sfaR")
 ### 2a. LCM + LP Metafrontier
 
 ``` r
-meta_lcm_lp <- sfametafrontier(
+meta_lcm_lp <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility,
   S          = -1,
@@ -1439,7 +1439,7 @@ summary(meta_lcm_lp)
 Toggle to see the output
 
 ``` plaintext
-> meta_lcm_lp <- sfametafrontier(
+> meta_lcm_lp <- smfa(
 +   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data       = utility,
 +   S          = -1,
@@ -1573,7 +1573,7 @@ Toggle to see the output
 ### 2b. LCM + QP Metafrontier
 
 ``` r
-meta_lcm_qp <- sfametafrontier(
+meta_lcm_qp <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility,
   S          = -1,
@@ -1587,7 +1587,7 @@ summary(meta_lcm_qp)
 Toggle to see the output
 
 ``` plaintext
-> meta_lcm_qp <- sfametafrontier(
+> meta_lcm_qp <- smfa(
 +   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data       = utility,
 +   S          = -1,
@@ -1696,7 +1696,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:01
 ### 2c. LCM + Two-stage SFA Metafrontier — Huang et al. (2014)
 
 ``` r
-meta_lcm_huang <- sfametafrontier(
+meta_lcm_huang <- smfa(
   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data        = utility,
   S           = -1,
@@ -1711,7 +1711,7 @@ summary(meta_lcm_huang)
 Toggle to see the output
 
 ``` plaintext
-> meta_lcm_huang <- sfametafrontier(
+> meta_lcm_huang <- smfa(
 +   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data        = utility,
 +   S           = -1,
@@ -1886,7 +1886,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:03
 ### 2d. LCM + O’Donnell et al. (2008) Stochastic Metafrontier
 
 ``` r
-meta_lcm_odonnell <- sfametafrontier(
+meta_lcm_odonnell <- smfa(
   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data        = utility,
   S           = -1,
@@ -1901,7 +1901,7 @@ summary(meta_lcm_odonnell)
 Toggle to see the output
 
 ``` plaintext
-> meta_lcm_odonnell <- sfametafrontier(
+> meta_lcm_odonnell <- smfa(
 +   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data        = utility,
 +   S           = -1,
@@ -2116,7 +2116,7 @@ table(dat$d)
 ### 3a. sfaselectioncross + LP Metafrontier
 
 ``` r
-meta_sel_lp <- sfametafrontier(
+meta_sel_lp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,
   data       = dat,
@@ -2138,7 +2138,7 @@ summary(meta_sel_lp)
 Toggle to see the output
 
 ``` plaintext
-> meta_sel_lp <- sfametafrontier(
+> meta_sel_lp <- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF = d ~ z1 + z2,
 +   data       = dat,
@@ -2344,7 +2344,7 @@ Toggle to see the output
 ### 3b. sfaselectioncross + QP Metafrontier
 
 ``` r
-meta_sel_qp <- sfametafrontier(
+meta_sel_qp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,
   data       = dat,
@@ -2366,7 +2366,7 @@ summary(meta_sel_qp)
 Toggle to see the output
 
 ``` plaintext
-> meta_sel_qp <- sfametafrontier(
+> meta_sel_qp <- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF = d ~ z1 + z2,
 +   data       = dat,
@@ -2554,7 +2554,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:15
 ### 3c. sfaselectioncross + Two-stage SFA Metafrontier — Huang et al. (2014)
 
 ``` r
-meta_sel_huang <- sfametafrontier(
+meta_sel_huang <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
   data        = dat,
@@ -2583,7 +2583,7 @@ summary(meta_sel_huang)
 Toggle to see the output
 
 ``` plaintext
-> meta_sel_huang <- sfametafrontier(
+> meta_sel_huang <- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF  = d ~ z1 + z2,
 +   data        = dat,
@@ -2842,7 +2842,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:17
 ### 3d. sfaselectioncross + O’Donnell et al. (2008) Stochastic Metafrontier
 
 ``` r
-meta_sel_odonnell <- sfametafrontier(
+meta_sel_odonnell <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
   data        = dat,
@@ -2865,7 +2865,7 @@ summary(meta_sel_odonnell)
 Toggle to see the output
 
 ``` plaintext
-> meta_sel_odonnell <- sfametafrontier(
+> meta_sel_odonnell <- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF  = d ~ z1 + z2,
 +   data        = dat,
@@ -3123,7 +3123,7 @@ Warning message:
 ## Output: Efficiency and Metatechnology Ratio Extraction
 
 The
-[`efficiencies()`](https://SulmanOlieko.github.io/metafrontieR/reference/efficiencies.md)
+[`efficiencies()`](https://SulmanOlieko.github.io/smfa/reference/efficiencies.md)
 function returns a data frame with one row per observation containing
 group-specific and metafrontier efficiency estimates and MTRs. The
 columns present depend on `groupType`:

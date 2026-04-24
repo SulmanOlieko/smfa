@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Latent Class SFA Metafrontier (groupType = "sfalcmcross") • metafrontieR</title>
+<title>Latent Class SFA Metafrontier (groupType = "sfalcmcross") • smfa</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -27,7 +27,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">metafrontieR</a>
+    <a class="navbar-brand me-2" href="../index.html">smfa</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
@@ -68,7 +68,7 @@
     <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
   </ul>
 </li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/SulmanOlieko/metafrontieR" aria-label="GitHub"><span class="fa fab fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/SulmanOlieko/smfa" aria-label="GitHub"><span class="fa fab fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -84,7 +84,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Latent Class SFA Metafrontier (groupType = "sfalcmcross")</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/SulmanOlieko/metafrontieR/blob/main/vignettes/sfalcmcross-metafrontier.Rmd" class="external-link"><code>vignettes/sfalcmcross-metafrontier.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/SulmanOlieko/smfa/blob/main/vignettes/sfalcmcross-metafrontier.Rmd" class="external-link"><code>vignettes/sfalcmcross-metafrontier.Rmd</code></a></small>
       <div class="d-none name"><code>sfalcmcross-metafrontier.Rmd</code></div>
     </div>
 
@@ -118,7 +118,39 @@ measurable. - A priori group boundaries are unclear or arbitrary.</p>
 contains 791 observations from US electricity utilities. We estimate a
 cost frontier with no explicit group variable.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SulmanOlieko/metafrontieR" class="external-link">metafrontieR</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SulmanOlieko/smfa" class="external-link">smfa</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: sfaR</span></span>
+<span><span class="co">#&gt;            ****           *******  </span></span>
+<span><span class="co">#&gt;           /**/           /**////** </span></span>
+<span><span class="co">#&gt;   ****** ******  ******  /**   /** </span></span>
+<span><span class="co">#&gt;  **//// ///**/  //////** /*******  </span></span>
+<span><span class="co">#&gt; //*****   /**    ******* /**///**  </span></span>
+<span><span class="co">#&gt;  /////**  /**   **////** /**  //** </span></span>
+<span><span class="co">#&gt;  ******   /**  //********/**   //**</span></span>
+<span><span class="co">#&gt; //////    //    //////// //     //    version 1.0.1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * Please cite the 'sfaR' package as:</span></span>
+<span><span class="co">#&gt;   Dakpo KH., Desjeux Y., Henningsen A., and Latruffe L. (2024). sfaR: Stochastic Frontier Analysis Using R. R package version 1.0.1.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; See also: citation("sfaR")</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * For any questions, suggestions, or comments on the 'sfaR' package, you can contact directly the authors or visit:  https://github.com/hdakpo/sfaR/issues</span></span>
+<span><span class="co">#&gt;                                 .              .o88o.                      </span></span>
+<span><span class="co">#&gt;                               .o8              888 `"                      </span></span>
+<span><span class="co">#&gt; ooo. .oo.  .oo.    .ooooo.  .o888oo  .oooo.   o888oo  oooo d8b  .ooooo.  oo</span></span>
+<span><span class="co">#&gt; `888P"Y88bP"Y88b  d88' `88b   888   `P  )88b   888    `888""8P d88' `88b `8</span></span>
+<span><span class="co">#&gt;  888   888   888  888ooo888   888    .oP"888   888     888     888   888  8</span></span>
+<span><span class="co">#&gt;  888   888   888  888    .o   888 . d8(  888   888     888     888   888  8</span></span>
+<span><span class="co">#&gt; o888o o888o o888o `Y8bod8P'   "888" `Y888""8o o888o   d888b    `Y8      88 88 88</span></span>
+<span><span class="co">#&gt;                                                                    version 1.0.0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * Please cite the 'smfa' package as:</span></span>
+<span><span class="co">#&gt; Owili, SO. (2026). smfa: Metafrontier Analysis in R. R package version 1.0.0.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; See also: citation("smfa")</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * For any questions, suggestions, or comments on the 'smfa' package, you can contact the authors directly or visit:</span></span>
+<span><span class="co">#&gt;   https://github.com/SulmanOlieko/smfa/issues</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"utility"</span>, package <span class="op">=</span> <span class="st">"sfaR"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -127,7 +159,7 @@ cost frontier with no explicit group variable.</p>
 <p>Fit a 2-class latent class pooled SFA, then estimate the LP
 deterministic envelope over the inferred class frontiers.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S          <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,          <span class="co"># cost frontier (S = -1)</span></span>
@@ -135,7 +167,94 @@ deterministic envelope over the inferred class frontiers.</p>
 <span>  lcmClasses <span class="op">=</span> <span class="fl">2</span>,           <span class="co"># number of latent classes</span></span>
 <span>  metaMethod <span class="op">=</span> <span class="st">"lp"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
+<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
+<span><span class="co">#&gt; Metafrontier method: Linear Programming (LP) Metafrontier </span></span>
+<span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
+<span><span class="co">#&gt; Group approach     : Latent Class Stochastic Frontier Analysis </span></span>
+<span><span class="co">#&gt; Group estimator    : sfalcmcross </span></span>
+<span><span class="co">#&gt; Group optim solver : BFGS maximization </span></span>
+<span><span class="co">#&gt;   (Pooled LCM - latent classes used as groups)</span></span>
+<span><span class="co">#&gt; Groups ( 2 ): Class_1, Class_2 </span></span>
+<span><span class="co">#&gt; Total observations : 791 </span></span>
+<span><span class="co">#&gt; Distribution       : hnormal </span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Pooled LCM (2 classes) on all data (N = 791)  Log-likelihood: 61.35324</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 1 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -1.4472e+00  4.0975e-05  -35320 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       8.4541e-01  2.4537e-06  344539 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)   3.5408e-01  4.7006e-06   75327 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   4.2883e-01  1.4333e-05   29919 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -1.7658e+00  5.8803e-08 -30029717 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error     z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -3.8640e+01  3.6587e-13 -1.0561e+14 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.4136  Sigma_v=0.0000  Sigma=0.4136  Gamma=1.0000  Lambda=101648736.5567</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 2 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -2.0490e+00  2.5608e-05 -80011.10 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       1.0079e+00  4.1082e-04   2453.37 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)  -2.5916e-02  6.3375e-05   -408.92 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   8.8450e-01  6.9315e-05  12760.73 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -3.0117e+00  1.1348e-06 -2653955 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -4.9663e+00  5.3865e-07 -9219984 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.2218  Sigma_v=0.0835  Sigma=0.2370  Gamma=0.8759  Lambda=2.6573</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Class Membership (logit) --</span></span>
+<span><span class="co">#&gt;                 Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Cl1_(Intercept) -6.0163e-01  5.0453e-07 -1192457 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Metafrontier Coefficients (lp):</span></span>
+<span><span class="co">#&gt;   (LP: deterministic envelope - no estimated parameters)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Efficiency Statistics (group means):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC</span></span>
+<span><span class="co">#&gt; Class_1   202     202     0.68291       0.68291    0.68291      0.68291 1.00000</span></span>
+<span><span class="co">#&gt; Class_2   589     589     0.85142       0.84951    0.85142      0.84951 1.00000</span></span>
+<span><span class="co">#&gt;         MTR_JLMS</span></span>
+<span><span class="co">#&gt; Class_1  1.00000</span></span>
+<span><span class="co">#&gt; Class_2  1.00000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Overall:</span></span>
+<span><span class="co">#&gt; TE_group_BC=0.7672  TE_group_JLMS=0.7662</span></span>
+<span><span class="co">#&gt; TE_meta_BC=0.7672   TE_meta_JLMS=0.7662</span></span>
+<span><span class="co">#&gt; MTR_BC=1.0000     MTR_JLMS=1.0000</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Posterior Class Membership (pooled LCM):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         % assigned Mean post. prob.</span></span>
+<span><span class="co">#&gt; Class 1       25.5            0.354</span></span>
+<span><span class="co">#&gt; Class 2       74.5            0.646</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Total Log-likelihood: 61.35324 </span></span>
+<span><span class="co">#&gt; AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552 </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 13:12</span></span></code></pre></div>
 <blockquote>
 <p><strong>Note:</strong> The <code>group</code> argument is not needed
 when <code>groupType = "sfalcmcross"</code> — the latent classes are
@@ -147,7 +266,7 @@ argument controls the number of classes.</p>
 <h2 id="method-2-lcm-qp-metafrontier">Method 2: LCM + QP Metafrontier<a class="anchor" aria-label="anchor" href="#method-2-lcm-qp-metafrontier"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S          <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
@@ -155,13 +274,106 @@ argument controls the number of classes.</p>
 <span>  lcmClasses <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  metaMethod <span class="op">=</span> <span class="st">"qp"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_qp</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
+<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_qp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
+<span><span class="co">#&gt; Metafrontier method: Quadratic Programming (QP) Metafrontier </span></span>
+<span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
+<span><span class="co">#&gt; Group approach     : Latent Class Stochastic Frontier Analysis </span></span>
+<span><span class="co">#&gt; Group estimator    : sfalcmcross </span></span>
+<span><span class="co">#&gt; Group optim solver : BFGS maximization </span></span>
+<span><span class="co">#&gt;   (Pooled LCM - latent classes used as groups)</span></span>
+<span><span class="co">#&gt; Groups ( 2 ): Class_1, Class_2 </span></span>
+<span><span class="co">#&gt; Total observations : 791 </span></span>
+<span><span class="co">#&gt; Distribution       : hnormal </span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Pooled LCM (2 classes) on all data (N = 791)  Log-likelihood: 61.35324</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 1 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -1.4472e+00  4.0975e-05  -35320 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       8.4541e-01  2.4537e-06  344539 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)   3.5408e-01  4.7006e-06   75327 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   4.2883e-01  1.4333e-05   29919 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -1.7658e+00  5.8803e-08 -30029717 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error     z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -3.8640e+01  3.6587e-13 -1.0561e+14 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.4136  Sigma_v=0.0000  Sigma=0.4136  Gamma=1.0000  Lambda=101648736.5567</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 2 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -2.0490e+00  2.5608e-05 -80011.10 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       1.0079e+00  4.1082e-04   2453.37 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)  -2.5916e-02  6.3375e-05   -408.92 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   8.8450e-01  6.9315e-05  12760.73 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -3.0117e+00  1.1348e-06 -2653955 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -4.9663e+00  5.3865e-07 -9219984 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.2218  Sigma_v=0.0835  Sigma=0.2370  Gamma=0.8759  Lambda=2.6573</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Class Membership (logit) --</span></span>
+<span><span class="co">#&gt;                 Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Cl1_(Intercept) -6.0163e-01  5.0453e-07 -1192457 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Metafrontier Coefficients (qp):</span></span>
+<span><span class="co">#&gt;               Estimate Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -1.3923609  0.0310122 -44.897 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       0.8649986  0.0012419 696.520 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)   0.2909729  0.0047965  60.664 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   0.5028977  0.0069500  72.359 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Efficiency Statistics (group means):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC</span></span>
+<span><span class="co">#&gt; Class_1   202     202     0.68291       0.68291    0.67786      0.67786 0.99326</span></span>
+<span><span class="co">#&gt; Class_2   589     589     0.85142       0.84951    0.84548      0.84359 0.99285</span></span>
+<span><span class="co">#&gt;         MTR_JLMS</span></span>
+<span><span class="co">#&gt; Class_1  0.99326</span></span>
+<span><span class="co">#&gt; Class_2  0.99285</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Overall:</span></span>
+<span><span class="co">#&gt; TE_group_BC=0.7672  TE_group_JLMS=0.7662</span></span>
+<span><span class="co">#&gt; TE_meta_BC=0.7617   TE_meta_JLMS=0.7607</span></span>
+<span><span class="co">#&gt; MTR_BC=0.9931     MTR_JLMS=0.9931</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Posterior Class Membership (pooled LCM):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         % assigned Mean post. prob.</span></span>
+<span><span class="co">#&gt; Class 1       25.5            0.354</span></span>
+<span><span class="co">#&gt; Class 2       74.5            0.646</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Total Log-likelihood: 61.35324 </span></span>
+<span><span class="co">#&gt; AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061 </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 13:12</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="method-3-lcm-sfa-huang">Method 3: LCM + SFA (Huang)<a class="anchor" aria-label="anchor" href="#method-3-lcm-sfa-huang"></a>
 </h2>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S           <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
@@ -170,13 +382,171 @@ argument controls the number of classes.</p>
 <span>  metaMethod  <span class="op">=</span> <span class="st">"sfa"</span>,</span>
 <span>  sfaApproach <span class="op">=</span> <span class="st">"huang"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_huang</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
+<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_huang</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
+<span><span class="co">#&gt; Metafrontier method: SFA Metafrontier [Huang et al. (2014), two-stage] </span></span>
+<span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
+<span><span class="co">#&gt; SFA approach       : huang </span></span>
+<span><span class="co">#&gt; Group approach     : Latent Class Stochastic Frontier Analysis </span></span>
+<span><span class="co">#&gt; Group estimator    : sfalcmcross </span></span>
+<span><span class="co">#&gt; Group optim solver : BFGS maximization </span></span>
+<span><span class="co">#&gt;   (Pooled LCM - latent classes used as groups)</span></span>
+<span><span class="co">#&gt; Groups ( 2 ): Class_1, Class_2 </span></span>
+<span><span class="co">#&gt; Total observations : 791 </span></span>
+<span><span class="co">#&gt; Distribution       : hnormal </span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Pooled LCM (2 classes) on all data (N = 791)  Log-likelihood: 61.35324</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 1 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -1.4472e+00  4.0975e-05  -35320 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       8.4541e-01  2.4537e-06  344539 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)   3.5408e-01  4.7006e-06   75327 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   4.2883e-01  1.4333e-05   29919 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -1.7658e+00  5.8803e-08 -30029717 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error     z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -3.8640e+01  3.6587e-13 -1.0561e+14 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.4136  Sigma_v=0.0000  Sigma=0.4136  Gamma=1.0000  Lambda=101648736.5567</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 2 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -2.0490e+00  2.5608e-05 -80011.10 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       1.0079e+00  4.1082e-04   2453.37 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)  -2.5916e-02  6.3375e-05   -408.92 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   8.8450e-01  6.9315e-05  12760.73 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -3.0117e+00  1.1348e-06 -2653955 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -4.9663e+00  5.3865e-07 -9219984 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.2218  Sigma_v=0.0835  Sigma=0.2370  Gamma=0.8759  Lambda=2.6573</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Class Membership (logit) --</span></span>
+<span><span class="co">#&gt;                 Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Cl1_(Intercept) -6.0163e-01  5.0453e-07 -1192457 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Metafrontier Coefficients (sfa):</span></span>
+<span><span class="co">#&gt; Meta-optim solver  : BFGS maximization </span></span>
+<span><span class="co">#&gt;               Estimate Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -2.2495090  0.0686629 -32.7617 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       0.9909917  0.0024687 401.4295 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)   0.0399592  0.0106166   3.7638 0.0001673 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   0.7890982  0.0143800  54.8745 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Meta-frontier model details:</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Normal-Half Normal SF Model </span></span>
+<span><span class="co">#&gt; Dependent Variable:                                          group_fitted_values </span></span>
+<span><span class="co">#&gt; Log likelihood solver:                                         BFGS maximization </span></span>
+<span><span class="co">#&gt; Log likelihood iter:                                                          58 </span></span>
+<span><span class="co">#&gt; Log likelihood value:                                                  759.62958 </span></span>
+<span><span class="co">#&gt; Log likelihood gradient norm:                                        2.06038e-03 </span></span>
+<span><span class="co">#&gt; Estimation based on:                                         N =  791 and K =  6 </span></span>
+<span><span class="co">#&gt; Inf. Cr:                                        AIC  =  -1507.3 AIC/N  =  -1.906 </span></span>
+<span><span class="co">#&gt;                                                 BIC  =  -1479.2 BIC/N  =  -1.870 </span></span>
+<span><span class="co">#&gt;                                                 HQIC =  -1496.5 HQIC/N =  -1.892 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Variances: Sigma-squared(v)   =                                          0.00068 </span></span>
+<span><span class="co">#&gt;            Sigma(v)           =                                          0.00068 </span></span>
+<span><span class="co">#&gt;            Sigma-squared(u)   =                                          0.02713 </span></span>
+<span><span class="co">#&gt;            Sigma(u)           =                                          0.02713 </span></span>
+<span><span class="co">#&gt; Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.16676 </span></span>
+<span><span class="co">#&gt; Gamma = sigma(u)^2/sigma^2    =                                          0.97554 </span></span>
+<span><span class="co">#&gt; Lambda = sigma(u)/sigma(v)    =                                          6.31586 </span></span>
+<span><span class="co">#&gt; Var[u]/{Var[u]+Var[v]}        =                                          0.93546 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Average inefficiency E[ui]     =                                         0.13141 </span></span>
+<span><span class="co">#&gt; Average efficiency E[exp(-ui)] =                                         0.88105 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
+<span><span class="co">#&gt; -----[ Tests vs. No Inefficiency ]-----</span></span>
+<span><span class="co">#&gt; Likelihood Ratio Test of Inefficiency</span></span>
+<span><span class="co">#&gt; Deg. freedom for inefficiency model                                            1 </span></span>
+<span><span class="co">#&gt; Log Likelihood for OLS Log(H0) =                                       588.59019 </span></span>
+<span><span class="co">#&gt; LR statistic:  </span></span>
+<span><span class="co">#&gt; Chisq = 2*[LogL(H0)-LogL(H1)]  =                                       342.07878 </span></span>
+<span><span class="co">#&gt; Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 </span></span>
+<span><span class="co">#&gt; Coelli (1995) skewness test on OLS residuals</span></span>
+<span><span class="co">#&gt; M3T: z                         =                                        10.23625 </span></span>
+<span><span class="co">#&gt; M3T: p.value                   =                                         0.00000 </span></span>
+<span><span class="co">#&gt; Final maximum likelihood estimates </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                          Deterministic Component of SFA </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept)       -2.24951    0.06866 -32.7617 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; .X2                0.99099    0.00247 401.4295 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; .X3                0.03996    0.01062   3.7638 0.0001673 ***</span></span>
+<span><span class="co">#&gt; .X4                0.78910    0.01438  54.8745 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                   Parameter in variance of u (one-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept)    -3.60721    0.05642 -63.932 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                  Parameters in variance of v (two-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept)    -7.29334    0.12966  -56.25 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 13:12 </span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Efficiency Statistics (group means):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC</span></span>
+<span><span class="co">#&gt; Class_1   202     202     0.68291       0.68291    0.51861      0.51845 0.76693</span></span>
+<span><span class="co">#&gt; Class_2   589     589     0.85142       0.84951    0.80511      0.80308 0.94559</span></span>
+<span><span class="co">#&gt;         MTR_JLMS</span></span>
+<span><span class="co">#&gt; Class_1  0.76669</span></span>
+<span><span class="co">#&gt; Class_2  0.94532</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Overall:</span></span>
+<span><span class="co">#&gt; TE_group_BC=0.7672  TE_group_JLMS=0.7662</span></span>
+<span><span class="co">#&gt; TE_meta_BC=0.6619   TE_meta_JLMS=0.6608</span></span>
+<span><span class="co">#&gt; MTR_BC=0.8563     MTR_JLMS=0.8560</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Posterior Class Membership (pooled LCM):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         % assigned Mean post. prob.</span></span>
+<span><span class="co">#&gt; Class 1       25.5            0.354</span></span>
+<span><span class="co">#&gt; Class 2       74.5            0.646</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Total Log-likelihood: 820.9828 </span></span>
+<span><span class="co">#&gt; AIC: -1603.966   BIC: -1515.173   HQIC: -1569.837 </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 13:12</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="method-4-lcm-sfa-odonnell">Method 4: LCM + SFA (O’Donnell)<a class="anchor" aria-label="anchor" href="#method-4-lcm-sfa-odonnell"></a>
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S           <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
@@ -185,7 +555,170 @@ argument controls the number of classes.</p>
 <span>  metaMethod  <span class="op">=</span> <span class="st">"sfa"</span>,</span>
 <span>  sfaApproach <span class="op">=</span> <span class="st">"ordonnell"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_odonnell</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
+<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_odonnell</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: 761 MTR value(s) &gt; 1 detected in O'Donnell SFA approach. This</span></span>
+<span><span class="co">#&gt; typically occurs when the second-stage SFA estimates near-zero inefficiency</span></span>
+<span><span class="co">#&gt; (sigma_u -&gt; 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group &gt; 1. Consider</span></span>
+<span><span class="co">#&gt; using metaMethod='lp' or sfaApproach='huang' instead.</span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
+<span><span class="co">#&gt; Metafrontier method: SFA Metafrontier [O'Donnell et al. (2008), envelope] </span></span>
+<span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
+<span><span class="co">#&gt; SFA approach       : ordonnell </span></span>
+<span><span class="co">#&gt; Group approach     : Latent Class Stochastic Frontier Analysis </span></span>
+<span><span class="co">#&gt; Group estimator    : sfalcmcross </span></span>
+<span><span class="co">#&gt; Group optim solver : BFGS maximization </span></span>
+<span><span class="co">#&gt;   (Pooled LCM - latent classes used as groups)</span></span>
+<span><span class="co">#&gt; Groups ( 2 ): Class_1, Class_2 </span></span>
+<span><span class="co">#&gt; Total observations : 791 </span></span>
+<span><span class="co">#&gt; Distribution       : hnormal </span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Pooled LCM (2 classes) on all data (N = 791)  Log-likelihood: 61.35324</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 1 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -1.4472e+00  4.0975e-05  -35320 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       8.4541e-01  2.4537e-06  344539 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)   3.5408e-01  4.7006e-06   75327 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   4.2883e-01  1.4333e-05   29919 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -1.7658e+00  5.8803e-08 -30029717 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error     z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -3.8640e+01  3.6587e-13 -1.0561e+14 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.4136  Sigma_v=0.0000  Sigma=0.4136  Gamma=1.0000  Lambda=101648736.5567</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Latent Class 2 --</span></span>
+<span><span class="co">#&gt;   Frontier:</span></span>
+<span><span class="co">#&gt;             Coefficient  Std. Error   z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -2.0490e+00  2.5608e-05 -80011.10 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       1.0079e+00  4.1082e-04   2453.37 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)  -2.5916e-02  6.3375e-05   -408.92 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   8.8450e-01  6.9315e-05  12760.73 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(u):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept) -3.0117e+00  1.1348e-06 -2653955 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Var(v):</span></span>
+<span><span class="co">#&gt;                Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept) -4.9663e+00  5.3865e-07 -9219984 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt;   Sigma_u=0.2218  Sigma_v=0.0835  Sigma=0.2370  Gamma=0.8759  Lambda=2.6573</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   -- Class Membership (logit) --</span></span>
+<span><span class="co">#&gt;                 Coefficient  Std. Error  z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Cl1_(Intercept) -6.0163e-01  5.0453e-07 -1192457 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Metafrontier Coefficients (sfa):</span></span>
+<span><span class="co">#&gt; Meta-optim solver  : BFGS maximization </span></span>
+<span><span class="co">#&gt;                Estimate  Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept) -1.4655e+00  1.4795e-05  -99060 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(y)       8.5052e-01  2.0492e-06  415057 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wl/wf)   3.4196e-01  8.1363e-06   42028 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; log(wk/wf)   4.4325e-01  1.1627e-05   38121 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Meta-frontier model details:</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Normal-Half Normal SF Model </span></span>
+<span><span class="co">#&gt; Dependent Variable:                                                  lp_envelope </span></span>
+<span><span class="co">#&gt; Log likelihood solver:                                         BFGS maximization </span></span>
+<span><span class="co">#&gt; Log likelihood iter:                                                        1703 </span></span>
+<span><span class="co">#&gt; Log likelihood value:                                                 1949.16842 </span></span>
+<span><span class="co">#&gt; Log likelihood gradient norm:                                        6.64643e+02 </span></span>
+<span><span class="co">#&gt; Estimation based on:                                         N =  791 and K =  6 </span></span>
+<span><span class="co">#&gt; Inf. Cr:                                        AIC  =  -3886.3 AIC/N  =  -4.913 </span></span>
+<span><span class="co">#&gt;                                                 BIC  =  -3858.3 BIC/N  =  -4.878 </span></span>
+<span><span class="co">#&gt;                                                 HQIC =  -3875.6 HQIC/N =  -4.900 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Variances: Sigma-squared(v)   =                                          0.00000 </span></span>
+<span><span class="co">#&gt;            Sigma(v)           =                                          0.00000 </span></span>
+<span><span class="co">#&gt;            Sigma-squared(u)   =                                          0.00170 </span></span>
+<span><span class="co">#&gt;            Sigma(u)           =                                          0.00170 </span></span>
+<span><span class="co">#&gt; Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.04117 </span></span>
+<span><span class="co">#&gt; Gamma = sigma(u)^2/sigma^2    =                                          1.00000 </span></span>
+<span><span class="co">#&gt; Lambda = sigma(u)/sigma(v)    =                                    4078429.86815 </span></span>
+<span><span class="co">#&gt; Var[u]/{Var[u]+Var[v]}        =                                          1.00000 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Average inefficiency E[ui]     =                                         0.03285 </span></span>
+<span><span class="co">#&gt; Average efficiency E[exp(-ui)] =                                         0.96798 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
+<span><span class="co">#&gt; -----[ Tests vs. No Inefficiency ]-----</span></span>
+<span><span class="co">#&gt; Likelihood Ratio Test of Inefficiency</span></span>
+<span><span class="co">#&gt; Deg. freedom for inefficiency model                                            1 </span></span>
+<span><span class="co">#&gt; Log Likelihood for OLS Log(H0) =                                      1595.36072 </span></span>
+<span><span class="co">#&gt; LR statistic:  </span></span>
+<span><span class="co">#&gt; Chisq = 2*[LogL(H0)-LogL(H1)]  =                                       707.61541 </span></span>
+<span><span class="co">#&gt; Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 </span></span>
+<span><span class="co">#&gt; Coelli (1995) skewness test on OLS residuals</span></span>
+<span><span class="co">#&gt; M3T: z                         =                                        30.29501 </span></span>
+<span><span class="co">#&gt; M3T: p.value                   =                                         0.00000 </span></span>
+<span><span class="co">#&gt; Final maximum likelihood estimates </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                          Deterministic Component of SFA </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept)       -1.46554    0.00001  -99060 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; .X2                0.85052    0.00000  415057 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; .X3                0.34196    0.00001   42028 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; .X4                0.44325    0.00001   38121 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                   Parameter in variance of u (one-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error     z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept)       -6.38       0.00 -7.3289e+13 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                  Parameters in variance of v (two-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error     z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept)     -36.822      0.000 -4.5151e+13 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 13:12 </span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Efficiency Statistics (group means):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC</span></span>
+<span><span class="co">#&gt; Class_1   202     202     0.68291       0.68291    0.98665      0.98665 1.53705</span></span>
+<span><span class="co">#&gt; Class_2   589     589     0.85142       0.84951    0.98091      0.98091 1.16150</span></span>
+<span><span class="co">#&gt;         MTR_JLMS</span></span>
+<span><span class="co">#&gt; Class_1  1.53705</span></span>
+<span><span class="co">#&gt; Class_2  1.16424</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Overall:</span></span>
+<span><span class="co">#&gt; TE_group_BC=0.7672  TE_group_JLMS=0.7662</span></span>
+<span><span class="co">#&gt; TE_meta_BC=0.9838   TE_meta_JLMS=0.9838</span></span>
+<span><span class="co">#&gt; MTR_BC=1.3493     MTR_JLMS=1.3506</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Posterior Class Membership (pooled LCM):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;         % assigned Mean post. prob.</span></span>
+<span><span class="co">#&gt; Class 1       25.5            0.354</span></span>
+<span><span class="co">#&gt; Class 2       74.5            0.646</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Total Log-likelihood: 2010.522 </span></span>
+<span><span class="co">#&gt; AIC: -3983.043   BIC: -3894.251   HQIC: -3948.915 </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 13:12</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="choosing-the-number-of-classes">Choosing the Number of Classes<a class="anchor" aria-label="anchor" href="#choosing-the-number-of-classes"></a>
@@ -194,19 +727,29 @@ argument controls the number of classes.</p>
 guided by economic theory and information criteria. You can compare
 models with different numbers of classes:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>, S <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfalcmcross"</span>, lcmClasses <span class="op">=</span> <span class="fl">2</span>, metaMethod <span class="op">=</span> <span class="st">"lp"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">meta_lcm_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
+<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="va">meta_lcm_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>, S <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfalcmcross"</span>, lcmClasses <span class="op">=</span> <span class="fl">3</span>, metaMethod <span class="op">=</span> <span class="st">"lp"</span></span>
 <span><span class="op">)</span></span>
+<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 3 Classes Estimation...</span></span>
+<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
 <span><span class="co"># Compare information criteria</span></span>
 <span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lcm_2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lcm_3</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt;         AIC       BIC      HQIC</span></span>
+<span><span class="co">#&gt; 1 -96.70649 -35.95362 -73.35552</span></span>
+<span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lcm_3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;         AIC       BIC     HQIC</span></span>
+<span><span class="co">#&gt; 1 -116.4994 -23.03341 -80.5748</span></span></code></pre></div>
 <p>Prefer the model with the lower AIC/BIC.</p>
 </div>
 <div class="section level2">
@@ -218,6 +761,41 @@ robustness checks or classification:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eff_lcm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff_lcm</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
+<span><span class="co">#&gt; 1  1       2 0.15842767     0.8534847   0.8557685               1.174838</span></span>
+<span><span class="co">#&gt; 2  2       2 0.11418786     0.8920904   0.8939941               1.123406</span></span>
+<span><span class="co">#&gt; 3  3       2 0.08540301     0.9181422   0.9196135               1.090950</span></span>
+<span><span class="co">#&gt; 4  4       2 0.08020650     0.9229257   0.9243035               1.085176</span></span>
+<span><span class="co">#&gt; 5  5       2 0.05774143     0.9438940   0.9448244               1.060519</span></span>
+<span><span class="co">#&gt; 6  6       2 0.08181804     0.9214396   0.9228469               1.086964</span></span>
+<span><span class="co">#&gt;   PosteriorProb_c PosteriorProb_c1 PriorProb_c1       u_c1   teBC_c1</span></span>
+<span><span class="co">#&gt; 1       0.7249993        0.2750007    0.3539713 0.19428008 0.8234272</span></span>
+<span><span class="co">#&gt; 2       0.7334018        0.2665982    0.3539713 0.16086081 0.8514106</span></span>
+<span><span class="co">#&gt; 3       0.7039783        0.2960217    0.3539713 0.10301513 0.9021133</span></span>
+<span><span class="co">#&gt; 4       0.6909122        0.3090878    0.3539713 0.07745685 0.9254670</span></span>
+<span><span class="co">#&gt; 5       0.5808759        0.4191241    0.3539713 0.05410185 0.9473356</span></span>
+<span><span class="co">#&gt; 6       0.6927820        0.3072180    0.3539713 0.05781993 0.9438199</span></span>
+<span><span class="co">#&gt;   teBC_reciprocal_c1 PosteriorProb_c2 PriorProb_c2       u_c2   teBC_c2</span></span>
+<span><span class="co">#&gt; 1           1.214436        0.7249993    0.6460287 0.15842767 0.8557685</span></span>
+<span><span class="co">#&gt; 2           1.174521        0.7334018    0.6460287 0.11418786 0.8939941</span></span>
+<span><span class="co">#&gt; 3           1.108508        0.7039783    0.6460287 0.08540301 0.9196135</span></span>
+<span><span class="co">#&gt; 4           1.080536        0.6909122    0.6460287 0.08020650 0.9243035</span></span>
+<span><span class="co">#&gt; 5           1.055592        0.5808759    0.6460287 0.05774143 0.9448244</span></span>
+<span><span class="co">#&gt; 6           1.059524        0.6927820    0.6460287 0.08181804 0.9228469</span></span>
+<span><span class="co">#&gt;   teBC_reciprocal_c2 ineff_c1   ineff_c2 effBC_c1  effBC_c2 ReffBC_c1 ReffBC_c2</span></span>
+<span><span class="co">#&gt; 1           1.174838       NA 0.15842767       NA 0.8557685        NA  1.174838</span></span>
+<span><span class="co">#&gt; 2           1.123406       NA 0.11418786       NA 0.8939941        NA  1.123406</span></span>
+<span><span class="co">#&gt; 3           1.090950       NA 0.08540301       NA 0.9196135        NA  1.090950</span></span>
+<span><span class="co">#&gt; 4           1.085176       NA 0.08020650       NA 0.9243035        NA  1.085176</span></span>
+<span><span class="co">#&gt; 5           1.060519       NA 0.05774143       NA 0.9448244        NA  1.060519</span></span>
+<span><span class="co">#&gt; 6           1.086964       NA 0.08181804       NA 0.9228469        NA  1.086964</span></span>
+<span><span class="co">#&gt;       u_meta TE_meta_JLMS TE_meta_BC MTR_JLMS MTR_BC</span></span>
+<span><span class="co">#&gt; 1 0.15842767    0.8534847  0.8557685        1      1</span></span>
+<span><span class="co">#&gt; 2 0.11418786    0.8920904  0.8939941        1      1</span></span>
+<span><span class="co">#&gt; 3 0.08540301    0.9181422  0.9196135        1      1</span></span>
+<span><span class="co">#&gt; 4 0.08020650    0.9229257  0.9243035        1      1</span></span>
+<span><span class="co">#&gt; 5 0.05774143    0.9438940  0.9448244        1      1</span></span>
+<span><span class="co">#&gt; 6 0.08181804    0.9214396  0.9228469        1      1</span></span>
 <span></span>
 <span><span class="co"># Key LCM-specific columns:</span></span>
 <span><span class="co"># Group_c          — most likely class assignment</span></span>
@@ -229,7 +807,10 @@ robustness checks or classification:</p>
 </h3>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Proportion assigned to each class and mean posterior probability</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">eff_lcm</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">Group_c</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">eff_lcm</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>   <span class="co"># % in each class</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">eff_lcm</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">Group_c</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">eff_lcm</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>   <span class="co"># % in each class</span></span>
+<span><span class="co">#&gt; Group_c</span></span>
+<span><span class="co">#&gt;        1        2 </span></span>
+<span><span class="co">#&gt; 25.53729 74.46271</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">

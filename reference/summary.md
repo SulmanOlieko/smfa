@@ -2,15 +2,15 @@
 
 Create and print summary results for stochastic metafrontier models
 returned by
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 ## Usage
 
 ``` r
-# S3 method for class 'sfametafrontier'
+# S3 method for class 'smfa'
 summary(object, ...)
 
-# S3 method for class 'summary.sfametafrontier'
+# S3 method for class 'summary.smfa'
 print(x, digits = max(3, getOption("digits") - 2), ...)
 ```
 
@@ -18,8 +18,8 @@ print(x, digits = max(3, getOption("digits") - 2), ...)
 
 - object:
 
-  An object of class `'sfametafrontier'` returned by the function
-  [`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+  An object of class `'smfa'` returned by the function
+  [`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 - ...:
 
@@ -27,7 +27,7 @@ print(x, digits = max(3, getOption("digits") - 2), ...)
 
 - x:
 
-  An object of class `'summary.sfametafrontier'`.
+  An object of class `'summary.smfa'`.
 
 - digits:
 
@@ -35,10 +35,10 @@ print(x, digits = max(3, getOption("digits") - 2), ...)
 
 ## Value
 
-The `summary` method returns a list of class `'summary.sfametafrontier'`
-that contains the same elements as an object returned by
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md)
-with the following additional elements:
+The `summary` method returns a list of class `'summary.smfa'` that
+contains the same elements as an object returned by
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md) with the
+following additional elements:
 
 - AIC:
 
@@ -68,6 +68,6 @@ with the following additional elements:
 
 ## See also
 
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md),
-for the stochastic metafrontier analysis model fitting function for
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md), for the
+stochastic metafrontier analysis model fitting function for
 cross-sectional or pooled data.

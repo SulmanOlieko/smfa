@@ -1,9 +1,9 @@
 # Compute efficiency estimates and metatechnology ratios from stochastic metafrontier models
 
 `efficiencies` returns all efficiency estimates and metatechnology ratio
-(MTR) measures for objects of class `"sfametafrontier"` returned by
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
-The function supports models estimated via linear programming (LP),
+(MTR) measures for objects of class `"smfa"` returned by
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md). The
+function supports models estimated via linear programming (LP),
 quadratic programming (QP), and stochastic second-stage SFA (`"sfa"`),
 and for each observation it computes the group-specific technical
 efficiency, the metafrontier technical efficiency, and the
@@ -14,7 +14,7 @@ Additional model-specific columns are returned depending on `groupType`.
 ## Usage
 
 ``` r
-# S3 method for class 'sfametafrontier'
+# S3 method for class 'smfa'
 efficiencies(object, level = 0.95, newData = NULL, ...)
 ```
 
@@ -22,8 +22,8 @@ efficiencies(object, level = 0.95, newData = NULL, ...)
 
 - object:
 
-  An object of class `"sfametafrontier"` returned by
-  [`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+  An object of class `"smfa"` returned by
+  [`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 - level:
 
@@ -55,10 +55,10 @@ containing the following columns. The exact set of columns depends on
 
   Observation identifier. Contains the row name of each observation as
   it appeared in the data supplied to
-  [`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
-  When the data frame has no explicit row names, sequential integers
-  (`"1"`, `"2"`, ...) are used. This column is always the first column
-  of the returned data frame.
+  [`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md). When
+  the data frame has no explicit row names, sequential integers (`"1"`,
+  `"2"`, ...) are used. This column is always the first column of the
+  returned data frame.
 
 - `<group>` or `Group_c`:
 
@@ -224,8 +224,8 @@ containing the following columns. The exact set of columns depends on
 For each group, the group-level frontier model is estimated by
 maximising the log-likelihood using the distribution specified by
 `udist` in
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
-Given the estimated composite error \\\varepsilon_i = v_i - Su_i\\, the
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md). Given
+the estimated composite error \\\varepsilon_i = v_i - Su_i\\, the
 conditional distribution of \\u_i \mid \varepsilon_i\\ is used to
 compute:
 
@@ -318,8 +318,8 @@ Frontier Analysis using R. R package version 1.0.1.
 
 ## See also
 
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md),
-for the stochastic metafrontier analysis model fitting function using
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md), for the
+stochastic metafrontier analysis model fitting function using
 cross-sectional or pooled data;
 [`efficiencies`](https://rdrr.io/pkg/sfaR/man/efficiencies.html), for
 the underlying group-level efficiency extractor.

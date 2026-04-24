@@ -2,12 +2,12 @@
 
 `logLik` extracts the log-likelihood value(s) from stochastic
 metafrontier models estimated with
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 ## Usage
 
 ``` r
-# S3 method for class 'sfametafrontier'
+# S3 method for class 'smfa'
 logLik(object, individual = FALSE, ...)
 ```
 
@@ -16,7 +16,7 @@ logLik(object, individual = FALSE, ...)
 - object:
 
   A stochastic metafrontier model returned by
-  [`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+  [`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 - individual:
 
@@ -40,6 +40,6 @@ observations (`Nobs`) and the number of free parameters (`df`), when
 
 ## See also
 
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md),
-for the stochastic metafrontier analysis model fitting function using
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md), for the
+stochastic metafrontier analysis model fitting function using
 cross-sectional or pooled data.
