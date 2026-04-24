@@ -14,7 +14,7 @@ Owili SO. (2026). smfa: Stochastic and Deterministic Metafrontier
 Analysis. R package version 1.0.0.
 
     @Manual{,
-      title = {smfa: Stochastic and Deterministic Metafrontier Analysis.},
+      title = {smfa: Stochastic Metafrontier Analysis.},
       author = {Sulman Olieko Owili},
       year = {2026},
       note = {R package version 1.0.0},

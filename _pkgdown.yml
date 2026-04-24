@@ -23,7 +23,7 @@ template:
   css: ["pkgdown/extra.css"]
 
 home:
-  title: "smfa — Stochastic and Deterministic Metafrontier Analysis"
+  title: "smfa — Stochastic Metafrontier Analysis"
   description: >
     Implements metafrontier analyses for productivity and performance
     benchmarking across firms operating under different technologies. Contains

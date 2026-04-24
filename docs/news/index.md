@@ -5,7 +5,7 @@
 ### Initial CRAN release
 
 - First public release of `smfa`.
-- Implements stochastic and deterministic metafrontier analysis for
+- Implements stochastic metafrontier analysis for
   productivity and performance benchmarking across firms operating under
   different technologies.
 - Supports three group-frontier types via ‘sfaR’:

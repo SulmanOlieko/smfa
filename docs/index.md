@@ -1,4 +1,4 @@
-# smfa: Stochastic and Deterministic Metafrontier Analysis
+# smfa: Stochastic Metafrontier Analysis
 
 ![smfa logo](reference/figures/logo.png)
 
@@ -8,7 +8,7 @@
 [![](https://img.shields.io/badge/license-GPL-blue)](https://github.com/SulmanOlieko/smfa)
 [![](https://img.shields.io/github/languages/code-size/SulmanOlieko/smfa.svg)](https://github.com/SulmanOlieko/smfa)
 
-> **Stochastic and Deterministic Metafrontier Analysis**
+> **Stochastic Metafrontier Analysis**
 
 An R package for implementing various deterministic and stochastic
 metafrontier analyses for efficiency and performance benchmarking,

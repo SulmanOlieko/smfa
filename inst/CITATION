@@ -5,7 +5,7 @@ citHeader("To cite the 'smfa' package in publications please use:")
 
 bibentry(
    bibtype = "Manual",
-   title = "smfa: Stochastic and Deterministic Metafrontier Analysis.",
+   title = "smfa: Stochastic Metafrontier Analysis.",
    author = c(person("Sulman Olieko", "Owili",
               comment = c(ORCID = "0000-0001-7401-5326"))),
    year = year,
@@ -14,7 +14,7 @@ bibentry(
    textVersion = paste(
       "Owili SO. (",
       year,
-      "). smfa: Stochastic and Deterministic Metafrontier Analysis. ",
+      "). smfa: Stochastic Metafrontier Analysis. ",
       vers,
       ".",
       sep = ""
