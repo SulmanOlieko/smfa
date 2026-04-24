@@ -2,14 +2,14 @@
 % Please edit documentation in R/vcov.R
 \name{vcov}
 \alias{vcov}
-\alias{vcov.sfametafrontier}
+\alias{vcov.smfa}
 \title{Compute variance-covariance matrix of stochastic metafrontier models}
 \usage{
-\method{vcov}{sfametafrontier}(object, ...)
+\method{vcov}{smfa}(object, ...)
 }
 \arguments{
 \item{object}{A stochastic metafrontier model returned
-by \code{\link{sfametafrontier}}.}
+by \code{\link{smfa}}.}
 
 \item{...}{Currently ignored}
 }
@@ -20,7 +20,7 @@ coefficients is returned.
 \description{
 \code{\link{vcov}} computes the variance-covariance matrix of the maximum
 likelihood (ML) coefficients from stochastic metafrontier models estimated with
-\code{\link{sfametafrontier}}.
+\code{\link{smfa}}.
 }
 \details{
 The variance-covariance matrix is obtained by the inversion of the
@@ -29,7 +29,7 @@ negative Hessian matrix. Depending on the distribution and the
 Hessian is evaluated.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function using cross-sectional or pooled data.
 }
 \keyword{methods}

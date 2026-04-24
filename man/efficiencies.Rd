@@ -2,14 +2,14 @@
 % Please edit documentation in R/efficiencies.R
 \name{efficiencies}
 \alias{efficiencies}
-\alias{efficiencies.sfametafrontier}
+\alias{efficiencies.smfa}
 \title{Compute efficiency estimates and metatechnology ratios from stochastic metafrontier models}
 \usage{
-\method{efficiencies}{sfametafrontier}(object, level = 0.95, newData = NULL, ...)
+\method{efficiencies}{smfa}(object, level = 0.95, newData = NULL, ...)
 }
 \arguments{
-\item{object}{An object of class \code{"sfametafrontier"} returned by
-\code{\link{sfametafrontier}}.}
+\item{object}{An object of class \code{"smfa"} returned by
+\code{\link{smfa}}.}
 
 \item{level}{A number strictly between 0 and 0.9999 specifying the nominal
 coverage for (in-)efficiency confidence intervals. Default \code{0.95}.
@@ -32,7 +32,7 @@ containing the following columns. The exact set of columns depends on
 \describe{
 \item{\code{id}}{
 Observation identifier. Contains the row name of each observation as
-it appeared in the data supplied to \code{\link{sfametafrontier}}.
+it appeared in the data supplied to \code{\link{smfa}}.
 When the data frame has no explicit row names, sequential integers
 (\code{"1"}, \code{"2"}, \ldots) are used. This column is always the
 first column of the returned data frame.}
@@ -158,8 +158,8 @@ assigned class; \code{NA} for non-assigned classes.}
 }
 \description{
 \code{efficiencies} returns all efficiency estimates and metatechnology ratio
-(MTR) measures for objects of class \code{"sfametafrontier"} returned by
-\code{\link{sfametafrontier}}. The function supports models estimated via
+(MTR) measures for objects of class \code{"smfa"} returned by
+\code{\link{smfa}}. The function supports models estimated via
 linear programming (LP), quadratic programming (QP), and stochastic
 second-stage SFA (\code{"sfa"}), and for each observation it computes the
 group-specific technical efficiency, the metafrontier technical efficiency,
@@ -171,7 +171,7 @@ Additional model-specific columns are returned depending on \code{groupType}.
 \subsection{Group-specific efficiency estimates}{
 For each group, the group-level frontier model is estimated by maximising
 the log-likelihood using the distribution specified by \code{udist} in
-\code{\link{sfametafrontier}}. Given the estimated composite error
+\code{\link{smfa}}. Given the estimated composite error
 \eqn{\varepsilon_i = v_i - Su_i}, the conditional distribution of
 \eqn{u_i \mid \varepsilon_i} is used to compute:
 \itemize{
@@ -261,7 +261,7 @@ Analysis using R. R package version 1.0.1.
 \url{https://CRAN.R-project.org/package=sfaR}
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier
+\code{\link{smfa}}, for the stochastic metafrontier
 analysis model fitting function using cross-sectional or pooled data;
 \code{\link[sfaR]{efficiencies}}, for the underlying group-level efficiency
 extractor.

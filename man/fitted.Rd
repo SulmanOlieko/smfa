@@ -2,14 +2,14 @@
 % Please edit documentation in R/fitted.R
 \name{fitted}
 \alias{fitted}
-\alias{fitted.sfametafrontier}
+\alias{fitted.smfa}
 \title{Extract fitted values of stochastic metafrontier models}
 \usage{
-\method{fitted}{sfametafrontier}(object, ...)
+\method{fitted}{smfa}(object, ...)
 }
 \arguments{
 \item{object}{A stochastic metafrontier model returned
-by \code{\link{sfametafrontier}}.}
+by \code{\link{smfa}}.}
 
 \item{...}{Currently ignored.}
 }
@@ -18,14 +18,14 @@ A vector of fitted values is returned.
 }
 \description{
 \code{\link{fitted}} returns the fitted frontier values from stochastic
-metafrontier models estimated with \code{\link{sfametafrontier}}.
+metafrontier models estimated with \code{\link{smfa}}.
 }
 \note{
 The fitted values are ordered in the same way as the corresponding
 observations in the dataset used for the estimation.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function using cross-sectional or pooled data.
 }
 \keyword{fitted}

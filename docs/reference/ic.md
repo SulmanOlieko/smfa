@@ -2,13 +2,13 @@
 
 `ic` returns information criterion from stochastic metafrontier models
 estimated with
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 ## Usage
 
 ``` r
-# S3 method for class 'sfametafrontier'
-ic(object, IC = "AIC", ...)
+# S3 method for class 'smfa'
+ic(object, IC = NULL, ...)
 ```
 
 ## Arguments
@@ -16,7 +16,7 @@ ic(object, IC = "AIC", ...)
 - object:
 
   A stochastic metafrontier model returned by
-  [`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md).
+  [`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md).
 
 - IC:
 
@@ -37,8 +37,10 @@ ic(object, IC = "AIC", ...)
 
 ## Value
 
-`ic` returns the value of the information criterion (AIC, BIC or HQIC)
-of the maximum likelihood coefficients.
+`ic` returns a data frame with the values of the information criteria
+(AIC, BIC and HQIC) of the maximum likelihood coefficients. If the `IC`
+argument is provided, it returns only the requested criterion as a
+numeric value.
 
 ## Details
 
@@ -55,6 +57,6 @@ parameters estimated and \\N\\ the number of observations.
 
 ## See also
 
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md),
-for the stochastic metafrontier analysis model fitting function using
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md), for the
+stochastic metafrontier analysis model fitting function using
 cross-sectional or pooled data.

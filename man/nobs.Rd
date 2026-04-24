@@ -2,13 +2,13 @@
 % Please edit documentation in R/nobs.R
 \name{nobs}
 \alias{nobs}
-\alias{nobs.sfametafrontier}
+\alias{nobs.smfa}
 \title{Extract total number of observations used in frontier models}
 \usage{
-\method{nobs}{sfametafrontier}(object, ...)
+\method{nobs}{smfa}(object, ...)
 }
 \arguments{
-\item{object}{a \code{sfametafrontier}
+\item{object}{a \code{smfa}
 object for which the number of total observations is to be extracted.}
 
 \item{\dots}{Currently ignored.}
@@ -25,7 +25,7 @@ fitted point frontier model.
 used by the estimation procedure.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function using cross-sectional or pooled data
 }
 \keyword{attribute}

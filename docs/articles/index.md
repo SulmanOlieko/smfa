@@ -3,12 +3,12 @@
 ### All vignettes
 
 - [Extracting Efficiencies and
-  MTRs](https://SulmanOlieko.github.io/metafrontieR/articles/efficiency-extraction.md):
+  MTRs](https://SulmanOlieko.github.io/smfa/articles/efficiency-extraction.md):
 - [Getting Started with
-  metafrontieR](https://SulmanOlieko.github.io/metafrontieR/articles/getting-started.md):
+  smfa](https://SulmanOlieko.github.io/smfa/articles/getting-started.md):
 - [Standard SFA Metafrontier (groupType =
-  "sfacross")](https://SulmanOlieko.github.io/metafrontieR/articles/sfacross-metafrontier.md):
+  "sfacross")](https://SulmanOlieko.github.io/smfa/articles/sfacross-metafrontier.md):
 - [Latent Class SFA Metafrontier (groupType =
-  "sfalcmcross")](https://SulmanOlieko.github.io/metafrontieR/articles/sfalcmcross-metafrontier.md):
+  "sfalcmcross")](https://SulmanOlieko.github.io/smfa/articles/sfalcmcross-metafrontier.md):
 - [Sample Selection SFA Metafrontier (groupType =
-  "sfaselectioncross")](https://SulmanOlieko.github.io/metafrontieR/articles/sfaselectioncross-metafrontier.md):
+  "sfaselectioncross")](https://SulmanOlieko.github.io/smfa/articles/sfaselectioncross-metafrontier.md):

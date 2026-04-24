@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "#>",
-  eval      = FALSE
+  eval      = TRUE
 )
 ```
 
@@ -37,7 +37,7 @@ We use the `utility` dataset from `sfaR`, which contains 791 observations from U
 electricity utilities. We estimate a cost frontier with no explicit group variable.
 
 ```{r data}
-library(metafrontieR)
+library(smfa)
 data("utility", package = "sfaR")
 ```
 
@@ -47,7 +47,7 @@ Fit a 2-class latent class pooled SFA, then estimate the LP deterministic envelo
 the inferred class frontiers.
 
 ```{r lp}
-meta_lcm_lp <- sfametafrontier(
+meta_lcm_lp <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility,
   S          = -1,          # cost frontier (S = -1)
@@ -65,7 +65,7 @@ summary(meta_lcm_lp)
 ## Method 2: LCM + QP Metafrontier
 
 ```{r qp}
-meta_lcm_qp <- sfametafrontier(
+meta_lcm_qp <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility,
   S          = -1,
@@ -79,7 +79,7 @@ summary(meta_lcm_qp)
 ## Method 3: LCM + SFA (Huang)
 
 ```{r huang}
-meta_lcm_huang <- sfametafrontier(
+meta_lcm_huang <- smfa(
   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data        = utility,
   S           = -1,
@@ -94,7 +94,7 @@ summary(meta_lcm_huang)
 ## Method 4: LCM + SFA (O'Donnell)
 
 ```{r odonnell}
-meta_lcm_odonnell <- sfametafrontier(
+meta_lcm_odonnell <- smfa(
   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data        = utility,
   S           = -1,
@@ -112,12 +112,12 @@ The number of latent classes (`lcmClasses`) should be guided by economic theory 
 information criteria. You can compare models with different numbers of classes:
 
 ```{r compare-classes}
-meta_lcm_2 <- sfametafrontier(
+meta_lcm_2 <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility, S = -1,
   groupType  = "sfalcmcross", lcmClasses = 2, metaMethod = "lp"
 )
-meta_lcm_3 <- sfametafrontier(
+meta_lcm_3 <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility, S = -1,
   groupType  = "sfalcmcross", lcmClasses = 3, metaMethod = "lp"

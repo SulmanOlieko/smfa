@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# R functions for the metafrontieR package                                     #
+# R functions for the smfa package                                     #
 #                                                                              #
 ################################################################################
 
@@ -15,8 +15,8 @@
 #'
 #' @description
 #' \code{efficiencies} returns all efficiency estimates and metatechnology ratio
-#' (MTR) measures for objects of class \code{"sfametafrontier"} returned by
-#' \code{\link{sfametafrontier}}. The function supports models estimated via
+#' (MTR) measures for objects of class \code{"smfa"} returned by
+#' \code{\link{smfa}}. The function supports models estimated via
 #' linear programming (LP), quadratic programming (QP), and stochastic
 #' second-stage SFA (\code{"sfa"}), and for each observation it computes the
 #' group-specific technical efficiency, the metafrontier technical efficiency,
@@ -26,8 +26,8 @@
 #'
 #' @name efficiencies
 #'
-#' @param object An object of class \code{"sfametafrontier"} returned by
-#'   \code{\link{sfametafrontier}}.
+#' @param object An object of class \code{"smfa"} returned by
+#'   \code{\link{smfa}}.
 #' @param level A number strictly between 0 and 0.9999 specifying the nominal
 #'   coverage for (in-)efficiency confidence intervals. Default \code{0.95}.
 #'   This argument is passed to the underlying \code{efficiencies} method of the
@@ -46,7 +46,7 @@
 #'   \describe{
 #'     \item{\code{id}}{
 #'       Observation identifier. Contains the row name of each observation as
-#'       it appeared in the data supplied to \code{\link{sfametafrontier}}.
+#'       it appeared in the data supplied to \code{\link{smfa}}.
 #'       When the data frame has no explicit row names, sequential integers
 #'       (\code{"1"}, \code{"2"}, \ldots) are used. This column is always the
 #'       first column of the returned data frame.}
@@ -174,7 +174,7 @@
 #' \subsection{Group-specific efficiency estimates}{
 #'   For each group, the group-level frontier model is estimated by maximising
 #'   the log-likelihood using the distribution specified by \code{udist} in
-#'   \code{\link{sfametafrontier}}. Given the estimated composite error
+#'   \code{\link{smfa}}. Given the estimated composite error
 #'   \eqn{\varepsilon_i = v_i - Su_i}, the conditional distribution of
 #'   \eqn{u_i \mid \varepsilon_i} is used to compute:
 #'   \itemize{
@@ -263,15 +263,15 @@
 #' Analysis using R. R package version 1.0.1.
 #' \url{https://CRAN.R-project.org/package=sfaR}
 #'
-#' @seealso \code{\link{sfametafrontier}}, for the stochastic metafrontier
+#' @seealso \code{\link{smfa}}, for the stochastic metafrontier
 #' analysis model fitting function using cross-sectional or pooled data;
 #' \code{\link[sfaR]{efficiencies}}, for the underlying group-level efficiency
 #' extractor.
 #'
-#' @aliases efficiencies.sfametafrontier
+#' @aliases efficiencies.smfa
 #' @importFrom sfaR efficiencies
 #' @export
-efficiencies.sfametafrontier <- function(
+efficiencies.smfa <- function(
   object,
   level = 0.95,
   newData = NULL,
@@ -282,7 +282,7 @@ efficiencies.sfametafrontier <- function(
   }
   if (!is.null(newData)) {
     warning(
-      "'newData' is not supported for sfametafrontier objects; ignored.",
+      "'newData' is not supported for smfa objects; ignored.",
       call. = FALSE
     )
   }

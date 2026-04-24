@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# R functions for the metafrontieR package                                     #
+# R functions for the smfa package                                     #
 #                                                                              #
 ################################################################################
 
@@ -17,7 +17,7 @@
 #'
 #' \code{\link{vcov}} computes the variance-covariance matrix of the maximum
 #' likelihood (ML) coefficients from stochastic metafrontier models estimated with
-#' \code{\link{sfametafrontier}}.
+#' \code{\link{smfa}}.
 #'
 #' @details The variance-covariance matrix is obtained by the inversion of the
 #' negative Hessian matrix. Depending on the distribution and the
@@ -25,7 +25,7 @@
 #' Hessian is evaluated.
 #'
 #' @param object A stochastic metafrontier model returned
-#' by \code{\link{sfametafrontier}}.
+#' by \code{\link{smfa}}.
 #' @param ... Currently ignored
 #'
 #' @name vcov
@@ -33,17 +33,17 @@
 #' @return The variance-covariance matrix of the maximum likelihood
 #' coefficients is returned.
 #'
-#' @seealso \code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+#' @seealso \code{\link{smfa}}, for the stochastic metafrontier analysis model
 #' fitting function using cross-sectional or pooled data.
 #'
 #' @keywords methods vcov
 #'
-# variance covariance matrix for sfametafrontier ----------
+# variance covariance matrix for smfa ----------
 #' @rdname vcov
-#' @aliases vcov.sfametafrontier
+#' @aliases vcov.smfa
 #' @importFrom stats vcov
 #' @export
-vcov.sfametafrontier <- function(object, ...) {
+vcov.smfa <- function(object, ...) {
   if (!is.null(object$metaFrontierVcov)) {
     return(object$metaFrontierVcov)
   }

@@ -2,14 +2,14 @@
 % Please edit documentation in R/ic.R
 \name{ic}
 \alias{ic}
-\alias{ic.sfametafrontier}
+\alias{ic.smfa}
 \title{Extract information criteria of stochastic metafrontier models}
 \usage{
-\method{ic}{sfametafrontier}(object, IC = "AIC", ...)
+\method{ic}{smfa}(object, IC = NULL, ...)
 }
 \arguments{
 \item{object}{A stochastic metafrontier model returned
-by \code{\link{sfametafrontier}}.}
+by \code{\link{smfa}}.}
 
 \item{IC}{Character string. Information criterion measure. Three criteria
 are available: \itemize{ \item \code{'AIC'} for Akaike information criterion
@@ -19,12 +19,14 @@ are available: \itemize{ \item \code{'AIC'} for Akaike information criterion
 \item{...}{Currently ignored.}
 }
 \value{
-\code{\link{ic}} returns the value of the information criterion
-(AIC, BIC or HQIC) of the maximum likelihood coefficients.
+\code{\link{ic}} returns a data frame with the values of the
+information criteria (AIC, BIC and HQIC) of the maximum likelihood coefficients.
+If the \code{IC} argument is provided, it returns only the requested criterion
+as a numeric value.
 }
 \description{
 \code{\link{ic}} returns information criterion from stochastic
-metafrontier models estimated with \code{\link{sfametafrontier}}.
+metafrontier models estimated with \code{\link{smfa}}.
 }
 \details{
 The different information criteria are computed as follows: \itemize{ \item
@@ -34,7 +36,7 @@ AIC: \eqn{-2 \log{LL} + 2 * K} \item BIC: \eqn{-2 \log{LL} + \log{N} * K}
 estimated and \eqn{N} the number of observations.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function using cross-sectional or pooled data.
 }
 \keyword{AIC}

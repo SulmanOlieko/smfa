@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# R functions for the metafrontieR package                                     #
+# R functions for the smfa package                                     #
 #                                                                              #
 ################################################################################
 
@@ -14,19 +14,19 @@
 #' Summary of results for stochastic metafrontier models
 #'
 #' Create and print summary results for stochastic metafrontier models returned by
-#' \code{\link{sfametafrontier}}.
+#' \code{\link{smfa}}.
 #'
-#' @param object An object of class \code{'sfametafrontier'} returned by the
-#' function \code{\link{sfametafrontier}}.
+#' @param object An object of class \code{'smfa'} returned by the
+#' function \code{\link{smfa}}.
 #' @param ... Currently ignored.
-#' @param x An object of class \code{'summary.sfametafrontier'}.
+#' @param x An object of class \code{'summary.smfa'}.
 #' @param digits Numeric. Number of digits displayed in values.
 #'
 #' @name summary
 #'
 #' @return The \code{\link{summary}} method returns a list of class
-#' \code{'summary.sfametafrontier'}
-#' that contains the same elements as an object returned by \code{\link{sfametafrontier}}
+#' \code{'summary.smfa'}
+#' that contains the same elements as an object returned by \code{\link{smfa}}
 #' with the following additional elements:
 #'
 #' \item{AIC}{Akaike information criterion.}
@@ -43,15 +43,15 @@
 #'
 #' \item{grpSummaries}{A list of summary objects for each group model.}
 #'
-#' @seealso \code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+#' @seealso \code{\link{smfa}}, for the stochastic metafrontier analysis model
 #' fitting function for cross-sectional or pooled data.
 #'
 #' @keywords methods summary
 #'
-#' @aliases summary.sfametafrontier
+#' @aliases summary.smfa
 #' @export
 
-summary.sfametafrontier <- function(object, ...) {
+summary.smfa <- function(object, ...) {
   # Information criteria
   object$AIC <- -2 * object$mlLoglik + 2 * object$nParm
   object$BIC <- -2 * object$mlLoglik + log(object$Nobs) * object$nParm
@@ -194,17 +194,17 @@ summary.sfametafrontier <- function(object, ...) {
   )
 
   object$effStats <- effStats
-  class(object) <- "summary.sfametafrontier"
+  class(object) <- "summary.smfa"
   return(object)
 }
 
 
-# print for summary.sfametafrontier ----------
+# print for summary.smfa ----------
 #' @rdname summary
-#' @aliases print.summary.sfametafrontier
+#' @aliases print.summary.smfa
 #' @importFrom utils capture.output
 #' @export
-print.summary.sfametafrontier <- function(
+print.summary.smfa <- function(
   x,
   digits = max(3, getOption("digits") - 2),
   ...

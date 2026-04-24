@@ -2,28 +2,28 @@
 % Please edit documentation in R/summary.R
 \name{summary}
 \alias{summary}
-\alias{summary.sfametafrontier}
-\alias{print.summary.sfametafrontier}
+\alias{summary.smfa}
+\alias{print.summary.smfa}
 \title{Summary of results for stochastic metafrontier models}
 \usage{
-\method{summary}{sfametafrontier}(object, ...)
+\method{summary}{smfa}(object, ...)
 
-\method{print}{summary.sfametafrontier}(x, digits = max(3, getOption("digits") - 2), ...)
+\method{print}{summary.smfa}(x, digits = max(3, getOption("digits") - 2), ...)
 }
 \arguments{
-\item{object}{An object of class \code{'sfametafrontier'} returned by the
-function \code{\link{sfametafrontier}}.}
+\item{object}{An object of class \code{'smfa'} returned by the
+function \code{\link{smfa}}.}
 
 \item{...}{Currently ignored.}
 
-\item{x}{An object of class \code{'summary.sfametafrontier'}.}
+\item{x}{An object of class \code{'summary.smfa'}.}
 
 \item{digits}{Numeric. Number of digits displayed in values.}
 }
 \value{
 The \code{\link{summary}} method returns a list of class
-\code{'summary.sfametafrontier'}
-that contains the same elements as an object returned by \code{\link{sfametafrontier}}
+\code{'summary.smfa'}
+that contains the same elements as an object returned by \code{\link{smfa}}
 with the following additional elements:
 
 \item{AIC}{Akaike information criterion.}
@@ -42,10 +42,10 @@ class membership probabilities.}
 }
 \description{
 Create and print summary results for stochastic metafrontier models returned by
-\code{\link{sfametafrontier}}.
+\code{\link{smfa}}.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function for cross-sectional or pooled data.
 }
 \keyword{methods}

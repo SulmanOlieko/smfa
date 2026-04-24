@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# R functions for the metafrontieR package                                             #
+# R functions for the smfa package                                             #
 #                                                                              #
 ################################################################################
 
@@ -12,7 +12,7 @@
 #' Stochastic metafrontier estimation
 #'
 #' @description
-#' \code{\link{sfametafrontier}} estimates a stochastic metafrontier model
+#' \code{\link{smfa}} estimates a stochastic metafrontier model
 #' for cross-sectional or pooled data. The function follows the theoretical
 #' frameworks of Battese, Rao, and O'Donnell (2004) and O'Donnell, Rao, and
 #' Battese (2008), and additionally implements the two-stage stochastic approach
@@ -22,7 +22,7 @@
 #' analysis (\code{\link[sfaR]{sfaselectioncross}}), and latent class stochastic
 #' frontier analysis (\code{\link[sfaR]{sfalcmcross}}).
 #'
-#' @aliases sfametafrontier print.sfametafrontier
+#' @aliases smfa print.smfa
 #'
 #' @param formula A symbolic description of the frontier model to be estimated,
 #'   based on the generic function \code{\link[stats]{formula}}. For
@@ -299,7 +299,7 @@
 #'   }
 #'   When \code{NULL} (the package default), each group-level model uses the
 #'   natural default of the corresponding \code{sfaR} function, ensuring that
-#'   standard errors computed by \code{sfametafrontier} are identical to those
+#'   standard errors computed by \code{smfa} are identical to those
 #'   from a standalone \code{sfaR} call on the same group subset.
 #' @param simType Character string. Simulation method for maximum simulated
 #'   likelihood (MSL). Applicable to \code{groupType = "sfacross"} when
@@ -346,13 +346,13 @@
 #'   }
 #'   See \code{\link[maxLik]{maxBHHH}} and \code{\link[maxLik]{maxNR}} for
 #'   details.
-#' @param x An object of class \code{"sfametafrontier"}, as returned by
-#'   \code{sfametafrontier}, for use with the \code{print} method.
+#' @param x An object of class \code{"smfa"}, as returned by
+#'   \code{smfa}, for use with the \code{print} method.
 #' @param ... Additional arguments passed through to the second-stage SFA
 #'   call when \code{metaMethod = "sfa"}.
 #'
-#' @return \code{sfametafrontier} returns an object of class
-#'   \code{"sfametafrontier"}, which is a list containing:
+#' @return \code{smfa} returns an object of class
+#'   \code{"smfa"}, which is a list containing:
 #'   \item{call}{The matched call.}
 #'   \item{groupModels}{A named list of fitted group-level frontier objects,
 #'     one per technology group. Each element is of class \code{"sfacross"},
@@ -567,12 +567,11 @@
 #'
 #' @seealso \code{\link[sfaR]{sfacross}}, \code{\link[sfaR]{sfaselectioncross}},
 #'   \code{\link[sfaR]{sfalcmcross}}, \code{\link{efficiencies}},
-#'   \code{\link{summary.sfametafrontier}}, \code{\link[sfaR]{ic}}
+#'   \code{\link{summary.smfa}}, \code{\link[sfaR]{ic}}
 #'
 #' @keywords models optimize metafrontier
 #'
 #' @examples
-#' \dontrun{
 #' ###########################################################################
 #' ## -------- SECTION 1: Standard SFA Group Frontier ----------------------##
 #' ## Using the rice production dataset (ricephil) from Battese et al.      ##
@@ -588,7 +587,7 @@
 #'
 #' ## 1a. sfacross groups + LP metafrontier
 #' ##     Deterministic envelope via linear programming (Battese et al., 2004).
-#' meta_sfacross_lp <- sfametafrontier(
+#' meta_sfacross_lp <- smfa(
 #'   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 #'   data       = ricephil,
 #'   group      = "group",
@@ -604,7 +603,7 @@
 #'
 #' ## 1b. sfacross groups + QP metafrontier
 #' ##     Deterministic envelope via quadratic programming.
-#' meta_sfacross_qp <- sfametafrontier(
+#' meta_sfacross_qp <- smfa(
 #'   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 #'   data       = ricephil,
 #'   group      = "group",
@@ -615,10 +614,11 @@
 #' )
 #' summary(meta_sfacross_qp)
 #'
+#' \donttest{
 #' ## 1c. sfacross groups + Two-stage SFA metafrontier (Huang et al., 2014)
 #' ##     The group-specific fitted frontier values serve as the dependent
 #' ##     variable in the second-stage SFA, yielding a stochastic technology gap.
-#' meta_sfacross_huang <- sfametafrontier(
+#' meta_sfacross_huang <- smfa(
 #'   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 #'   data        = ricephil,
 #'   group       = "group",
@@ -630,12 +630,13 @@
 #' )
 #' summary(meta_sfacross_huang)
 #' ef_huang <- efficiencies(meta_sfacross_huang)
+#' head(ef_huang)
 #'
 #' ## 1d. sfacross groups + O'Donnell et al. (2008) stochastic metafrontier
 #' ##     The LP deterministic envelope is used as the second-stage dependent
 #' ##     variable: the metafrontier is estimated stochastically around the
 #' ##     envelope.
-#' meta_sfacross_odonnell <- sfametafrontier(
+#' meta_sfacross_odonnell <- smfa(
 #'   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 #'   data        = ricephil,
 #'   group       = "group",
@@ -646,6 +647,7 @@
 #'   sfaApproach = "ordonnell"
 #' )
 #' summary(meta_sfacross_odonnell)
+#' }
 #'
 #' ###########################################################################
 #' ## -------- SECTION 2: Latent Class (LCM) Group Frontier ---------------##
@@ -657,7 +659,7 @@
 #' data("utility", package = "sfaR")
 #'
 #' ## 2a. sfalcmcross (pooled, 2 classes) + LP metafrontier
-#' meta_lcm_lp <- sfametafrontier(
+#' meta_lcm_lp <- smfa(
 #'   formula    = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
 #'   data       = utility,
 #'   S          = -1,
@@ -667,11 +669,11 @@
 #' )
 #' summary(meta_lcm_lp)
 #' ef_lcm_lp <- efficiencies(meta_lcm_lp)
-#' # Per-class posterior probabilities and class-specific efficiencies are
-#' # included alongside group and metafrontier efficiencies.
+#' head(ef_lcm_lp)
 #'
+#' \donttest{
 #' ## 2b. sfalcmcross (pooled, 2 classes) + QP metafrontier
-#' meta_lcm_qp <- sfametafrontier(
+#' meta_lcm_qp <- smfa(
 #'   formula    = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
 #'   data       = utility,
 #'   S          = -1,
@@ -683,7 +685,7 @@
 #'
 #' ## 2c. sfalcmcross (pooled, 2 classes) + Two-stage SFA metafrontier
 #' ##     (Huang et al., 2014)
-#' meta_lcm_huang <- sfametafrontier(
+#' meta_lcm_huang <- smfa(
 #'   formula     = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
 #'   data        = utility,
 #'   S           = -1,
@@ -694,9 +696,10 @@
 #' )
 #' summary(meta_lcm_huang)
 #' ef_lcm_huang <- efficiencies(meta_lcm_huang)
+#' head(ef_lcm_huang)
 #'
 #' ## 2d. sfalcmcross (pooled, 2 classes) + O'Donnell et al. (2008)
-#' meta_lcm_odonnell <- sfametafrontier(
+#' meta_lcm_odonnell <- smfa(
 #'   formula     = log(tc / wf) ~ log(y) + log(wl / wf) + log(wk / wf),
 #'   data        = utility,
 #'   S           = -1,
@@ -706,37 +709,49 @@
 #'   sfaApproach = "ordonnell"
 #' )
 #' summary(meta_lcm_odonnell)
+#' }
 #'
 #' ###########################################################################
 #' ## -------- SECTION 3: Sample Selection SFA Group Frontier -------------##
-#' ## Simulated dataset with a Heckman selection mechanism. Only selected  ##
-#' ## observations (d == 1) participate in the frontier and metafrontier.  ##
-#' ## Efficiency estimates for non-selected observations are NA.           ##
 #' ###########################################################################
+#'
+#' ## 3a. Small toy example for automatic testing (< 5s)
+#' N <- 100
+#' set.seed(12345)
+#' z1 <- rnorm(N); v1 <- rnorm(N); g <- rnorm(N)
+#' ds <- z1 + v1; d <- ifelse(ds > 0, 1, 0)
+#' group <- ifelse(g > 0, 1, 0)
+#' x1 <- rnorm(N); y <- x1 + rnorm(N) - abs(rnorm(N))
+#' dat <- data.frame(y = y, x1 = x1, z1 = z1, d = d, group = group)
+#'
+#' meta_toy <- smfa(
+#'   formula    = y ~ x1,
+#'   selectionF = d ~ z1,
+#'   data       = dat,
+#'   group      = "group",
+#'   groupType  = "sfaselectioncross",
+#'   lType      = "ghermite",
+#'   Nsub       = 10,
+#'   itermax    = 100,
+#'   metaMethod = "lp"
+#' )
+#' summary(meta_toy)
+#'
+#' \donttest{
+#' ## 3b. More complex selection models
+#' ## Simulated dataset with a Heckman selection mechanism.
 #'
 #' N <- 2000
 #' set.seed(12345)
-#' z1 <- rnorm(N)
-#' z2 <- rnorm(N)
-#' v1 <- rnorm(N)
-#' v2 <- rnorm(N)
-#' g <- rnorm(N)
-#' e1 <- v1
-#' e2 <- 0.7071 * (v1 + v2)
-#' ds <- z1 + z2 + e1
-#' d <- ifelse(ds > 0, 1, 0) # binary selection indicator
-#' group <- ifelse(g > 0, 1, 0) # two technology groups (0 and 1)
-#' u <- abs(rnorm(N))
-#' x1 <- rnorm(N)
-#' x2 <- rnorm(N)
+#' z1 <- rnorm(N); z2 <- rnorm(N); v1 <- rnorm(N); v2 <- rnorm(N); g <- rnorm(N)
+#' e1 <- v1; e2 <- 0.7071 * (v1 + v2)
+#' ds <- z1 + z2 + e1; d <- ifelse(ds > 0, 1, 0)
+#' group <- ifelse(g > 0, 1, 0)
+#' u <- abs(rnorm(N)); x1 <- rnorm(N); x2 <- rnorm(N)
 #' y <- x1 + x2 + e2 - u
-#' dat <- as.data.frame(cbind(y = y, x1 = x1, x2 = x2, z1 = z1, z2 = z2, d = d, group = group))
+#' dat <- data.frame(y = y, x1 = x1, x2 = x2, z1 = z1, z2 = z2, d = d, group = group)
 #'
-#' ## 3a. sfaselectioncross + LP metafrontier
-#' ##     Selection bias is corrected via the Greene (2010) two-step probit
-#' ##     approach. The LP envelope envelopes both groups' selected-sample
-#' ##     frontier fitted values.
-#' meta_sel_lp <- sfametafrontier(
+#' meta_sel_lp <- smfa(
 #'   formula    = y ~ x1 + x2,
 #'   selectionF = d ~ z1 + z2,
 #'   data       = dat,
@@ -747,85 +762,17 @@
 #'   modelType  = "greene10",
 #'   lType      = "kronrod",
 #'   Nsub       = 100,
-#'   uBound     = Inf,
-#'   method     = "bfgs",
-#'   itermax    = 2000,
 #'   metaMethod = "lp"
 #' )
 #' summary(meta_sel_lp)
-#' ef_sel_lp <- efficiencies(meta_sel_lp)
-#'
-#' ## 3b. sfaselectioncross + QP metafrontier
-#' meta_sel_qp <- sfametafrontier(
-#'   formula    = y ~ x1 + x2,
-#'   selectionF = d ~ z1 + z2,
-#'   data       = dat,
-#'   group      = "group",
-#'   S          = 1L,
-#'   udist      = "hnormal",
-#'   groupType  = "sfaselectioncross",
-#'   modelType  = "greene10",
-#'   lType      = "kronrod",
-#'   Nsub       = 100,
-#'   uBound     = Inf,
-#'   method     = "bfgs",
-#'   itermax    = 2000,
-#'   metaMethod = "qp"
-#' )
-#' summary(meta_sel_qp)
-#'
-#' ## 3c. sfaselectioncross + Two-stage SFA metafrontier (Huang et al., 2014)
-#' meta_sel_huang <- sfametafrontier(
-#'   formula     = y ~ x1 + x2,
-#'   selectionF  = d ~ z1 + z2,
-#'   data        = dat,
-#'   group       = "group",
-#'   S           = 1L,
-#'   udist       = "hnormal",
-#'   groupType   = "sfaselectioncross",
-#'   modelType   = "greene10",
-#'   lType       = "kronrod",
-#'   Nsub        = 100,
-#'   uBound      = Inf,
-#'   simType     = "halton",
-#'   Nsim        = 300,
-#'   prime       = 2L,
-#'   burn        = 10,
-#'   antithetics = FALSE,
-#'   seed        = 12345,
-#'   method      = "bfgs",
-#'   itermax     = 2000,
-#'   metaMethod  = "sfa",
-#'   sfaApproach = "huang"
-#' )
-#' summary(meta_sel_huang)
-#' ef_sel_huang <- efficiencies(meta_sel_huang)
-#'
-#' ## 3d. sfaselectioncross + O'Donnell et al. (2008) stochastic metafrontier
-#' meta_sel_odonnell <- sfametafrontier(
-#'   formula     = y ~ x1 + x2,
-#'   selectionF  = d ~ z1 + z2,
-#'   data        = dat,
-#'   group       = "group",
-#'   S           = 1L,
-#'   udist       = "hnormal",
-#'   groupType   = "sfaselectioncross",
-#'   modelType   = "greene10",
-#'   lType       = "kronrod",
-#'   Nsub        = 100,
-#'   uBound      = Inf,
-#'   method      = "bfgs",
-#'   itermax     = 2000,
-#'   metaMethod  = "sfa",
-#'   sfaApproach = "ordonnell"
-#' )
-#' summary(meta_sel_odonnell)
 #' }
+
+
 #'
 #' @importFrom sfaR sfacross sfalcmcross sfaselectioncross
 #' @importFrom stats as.formula lm model.frame model.matrix model.response na.pass pnorm printCoefmat setNames terms update
 #' @export
-sfametafrontier <- function(
+smfa <- function(
   formula,
   muhet,
   uhet,
@@ -955,7 +902,7 @@ sfametafrontier <- function(
   # ---- LCM NO-GROUP early path ----
   # Fit a single pooled sfalcmcross; use posterior class assignments as groups.
   if (lcmNoGroup) {
-    return(.sfametafrontier_lcm_nogroup(
+    return(.smfa_lcm_nogroup(
       formula = formula,
       data = data,
       S = S,
@@ -1137,17 +1084,19 @@ sfametafrontier <- function(
   }
 
   # ---------- Step 1: Fit group-specific frontier models ----------
-  cat(
-    "Estimating group-specific stochastic frontiers (",
-    groupType,
-    ") ...\n",
-    sep = ""
-  )
+  if (printInfo) {
+    cat(
+      "Estimating group-specific stochastic frontiers (",
+      groupType,
+      ") ...\n",
+      sep = ""
+    )
+  }
   groupModels <- vector("list", nGroups)
   names(groupModels) <- groupLevels
 
   for (g in groupLevels) {
-    cat("  Group:", g, "\n")
+    if (printInfo) cat("  Group:", g, "\n")
     subData <- data[data[[group]] == g, , drop = FALSE]
     if (nrow(subData) == 0) {
       stop("Group '", g, "' has zero observations", call. = FALSE)
@@ -1177,7 +1126,7 @@ sfametafrontier <- function(
       }
     )
   }
-  cat("Group frontiers estimated.\n")
+  if (printInfo) cat("Group frontiers estimated.\n")
 
   # ---------- Collect full dataset and fitted values ----------
   dataFull <- data
@@ -1308,11 +1257,13 @@ sfametafrontier <- function(
   }
 
   # ---------- Step 2: Estimate metafrontier ----------
-  cat(
-    "Estimating metafrontier using method:",
-    mfauxdist(metaMethod, sfaApproach),
-    "\n"
-  )
+  if (printInfo) {
+    cat(
+      "Estimating metafrontier using method:",
+      mfauxdist(metaMethod, sfaApproach),
+      "\n"
+    )
+  }
 
   metaFrontierParam <- NULL
   metaFrontierVcov <- NULL
@@ -1420,14 +1371,14 @@ sfametafrontier <- function(
   returnObj$dataTable <- dataFull
   returnObj$mlDate <- mlDate
 
-  class(returnObj) <- "sfametafrontier"
+  class(returnObj) <- "smfa"
   return(returnObj)
 }
 
-# print for sfametafrontier ----------
-#' @rdname sfametafrontier
+# print for smfa ----------
+#' @rdname smfa
 #' @export
-print.sfametafrontier <- function(x, ...) {
+print.smfa <- function(x, ...) {
   cat("Call:\n")
   cat(deparse(x$call), "\n\n")
   cat("Stochastic Metafrontier Analysis\n")
@@ -1472,7 +1423,7 @@ print.sfametafrontier <- function(x, ...) {
 # ---------------------------------------------------------------------------
 # Internal helper: pooled LCM metafrontier (no explicit group variable)
 # ---------------------------------------------------------------------------
-.sfametafrontier_lcm_nogroup <- function(
+.smfa_lcm_nogroup <- function(
   formula,
   data,
   S,
@@ -1509,12 +1460,14 @@ print.sfametafrontier <- function(x, ...) {
   }
 
   # ---- Step 1: Fit single pooled sfalcmcross ----
-  cat(
-    "Fitting pooled sfalcmcross (",
-    lcmClasses,
-    " classes) on all data ...\n",
-    sep = ""
-  )
+  if (printInfo) {
+    cat(
+      "Fitting pooled sfalcmcross (",
+      lcmClasses,
+      " classes) on all data ...\n",
+      sep = ""
+    )
+  }
   lcmArgs <- list(
     formula    = formula,
     data       = data,
@@ -1552,7 +1505,7 @@ print.sfametafrontier <- function(x, ...) {
     do.call(sfalcmcross, lcmArgs),
     error = function(e) stop("sfalcmcross failed: ", e$message, call. = FALSE)
   )
-  cat("Pooled LCM estimated.\n")
+  if (printInfo) cat("Pooled LCM estimated.\n")
 
   # ---- Step 2: Extract class assignments and TEs ----
   effLcm <- efficiencies(lcmObj)
@@ -1635,11 +1588,13 @@ print.sfametafrontier <- function(x, ...) {
   }
 
   # ---- Step 5: Estimate metafrontier ----
-  cat(
-    "Estimating metafrontier using method:",
-    mfauxdist(metaMethod, sfaApproach),
-    "\n"
-  )
+  if (printInfo) {
+    cat(
+      "Estimating metafrontier using method:",
+      mfauxdist(metaMethod, sfaApproach),
+      "\n"
+    )
+  }
   metaFrontierParam <- NULL
   metaFrontierVcov <- NULL
   metaSfaObj <- NULL
@@ -1746,6 +1701,6 @@ print.sfametafrontier <- function(x, ...) {
   if (exists("groupFrontierAll")) {
     obj$groupFrontierAll <- groupFrontierAll
   }
-  class(obj) <- "sfametafrontier"
+  class(obj) <- "smfa"
   return(obj)
 }

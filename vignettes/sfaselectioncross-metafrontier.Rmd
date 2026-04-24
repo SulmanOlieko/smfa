@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "#>",
-  eval      = FALSE
+  eval      = TRUE
 )
 ```
 
@@ -42,9 +42,9 @@ The selection model requires:
 We simulate data following the approach in the `sfaR` documentation:
 
 ```{r data}
-library(metafrontieR)
+library(smfa)
 
-N <- 2000; set.seed(12345)
+N <- 500; set.seed(12345)
 z1 <- rnorm(N); z2 <- rnorm(N)
 v1 <- rnorm(N); v2 <- rnorm(N)
 g  <- rnorm(N)
@@ -68,7 +68,7 @@ table(dat$d)
 ## Method 1: sfaselectioncross + LP Metafrontier
 
 ```{r lp}
-meta_sel_lp <- sfametafrontier(
+meta_sel_lp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,      # selection equation: d is the binary indicator
   data       = dat,
@@ -78,7 +78,7 @@ meta_sel_lp <- sfametafrontier(
   groupType  = "sfaselectioncross",
   modelType  = "greene10",        # Greene (2010) two-step ML correction
   lType      = "kronrod",         # integration method for the selection likelihood
-  Nsub       = 100,               # number of sub-intervals for numerical integration
+  Nsub       = 20,               # number of sub-intervals for numerical integration
   uBound     = Inf,
   method     = "bfgs",
   itermax    = 2000,
@@ -95,7 +95,7 @@ summary(meta_sel_lp)
 ## Method 2: sfaselectioncross + QP Metafrontier
 
 ```{r qp}
-meta_sel_qp <- sfametafrontier(
+meta_sel_qp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,
   data       = dat,
@@ -105,7 +105,7 @@ meta_sel_qp <- sfametafrontier(
   groupType  = "sfaselectioncross",
   modelType  = "greene10",
   lType      = "kronrod",
-  Nsub       = 100,
+  Nsub       = 20,
   uBound     = Inf,
   method     = "bfgs",
   itermax    = 2000,
@@ -117,7 +117,7 @@ summary(meta_sel_qp)
 ## Method 3: sfaselectioncross + SFA (Huang)
 
 ```{r huang}
-meta_sel_huang <- sfametafrontier(
+meta_sel_huang <- smfa(
   formula     = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
   data        = dat,
@@ -140,7 +140,7 @@ summary(meta_sel_huang)
 ## Method 4: sfaselectioncross + SFA (O'Donnell)
 
 ```{r odonnell}
-meta_sel_odonnell <- sfametafrontier(
+meta_sel_odonnell <- smfa(
   formula     = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
   data        = dat,

@@ -2,39 +2,39 @@
 % Please edit documentation in R/coef.R
 \name{coef}
 \alias{coef}
-\alias{coef.sfametafrontier}
-\alias{coef.summary.sfametafrontier}
+\alias{coef.smfa}
+\alias{coef.summary.smfa}
 \title{Extract coefficients of stochastic metafrontier models}
 \usage{
-\method{coef}{sfametafrontier}(object, ...)
+\method{coef}{smfa}(object, ...)
 
-\method{coef}{summary.sfametafrontier}(object, ...)
+\method{coef}{summary.smfa}(object, ...)
 }
 \arguments{
-\item{object}{A stochastic metafrontier model returned by \code{\link{sfametafrontier}},
-or an object of class \code{'summary.sfametafrontier'}.}
+\item{object}{A stochastic metafrontier model returned by \code{\link{smfa}},
+or an object of class \code{'summary.smfa'}.}
 
 \item{...}{Currently ignored.}
 }
 \value{
-For objects of class \code{'summary.sfametafrontier'},
+For objects of class \code{'summary.smfa'},
 \code{\link{coef}} returns a matrix with four columns. Namely, the
 estimated coefficients, their standard errors, z-values,
 and (asymptotic) P-values.
 
-For objects of class \code{'sfametafrontier'}, \code{\link{coef}}
+For objects of class \code{'smfa'}, \code{\link{coef}}
 returns a numeric vector of the estimated coefficients.
 }
 \description{
-From an object of class \code{'summary.sfametafrontier'},
+From an object of class \code{'summary.smfa'},
 \code{\link{coef}} extracts the coefficients,
 their standard errors, z-values, and (asymptotic) P-values.
 
-From on object of class \code{'sfametafrontier'}, it extracts
+From on object of class \code{'smfa'}, it extracts
 only the estimated coefficients.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function using cross-sectional or pooled data.
 }
 \keyword{coefficients}

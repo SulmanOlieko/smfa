@@ -6,7 +6,7 @@ point frontier model.
 ## Usage
 
 ``` r
-# S3 method for class 'sfametafrontier'
+# S3 method for class 'smfa'
 nobs(object, ...)
 ```
 
@@ -14,8 +14,8 @@ nobs(object, ...)
 
 - object:
 
-  a `sfametafrontier` object for which the number of total observations
-  is to be extracted.
+  a `smfa` object for which the number of total observations is to be
+  extracted.
 
 - ...:
 
@@ -32,6 +32,6 @@ procedure.
 
 ## See also
 
-[`sfametafrontier`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md),
-for the stochastic metafrontier analysis model fitting function using
+[`smfa`](https://SulmanOlieko.github.io/smfa/reference/smfa.md), for the
+stochastic metafrontier analysis model fitting function using
 cross-sectional or pooled data

@@ -2,18 +2,18 @@
 
 ## Core Function
 
-The main function for fitting all metafrontier models in `metafrontieR`.
+The main function for fitting all metafrontier models in `smfa`.
 
-- [`sfametafrontier()`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md)
-  [`print(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/sfametafrontier.md)
+- [`smfa()`](https://SulmanOlieko.github.io/smfa/reference/smfa.md)
+  [`print(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/smfa.md)
   : Stochastic metafrontier estimation
 
 ## Model Summary
 
 Summarise and print fitted metafrontier model objects.
 
-- [`summary(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/summary.md)
-  [`print(`*`<summary.sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/summary.md)
+- [`summary(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/summary.md)
+  [`print(`*`<summary.smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/summary.md)
   : Summary of results for stochastic metafrontier models
 
 ## Efficiency & MTR Extraction
@@ -21,7 +21,7 @@ Summarise and print fitted metafrontier model objects.
 Extract firm-level efficiencies and metatechnology ratios from fitted
 models.
 
-- [`efficiencies(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/efficiencies.md)
+- [`efficiencies(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/efficiencies.md)
   : Compute efficiency estimates and metatechnology ratios from
   stochastic metafrontier models
 
@@ -29,23 +29,23 @@ models.
 
 Extract estimated parameters and variance-covariance matrices.
 
-- [`coef(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/coef.md)
-  [`coef(`*`<summary.sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/coef.md)
+- [`coef(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/coef.md)
+  [`coef(`*`<summary.smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/coef.md)
   : Extract coefficients of stochastic metafrontier models
-- [`vcov(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/vcov.md)
+- [`vcov(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/vcov.md)
   : Compute variance-covariance matrix of stochastic metafrontier models
 
 ## Model Fit Statistics
 
 Information criteria and model fit diagnostics.
 
-- [`logLik(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/logLik.md)
+- [`logLik(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/logLik.md)
   : Extract log-likelihood value of stochastic metafrontier models
-- [`ic(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/ic.md)
+- [`ic(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/ic.md)
   : Extract information criteria of stochastic metafrontier models
-- [`nobs(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/nobs.md)
+- [`nobs(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/nobs.md)
   : Extract total number of observations used in frontier models
-- [`fitted(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/fitted.md)
+- [`fitted(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/fitted.md)
   : Extract fitted values of stochastic metafrontier models
-- [`residuals(`*`<sfametafrontier>`*`)`](https://SulmanOlieko.github.io/metafrontieR/reference/residuals.md)
+- [`residuals(`*`<smfa>`*`)`](https://SulmanOlieko.github.io/smfa/reference/residuals.md)
   : Extract residuals of stochastic metafrontier models

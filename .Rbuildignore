@@ -4,7 +4,7 @@
 ^LICENSE\.md$
 ^\.DS_Store$
 ^\.git$
-^metafrontieR-manual\.pdf$
+^smfa-manual\.pdf$
 ^.*\.Rcheck$
 ^.*\.tar\.gz$
 ^_pkgdown\.yml$
@@ -12,4 +12,6 @@
 ^docs$
 ^\.nojekyll$
 ^cran-comments\.md$
-^NEWS\.md$
+^CRAN-SUBMISSION$
+^pandoc$
+^pandoc-.*$

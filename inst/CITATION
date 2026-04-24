@@ -1,20 +1,20 @@
 year <- 2026
 vers <- "R package version 1.0.0"
 
-citHeader("To cite the 'metafrontieR' package in publications please use:")
+citHeader("To cite the 'smfa' package in publications please use:")
 
 bibentry(
    bibtype = "Manual",
-   title = "metafrontieR: Stochastic and Deterministic Metafrontier Analysis.",
+   title = "smfa: Stochastic and Deterministic Metafrontier Analysis.",
    author = c(person("Sulman Olieko", "Owili",
               comment = c(ORCID = "0000-0001-7401-5326"))),
    year = year,
    note = vers,
-   url = "https://github.com/SulmanOlieko/metafrontieR",
+   url = "https://github.com/SulmanOlieko/smfa",
    textVersion = paste(
       "Owili SO. (",
       year,
-      "). metafrontieR: Stochastic and Deterministic Metafrontier Analysis. ",
+      "). smfa: Stochastic and Deterministic Metafrontier Analysis. ",
       vers,
       ".",
       sep = ""

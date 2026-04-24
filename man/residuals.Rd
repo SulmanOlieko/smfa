@@ -2,14 +2,14 @@
 % Please edit documentation in R/residuals.R
 \name{residuals}
 \alias{residuals}
-\alias{residuals.sfametafrontier}
+\alias{residuals.smfa}
 \title{Extract residuals of stochastic metafrontier models}
 \usage{
-\method{residuals}{sfametafrontier}(object, ...)
+\method{residuals}{smfa}(object, ...)
 }
 \arguments{
 \item{object}{A stochastic metafrontier model returned
-by \code{\link{sfametafrontier}}.}
+by \code{\link{smfa}}.}
 
 \item{\dots}{Currently ignored.}
 }
@@ -18,14 +18,14 @@ by \code{\link{sfametafrontier}}.}
 }
 \description{
 This function returns the residuals' values from stochastic metafrontier models
-estimated with \code{\link{sfametafrontier}}.
+estimated with \code{\link{smfa}}.
 }
 \note{
 The residuals values are ordered in the same way as the corresponding
 observations in the dataset used for the estimation.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function using cross-sectional or pooled data.
 }
 \keyword{methods}

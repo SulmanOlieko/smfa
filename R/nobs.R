@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# R functions for the metafrontieR package                                     #
+# R functions for the smfa package                                     #
 #                                                                              #
 ################################################################################
 
@@ -23,21 +23,21 @@
 #'
 #' @name nobs
 #'
-#' @param object a `sfametafrontier`
+#' @param object a `smfa`
 #' object for which the number of total observations is to be extracted.
 #' @param \dots Currently ignored.
 #'
 #' @return A single number, normally an integer.
 #'
-#' @seealso \code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+#' @seealso \code{\link{smfa}}, for the stochastic metafrontier analysis model
 #' fitting function using cross-sectional or pooled data
 #' @keywords attribute
 #'
-# Extract number of observations for sfametafrontier ----------
+# Extract number of observations for smfa ----------
 #' @rdname nobs
-#' @aliases nobs.sfametafrontier
+#' @aliases nobs.smfa
 #' @importFrom stats nobs
 #' @export
-nobs.sfametafrontier <- function(object, ...) {
+nobs.smfa <- function(object, ...) {
   return(object$Nobs)
 }

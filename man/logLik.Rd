@@ -2,14 +2,14 @@
 % Please edit documentation in R/logLik.R
 \name{logLik}
 \alias{logLik}
-\alias{logLik.sfametafrontier}
+\alias{logLik.smfa}
 \title{Extract log-likelihood value of stochastic metafrontier models}
 \usage{
-\method{logLik}{sfametafrontier}(object, individual = FALSE, ...)
+\method{logLik}{smfa}(object, individual = FALSE, ...)
 }
 \arguments{
 \item{object}{A stochastic metafrontier model returned
-by \code{\link{sfametafrontier}}.}
+by \code{\link{smfa}}.}
 
 \item{individual}{Logical. If \code{FALSE} (default), the sum of all
 observations' log-likelihood values is returned. If \code{TRUE}, a vector of
@@ -28,10 +28,10 @@ when \code{individual = TRUE}.
 }
 \description{
 \code{\link{logLik}} extracts the log-likelihood value(s) from stochastic
-metafrontier models estimated with \code{\link{sfametafrontier}}.
+metafrontier models estimated with \code{\link{smfa}}.
 }
 \seealso{
-\code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+\code{\link{smfa}}, for the stochastic metafrontier analysis model
 fitting function using cross-sectional or pooled data.
 }
 \keyword{likelihood}

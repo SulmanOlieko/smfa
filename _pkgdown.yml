@@ -1,4 +1,4 @@
-url: https://SulmanOlieko.github.io/metafrontieR/
+url: https://SulmanOlieko.github.io/smfa/
 
 template:
   bootstrap: 5
@@ -23,7 +23,7 @@ template:
   css: ["pkgdown/extra.css"]
 
 home:
-  title: "metafrontieR — Stochastic and Deterministic Metafrontier Analysis"
+  title: "smfa — Stochastic and Deterministic Metafrontier Analysis"
   description: >
     Implements metafrontier analyses for productivity and performance
     benchmarking across firms operating under different technologies. Contains
@@ -34,9 +34,9 @@ home:
     Depends on the 'sfaR' package by Dakpo et al. (2023).
   links:
     - text: Report a bug
-      href: https://github.com/SulmanOlieko/metafrontieR/issues
+      href: https://github.com/SulmanOlieko/smfa/issues
     - text: View on GitHub
-      href: https://github.com/SulmanOlieko/metafrontieR
+      href: https://github.com/SulmanOlieko/smfa
 
 navbar:
   structure:
@@ -65,44 +65,44 @@ navbar:
           href: articles/efficiency-extraction.html
     github:
       icon: fab fa-github
-      href: https://github.com/SulmanOlieko/metafrontieR
+      href: https://github.com/SulmanOlieko/smfa
       aria-label: GitHub
 
 reference:
   - title: "Core Function"
     desc: >
-      The main function for fitting all metafrontier models in `metafrontieR`.
+      The main function for fitting all metafrontier models in `smfa`.
     contents:
-      - sfametafrontier
+      - smfa
 
   - title: "Model Summary"
     desc: >
       Summarise and print fitted metafrontier model objects.
     contents:
-      - summary.sfametafrontier
+      - summary.smfa
 
   - title: "Efficiency & MTR Extraction"
     desc: >
       Extract firm-level efficiencies and metatechnology ratios from fitted models.
     contents:
-      - efficiencies.sfametafrontier
+      - efficiencies.smfa
 
   - title: "Parameter Extraction"
     desc: >
       Extract estimated parameters and variance-covariance matrices.
     contents:
-      - coef.sfametafrontier
-      - vcov.sfametafrontier
+      - coef.smfa
+      - vcov.smfa
 
   - title: "Model Fit Statistics"
     desc: >
       Information criteria and model fit diagnostics.
     contents:
-      - logLik.sfametafrontier
-      - ic.sfametafrontier
-      - nobs.sfametafrontier
-      - fitted.sfametafrontier
-      - residuals.sfametafrontier
+      - logLik.smfa
+      - ic.smfa
+      - nobs.smfa
+      - fitted.smfa
+      - residuals.smfa
 
 footer:
   structure:

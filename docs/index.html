@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>metafrontieR — Stochastic and Deterministic Metafrontier Analysis • metafrontieR</title>
+<title>smfa — Stochastic and Deterministic Metafrontier Analysis • smfa</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -18,12 +18,12 @@
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
-<meta property="og:title" content="metafrontieR — Stochastic and Deterministic Metafrontier Analysis">
+<meta property="og:title" content="smfa — Stochastic and Deterministic Metafrontier Analysis">
 <meta name="description" content="Implements metafrontier analyses for productivity and performance benchmarking across firms operating under different technologies. Contains routines for the deterministic metafrontier envelope of O'Donnell et al. (2008) via linear and quadratic programming, and the stochastic metafrontier of Huang et al. (2014). Also supports latent class stochastic metafrontier analysis and sample selection correction stochastic metafrontier models. Depends on the 'sfaR' package by Dakpo et al. (2023).
 ">
 <meta property="og:description" content="Implements metafrontier analyses for productivity and performance benchmarking across firms operating under different technologies. Contains routines for the deterministic metafrontier envelope of O'Donnell et al. (2008) via linear and quadratic programming, and the stochastic metafrontier of Huang et al. (2014). Also supports latent class stochastic metafrontier analysis and sample selection correction stochastic metafrontier models. Depends on the 'sfaR' package by Dakpo et al. (2023).
 ">
-<meta property="og:image" content="https://SulmanOlieko.github.io/metafrontieR/logo.png">
+<meta property="og:image" content="https://SulmanOlieko.github.io/smfa/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
@@ -32,7 +32,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="index.html">metafrontieR</a>
+    <a class="navbar-brand me-2" href="index.html">smfa</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
@@ -73,7 +73,7 @@
     <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
   </ul>
 </li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/SulmanOlieko/metafrontieR" aria-label="GitHub"><span class="fa fab fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/SulmanOlieko/smfa" aria-label="GitHub"><span class="fa fab fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -83,16 +83,16 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="metafrontier-stochastic-and-deterministic-metafrontier-analysis">metafrontieR: Stochastic and Deterministic Metafrontier Analysis<a class="anchor" aria-label="anchor" href="#metafrontier-stochastic-and-deterministic-metafrontier-analysis"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="smfa-stochastic-and-deterministic-metafrontier-analysis">smfa: Stochastic and Deterministic Metafrontier Analysis<a class="anchor" aria-label="anchor" href="#smfa-stochastic-and-deterministic-metafrontier-analysis"></a>
 </h1>
 </div>
-<p><img src="reference/figures/logo.png" align="right" height="139" alt="metafrontieR logo"></p>
-<p><a href="https://www.codefactor.io/repository/github/SulmanOlieko/metafrontieR" class="external-link"><img src="https://www.codefactor.io/repository/github/SulmanOlieko/metafrontieR/badge" alt="CodeFactor"></a> <a href="https://github.com/SulmanOlieko/metafrontieR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/SulmanOlieko/metafrontieR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/SulmanOlieko/metafrontieR" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0-darkred.svg"></a> <a href="https://github.com/SulmanOlieko/metafrontieR" class="external-link"><img src="https://img.shields.io/badge/license-GPL-blue"></a> <a href="https://github.com/SulmanOlieko/metafrontieR" class="external-link"><img src="https://img.shields.io/github/languages/code-size/SulmanOlieko/metafrontieR.svg"></a></p>
+<p><img src="reference/figures/logo.png" align="right" height="139" alt="smfa logo"></p>
+<p><a href="https://www.codefactor.io/repository/github/SulmanOlieko/smfa" class="external-link"><img src="https://www.codefactor.io/repository/github/SulmanOlieko/smfa/badge" alt="CodeFactor"></a> <a href="https://github.com/SulmanOlieko/smfa/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/SulmanOlieko/smfa/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a> <a href="https://github.com/SulmanOlieko/smfa" class="external-link"><img src="https://img.shields.io/badge/devel%20version-1.0.0-darkred.svg"></a> <a href="https://github.com/SulmanOlieko/smfa" class="external-link"><img src="https://img.shields.io/badge/license-GPL-blue"></a> <a href="https://github.com/SulmanOlieko/smfa" class="external-link"><img src="https://img.shields.io/github/languages/code-size/SulmanOlieko/smfa.svg"></a></p>
 <blockquote>
 <p><strong>Stochastic and Deterministic Metafrontier Analysis</strong></p>
 </blockquote>
 <p>An R package for implementing various deterministic and stochastic metafrontier analyses for efficiency and performance benchmarking, assessing technical efficiencies (TE), metafrontier technical efficiencies (MTE), and computing metatechnology ratios (MTRs) for firms operating under different technologies.</p>
-<p><code>metafrontieR</code> provides routines for:</p>
+<p><code>smfa</code> provides routines for:</p>
 <ol style="list-style-type: decimal">
 <li>
 <strong>Deterministic envelope metafrontier</strong> via <strong>linear programming (LP)</strong> and <strong>quadratic programming (QP)</strong>, following <a href="https://doi.org/10.1023/B:PROD.0000012454.06094.29" class="external-link">Battese, Rao &amp; O’Donnell (2004)</a> and <a href="https://doi.org/10.1007/s00181-007-0119-4" class="external-link">O’Donnell, Rao &amp; Battese (2008)</a>.</li>
@@ -107,7 +107,7 @@
 <strong>Sample selection correction metafrontier models</strong> — corrects for sample selection bias following <a href="https://doi.org/10.2307/1912352" class="external-link">Heckman (1979)</a>, <a href="https://doi.org/10.1007/s11123-009-0159-1" class="external-link">Greene (2010)</a>, <a href="https://elibrary.pearson.de/book/99.150005/9781292231150" class="external-link">Greene (2003)</a>.</li>
 </ul>
 <blockquote>
-<p><strong>Dependency:</strong> <code>metafrontieR</code> depends on the <a href="https://CRAN.R-project.org/package=sfaR" class="external-link"><code>sfaR</code></a> package by <a href="https://CRAN.R-project.org/package=sfaR" class="external-link">Dakpo, Desjeux &amp; Latruffe (2023)</a>, which provides the underlying stochastic frontier estimation routines for all group-level models.</p>
+<p><strong>Dependency:</strong> <code>smfa</code> depends on the <a href="https://CRAN.R-project.org/package=sfaR" class="external-link"><code>sfaR</code></a> package by <a href="https://CRAN.R-project.org/package=sfaR" class="external-link">Dakpo, Desjeux &amp; Latruffe (2023)</a>, which provides the underlying stochastic frontier estimation routines for all group-level models.</p>
 </blockquote>
 <hr>
 <div class="section level2">
@@ -117,10 +117,10 @@
 <code class="sourceCode R"><span><span class="co"># Install devtools if not already installed</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://devtools.r-lib.org/" class="external-link">"devtools"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Install metafrontieR from GitHub</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"SulmanOlieko/metafrontieR"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># Install smfa from GitHub</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"SulmanOlieko/smfa"</span><span class="op">)</span></span></code></pre></div>
 <blockquote>
-<p><strong>Note</strong> You do not need to install <code>sfaR</code> manually, <code>metafrontieR</code> takes care of that automatically.</p>
+<p><strong>Note</strong> You do not need to install <code>sfaR</code> manually, <code>smfa</code> takes care of that automatically.</p>
 </blockquote>
 <hr>
 </div>
@@ -133,12 +133,12 @@
 <div class="section level2">
 <h2 id="section-1-standard-sfa-group-frontier-grouptype--sfacross">Section 1: Standard SFA Group Frontier (<code>groupType = "sfacross"</code>)<a class="anchor" aria-label="anchor" href="#section-1-standard-sfa-group-frontier-grouptype--sfacross"></a>
 </h2>
-<p>Let’s use the <code>ricephil</code> data from <code>sfaR</code>. In this data, group boundaries are observed (a farm-size variable). If we assume that the production technology varies by farm size, we can try to estimate three frontiers that correspond to three types of farm sizes, namely small, medium and large. We can create a group variable <code>group</code> that captures these groups. We can then estimate each group’s frontier separately using <code>sfacross</code> from the <code>sfaR</code> package. So, we will specify the option <code>groupType  = "sfacross"</code> in the <code><a href="reference/sfametafrontier.html">sfametafrontier()</a></code>.</p>
+<p>Let’s use the <code>ricephil</code> data from <code>sfaR</code>. In this data, group boundaries are observed (a farm-size variable). If we assume that the production technology varies by farm size, we can try to estimate three frontiers that correspond to three types of farm sizes, namely small, medium and large. We can create a group variable <code>group</code> that captures these groups. We can then estimate each group’s frontier separately using <code>sfacross</code> from the <code>sfaR</code> package. So, we will specify the option <code>groupType  = "sfacross"</code> in the <code><a href="reference/smfa.html">smfa()</a></code>.</p>
 <div class="section level3">
 <h3 id="data-preparation">Data Preparation<a class="anchor" aria-label="anchor" href="#data-preparation"></a>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SulmanOlieko/metafrontieR" class="external-link">metafrontieR</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SulmanOlieko/smfa" class="external-link">smfa</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ricephil"</span>, package <span class="op">=</span> <span class="st">"sfaR"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create three technology groups based on farm area terciles</span></span>
@@ -158,7 +158,7 @@
 </h3>
 <p>We can begin by estimating a deterministic linear programming envelope (Battese, Rao &amp; O’Donnell, 2004) over the three group frontiers. The metafrontier parameter vector minimises the sum of absolute deviations while staying at or above all group frontier predictions. We will be using a Cobb-Douglas functional form with rice production <code>PROD</code> as the response variable, and <code>AREA</code>, <code>LABOR</code> and <code>NPK</code> as the inputs.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sfacross_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sfacross_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>,</span>
 <span>  group      <span class="op">=</span> <span class="st">"group"</span>,</span>
@@ -170,7 +170,7 @@
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sfacross_lp</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code> &gt; meta_sfacross_lp &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code> &gt; meta_sfacross_lp &lt;- smfa(
 +   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data       = ricephil,
 +   group      = "group",
@@ -438,7 +438,7 @@ Toggle to see the output
 </h3>
 <p>We can also estimate a quadratic programming envelope that minimises the sum of squared deviations from group frontier predictions subject to the envelope constraint. We now switch to <code>metaMethod = "qp"</code>.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sfacross_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sfacross_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>,</span>
 <span>  group      <span class="op">=</span> <span class="st">"group"</span>,</span>
@@ -450,7 +450,7 @@ Toggle to see the output
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sfacross_qp</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_sfacross_qp &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_sfacross_qp &lt;- smfa(
 +   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data       = ricephil,
 +   group      = "group",
@@ -708,7 +708,7 @@ Model was estimated on : Mar Tue 03, 2026 at 00:34 </code></pre>
 </h3>
 <p>In this approach, the group-specific fitted frontier values are pooled together and serve as the dependent variable in a second-stage pooled SFA. The technology gap <code>U</code> and noise <code>V</code> are estimated stochastically.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sfacross_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sfacross_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">ricephil</span>,</span>
 <span>  group       <span class="op">=</span> <span class="st">"group"</span>,</span>
@@ -721,7 +721,7 @@ Model was estimated on : Mar Tue 03, 2026 at 00:34 </code></pre>
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sfacross_huang</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_sfacross_huang &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_sfacross_huang &lt;- smfa(
 +   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data        = ricephil,
 +   group       = "group",
@@ -1044,7 +1044,7 @@ Model was estimated on : Mar Tue 03, 2026 at 00:36  </code></pre>
 </h3>
 <p>In this approach, the LP deterministic envelope is used as the response variable in the second stage and the SFA quantifies the stochastic variation around this envelope.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sfacross_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sfacross_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">ricephil</span>,</span>
 <span>  group       <span class="op">=</span> <span class="st">"group"</span>,</span>
@@ -1057,7 +1057,7 @@ Model was estimated on : Mar Tue 03, 2026 at 00:36  </code></pre>
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sfacross_odonnell</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_sfacross_odonnell &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_sfacross_odonnell &lt;- smfa(
 +   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
 +   data        = ricephil,
 +   group       = "group",
@@ -1396,7 +1396,7 @@ Warning message:
 <h3 id="id_2a-lcm--lp-metafrontier">2a. LCM + LP Metafrontier<a class="anchor" aria-label="anchor" href="#id_2a-lcm--lp-metafrontier"></a>
 </h3>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S          <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
@@ -1407,7 +1407,7 @@ Warning message:
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_lcm_lp &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_lcm_lp &lt;- smfa(
 +   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data       = utility,
 +   S          = -1,
@@ -1534,7 +1534,7 @@ Toggle to see the output
 <h3 id="id_2b-lcm--qp-metafrontier">2b. LCM + QP Metafrontier<a class="anchor" aria-label="anchor" href="#id_2b-lcm--qp-metafrontier"></a>
 </h3>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S          <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
@@ -1545,7 +1545,7 @@ Toggle to see the output
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_qp</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_lcm_qp &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_lcm_qp &lt;- smfa(
 +   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data       = utility,
 +   S          = -1,
@@ -1653,7 +1653,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:01 </code></pre>
 <h3 id="id_2c-lcm--two-stage-sfa-metafrontier--huang-et-al-2014">2c. LCM + Two-stage SFA Metafrontier — Huang et al. (2014)<a class="anchor" aria-label="anchor" href="#id_2c-lcm--two-stage-sfa-metafrontier--huang-et-al-2014"></a>
 </h3>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S           <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
@@ -1665,7 +1665,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:01 </code></pre>
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_huang</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_lcm_huang &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_lcm_huang &lt;- smfa(
 +   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data        = utility,
 +   S           = -1,
@@ -1839,7 +1839,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:03  </code></pre>
 <h3 id="id_2d-lcm--odonnell-et-al-2008-stochastic-metafrontier">2d. LCM + O’Donnell et al. (2008) Stochastic Metafrontier<a class="anchor" aria-label="anchor" href="#id_2d-lcm--odonnell-et-al-2008-stochastic-metafrontier"></a>
 </h3>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lcm_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_lcm_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">utility</span>,</span>
 <span>  S           <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
@@ -1851,7 +1851,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:03  </code></pre>
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_odonnell</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_lcm_odonnell &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_lcm_odonnell &lt;- smfa(
 +   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
 +   data        = utility,
 +   S           = -1,
@@ -2056,7 +2056,7 @@ Warning message:
 <h3 id="id_3a-sfaselectioncross--lp-metafrontier">3a. sfaselectioncross + LP Metafrontier<a class="anchor" aria-label="anchor" href="#id_3a-sfaselectioncross--lp-metafrontier"></a>
 </h3>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sel_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sel_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>,</span>
 <span>  selectionF <span class="op">=</span> <span class="va">d</span> <span class="op">~</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">z2</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">dat</span>,</span>
@@ -2075,7 +2075,7 @@ Warning message:
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sel_lp</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_sel_lp &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_sel_lp &lt;- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF = d ~ z1 + z2,
 +   data       = dat,
@@ -2275,7 +2275,7 @@ Toggle to see the output
 <h3 id="id_3b-sfaselectioncross--qp-metafrontier">3b. sfaselectioncross + QP Metafrontier<a class="anchor" aria-label="anchor" href="#id_3b-sfaselectioncross--qp-metafrontier"></a>
 </h3>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sel_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sel_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>,</span>
 <span>  selectionF <span class="op">=</span> <span class="va">d</span> <span class="op">~</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">z2</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">dat</span>,</span>
@@ -2294,7 +2294,7 @@ Toggle to see the output
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sel_qp</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_sel_qp &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_sel_qp &lt;- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF = d ~ z1 + z2,
 +   data       = dat,
@@ -2481,7 +2481,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:15 </code></pre>
 <h3 id="id_3c-sfaselectioncross--two-stage-sfa-metafrontier--huang-et-al-2014">3c. sfaselectioncross + Two-stage SFA Metafrontier — Huang et al. (2014)<a class="anchor" aria-label="anchor" href="#id_3c-sfaselectioncross--two-stage-sfa-metafrontier--huang-et-al-2014"></a>
 </h3>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sel_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sel_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>,</span>
 <span>  selectionF  <span class="op">=</span> <span class="va">d</span> <span class="op">~</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">z2</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">dat</span>,</span>
@@ -2507,7 +2507,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:15 </code></pre>
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sel_huang</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_sel_huang &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_sel_huang &lt;- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF  = d ~ z1 + z2,
 +   data        = dat,
@@ -2765,7 +2765,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:17 </code></pre>
 <h3 id="id_3d-sfaselectioncross--odonnell-et-al-2008-stochastic-metafrontier">3d. sfaselectioncross + O’Donnell et al. (2008) Stochastic Metafrontier<a class="anchor" aria-label="anchor" href="#id_3d-sfaselectioncross--odonnell-et-al-2008-stochastic-metafrontier"></a>
 </h3>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_sel_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<code class="sourceCode R"><span><span class="va">meta_sel_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x1</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span>,</span>
 <span>  selectionF  <span class="op">=</span> <span class="va">d</span> <span class="op">~</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">z2</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">dat</span>,</span>
@@ -2785,7 +2785,7 @@ Model was estimated on : Mar Tue 03, 2026 at 01:17 </code></pre>
 <span><span class="fu"><a href="reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_sel_odonnell</span><span class="op">)</span></span></code></pre></div>
 <details><summary>
 Toggle to see the output
-</summary><pre class="plaintext"><code>&gt; meta_sel_odonnell &lt;- sfametafrontier(
+</summary><pre class="plaintext"><code>&gt; meta_sel_odonnell &lt;- smfa(
 +   formula    = log(y) ~ log(x1) + log(x2),
 +   selectionF  = d ~ z1 + z2,
 +   data        = dat,
@@ -3152,10 +3152,10 @@ Warning message:
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/SulmanOlieko/metafrontieR/" class="external-link">Browse source code</a></li>
-<li><a href="https://github.com/SulmanOlieko/metafrontieR/issues" class="external-link">Report a bug</a></li>
-<li><a href="https://github.com/SulmanOlieko/metafrontieR/issues" class="external-link">Report a bug</a></li>
-<li><a href="https://github.com/SulmanOlieko/metafrontieR" class="external-link">View on GitHub</a></li>
+<li><a href="https://github.com/SulmanOlieko/smfa/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/SulmanOlieko/smfa/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/SulmanOlieko/smfa/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://github.com/SulmanOlieko/smfa" class="external-link">View on GitHub</a></li>
 </ul>
 </div>
 
@@ -3171,7 +3171,7 @@ Warning message:
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing metafrontieR</a></li>
+<li><a href="authors.html#citation">Citing smfa</a></li>
 </ul>
 </div>
 

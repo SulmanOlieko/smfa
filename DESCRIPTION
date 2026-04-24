@@ -1,4 +1,4 @@
-Package: metafrontieR
+Package: smfa
 Title: Stochastic and Deterministic Metafrontier Analysis
 Version: 1.0.0
 Authors@R: c(
@@ -16,9 +16,9 @@ Description: Implements metafrontier analyses for productivity and performance
     models. Depends on the 'sfaR' package by Dakpo et al. (2023)
     <https://CRAN.R-project.org/package=sfaR>.
 License: GPL (>= 3)
-URL: https://github.com/SulmanOlieko/metafrontieR,
-    https://SulmanOlieko.github.io/metafrontieR/
-BugReports: https://github.com/SulmanOlieko/metafrontieR/issues
+URL: https://github.com/SulmanOlieko/smfa,
+    https://SulmanOlieko.github.io/smfa/
+BugReports: https://github.com/SulmanOlieko/smfa/issues
 Depends:
     R (>= 3.5.0),
     sfaR

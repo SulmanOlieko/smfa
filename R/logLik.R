@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# R functions for the metafrontieR package                                     #
+# R functions for the smfa package                                     #
 #                                                                              #
 ################################################################################
 
@@ -14,10 +14,10 @@
 #' Extract log-likelihood value of stochastic metafrontier models
 #'
 #' \code{\link{logLik}} extracts the log-likelihood value(s) from stochastic
-#' metafrontier models estimated with \code{\link{sfametafrontier}}.
+#' metafrontier models estimated with \code{\link{smfa}}.
 #'
 #' @param object A stochastic metafrontier model returned
-#' by \code{\link{sfametafrontier}}.
+#' by \code{\link{smfa}}.
 #' @param individual Logical. If \code{FALSE} (default), the sum of all
 #' observations' log-likelihood values is returned. If \code{TRUE}, a vector of
 #' each observation's log-likelihood value is returned.
@@ -33,15 +33,15 @@
 #' observations (\code{Nobs}) and the number of free parameters (\code{df}),
 #' when \code{individual = TRUE}.
 #'
-#' @seealso \code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+#' @seealso \code{\link{smfa}}, for the stochastic metafrontier analysis model
 #' fitting function using cross-sectional or pooled data.
 #'
 #' @keywords methods likelihood
 #'
-#' @aliases logLik.sfametafrontier
+#' @aliases logLik.smfa
 #' @importFrom stats logLik
 #' @export
-logLik.sfametafrontier <- function(object, individual = FALSE, ...) {
+logLik.smfa <- function(object, individual = FALSE, ...) {
   if (length(individual) != 1 || !is.logical(individual[1])) {
     stop("argument 'individual' must be a single logical value", call. = FALSE)
   }

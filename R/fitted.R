@@ -1,6 +1,6 @@
 ################################################################################
 #                                                                              #
-# R functions for the metafrontieR package                                     #
+# R functions for the smfa package                                     #
 #                                                                              #
 ################################################################################
 
@@ -16,10 +16,10 @@
 #' Extract fitted values of stochastic metafrontier models
 #'
 #' \code{\link{fitted}} returns the fitted frontier values from stochastic
-#' metafrontier models estimated with \code{\link{sfametafrontier}}.
+#' metafrontier models estimated with \code{\link{smfa}}.
 #'
 #' @param object A stochastic metafrontier model returned
-#' by \code{\link{sfametafrontier}}.
+#' by \code{\link{smfa}}.
 #' @param ... Currently ignored.
 #'
 #' @name fitted
@@ -29,16 +29,16 @@
 #' @note The fitted values are ordered in the same way as the corresponding
 #' observations in the dataset used for the estimation.
 #'
-#' @seealso \code{\link{sfametafrontier}}, for the stochastic metafrontier analysis model
+#' @seealso \code{\link{smfa}}, for the stochastic metafrontier analysis model
 #' fitting function using cross-sectional or pooled data.
 #'
 #' @keywords methods fitted
 #'
-# fitted values for sfametafrontier (returns metafrontier fitted values) ----------
+# fitted values for smfa (returns metafrontier fitted values) ----------
 #' @rdname fitted
-#' @aliases fitted.sfametafrontier
+#' @aliases fitted.smfa
 #' @importFrom stats fitted
 #' @export
-fitted.sfametafrontier <- function(object, ...) {
+fitted.smfa <- function(object, ...) {
   object$dataTable$.mf_yhat_meta
 }

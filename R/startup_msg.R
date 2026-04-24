@@ -1,4 +1,4 @@
-metafrontieRStartupMessage <- function() {
+smfaStartupMessage <- function() {
   art_lines <- c(
 
 "                                .              .o88o.                                    .    o8o            ooooooooo.  ",
@@ -11,11 +11,11 @@ metafrontieRStartupMessage <- function() {
   
   )
   base_msg <- paste0(
-    "\n\n* Please cite the 'metafrontieR' package as:\n",
-    "Owili, SO. (2026). metafrontieR: Metafrontier Analysis in R. R package version 1.0.0.\n\n",
-    "See also: citation(\"metafrontieR\")\n\n",
-    "* For any questions, suggestions, or comments on the 'metafrontieR' package, you can contact the authors directly or visit:\n",
-    "  https://github.com/SulmanOlieko/metafrontieR/issues\n"
+    "\n\n* Please cite the 'smfa' package as:\n",
+    "Owili, SO. (2026). smfa: Metafrontier Analysis in R. R package version 1.0.0.\n\n",
+    "See also: citation(\"smfa\")\n\n",
+    "* For any questions, suggestions, or comments on the 'smfa' package, you can contact the authors directly or visit:\n",
+    "  https://github.com/SulmanOlieko/smfa/issues\n"
   )
   
   console_width <- getOption("width")
@@ -59,14 +59,14 @@ metafrontieRStartupMessage <- function() {
   in_chk <- Sys.getenv("_R_CHECK_PACKAGE_NAME_") != ""
   
   if (!in_chk) {
-    msg <- metafrontieRStartupMessage()
+    msg <- smfaStartupMessage()
   } else {
     msg <- paste0(
-      "\n* Please cite the 'metafrontieR' package as:\n",
-      "Owili, SO. (2026). metafrontieR: Metafrontier Analysis in R. R package version 1.0.0.\n\n",
-      "See also: citation(\"metafrontieR\")\n\n",
-      "* For any questions, suggestions, or comments on the 'metafrontieR' package, you can contact the authors directly or visit:\n",
-      "  https://github.com/SulmanOlieko/metafrontieR/issues\n"
+      "\n* Please cite the 'smfa' package as:\n",
+      "Owili, SO. (2026). smfa: Metafrontier Analysis in R. R package version 1.0.0.\n\n",
+      "See also: citation(\"smfa\")\n\n",
+      "* For any questions, suggestions, or comments on the 'smfa' package, you can contact the authors directly or visit:\n",
+      "  https://github.com/SulmanOlieko/smfa/issues\n"
     )
   }
   

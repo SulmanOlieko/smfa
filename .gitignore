@@ -1,0 +1,13 @@
+# R build artifacts
+*.Rcheck/
+*.tar.gz
+*.RData
+*.Rhistory
+.Rproj.user/
+
+# Binary dependencies
+pandoc
+pandoc.zip
+
+# System files
+.DS_Store

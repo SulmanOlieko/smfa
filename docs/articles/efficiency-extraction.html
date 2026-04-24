@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Extracting Efficiencies and MTRs • metafrontieR</title>
+<title>Extracting Efficiencies and MTRs • smfa</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -27,7 +27,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <a class="navbar-brand me-2" href="../index.html">metafrontieR</a>
+    <a class="navbar-brand me-2" href="../index.html">smfa</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
@@ -68,7 +68,7 @@
     <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
   </ul>
 </li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/SulmanOlieko/metafrontieR" aria-label="GitHub"><span class="fa fab fa-github"></span></a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/SulmanOlieko/smfa" aria-label="GitHub"><span class="fa fab fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -84,7 +84,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Extracting Efficiencies and MTRs</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/SulmanOlieko/metafrontieR/blob/HEAD/vignettes/efficiency-extraction.Rmd" class="external-link"><code>vignettes/efficiency-extraction.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/SulmanOlieko/smfa/blob/HEAD/vignettes/efficiency-extraction.Rmd" class="external-link"><code>vignettes/efficiency-extraction.Rmd</code></a></small>
       <div class="d-none name"><code>efficiency-extraction.Rmd</code></div>
     </div>
 
@@ -102,7 +102,39 @@ example.</p>
 <h2 id="setup-fit-a-model">Setup: Fit a Model<a class="anchor" aria-label="anchor" href="#setup-fit-a-model"></a>
 </h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SulmanOlieko/metafrontieR" class="external-link">metafrontieR</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/SulmanOlieko/smfa" class="external-link">smfa</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: sfaR</span></span>
+<span><span class="co">#&gt;            ****           *******  </span></span>
+<span><span class="co">#&gt;           /**/           /**////** </span></span>
+<span><span class="co">#&gt;   ****** ******  ******  /**   /** </span></span>
+<span><span class="co">#&gt;  **//// ///**/  //////** /*******  </span></span>
+<span><span class="co">#&gt; //*****   /**    ******* /**///**  </span></span>
+<span><span class="co">#&gt;  /////**  /**   **////** /**  //** </span></span>
+<span><span class="co">#&gt;  ******   /**  //********/**   //**</span></span>
+<span><span class="co">#&gt; //////    //    //////// //     //    version 1.0.1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * Please cite the 'sfaR' package as:</span></span>
+<span><span class="co">#&gt;   Dakpo KH., Desjeux Y., Henningsen A., and Latruffe L. (2024). sfaR: Stochastic Frontier Analysis Using R. R package version 1.0.1.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; See also: citation("sfaR")</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * For any questions, suggestions, or comments on the 'sfaR' package, you can contact directly the authors or visit:  https://github.com/hdakpo/sfaR/issues</span></span>
+<span><span class="co">#&gt;                                 .              .o88o.                      </span></span>
+<span><span class="co">#&gt;                               .o8              888 `"                      </span></span>
+<span><span class="co">#&gt; ooo. .oo.  .oo.    .ooooo.  .o888oo  .oooo.   o888oo  oooo d8b  .ooooo.  oo</span></span>
+<span><span class="co">#&gt; `888P"Y88bP"Y88b  d88' `88b   888   `P  )88b   888    `888""8P d88' `88b `8</span></span>
+<span><span class="co">#&gt;  888   888   888  888ooo888   888    .oP"888   888     888     888   888  8</span></span>
+<span><span class="co">#&gt;  888   888   888  888    .o   888 . d8(  888   888     888     888   888  8</span></span>
+<span><span class="co">#&gt; o888o o888o o888o `Y8bod8P'   "888" `Y888""8o o888o   d888b    `Y8      88 88 88</span></span>
+<span><span class="co">#&gt;                                                                    version 1.0.0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * Please cite the 'smfa' package as:</span></span>
+<span><span class="co">#&gt; Owili, SO. (2026). smfa: Metafrontier Analysis in R. R package version 1.0.0.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; See also: citation("smfa")</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; * For any questions, suggestions, or comments on the 'smfa' package, you can contact the authors directly or visit:</span></span>
+<span><span class="co">#&gt;   https://github.com/SulmanOlieko/smfa/issues</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"ricephil"</span>, package <span class="op">=</span> <span class="st">"sfaR"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">ricephil</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cut.html" class="external-link">cut</a></span><span class="op">(</span></span>
@@ -112,7 +144,7 @@ example.</p>
 <span>  include.lowest <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">meta_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<span><span class="va">meta_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>,</span>
 <span>  group      <span class="op">=</span> <span class="st">"group"</span>,</span>
@@ -130,7 +162,236 @@ example.</p>
 results, metafrontier coefficients (if available), and efficiency
 statistics by group.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
+<span><span class="co">#&gt; Metafrontier method: Linear Programming (LP) Metafrontier </span></span>
+<span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
+<span><span class="co">#&gt; Group approach     : Stochastic Frontier Analysis </span></span>
+<span><span class="co">#&gt; Group estimator    : sfacross </span></span>
+<span><span class="co">#&gt; Group optim solver : BFGS maximization </span></span>
+<span><span class="co">#&gt; Groups ( 3 ): small, medium, large </span></span>
+<span><span class="co">#&gt; Total observations : 344 </span></span>
+<span><span class="co">#&gt; Distribution       : hnormal </span></span>
+<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Group: small (N = 125)  Log-likelihood: -50.98578</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Normal-Half Normal SF Model </span></span>
+<span><span class="co">#&gt; Dependent Variable:                                                    log(PROD) </span></span>
+<span><span class="co">#&gt; Log likelihood solver:                                         BFGS maximization </span></span>
+<span><span class="co">#&gt; Log likelihood iter:                                                          42 </span></span>
+<span><span class="co">#&gt; Log likelihood value:                                                  -50.98578 </span></span>
+<span><span class="co">#&gt; Log likelihood gradient norm:                                        9.40653e-06 </span></span>
+<span><span class="co">#&gt; Estimation based on:                                         N =  125 and K =  6 </span></span>
+<span><span class="co">#&gt; Inf. Cr:                                           AIC  =  114.0 AIC/N  =  0.912 </span></span>
+<span><span class="co">#&gt;                                                    BIC  =  130.9 BIC/N  =  1.048 </span></span>
+<span><span class="co">#&gt;                                                    HQIC =  120.9 HQIC/N =  0.967 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Variances: Sigma-squared(v)   =                                          0.05318 </span></span>
+<span><span class="co">#&gt;            Sigma(v)           =                                          0.05318 </span></span>
+<span><span class="co">#&gt;            Sigma-squared(u)   =                                          0.23435 </span></span>
+<span><span class="co">#&gt;            Sigma(u)           =                                          0.23435 </span></span>
+<span><span class="co">#&gt; Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.53622 </span></span>
+<span><span class="co">#&gt; Gamma = sigma(u)^2/sigma^2    =                                          0.81504 </span></span>
+<span><span class="co">#&gt; Lambda = sigma(u)/sigma(v)    =                                          2.09921 </span></span>
+<span><span class="co">#&gt; Var[u]/{Var[u]+Var[v]}        =                                          0.61558 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Average inefficiency E[ui]     =                                         0.38626 </span></span>
+<span><span class="co">#&gt; Average efficiency E[exp(-ui)] =                                         0.70643 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
+<span><span class="co">#&gt; -----[ Tests vs. No Inefficiency ]-----</span></span>
+<span><span class="co">#&gt; Likelihood Ratio Test of Inefficiency</span></span>
+<span><span class="co">#&gt; Deg. freedom for inefficiency model                                            1 </span></span>
+<span><span class="co">#&gt; Log Likelihood for OLS Log(H0) =                                       -54.80277 </span></span>
+<span><span class="co">#&gt; LR statistic:  </span></span>
+<span><span class="co">#&gt; Chisq = 2*[LogL(H0)-LogL(H1)]  =                                         7.63398 </span></span>
+<span><span class="co">#&gt; Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 </span></span>
+<span><span class="co">#&gt; Coelli (1995) skewness test on OLS residuals</span></span>
+<span><span class="co">#&gt; M3T: z                         =                                        -3.57676 </span></span>
+<span><span class="co">#&gt; M3T: p.value                   =                                         0.00035 </span></span>
+<span><span class="co">#&gt; Final maximum likelihood estimates </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                          Deterministic Component of SFA </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept)       -1.58745    0.51274 -3.0960  0.001962 ** </span></span>
+<span><span class="co">#&gt; log(AREA)          0.24014    0.11834  2.0292  0.042440 *  </span></span>
+<span><span class="co">#&gt; log(LABOR)         0.43464    0.12292  3.5361  0.000406 ***</span></span>
+<span><span class="co">#&gt; log(NPK)           0.30516    0.05701  5.3523 8.682e-08 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                   Parameter in variance of u (one-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept)    -1.45093    0.29867  -4.858 1.186e-06 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                  Parameters in variance of v (two-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept)    -2.93406    0.35401  -8.288 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 15:49 </span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Group: medium (N = 104)  Log-likelihood: -15.28164</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Normal-Half Normal SF Model </span></span>
+<span><span class="co">#&gt; Dependent Variable:                                                    log(PROD) </span></span>
+<span><span class="co">#&gt; Log likelihood solver:                                         BFGS maximization </span></span>
+<span><span class="co">#&gt; Log likelihood iter:                                                          41 </span></span>
+<span><span class="co">#&gt; Log likelihood value:                                                  -15.28164 </span></span>
+<span><span class="co">#&gt; Log likelihood gradient norm:                                        3.83566e-05 </span></span>
+<span><span class="co">#&gt; Estimation based on:                                         N =  104 and K =  6 </span></span>
+<span><span class="co">#&gt; Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 </span></span>
+<span><span class="co">#&gt;                                                     BIC  =  58.4 BIC/N  =  0.562 </span></span>
+<span><span class="co">#&gt;                                                     HQIC =  49.0 HQIC/N =  0.471 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Variances: Sigma-squared(v)   =                                          0.01058 </span></span>
+<span><span class="co">#&gt;            Sigma(v)           =                                          0.01058 </span></span>
+<span><span class="co">#&gt;            Sigma-squared(u)   =                                          0.22010 </span></span>
+<span><span class="co">#&gt;            Sigma(u)           =                                          0.22010 </span></span>
+<span><span class="co">#&gt; Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.48030 </span></span>
+<span><span class="co">#&gt; Gamma = sigma(u)^2/sigma^2    =                                          0.95412 </span></span>
+<span><span class="co">#&gt; Lambda = sigma(u)/sigma(v)    =                                          4.56034 </span></span>
+<span><span class="co">#&gt; Var[u]/{Var[u]+Var[v]}        =                                          0.88314 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Average inefficiency E[ui]     =                                         0.37433 </span></span>
+<span><span class="co">#&gt; Average efficiency E[exp(-ui)] =                                         0.71330 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
+<span><span class="co">#&gt; -----[ Tests vs. No Inefficiency ]-----</span></span>
+<span><span class="co">#&gt; Likelihood Ratio Test of Inefficiency</span></span>
+<span><span class="co">#&gt; Deg. freedom for inefficiency model                                            1 </span></span>
+<span><span class="co">#&gt; Log Likelihood for OLS Log(H0) =                                       -21.11323 </span></span>
+<span><span class="co">#&gt; LR statistic:  </span></span>
+<span><span class="co">#&gt; Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        11.66318 </span></span>
+<span><span class="co">#&gt; Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 </span></span>
+<span><span class="co">#&gt; Coelli (1995) skewness test on OLS residuals</span></span>
+<span><span class="co">#&gt; M3T: z                         =                                        -2.91021 </span></span>
+<span><span class="co">#&gt; M3T: p.value                   =                                         0.00361 </span></span>
+<span><span class="co">#&gt; Final maximum likelihood estimates </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                          Deterministic Component of SFA </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept)       -0.08182    0.50668 -0.1615 0.8717190    </span></span>
+<span><span class="co">#&gt; log(AREA)          0.47410    0.13984  3.3903 0.0006981 ***</span></span>
+<span><span class="co">#&gt; log(LABOR)         0.17935    0.10201  1.7581 0.0787310 .  </span></span>
+<span><span class="co">#&gt; log(NPK)           0.20255    0.08130  2.4913 0.0127289 *  </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                   Parameter in variance of u (one-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept)    -1.51367    0.23549 -6.4276 1.296e-10 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                  Parameters in variance of v (two-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 15:49 </span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Group: large (N = 115)  Log-likelihood: -8.02197</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Normal-Half Normal SF Model </span></span>
+<span><span class="co">#&gt; Dependent Variable:                                                    log(PROD) </span></span>
+<span><span class="co">#&gt; Log likelihood solver:                                         BFGS maximization </span></span>
+<span><span class="co">#&gt; Log likelihood iter:                                                          68 </span></span>
+<span><span class="co">#&gt; Log likelihood value:                                                   -8.02197 </span></span>
+<span><span class="co">#&gt; Log likelihood gradient norm:                                        4.01301e-05 </span></span>
+<span><span class="co">#&gt; Estimation based on:                                         N =  115 and K =  6 </span></span>
+<span><span class="co">#&gt; Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 </span></span>
+<span><span class="co">#&gt;                                                     BIC  =  44.5 BIC/N  =  0.387 </span></span>
+<span><span class="co">#&gt;                                                     HQIC =  34.7 HQIC/N =  0.302 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Variances: Sigma-squared(v)   =                                          0.01399 </span></span>
+<span><span class="co">#&gt;            Sigma(v)           =                                          0.01399 </span></span>
+<span><span class="co">#&gt;            Sigma-squared(u)   =                                          0.16751 </span></span>
+<span><span class="co">#&gt;            Sigma(u)           =                                          0.16751 </span></span>
+<span><span class="co">#&gt; Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.42602 </span></span>
+<span><span class="co">#&gt; Gamma = sigma(u)^2/sigma^2    =                                          0.92293 </span></span>
+<span><span class="co">#&gt; Lambda = sigma(u)/sigma(v)    =                                          3.46063 </span></span>
+<span><span class="co">#&gt; Var[u]/{Var[u]+Var[v]}        =                                          0.81315 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Average inefficiency E[ui]     =                                         0.32656 </span></span>
+<span><span class="co">#&gt; Average efficiency E[exp(-ui)] =                                         0.74195 </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
+<span><span class="co">#&gt; -----[ Tests vs. No Inefficiency ]-----</span></span>
+<span><span class="co">#&gt; Likelihood Ratio Test of Inefficiency</span></span>
+<span><span class="co">#&gt; Deg. freedom for inefficiency model                                            1 </span></span>
+<span><span class="co">#&gt; Log Likelihood for OLS Log(H0) =                                       -16.96836 </span></span>
+<span><span class="co">#&gt; LR statistic:  </span></span>
+<span><span class="co">#&gt; Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        17.89279 </span></span>
+<span><span class="co">#&gt; Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 </span></span>
+<span><span class="co">#&gt; Coelli (1995) skewness test on OLS residuals</span></span>
+<span><span class="co">#&gt; M3T: z                         =                                        -4.12175 </span></span>
+<span><span class="co">#&gt; M3T: p.value                   =                                         0.00004 </span></span>
+<span><span class="co">#&gt; Final maximum likelihood estimates </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                          Deterministic Component of SFA </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; (Intercept)       -1.31194    0.41859 -3.1342 0.0017234 ** </span></span>
+<span><span class="co">#&gt; log(AREA)          0.38278    0.14297  2.6772 0.0074236 ** </span></span>
+<span><span class="co">#&gt; log(LABOR)         0.42105    0.10992  3.8303 0.0001280 ***</span></span>
+<span><span class="co">#&gt; log(NPK)           0.23143    0.06065  3.8160 0.0001356 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                   Parameter in variance of u (one-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zu_(Intercept)    -1.78673    0.20176 -8.8555 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                  Parameters in variance of v (two-sided error) </span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt;                Coefficient Std. Error z value  Pr(&gt;|z|)    </span></span>
+<span><span class="co">#&gt; Zv_(Intercept)    -4.26963    0.40584 -10.521 &lt; 2.2e-16 ***</span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 15:49 </span></span>
+<span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
+<span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Metafrontier Coefficients (lp):</span></span>
+<span><span class="co">#&gt;   (LP: deterministic envelope - no estimated parameters)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Efficiency Statistics (group means):</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;        N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC</span></span>
+<span><span class="co">#&gt; small    125     125     0.71065       0.70090    0.64126      0.63244 0.89981</span></span>
+<span><span class="co">#&gt; medium   104     104     0.71253       0.70965    0.68204      0.67929 0.95597</span></span>
+<span><span class="co">#&gt; large    115     115     0.74772       0.74406    0.72186      0.71834 0.96521</span></span>
+<span><span class="co">#&gt;        MTR_JLMS</span></span>
+<span><span class="co">#&gt; small   0.89981</span></span>
+<span><span class="co">#&gt; medium  0.95597</span></span>
+<span><span class="co">#&gt; large   0.96521</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Overall:</span></span>
+<span><span class="co">#&gt; TE_group_BC=0.7236  TE_group_JLMS=0.7182</span></span>
+<span><span class="co">#&gt; TE_meta_BC=0.6817   TE_meta_JLMS=0.6767</span></span>
+<span><span class="co">#&gt; MTR_BC=0.9403     MTR_JLMS=0.9403</span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Total Log-likelihood: -74.28939 </span></span>
+<span><span class="co">#&gt; AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt; Model was estimated on : Apr Fri 24, 2026 at 15:49</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="efficiencies-firm-level-efficiency-and-mtr-scores">
@@ -143,7 +404,28 @@ available for all <code>groupType</code> values, though the exact
 columns vary slightly by model type.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
+<span><span class="co">#&gt; 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036</span></span>
+<span><span class="co">#&gt; 2  2  large 0.3515642     0.7035867   0.7080897               1.430406</span></span>
+<span><span class="co">#&gt; 3  3  large 0.2774565     0.7577085   0.7623358               1.327899</span></span>
+<span><span class="co">#&gt; 4  4 medium 0.1710417     0.8427864   0.8461331               1.191355</span></span>
+<span><span class="co">#&gt; 5  5  large 0.2119629     0.8089947   0.8133556               1.242901</span></span>
+<span><span class="co">#&gt; 6  6  small 0.1987499     0.8197549   0.8275685               1.232467</span></span>
+<span><span class="co">#&gt;         uLB_g     uUB_g        m_g TE_group_mode  teBCLB_g  teBCUB_g    u_meta</span></span>
+<span><span class="co">#&gt; 1 0.077581942 0.4657010 0.26858570     0.7644599 0.6276949 0.9253512 0.3944439</span></span>
+<span><span class="co">#&gt; 2 0.130356248 0.5739174 0.35118207     0.7038556 0.5633144 0.8777827 0.3779836</span></span>
+<span><span class="co">#&gt; 3 0.065447909 0.4980807 0.27501606     0.7595599 0.6076959 0.9366478 0.3049531</span></span>
+<span><span class="co">#&gt; 4 0.018022507 0.3583190 0.15885675     0.8531186 0.6988501 0.9821389 0.1710417</span></span>
+<span><span class="co">#&gt; 5 0.027125654 0.4268531 0.20231520     0.8168374 0.6525594 0.9732389 0.2379271</span></span>
+<span><span class="co">#&gt; 6 0.009050601 0.5251973 0.07998025     0.9231346 0.5914386 0.9909902 0.3295263</span></span>
+<span><span class="co">#&gt;   TE_meta_JLMS TE_meta_BC  MTR_JLMS    MTR_BC</span></span>
+<span><span class="co">#&gt; 1    0.6740548  0.6773549 0.8827375 0.8827375</span></span>
+<span><span class="co">#&gt; 2    0.6852418  0.6896274 0.9739266 0.9739266</span></span>
+<span><span class="co">#&gt; 3    0.7371580  0.7416598 0.9728780 0.9728780</span></span>
+<span><span class="co">#&gt; 4    0.8427864  0.8461331 1.0000000 1.0000000</span></span>
+<span><span class="co">#&gt; 5    0.7882601  0.7925093 0.9743700 0.9743700</span></span>
+<span><span class="co">#&gt; 6    0.7192644  0.7261201 0.8774139 0.8774139</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="column-reference">Column Reference<a class="anchor" aria-label="anchor" href="#column-reference"></a>
 </h3>
@@ -258,9 +540,20 @@ columns vary slightly by model type.</p>
 <span></span>
 <span><span class="co"># Descriptive statistics</span></span>
 <span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">eff_small</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TE_group_BC"</span>, <span class="st">"TE_meta_BC"</span>, <span class="st">"MTR_BC"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   TE_group_BC       TE_meta_BC         MTR_BC      </span></span>
+<span><span class="co">#&gt;  Min.   :0.1737   Min.   :0.1179   Min.   :0.5907  </span></span>
+<span><span class="co">#&gt;  1st Qu.:0.6217   1st Qu.:0.5678   1st Qu.:0.8313  </span></span>
+<span><span class="co">#&gt;  Median :0.7427   Median :0.6683   Median :0.9204  </span></span>
+<span><span class="co">#&gt;  Mean   :0.7107   Mean   :0.6413   Mean   :0.8998  </span></span>
+<span><span class="co">#&gt;  3rd Qu.:0.8165   3rd Qu.:0.7509   3rd Qu.:0.9908  </span></span>
+<span><span class="co">#&gt;  Max.   :0.9275   Max.   :0.8774   Max.   :1.0000</span></span>
 <span></span>
 <span><span class="co"># Group-level means</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">TE_group_BC</span>, <span class="va">TE_meta_BC</span>, <span class="va">MTR_BC</span><span class="op">)</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">eff</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">TE_group_BC</span>, <span class="va">TE_meta_BC</span>, <span class="va">MTR_BC</span><span class="op">)</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">eff</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    group TE_group_BC TE_meta_BC    MTR_BC</span></span>
+<span><span class="co">#&gt; 1  large   0.7477151  0.7218649 0.9652091</span></span>
+<span><span class="co">#&gt; 2 medium   0.7125305  0.6820435 0.9559674</span></span>
+<span><span class="co">#&gt; 3  small   0.7106507  0.6412620 0.8998140</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="visualising-the-distribution">Visualising the Distribution<a class="anchor" aria-label="anchor" href="#visualising-the-distribution"></a>
@@ -270,12 +563,15 @@ columns vary slightly by model type.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html" class="external-link">boxplot</a></span><span class="op">(</span><span class="va">MTR_BC</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">eff</span>,</span>
 <span>        main <span class="op">=</span> <span class="st">"Metatechnology Ratio by Farm Size"</span>,</span>
 <span>        xlab <span class="op">=</span> <span class="st">"Group"</span>, ylab <span class="op">=</span> <span class="st">"MTR (BC)"</span>,</span>
-<span>        col  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#e8f5ef"</span>, <span class="st">"#b2dfdb"</span>, <span class="st">"#80cbc4"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
+<span>        col  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#e8f5ef"</span>, <span class="st">"#b2dfdb"</span>, <span class="st">"#80cbc4"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="efficiency-extraction_files/figure-html/plot-1.png" class="r-plt" alt="" width="700"></p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="co"># Histogram of TE_meta_BC</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">eff</span><span class="op">$</span><span class="va">TE_meta_BC</span>, breaks <span class="op">=</span> <span class="fl">30</span>,</span>
 <span>     main <span class="op">=</span> <span class="st">"Distribution of Metafrontier TE"</span>,</span>
 <span>     xlab <span class="op">=</span> <span class="st">"TE_meta_BC"</span>, col <span class="op">=</span> <span class="st">"#2d8f65"</span>, border <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="efficiency-extraction_files/figure-html/plot-2.png" class="r-plt" alt="" width="700"></p>
 </div>
 </div>
 <div class="section level2">
@@ -284,14 +580,16 @@ columns vary slightly by model type.</p>
 </h2>
 <p>Returns the metafrontier coefficient vector (for QP and SFA methods;
 <code>NULL</code> for LP).</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># First fit a QP model</span></span>
-<span><span class="va">meta_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span></span>
+<span><span class="va">meta_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>, group <span class="op">=</span> <span class="st">"group"</span>, S <span class="op">=</span> <span class="fl">1</span>, udist <span class="op">=</span> <span class="st">"hnormal"</span>,</span>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfacross"</span>, metaMethod <span class="op">=</span> <span class="st">"qp"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/coef.html">coef</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/coef.html">coef</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; (Intercept)   log(AREA)  log(LABOR)    log(NPK) </span></span>
+<span><span class="co">#&gt;  -0.6117795   0.3937843   0.2791273   0.2409454</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="vcov-variance-covariance-matrix">
@@ -299,8 +597,13 @@ columns vary slightly by model type.</p>
 </h2>
 <p>Returns the variance-covariance matrix of the metafrontier
 coefficients (for models that estimate metafrontier parameters).</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/vcov.html">vcov</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/vcov.html">vcov</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                (Intercept)   `log(AREA)`  `log(LABOR)`    `log(NPK)`</span></span>
+<span><span class="co">#&gt; (Intercept)   8.514304e-04  1.954064e-04 -1.729963e-04 -3.730091e-05</span></span>
+<span><span class="co">#&gt; `log(AREA)`   1.954064e-04  5.359537e-05 -3.976453e-05 -9.599635e-06</span></span>
+<span><span class="co">#&gt; `log(LABOR)` -1.729963e-04 -3.976453e-05  5.962116e-05 -1.454127e-05</span></span>
+<span><span class="co">#&gt; `log(NPK)`   -3.730091e-05 -9.599635e-06 -1.454127e-05  2.194543e-05</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="loglik-log-likelihood">
@@ -309,16 +612,19 @@ coefficients (for models that estimate metafrontier parameters).</p>
 <p>Returns the total log-likelihood value of the model (sum of
 group-level log-likelihoods plus the metafrontier log-likelihood where
 applicable).</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/logLik.html">logLik</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/logLik.html">logLik</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'log Lik.' -74.28939 (df=18)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="ic-information-criteria">
 <code>ic()</code> — Information Criteria<a class="anchor" aria-label="anchor" href="#ic-information-criteria"></a>
 </h2>
 <p>Returns all three information criteria: AIC, BIC, and HQIC.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        AIC      BIC    HQIC</span></span>
+<span><span class="co">#&gt; 1 184.5788 253.7103 212.113</span></span>
 <span><span class="co">#&gt;        AIC       BIC      HQIC</span></span>
 <span><span class="co">#&gt; 1  184.579  253.710   212.113</span></span></code></pre></div>
 </div>
@@ -326,17 +632,19 @@ applicable).</p>
 <h2 id="nobs-number-of-observations">
 <code>nobs()</code> — Number of Observations<a class="anchor" aria-label="anchor" href="#nobs-number-of-observations"></a>
 </h2>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/nobs.html">nobs</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>  <span class="co"># Total observations across all groups</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/nobs.html">nobs</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>  <span class="co"># Total observations across all groups</span></span>
+<span><span class="co">#&gt; [1] 344</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="fitted-fitted-values">
 <code>fitted()</code> — Fitted Values<a class="anchor" aria-label="anchor" href="#fitted-fitted-values"></a>
 </h2>
 <p>Returns the fitted frontier values from the model.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fv</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fitted.html">fitted</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fv</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fv</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2.469286 2.743912 2.626060 1.741342 2.413083 0.838672</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="residuals-residuals">
@@ -344,28 +652,31 @@ applicable).</p>
 </h2>
 <p>Returns the composite error residuals from the group-level stochastic
 frontier models.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/residuals.html">residuals</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 5.400714 7.606088 7.353940 3.088658 6.326917 1.001328</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="comparing-multiple-models">Comparing Multiple Models<a class="anchor" aria-label="anchor" href="#comparing-multiple-models"></a>
 </h2>
 <p>You can compare information criteria across methods to select the
 best model:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">meta_lp</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">meta_lp</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>                               data <span class="op">=</span> <span class="va">ricephil</span>, group <span class="op">=</span> <span class="st">"group"</span>, S <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                               udist <span class="op">=</span> <span class="st">"hnormal"</span>, groupType <span class="op">=</span> <span class="st">"sfacross"</span>,</span>
 <span>                               metaMethod <span class="op">=</span> <span class="st">"lp"</span><span class="op">)</span></span>
-<span><span class="va">meta_qp</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
+<span><span class="va">meta_qp</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>                               data <span class="op">=</span> <span class="va">ricephil</span>, group <span class="op">=</span> <span class="st">"group"</span>, S <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                               udist <span class="op">=</span> <span class="st">"hnormal"</span>, groupType <span class="op">=</span> <span class="st">"sfacross"</span>,</span>
 <span>                               metaMethod <span class="op">=</span> <span class="st">"qp"</span><span class="op">)</span></span>
-<span><span class="va">meta_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sfametafrontier.html">sfametafrontier</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
+<span><span class="va">meta_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>                               data <span class="op">=</span> <span class="va">ricephil</span>, group <span class="op">=</span> <span class="st">"group"</span>, S <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                               udist <span class="op">=</span> <span class="st">"hnormal"</span>, groupType <span class="op">=</span> <span class="st">"sfacross"</span>,</span>
 <span>                               metaMethod <span class="op">=</span> <span class="st">"sfa"</span>, sfaApproach <span class="op">=</span> <span class="st">"huang"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: The residuals of the OLS are right-skewed. This may indicate the absence of inefficiency or</span></span>
+<span><span class="co">#&gt;   model misspecification or sample 'bad luck'</span></span>
 <span></span>
 <span><span class="co"># Combined information criteria table</span></span>
 <span><span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>LP <span class="op">=</span> <span class="va">meta_lp</span>, QP <span class="op">=</span> <span class="va">meta_qp</span>, Huang <span class="op">=</span> <span class="va">meta_huang</span><span class="op">)</span></span>
@@ -373,7 +684,11 @@ best model:</p>
 <span>  <span class="va">ic_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">models</span><span class="op">[[</span><span class="va">nm</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>Model <span class="op">=</span> <span class="va">nm</span>, AIC <span class="op">=</span> <span class="va">ic_vals</span><span class="op">[[</span><span class="st">"AIC"</span><span class="op">]</span><span class="op">]</span>,</span>
 <span>             BIC <span class="op">=</span> <span class="va">ic_vals</span><span class="op">[[</span><span class="st">"BIC"</span><span class="op">]</span><span class="op">]</span>, HQIC <span class="op">=</span> <span class="va">ic_vals</span><span class="op">[[</span><span class="st">"HQIC"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Model       AIC       BIC      HQIC</span></span>
+<span><span class="co">#&gt; 1    LP  184.5788  253.7103  212.1130</span></span>
+<span><span class="co">#&gt; 2    QP  192.5788  277.0729  226.2318</span></span>
+<span><span class="co">#&gt; 3 Huang -910.1260 -817.9506 -873.4137</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

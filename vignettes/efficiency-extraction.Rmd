@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "#>",
-  eval      = FALSE
+  eval      = TRUE
 )
 ```
 
@@ -24,7 +24,7 @@ extract and inspect results. This vignette demonstrates all of them using a simp
 ## Setup: Fit a Model
 
 ```{r fit}
-library(metafrontieR)
+library(smfa)
 data("ricephil", package = "sfaR")
 
 ricephil$group <- cut(
@@ -34,7 +34,7 @@ ricephil$group <- cut(
   include.lowest = TRUE
 )
 
-meta_lp <- sfametafrontier(
+meta_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
   group      = "group",
@@ -118,7 +118,7 @@ Returns the metafrontier coefficient vector (for QP and SFA methods; `NULL` for 
 
 ```{r coef}
 # First fit a QP model
-meta_qp <- sfametafrontier(
+meta_qp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil, group = "group", S = 1, udist = "hnormal",
   groupType  = "sfacross", metaMethod = "qp"
@@ -183,15 +183,15 @@ head(res)
 You can compare information criteria across methods to select the best model:
 
 ```{r compare}
-meta_lp    <- sfametafrontier(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
+meta_lp    <- smfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
                                data = ricephil, group = "group", S = 1,
                                udist = "hnormal", groupType = "sfacross",
                                metaMethod = "lp")
-meta_qp    <- sfametafrontier(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
+meta_qp    <- smfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
                                data = ricephil, group = "group", S = 1,
                                udist = "hnormal", groupType = "sfacross",
                                metaMethod = "qp")
-meta_huang <- sfametafrontier(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
+meta_huang <- smfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
                                data = ricephil, group = "group", S = 1,
                                udist = "hnormal", groupType = "sfacross",
                                metaMethod = "sfa", sfaApproach = "huang")

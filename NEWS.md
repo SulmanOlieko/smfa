@@ -1,10 +1,10 @@
 # NEWS.md
 
-# metafrontieR 1.0.0
+# smfa 1.0.0
 
 ## Initial CRAN release
 
-* First public release of `metafrontieR`.
+* First public release of `smfa`.
 * Implements stochastic and deterministic metafrontier analysis for
   productivity and performance benchmarking across firms operating under
   different technologies.

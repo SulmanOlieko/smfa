@@ -11,7 +11,7 @@ vignette: >
 knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "#>",
-  eval      = FALSE
+  eval      = TRUE
 )
 ```
 
@@ -28,7 +28,7 @@ We use the `ricephil` dataset from `sfaR`, which contains 344 Filipino rice farm
 We create three technology groups based on farm area terciles.
 
 ```{r data}
-library(metafrontieR)
+library(smfa)
 data("ricephil", package = "sfaR")
 
 ricephil$group <- cut(
@@ -50,7 +50,7 @@ group frontier predictions while satisfying a convexity constraint. No stochasti
 parameters are estimated for the metafrontier itself.
 
 ```{r lp}
-meta_lp <- sfametafrontier(
+meta_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
   group      = "group",
@@ -73,7 +73,7 @@ from group frontier predictions. Unlike LP, QP produces a smooth envelope that i
 differentiable everywhere, and it returns estimated coefficients with standard errors.
 
 ```{r qp}
-meta_qp <- sfametafrontier(
+meta_qp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
   group      = "group",
@@ -93,7 +93,7 @@ pooled SFA. The technology gap U and noise V are estimated stochastically, which
 naturally bounds the metatechnology ratio MTR ∈ (0, 1].
 
 ```{r huang}
-meta_huang <- sfametafrontier(
+meta_huang <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
   group       = "group",
@@ -117,7 +117,7 @@ This mixed deterministic–stochastic approach embeds the envelope within an SFA
 > `sfaApproach = "huang"` instead.
 
 ```{r odonnell}
-meta_ordonnell <- sfametafrontier(
+meta_ordonnell <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
   group       = "group",

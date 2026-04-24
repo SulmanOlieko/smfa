@@ -1,8 +1,8 @@
 ---
-title: "Getting Started with metafrontieR"
+title: "Getting Started with smfa"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Getting Started with metafrontieR}
+  %\VignetteIndexEntry{Getting Started with smfa}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -11,13 +11,13 @@ vignette: >
 knitr::opts_chunk$set(
   collapse  = TRUE,
   comment   = "#>",
-  eval      = FALSE
+  eval      = TRUE
 )
 ```
 
-## What is metafrontieR?
+## What is smfa?
 
-`metafrontieR` is an R package for implementing **metafrontier analysis** — a framework for productivity and performance benchmarking of firms (or farms, utilities, hospitals, etc.) that operate under *different* technologies. This is also referred to as "heterogeneous technology" analysis.
+`smfa` is an R package for implementing **metafrontier analysis** — a framework for productivity and performance benchmarking of firms (or farms, utilities, hospitals, etc.) that operate under *different* technologies. This is also referred to as "heterogeneous technology" analysis.
 
 The classic **stochastic frontier analysis (SFA)** estimates a single frontier for all firms. Metafrontier analysis extends this by:
 
@@ -39,7 +39,7 @@ A **MTR close to 1** means the group's technology is near the metafrontier (adva
 
 ## Methods Supported
 
-`metafrontieR` supports four metafrontier estimation methods (`metaMethod`):
+`smfa` supports four metafrontier estimation methods (`metaMethod`):
 
 | Method | Description |
 |--------|-------------|
@@ -58,12 +58,13 @@ And three group frontier types (`groupType`):
 
 ## Installation
 
-```{r install}
-# Install devtools if needed
-if (!require("devtools")) install.packages("devtools")
+```{r install, eval = FALSE}
+# Install smfa from CRAN
+install.packages("smfa")
 
-# Install metafrontieR from GitHub
-devtools::install_github("SulmanOlieko/metafrontieR")
+# Or install the development version from GitHub
+# if (!require("devtools")) install.packages("devtools")
+# devtools::install_github("SulmanOlieko/smfa")
 ```
 
 > **Note:** `sfaR` is automatically installed as a dependency — you do not need to install it separately.
@@ -75,7 +76,7 @@ This minimal example demonstrates the core workflow using the `ricephil` dataset
 ### Step 1: Load data and create groups
 
 ```{r quickstart-data}
-library(metafrontieR)
+library(smfa)
 data("ricephil", package = "sfaR")
 
 # Create technology groups based on farm area terciles
@@ -91,7 +92,7 @@ table(ricephil$group)
 ### Step 2: Fit the metafrontier model
 
 ```{r quickstart-fit}
-meta_lp <- sfametafrontier(
+meta_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
   group      = "group",
