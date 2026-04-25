@@ -180,7 +180,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -191,9 +191,9 @@ summary(meta_sel_lp)
 #> Sample Selection Correction Stochastic Frontier Model 
 #> Dependent Variable:                                                       log(y) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          68 
+#> Log likelihood iter:                                                          72 
 #> Log likelihood value:                                                 -197.67108 
-#> Log likelihood gradient norm:                                        2.70510e-06 
+#> Log likelihood gradient norm:                                        1.74407e-06 
 #> Estimation based on:                             N =  132 of 248 obs. and K =  6 
 #> Inf. Cr:                                           AIC  =  407.3 AIC/N  =  3.086 
 #>                                                    BIC  =  424.6 BIC/N  =  3.217 
@@ -239,7 +239,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -265,7 +265,7 @@ summary(meta_sel_lp)
 #> Total Log-likelihood: -423.0023 
 #> AIC: 870.0045   BIC: 920.5798   HQIC: 889.8502 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49
 ```
 
 > **Note:** The `selectionF` argument is compulsory for
@@ -365,7 +365,7 @@ summary(meta_sel_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -376,9 +376,9 @@ summary(meta_sel_qp)
 #> Sample Selection Correction Stochastic Frontier Model 
 #> Dependent Variable:                                                       log(y) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          68 
+#> Log likelihood iter:                                                          72 
 #> Log likelihood value:                                                 -197.67108 
-#> Log likelihood gradient norm:                                        2.70510e-06 
+#> Log likelihood gradient norm:                                        1.74407e-06 
 #> Estimation based on:                             N =  132 of 248 obs. and K =  6 
 #> Inf. Cr:                                           AIC  =  407.3 AIC/N  =  3.086 
 #>                                                    BIC  =  424.6 BIC/N  =  3.217 
@@ -424,14 +424,14 @@ summary(meta_sel_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
 #> ------------------------------------------------------------ 
 #> Metafrontier Coefficients (qp):
 #>               Estimate Std. Error z value  Pr(>|z|)    
-#> (Intercept) 1.36736720 0.00042531 3215.00 < 2.2e-16 ***
+#> (Intercept) 1.36736719 0.00042531 3215.00 < 2.2e-16 ***
 #> log(x1)     0.16870720 0.00027176  620.79 < 2.2e-16 ***
 #> log(x2)     0.07759335 0.00030299  256.09 < 2.2e-16 ***
 #> ---
@@ -455,7 +455,7 @@ summary(meta_sel_qp)
 #> Total Log-likelihood: -423.0023 
 #> AIC: 876.0045   BIC: 939.2237   HQIC: 900.8116 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49
 ```
 
 ## Method 3: sfaselectioncross + SFA (Huang)
@@ -551,7 +551,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -562,9 +562,9 @@ summary(meta_sel_huang)
 #> Sample Selection Correction Stochastic Frontier Model 
 #> Dependent Variable:                                                       log(y) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          68 
+#> Log likelihood iter:                                                          72 
 #> Log likelihood value:                                                 -197.67108 
-#> Log likelihood gradient norm:                                        2.70510e-06 
+#> Log likelihood gradient norm:                                        1.74407e-06 
 #> Estimation based on:                             N =  132 of 248 obs. and K =  6 
 #> Inf. Cr:                                           AIC  =  407.3 AIC/N  =  3.086 
 #>                                                    BIC  =  424.6 BIC/N  =  3.217 
@@ -610,7 +610,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -618,9 +618,9 @@ summary(meta_sel_huang)
 #> Metafrontier Coefficients (sfa):
 #> Meta-optim solver  : BFGS maximization 
 #>              Estimate Std. Error z value  Pr(>|z|)    
-#> (Intercept) 1.2984590  0.2752514  4.7174 2.389e-06 ***
-#> log(x1)     0.1557503  0.0038319 40.6458 < 2.2e-16 ***
-#> log(x2)     0.0921453  0.0042741 21.5589 < 2.2e-16 ***
+#> (Intercept) 1.2985018  0.2712724  4.7867 1.695e-06 ***
+#> log(x1)     0.1557503  0.0038319 40.6455 < 2.2e-16 ***
+#> log(x2)     0.0921453  0.0042742 21.5585 < 2.2e-16 ***
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 
@@ -629,9 +629,9 @@ summary(meta_sel_huang)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                          group_fitted_values 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                         608 
+#> Log likelihood iter:                                                         559 
 #> Log likelihood value:                                                  305.40441 
-#> Log likelihood gradient norm:                                        2.74614e-05 
+#> Log likelihood gradient norm:                                        7.50403e-04 
 #> Estimation based on:                                         N =  263 and K =  5 
 #> Inf. Cr:                                         AIC  =  -600.8 AIC/N  =  -2.284 
 #>                                                  BIC  =  -582.9 BIC/N  =  -2.217 
@@ -642,12 +642,12 @@ summary(meta_sel_huang)
 #>            Sigma-squared(u)   =                                          0.00002 
 #>            Sigma(u)           =                                          0.00002 
 #> Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.07583 
-#> Gamma = sigma(u)^2/sigma^2    =                                          0.00295 
-#> Lambda = sigma(u)/sigma(v)    =                                          0.05438 
-#> Var[u]/{Var[u]+Var[v]}        =                                          0.00107 
+#> Gamma = sigma(u)^2/sigma^2    =                                          0.00303 
+#> Lambda = sigma(u)/sigma(v)    =                                          0.05509 
+#> Var[u]/{Var[u]+Var[v]}        =                                          0.00110 
 #> -------------------------------------------------------------------------------- 
-#> Average inefficiency E[ui]     =                                         0.00329 
-#> Average efficiency E[exp(-ui)] =                                         0.99672 
+#> Average inefficiency E[ui]     =                                         0.00333 
+#> Average efficiency E[exp(-ui)] =                                         0.99668 
 #> -------------------------------------------------------------------------------- 
 #> Stochastic Production/Profit Frontier, e = v - u 
 #> -----[ Tests vs. No Inefficiency ]-----
@@ -655,7 +655,7 @@ summary(meta_sel_huang)
 #> Deg. freedom for inefficiency model                                            1 
 #> Log Likelihood for OLS Log(H0) =                                       305.40442 
 #> LR statistic:  
-#> Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00000 
+#> Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00001 
 #> Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 #> Coelli (1995) skewness test on OLS residuals
 #> M3T: z                         =                                        -0.06529 
@@ -665,23 +665,23 @@ summary(meta_sel_huang)
 #>                          Deterministic Component of SFA 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value  Pr(>|z|)    
-#> (Intercept)        1.29846    0.27525  4.7174 2.389e-06 ***
-#> .X2                0.15575    0.00383 40.6458 < 2.2e-16 ***
-#> .X3                0.09215    0.00427 21.5589 < 2.2e-16 ***
+#> (Intercept)        1.29850    0.27127  4.7867 1.695e-06 ***
+#> .X2                0.15575    0.00383 40.6455 < 2.2e-16 ***
+#> .X3                0.09215    0.00427 21.5585 < 2.2e-16 ***
 #> -------------------------------------------------------------------------------- 
 #>                   Parameter in variance of u (one-sided error) 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value Pr(>|z|)
-#> Zu_(Intercept)     -10.985    167.527 -0.0656   0.9477
+#> Zu_(Intercept)     -10.959    162.982 -0.0672   0.9464
 #> -------------------------------------------------------------------------------- 
 #>                  Parameters in variance of v (two-sided error) 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value  Pr(>|z|)    
-#> Zv_(Intercept)    -5.16142    0.20002 -25.805 < 2.2e-16 ***
+#> Zv_(Intercept)    -5.16145    0.19976 -25.838 < 2.2e-16 ***
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -690,11 +690,11 @@ summary(meta_sel_huang)
 #> Efficiency Statistics (group means):
 #> ------------------------------------------------------------ 
 #>   N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC
-#> 0   252     131     0.39953       0.39621    0.39825      0.39494 0.99680
-#> 1   248     132     0.43254       0.42840    0.43109      0.42696 0.99665
+#> 0   252     131     0.39953       0.39621    0.39824      0.39492 0.99676
+#> 1   248     132     0.43254       0.42840    0.43107      0.42694 0.99660
 #>   MTR_JLMS
-#> 0  0.99680
-#> 1  0.99664
+#> 0  0.99676
+#> 1  0.99660
 #> 
 #> Overall:
 #> TE_group_BC=0.4160  TE_group_JLMS=0.4123
@@ -704,7 +704,7 @@ summary(meta_sel_huang)
 #> Total Log-likelihood: -117.5979 
 #> AIC: 269.1957   BIC: 340.844   HQIC: 297.3104 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49
 ```
 
 ## Method 4: sfaselectioncross + SFA (O’Donnell)
@@ -806,7 +806,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -817,9 +817,9 @@ summary(meta_sel_odonnell)
 #> Sample Selection Correction Stochastic Frontier Model 
 #> Dependent Variable:                                                       log(y) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          68 
+#> Log likelihood iter:                                                          72 
 #> Log likelihood value:                                                 -197.67108 
-#> Log likelihood gradient norm:                                        2.70510e-06 
+#> Log likelihood gradient norm:                                        1.74407e-06 
 #> Estimation based on:                             N =  132 of 248 obs. and K =  6 
 #> Inf. Cr:                                           AIC  =  407.3 AIC/N  =  3.086 
 #>                                                    BIC  =  424.6 BIC/N  =  3.217 
@@ -865,7 +865,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -873,7 +873,7 @@ summary(meta_sel_odonnell)
 #> Metafrontier Coefficients (sfa):
 #> Meta-optim solver  : BFGS maximization 
 #>               Estimate Std. Error z value  Pr(>|z|)    
-#> (Intercept) 1.36739085 0.00198573  688.61 < 2.2e-16 ***
+#> (Intercept) 1.36739085 0.00198561  688.65 < 2.2e-16 ***
 #> log(x1)     0.16870720 0.00027021  624.36 < 2.2e-16 ***
 #> log(x2)     0.07759335 0.00030126  257.57 < 2.2e-16 ***
 #> ---
@@ -884,9 +884,9 @@ summary(meta_sel_odonnell)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                  lp_envelope 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                         333 
-#> Log likelihood value:                                                 1002.79269 
-#> Log likelihood gradient norm:                                        3.27261e-03 
+#> Log likelihood iter:                                                         328 
+#> Log likelihood value:                                                 1002.79268 
+#> Log likelihood gradient norm:                                        4.71621e-03 
 #> Estimation based on:                                         N =  263 and K =  5 
 #> Inf. Cr:                                        AIC  =  -1995.6 AIC/N  =  -7.588 
 #>                                                 BIC  =  -1977.7 BIC/N  =  -7.520 
@@ -908,7 +908,7 @@ summary(meta_sel_odonnell)
 #> -----[ Tests vs. No Inefficiency ]-----
 #> Likelihood Ratio Test of Inefficiency
 #> Deg. freedom for inefficiency model                                            1 
-#> Log Likelihood for OLS Log(H0) =                                      1002.79271 
+#> Log Likelihood for OLS Log(H0) =                                      1002.79269 
 #> LR statistic:  
 #> Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00003 
 #> Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
@@ -920,14 +920,14 @@ summary(meta_sel_odonnell)
 #>                          Deterministic Component of SFA 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value  Pr(>|z|)    
-#> (Intercept)        1.36739    0.00199  688.61 < 2.2e-16 ***
+#> (Intercept)        1.36739    0.00199  688.65 < 2.2e-16 ***
 #> .X2                0.16871    0.00027  624.36 < 2.2e-16 ***
 #> .X3                0.07759    0.00030  257.57 < 2.2e-16 ***
 #> -------------------------------------------------------------------------------- 
 #>                   Parameter in variance of u (one-sided error) 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value Pr(>|z|)
-#> Zu_(Intercept)     -20.852    164.024 -0.1271   0.8988
+#> Zu_(Intercept)     -20.852    164.013 -0.1271   0.8988
 #> -------------------------------------------------------------------------------- 
 #>                  Parameters in variance of v (two-sided error) 
 #> -------------------------------------------------------------------------------- 
@@ -936,7 +936,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44 
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -957,9 +957,9 @@ summary(meta_sel_odonnell)
 #> MTR_BC=10.9268     MTR_JLMS=11.0327
 #> ------------------------------------------------------------ 
 #> Total Log-likelihood: 579.7904 
-#> AIC: -1125.581   BIC: -1053.933   HQIC: -1097.466 
+#> AIC: -1125.581   BIC: -1053.932   HQIC: -1097.466 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:44
+#> Model was estimated on : Apr Sat 25, 2026 at 19:49
 ```
 
 ## Interpreting the Selection Correction
