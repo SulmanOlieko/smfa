@@ -3,7 +3,7 @@
 
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 [![](https://img.shields.io/badge/R->=%204.1.0-blue.svg)](https://cran.r-project.org/)
-[![CRAN status](https://www.r-pkg.org/badges/version/smfa)](https://CRAN.R-project.org/package=smfa)
+
 [![Codecov test coverage](https://codecov.io/gh/SulmanOlieko/smfa/branch/main/graph/badge.svg)](https://app.codecov.io/gh/SulmanOlieko/smfa?branch=main)
 [![](https://img.shields.io/github/last-commit/SulmanOlieko/smfa.svg)](https://github.com/SulmanOlieko/smfa/commits/main)
 [![](https://img.shields.io/github/issues/SulmanOlieko/smfa.svg)](https://github.com/SulmanOlieko/smfa/issues)
