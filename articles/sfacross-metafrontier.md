@@ -157,7 +157,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -168,9 +168,9 @@ summary(meta_lp)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          42 
+#> Log likelihood iter:                                                          41 
 #> Log likelihood value:                                                  -15.28164 
-#> Log likelihood gradient norm:                                        1.83919e-05 
+#> Log likelihood gradient norm:                                        3.83566e-05 
 #> Estimation based on:                                         N =  104 and K =  6 
 #> Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
 #>                                                     BIC  =  58.4 BIC/N  =  0.562 
@@ -221,7 +221,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -232,9 +232,9 @@ summary(meta_lp)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          69 
+#> Log likelihood iter:                                                          68 
 #> Log likelihood value:                                                   -8.02197 
-#> Log likelihood gradient norm:                                        8.20588e-06 
+#> Log likelihood gradient norm:                                        4.01301e-05 
 #> Estimation based on:                                         N =  115 and K =  6 
 #> Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
 #>                                                     BIC  =  44.5 BIC/N  =  0.387 
@@ -285,7 +285,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -313,7 +313,7 @@ summary(meta_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05
 ```
 
 > **Note:** Since the LP metafrontier is estimated via linear
@@ -411,7 +411,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -422,9 +422,9 @@ summary(meta_qp)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          42 
+#> Log likelihood iter:                                                          41 
 #> Log likelihood value:                                                  -15.28164 
-#> Log likelihood gradient norm:                                        1.83919e-05 
+#> Log likelihood gradient norm:                                        3.83566e-05 
 #> Estimation based on:                                         N =  104 and K =  6 
 #> Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
 #>                                                     BIC  =  58.4 BIC/N  =  0.562 
@@ -475,7 +475,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -486,9 +486,9 @@ summary(meta_qp)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          69 
+#> Log likelihood iter:                                                          68 
 #> Log likelihood value:                                                   -8.02197 
-#> Log likelihood gradient norm:                                        8.20588e-06 
+#> Log likelihood gradient norm:                                        4.01301e-05 
 #> Estimation based on:                                         N =  115 and K =  6 
 #> Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
 #>                                                     BIC  =  44.5 BIC/N  =  0.387 
@@ -539,7 +539,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -573,7 +573,7 @@ summary(meta_qp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05
 ```
 
 ## Method 3: Stochastic Metafrontier — Huang et al. (2014)
@@ -671,7 +671,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -682,9 +682,9 @@ summary(meta_huang)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          42 
+#> Log likelihood iter:                                                          41 
 #> Log likelihood value:                                                  -15.28164 
-#> Log likelihood gradient norm:                                        1.83919e-05 
+#> Log likelihood gradient norm:                                        3.83566e-05 
 #> Estimation based on:                                         N =  104 and K =  6 
 #> Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
 #>                                                     BIC  =  58.4 BIC/N  =  0.562 
@@ -735,7 +735,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -746,9 +746,9 @@ summary(meta_huang)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          69 
+#> Log likelihood iter:                                                          68 
 #> Log likelihood value:                                                   -8.02197 
-#> Log likelihood gradient norm:                                        8.20588e-06 
+#> Log likelihood gradient norm:                                        4.01301e-05 
 #> Estimation based on:                                         N =  115 and K =  6 
 #> Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
 #>                                                     BIC  =  44.5 BIC/N  =  0.387 
@@ -799,7 +799,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -807,9 +807,9 @@ summary(meta_huang)
 #> Metafrontier Coefficients (sfa):
 #> Meta-optim solver  : BFGS maximization 
 #>               Estimate Std. Error z value  Pr(>|z|)    
-#> (Intercept) -1.0032112  0.0592793 -16.924 < 2.2e-16 ***
-#> log(AREA)    0.3670203  0.0091533  40.097 < 2.2e-16 ***
-#> log(LABOR)   0.3297856  0.0096542  34.160 < 2.2e-16 ***
+#> (Intercept) -1.0031443  0.0568887 -17.634 < 2.2e-16 ***
+#> log(AREA)    0.3670206  0.0091533  40.097 < 2.2e-16 ***
+#> log(LABOR)   0.3297853  0.0096542  34.160 < 2.2e-16 ***
 #> log(NPK)     0.2648079  0.0058572  45.211 < 2.2e-16 ***
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -819,9 +819,9 @@ summary(meta_huang)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                          group_fitted_values 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                         470 
-#> Log likelihood value:                                                  553.35241 
-#> Log likelihood gradient norm:                                        6.53886e-03 
+#> Log likelihood iter:                                                         579 
+#> Log likelihood value:                                                  553.35240 
+#> Log likelihood gradient norm:                                        5.37373e-04 
 #> Estimation based on:                                         N =  344 and K =  6 
 #> Inf. Cr:                                        AIC  =  -1094.7 AIC/N  =  -3.182 
 #>                                                 BIC  =  -1071.7 BIC/N  =  -3.115 
@@ -832,12 +832,12 @@ summary(meta_huang)
 #>            Sigma-squared(u)   =                                          0.00000 
 #>            Sigma(u)           =                                          0.00000 
 #> Sigma = Sqrt[(s^2(u)+s^2(v))] =                                          0.04844 
-#> Gamma = sigma(u)^2/sigma^2    =                                          0.00013 
-#> Lambda = sigma(u)/sigma(v)    =                                          0.01125 
-#> Var[u]/{Var[u]+Var[v]}        =                                          0.00005 
+#> Gamma = sigma(u)^2/sigma^2    =                                          0.00017 
+#> Lambda = sigma(u)/sigma(v)    =                                          0.01294 
+#> Var[u]/{Var[u]+Var[v]}        =                                          0.00006 
 #> -------------------------------------------------------------------------------- 
-#> Average inefficiency E[ui]     =                                         0.00043 
-#> Average efficiency E[exp(-ui)] =                                         0.99957 
+#> Average inefficiency E[ui]     =                                         0.00050 
+#> Average efficiency E[exp(-ui)] =                                         0.99950 
 #> -------------------------------------------------------------------------------- 
 #> Stochastic Production/Profit Frontier, e = v - u 
 #> -----[ Tests vs. No Inefficiency ]-----
@@ -845,7 +845,7 @@ summary(meta_huang)
 #> Deg. freedom for inefficiency model                                            1 
 #> Log Likelihood for OLS Log(H0) =                                       553.35242 
 #> LR statistic:  
-#> Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00002 
+#> Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00003 
 #> Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
 #> Coelli (1995) skewness test on OLS residuals
 #> M3T: z                         =                                         4.16139 
@@ -855,7 +855,7 @@ summary(meta_huang)
 #>                          Deterministic Component of SFA 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value  Pr(>|z|)    
-#> (Intercept)       -1.00321    0.05928 -16.924 < 2.2e-16 ***
+#> (Intercept)       -1.00314    0.05689 -17.633 < 2.2e-16 ***
 #> .X2                0.36702    0.00915  40.097 < 2.2e-16 ***
 #> .X3                0.32979    0.00965  34.160 < 2.2e-16 ***
 #> .X4                0.26481    0.00586  45.211 < 2.2e-16 ***
@@ -863,16 +863,16 @@ summary(meta_huang)
 #>                   Parameter in variance of u (one-sided error) 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value Pr(>|z|)
-#> Zu_(Intercept)      -15.03     214.83   -0.07   0.9442
+#> Zu_(Intercept)      -14.75     174.37 -0.0846   0.9326
 #> -------------------------------------------------------------------------------- 
 #>                  Parameters in variance of v (two-sided error) 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value  Pr(>|z|)    
-#> Zv_(Intercept)    -6.05509    0.07688 -78.757 < 2.2e-16 ***
+#> Zv_(Intercept)    -6.05510    0.07698 -78.658 < 2.2e-16 ***
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -881,23 +881,23 @@ summary(meta_huang)
 #> Efficiency Statistics (group means):
 #> ------------------------------------------------------------ 
 #>        N_obs N_valid TE_group_BC TE_group_JLMS TE_meta_BC TE_meta_JLMS  MTR_BC
-#> small    125     125     0.71065       0.70090    0.71034      0.70059 0.99957
-#> medium   104     104     0.71253       0.70965    0.71222      0.70935 0.99957
-#> large    115     115     0.74772       0.74406    0.74739      0.74374 0.99957
+#> small    125     125     0.71065       0.70090    0.71030      0.70055 0.99950
+#> medium   104     104     0.71253       0.70965    0.71217      0.70930 0.99950
+#> large    115     115     0.74772       0.74406    0.74734      0.74369 0.99950
 #>        MTR_JLMS
-#> small   0.99957
-#> medium  0.99957
-#> large   0.99957
+#> small   0.99950
+#> medium  0.99950
+#> large   0.99950
 #> 
 #> Overall:
 #> TE_group_BC=0.7236  TE_group_JLMS=0.7182
-#> TE_meta_BC=0.7233   TE_meta_JLMS=0.7179
-#> MTR_BC=0.9996     MTR_JLMS=0.9996
+#> TE_meta_BC=0.7233   TE_meta_JLMS=0.7178
+#> MTR_BC=0.9995     MTR_JLMS=0.9995
 #> ------------------------------------------------------------ 
 #> Total Log-likelihood: 479.063 
 #> AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05
 ```
 
 ## Method 4: Stochastic Envelope — O’Donnell et al. (2008)
@@ -1002,7 +1002,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1013,9 +1013,9 @@ summary(meta_ordonnell)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          42 
+#> Log likelihood iter:                                                          41 
 #> Log likelihood value:                                                  -15.28164 
-#> Log likelihood gradient norm:                                        1.83919e-05 
+#> Log likelihood gradient norm:                                        3.83566e-05 
 #> Estimation based on:                                         N =  104 and K =  6 
 #> Inf. Cr:                                            AIC  =  42.6 AIC/N  =  0.409 
 #>                                                     BIC  =  58.4 BIC/N  =  0.562 
@@ -1066,7 +1066,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1077,9 +1077,9 @@ summary(meta_ordonnell)
 #> Normal-Half Normal SF Model 
 #> Dependent Variable:                                                    log(PROD) 
 #> Log likelihood solver:                                         BFGS maximization 
-#> Log likelihood iter:                                                          69 
+#> Log likelihood iter:                                                          68 
 #> Log likelihood value:                                                   -8.02197 
-#> Log likelihood gradient norm:                                        8.20588e-06 
+#> Log likelihood gradient norm:                                        4.01301e-05 
 #> Estimation based on:                                         N =  115 and K =  6 
 #> Inf. Cr:                                            AIC  =  28.0 AIC/N  =  0.244 
 #>                                                     BIC  =  44.5 BIC/N  =  0.387 
@@ -1130,7 +1130,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1138,7 +1138,7 @@ summary(meta_ordonnell)
 #> Metafrontier Coefficients (sfa):
 #> Meta-optim solver  : BFGS maximization 
 #>               Estimate Std. Error z value  Pr(>|z|)    
-#> (Intercept) -0.6114342  0.0414960 -14.735 < 2.2e-16 ***
+#> (Intercept) -0.6114342  0.0414990 -14.734 < 2.2e-16 ***
 #> log(AREA)    0.3937848  0.0072782  54.105 < 2.2e-16 ***
 #> log(LABOR)   0.2791270  0.0076764  36.361 < 2.2e-16 ***
 #> log(NPK)     0.2409454  0.0046573  51.735 < 2.2e-16 ***
@@ -1152,7 +1152,7 @@ summary(meta_ordonnell)
 #> Log likelihood solver:                                         BFGS maximization 
 #> Log likelihood iter:                                                         436 
 #> Log likelihood value:                                                  632.20951 
-#> Log likelihood gradient norm:                                        5.39767e-02 
+#> Log likelihood gradient norm:                                        5.34744e-02 
 #> Estimation based on:                                         N =  344 and K =  6 
 #> Inf. Cr:                                        AIC  =  -1252.4 AIC/N  =  -3.641 
 #>                                                 BIC  =  -1229.4 BIC/N  =  -3.574 
@@ -1174,7 +1174,7 @@ summary(meta_ordonnell)
 #> -----[ Tests vs. No Inefficiency ]-----
 #> Likelihood Ratio Test of Inefficiency
 #> Deg. freedom for inefficiency model                                            1 
-#> Log Likelihood for OLS Log(H0) =                                       632.20953 
+#> Log Likelihood for OLS Log(H0) =                                       632.20952 
 #> LR statistic:  
 #> Chisq = 2*[LogL(H0)-LogL(H1)]  =                                        -0.00003 
 #> Kodde-Palm C*:       95%: 2.70554                                   99%: 5.41189 
@@ -1186,7 +1186,7 @@ summary(meta_ordonnell)
 #>                          Deterministic Component of SFA 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value  Pr(>|z|)    
-#> (Intercept)       -0.61143    0.04150 -14.735 < 2.2e-16 ***
+#> (Intercept)       -0.61143    0.04150 -14.734 < 2.2e-16 ***
 #> .X2                0.39378    0.00728  54.105 < 2.2e-16 ***
 #> .X3                0.27913    0.00768  36.361 < 2.2e-16 ***
 #> .X4                0.24095    0.00466  51.735 < 2.2e-16 ***
@@ -1194,7 +1194,7 @@ summary(meta_ordonnell)
 #>                   Parameter in variance of u (one-sided error) 
 #> -------------------------------------------------------------------------------- 
 #>                Coefficient Std. Error z value Pr(>|z|)
-#> Zu_(Intercept)     -15.496    172.291 -0.0899   0.9283
+#> Zu_(Intercept)     -15.496    172.306 -0.0899   0.9283
 #> -------------------------------------------------------------------------------- 
 #>                  Parameters in variance of v (two-sided error) 
 #> -------------------------------------------------------------------------------- 
@@ -1203,7 +1203,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49 
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -1228,7 +1228,7 @@ summary(meta_ordonnell)
 #> Total Log-likelihood: 557.9201 
 #> AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Sat 25, 2026 at 19:49
+#> Model was estimated on : Apr Sun 26, 2026 at 08:05
 ```
 
 ## Comparing Methods
@@ -1254,16 +1254,16 @@ head(eff)
 #>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
 #> 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036
 #> 2  2  large 0.3515642     0.7035867   0.7080897               1.430406
-#> 3  3  large 0.2774565     0.7577085   0.7623359               1.327899
+#> 3  3  large 0.2774565     0.7577085   0.7623358               1.327899
 #> 4  4 medium 0.1710417     0.8427864   0.8461331               1.191355
 #> 5  5  large 0.2119629     0.8089947   0.8133556               1.242901
 #> 6  6  small 0.1987499     0.8197549   0.8275685               1.232467
 #>         uLB_g     uUB_g        m_g TE_group_mode  teBCLB_g  teBCUB_g    u_meta
-#> 1 0.077581943 0.4657010 0.26858570     0.7644599 0.6276949 0.9253512 0.3944439
-#> 2 0.130356246 0.5739174 0.35118207     0.7038556 0.5633144 0.8777827 0.3779836
-#> 3 0.065447907 0.4980807 0.27501606     0.7595599 0.6076959 0.9366478 0.3049531
+#> 1 0.077581942 0.4657010 0.26858570     0.7644599 0.6276949 0.9253512 0.3944439
+#> 2 0.130356248 0.5739174 0.35118207     0.7038556 0.5633144 0.8777827 0.3779836
+#> 3 0.065447909 0.4980807 0.27501606     0.7595599 0.6076959 0.9366478 0.3049531
 #> 4 0.018022507 0.3583190 0.15885675     0.8531186 0.6988501 0.9821389 0.1710417
-#> 5 0.027125653 0.4268531 0.20231520     0.8168374 0.6525594 0.9732389 0.2379271
+#> 5 0.027125654 0.4268531 0.20231520     0.8168374 0.6525594 0.9732389 0.2379271
 #> 6 0.009050601 0.5251973 0.07998025     0.9231346 0.5914386 0.9909902 0.3295263
 #>   TE_meta_JLMS TE_meta_BC  MTR_JLMS    MTR_BC
 #> 1    0.6740548  0.6773549 0.8827375 0.8827375
@@ -1322,7 +1322,7 @@ fitted(meta_lp)        # fitted values
 #>  [99] 1.6928734 2.2298570 0.5843291 1.2561007 3.0662891 3.2740149 3.0130060
 #> [106] 2.8966776 2.3924492 1.9195720 3.1038424 2.4698633 2.8910529 1.7264018
 #> [113] 2.4273869 1.9378162 1.6742073 0.5639574 1.1764958 1.2496804 1.8637001
-#> [120] 1.1691522 2.0872688 1.5744022 1.7298469 2.9304411 1.0201563 1.9811044
+#> [120] 1.1691521 2.0872688 1.5744022 1.7298469 2.9304411 1.0201563 1.9811044
 #> [127] 1.6681942 2.1348045 1.5313581 2.5150745 2.9973843 2.7681912 1.7154370
 #> [134] 2.5772810 0.8951080 2.0540639 2.2076712 2.5922775 2.5457456 1.6160185
 #> [141] 0.2355537 1.8541395 2.0494468 0.4914381 0.9626502 2.8953205 3.2430506
@@ -1356,7 +1356,7 @@ fitted(meta_lp)        # fitted values
 #> [337] 2.1502764 1.4867585 1.1304626 1.0437816 1.9765226 1.5564463 2.1815665
 #> [344] 2.0019192
 residuals(meta_lp)     # residuals
-#>   [1]  5.40071399  7.60608821  7.35394035  3.08865821  6.32691704  1.00132803
+#>   [1]  5.40071399  7.60608821  7.35394035  3.08865822  6.32691704  1.00132804
 #>   [7]  5.17615529  4.53317508  6.63674105  6.60887340 -0.19563164  0.73336915
 #>  [13]  2.25150806  5.08268567  0.38815087  0.07507323  7.88733941 17.88799120
 #>  [19] 10.81733041  9.45244004  2.83240578  3.59718878  6.68876505  4.87888104
@@ -1365,30 +1365,30 @@ residuals(meta_lp)     # residuals
 #>  [37]  3.36387628 14.15291201  0.16969124  1.79558706  2.42449404  6.56000176
 #>  [43] -0.04907398  4.66982802  7.66540903  7.64788553  1.44703560  6.66334280
 #>  [49]  0.25564491  5.68385626  3.83916415  7.42557979  5.91111760 -0.16478498
-#>  [55]  0.60905227  1.17814859  3.97416190  0.37657580  1.08931777  3.00634923
-#>  [61] 14.93960900 12.60782836 10.34326896  3.26176019  2.40392875  9.79471993
-#>  [67]  3.66451996 10.94685569  0.95301713  3.84884621  4.47708879  0.99612587
-#>  [73]  1.44031477  0.55900818  1.01418985  3.06212118 -0.44921866  5.46339053
-#>  [79]  1.33283151  3.48904129 10.84860768 -0.21364610  1.25307665  3.40381667
+#>  [55]  0.60905228  1.17814859  3.97416190  0.37657580  1.08931777  3.00634923
+#>  [61] 14.93960900 12.60782835 10.34326896  3.26176019  2.40392875  9.79471993
+#>  [67]  3.66451996 10.94685569  0.95301713  3.84884622  4.47708879  0.99612587
+#>  [73]  1.44031477  0.55900818  1.01418985  3.06212118 -0.44921865  5.46339053
+#>  [79]  1.33283151  3.48904129 10.84860767 -0.21364610  1.25307665  3.40381667
 #>  [85]  5.54115104 -0.16504651  6.34121212 10.47958390  7.61533351  4.24462232
 #>  [91]  7.32122234  0.75115697  5.37809466  2.39572179  7.37408362  9.51593665
 #>  [97]  0.26339774  0.54778649  2.26712661  4.16014297  0.24567094  1.09389932
-#> [103] 13.40371088 18.57598513 12.85699397 11.73332239  7.95755081  4.01042799
+#> [103] 13.40371088 18.57598513 12.85699397 11.73332239  7.95755082  4.01042799
 #> [109] 13.45615763  7.60013666 12.00894706  2.59359823  6.49261310  4.59218376
 #> [115]  1.36579271  0.30604264  1.63350416  1.56031962  2.68629994 -0.01915215
-#> [121]  4.86273120  1.36559777  3.79015309 13.30955889  0.35984371  2.01889563
+#> [121]  4.86273120  1.36559777  3.79015309 13.30955889  0.35984371  2.01889564
 #> [127]  3.39180576  5.40519554  1.17864190  4.79492550 15.58261574  6.15180881
 #> [133]  3.16456303  8.37271904  0.34489200  5.58593613  4.14232878  6.37772255
 #> [139]  8.67425440  1.42398147  1.05444631  1.59586055  3.93055318  0.51856192
 #> [145]  0.87734977 15.09467954 16.99694940  3.35944136  9.60617679  2.15705528
-#> [151]  4.46544092  5.29043041  4.39674232 12.05951625  1.41330189  1.94849915
+#> [151]  4.46544092  5.29043041  4.39674232 12.05951625  1.41330189  1.94849916
 #> [157]  3.62101659  4.88770778  0.52511627  1.09930676  2.01579715  1.16665577
-#> [163]  0.53236303  4.38935065  2.66246782  3.86358755  9.57737587  0.78838120
+#> [163]  0.53236303  4.38935065  2.66246782  3.86358755  9.57737588  0.78838120
 #> [169]  2.38371439  2.20832700  3.10172137  1.45443752  4.96776654 14.14458758
 #> [175]  4.52843330  2.75042302  5.46899481  0.64430897  4.39049702  3.72669331
 #> [181]  5.97662295  3.17157851  0.38825921  0.44345679  1.11998566  3.37299521
 #> [187]  0.49992913  1.18584036 17.02798983 17.73548082 10.13720459 10.11733955
-#> [193]  5.45693964  1.21561029 12.08596709  1.49090349  5.54149905  2.46775920
+#> [193]  5.45693963  1.21561029 12.08596709  1.49090349  5.54149905  2.46775920
 #> [199]  1.09745241  3.40421394  1.24575439  0.42228944  1.24784484  1.06676742
 #> [205]  3.37464671 -0.31283447  3.20085200  2.66491685  1.67831914  7.01125643
 #> [211]  0.95519543  2.65888548  0.85702530  1.76184276  3.62327679  2.15817061
@@ -1397,21 +1397,21 @@ residuals(meta_lp)     # residuals
 #> [229]  3.23822187  0.49653508  1.32958960 16.68900167 22.96090874 13.10459974
 #> [235]  9.45536891 11.49259857  1.63796331 14.72018770  5.98555608  8.90259777
 #> [241]  2.49426034  3.20555730  3.37228245  0.26117034  0.34014481  1.87238465
-#> [247]  0.21671324  1.34575157  0.52585618  5.27142095  2.78279625  2.24616690
-#> [253]  1.71673479  0.80760862  2.83560641  3.15551060  4.83671332  5.76070235
-#> [259]  1.88436164  9.43070726  2.76063198  2.32405838  6.62137016  0.15305242
-#> [265]  7.21947612  1.95091263  5.45744816  5.92366094  0.17992191  0.94198971
+#> [247]  0.21671324  1.34575157  0.52585618  5.27142095  2.78279626  2.24616690
+#> [253]  1.71673480  0.80760862  2.83560641  3.15551060  4.83671332  5.76070235
+#> [259]  1.88436164  9.43070726  2.76063198  2.32405839  6.62137016  0.15305242
+#> [265]  7.21947612  1.95091263  5.45744816  5.92366094  0.17992192  0.94198971
 #> [271]  1.91630659  3.30285039 -0.11160275  0.95891668  7.04126671 19.23831733
 #> [277]  3.37847620  8.34281148  8.76855073  1.81759779  7.17490605  2.51625341
 #> [283]  7.64467261  1.61203371  1.39465165  1.35237647  1.75634061  0.26098908
 #> [289] -0.09065105  0.63361732  0.27062353  0.38031288  6.46845106  1.74659000
 #> [295]  0.85077164  1.19166097  0.24920592  0.81483750  1.28718539  2.86074746
-#> [301]  1.93219844  5.08274437 11.73785002  8.38348964  2.17480822  8.44482011
+#> [301]  1.93219844  5.08274437 11.73785003  8.38348964  2.17480822  8.44482011
 #> [307]  0.75312209  6.04138253  4.45327478  6.35933553  9.82615068  2.04839897
 #> [313]  1.20886477  2.90707466  3.06795612  0.21293418  1.07692936 11.29218781
 #> [319] 27.64393839 18.76361023 11.94641737  6.85319417  2.69727323 15.75207609
-#> [325]  2.53212457 13.34009620  2.64580324  7.02042126  1.60245457  4.02096320
+#> [325]  2.53212457 13.34009620  2.64580325  7.02042126  1.60245457  4.02096320
 #> [331] -0.06340833  2.49931032  4.79757796  1.69846793  0.37359360  8.32118806
-#> [337]  5.48972358  1.73324152  2.54953741  0.47621841  3.52347738  3.73355374
+#> [337]  5.48972358  1.73324152  2.54953741  0.47621842  3.52347738  3.73355374
 #> [343]  5.49843347  5.72808077
 ```
