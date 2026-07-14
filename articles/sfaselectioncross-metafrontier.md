@@ -89,8 +89,6 @@ table(dat$d)
 #> 
 #>   0   1 
 #> 237 263
-#>    0    1
-#> 1013  987
 ```
 
 ## Method 1: sfaselectioncross + LP Metafrontier
@@ -199,7 +197,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -258,7 +256,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -284,7 +282,7 @@ Toggle to see the output
 #> Total Log-likelihood: -423.0023 
 #> AIC: 870.0045   BIC: 920.5798   HQIC: 889.8502 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27
 ```
 
 > **Note:** The `selectionF` argument is compulsory for
@@ -399,7 +397,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -458,7 +456,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -489,7 +487,7 @@ Toggle to see the output
 #> Total Log-likelihood: -423.0023 
 #> AIC: 876.0045   BIC: 939.2237   HQIC: 900.8116 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27
 ```
 
 ## Method 3: sfaselectioncross + SFA (Huang)
@@ -600,7 +598,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -659,7 +657,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -730,7 +728,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -753,7 +751,7 @@ Toggle to see the output
 #> Total Log-likelihood: -117.5979 
 #> AIC: 269.1957   BIC: 340.844   HQIC: 297.3104 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:51
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27
 ```
 
 ## Method 4: sfaselectioncross + SFA (O’Donnell)
@@ -867,7 +865,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -926,7 +924,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -997,7 +995,7 @@ Toggle to see the output
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -1020,7 +1018,7 @@ Toggle to see the output
 #> Total Log-likelihood: 579.7904 
 #> AIC: -1125.581   BIC: -1053.933   HQIC: -1097.466 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 20:52
+#> Model was estimated on : Jul Tue 14, 2026 at 21:27
 ```
 
 ## Interpreting the Selection Correction
