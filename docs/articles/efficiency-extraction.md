@@ -71,6 +71,11 @@ group.
 
 ``` r
 summary(meta_lp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Linear Programming (LP) Metafrontier 
@@ -143,7 +148,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:24 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -207,7 +212,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:24 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -271,7 +276,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:24 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -299,7 +304,7 @@ summary(meta_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26
+#> Model was estimated on : Jul Tue 14, 2026 at 23:24
 ```
 
 ## `efficiencies()` — Firm-Level Efficiency and MTR Scores
@@ -312,6 +317,11 @@ slightly by model type.
 ``` r
 eff <- efficiencies(meta_lp)
 head(eff)
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
 #> 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036
 #> 2  2  large 0.3515642     0.7035867   0.7080897               1.430406
@@ -362,6 +372,11 @@ eff_small <- eff[eff$group == "small", ]
 
 # Descriptive statistics
 summary(eff_small[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   TE_group_BC       TE_meta_BC         MTR_BC      
 #>  Min.   :0.1737   Min.   :0.1179   Min.   :0.5907  
 #>  1st Qu.:0.6217   1st Qu.:0.5678   1st Qu.:0.8313  
@@ -369,9 +384,17 @@ summary(eff_small[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
 #>  Mean   :0.7107   Mean   :0.6413   Mean   :0.8998  
 #>  3rd Qu.:0.8165   3rd Qu.:0.7509   3rd Qu.:0.9908  
 #>  Max.   :0.9275   Max.   :0.8774   Max.   :1.0000
+```
+
+``` r
 
 # Group-level means
 aggregate(cbind(TE_group_BC, TE_meta_BC, MTR_BC) ~ group, data = eff, FUN = mean)
+```
+
+Toggle to see the output
+
+``` plaintext
 #>    group TE_group_BC TE_meta_BC    MTR_BC
 #> 1  large   0.7477151  0.7218649 0.9652091
 #> 2 medium   0.7125305  0.6820435 0.9559674
@@ -413,6 +436,11 @@ meta_qp <- smfa(
   groupType  = "sfacross", metaMethod = "qp"
 )
 coef(meta_qp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
 #>  -0.6117795   0.3937843   0.2791273   0.2409454
 ```
@@ -424,6 +452,11 @@ Returns the variance-covariance matrix of the metafrontier coefficients
 
 ``` r
 vcov(meta_qp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #>                (Intercept)   `log(AREA)`  `log(LABOR)`    `log(NPK)`
 #> (Intercept)   8.514304e-04  1.954064e-04 -1.729963e-04 -3.730091e-05
 #> `log(AREA)`   1.954064e-04  5.359537e-05 -3.976453e-05 -9.599635e-06
@@ -438,6 +471,11 @@ log-likelihoods plus the metafrontier log-likelihood where applicable).
 
 ``` r
 logLik(meta_lp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> 'log Lik.' -74.28939 (df=18)
 ```
 
@@ -447,6 +485,9 @@ Returns all three information criteria: AIC, BIC, and HQIC.
 
 ``` r
 ic(meta_lp)
+```
+
+``` plaintext
 #>        AIC      BIC    HQIC
 #> 1 184.5788 253.7103 212.113
 #>        AIC       BIC      HQIC
@@ -457,6 +498,9 @@ ic(meta_lp)
 
 ``` r
 nobs(meta_lp)  # Total observations across all groups
+```
+
+``` plaintext
 #> [1] 344
 ```
 
@@ -467,6 +511,11 @@ Returns the fitted frontier values from the model.
 ``` r
 fv <- fitted(meta_lp)
 head(fv)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> [1] 2.469286 2.743912 2.626060 1.741342 2.413083 0.838672
 ```
 
@@ -478,6 +527,11 @@ frontier models.
 ``` r
 res <- residuals(meta_lp)
 head(res)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> [1] 5.400714 7.606088 7.353940 3.088658 6.326917 1.001328
 ```
 
@@ -509,6 +563,11 @@ do.call(rbind, lapply(names(models), function(nm) {
   data.frame(Model = nm, AIC = ic_vals[["AIC"]],
              BIC = ic_vals[["BIC"]], HQIC = ic_vals[["HQIC"]])
 }))
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   Model       AIC       BIC      HQIC
 #> 1    LP  184.5788  253.7103  212.1130
 #> 2    QP  192.5788  277.0729  226.2318

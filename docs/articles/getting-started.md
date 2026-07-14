@@ -123,6 +123,9 @@ ricephil$group <- cut(
   include.lowest = TRUE
 )
 table(ricephil$group)
+```
+
+``` plaintext
 #> 
 #>  small medium  large 
 #>    125    104    115
@@ -146,6 +149,11 @@ meta_lp <- smfa(
 
 ``` r
 summary(meta_lp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Linear Programming (LP) Metafrontier 
@@ -218,7 +226,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -282,7 +290,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -346,7 +354,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -374,7 +382,7 @@ summary(meta_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25
 ```
 
 ### Step 4: Extract firm-level efficiencies
@@ -382,6 +390,11 @@ summary(meta_lp)
 ``` r
 eff <- efficiencies(meta_lp)
 head(eff)
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
 #> 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036
 #> 2  2  large 0.3515642     0.7035867   0.7080897               1.430406

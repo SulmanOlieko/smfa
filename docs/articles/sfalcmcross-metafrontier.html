@@ -167,12 +167,16 @@ deterministic envelope over the inferred class frontiers.</p>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfalcmcross"</span>,</span>
 <span>  lcmClasses <span class="op">=</span> <span class="fl">2</span>,           <span class="co"># number of latent classes</span></span>
 <span>  metaMethod <span class="op">=</span> <span class="st">"lp"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
-<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
-<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span></code></pre>
+</details><pre><code><span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span></code></pre>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: Linear Programming (LP) Metafrontier </span></span>
 <span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
@@ -255,8 +259,8 @@ deterministic envelope over the inferred class frontiers.</p>
 <span><span class="co">#&gt; Total Log-likelihood: 61.35325 </span></span>
 <span><span class="co">#&gt; AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:26</span></span></code></pre></div>
-<blockquote>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:25</span></span></code></pre>
+</details><blockquote>
 <p><strong>Note:</strong> The <code>group</code> argument is not needed
 when <code>groupType = "sfalcmcross"</code> — the latent classes are
 identified automatically by the LCM. The <code>lcmClasses</code>
@@ -266,7 +270,7 @@ argument controls the number of classes.</p>
 <div class="section level2">
 <h2 id="method-2-lcm-qp-metafrontier">Method 2: LCM + QP Metafrontier<a class="anchor" aria-label="anchor" href="#method-2-lcm-qp-metafrontier"></a>
 </h2>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_lcm_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>,</span>
@@ -274,12 +278,16 @@ argument controls the number of classes.</p>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfalcmcross"</span>,</span>
 <span>  lcmClasses <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  metaMethod <span class="op">=</span> <span class="st">"qp"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
-<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
-<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_qp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span></code></pre>
+</details><pre><code><span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_qp</span><span class="op">)</span></span></code></pre>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: Quadratic Programming (QP) Metafrontier </span></span>
 <span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
@@ -368,12 +376,13 @@ argument controls the number of classes.</p>
 <span><span class="co">#&gt; Total Log-likelihood: 61.35325 </span></span>
 <span><span class="co">#&gt; AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:27</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:25</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="method-3-lcm-sfa-huang">Method 3: LCM + SFA (Huang)<a class="anchor" aria-label="anchor" href="#method-3-lcm-sfa-huang"></a>
 </h2>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_lcm_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">utility</span>,</span>
@@ -382,12 +391,16 @@ argument controls the number of classes.</p>
 <span>  lcmClasses  <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  metaMethod  <span class="op">=</span> <span class="st">"sfa"</span>,</span>
 <span>  sfaApproach <span class="op">=</span> <span class="st">"huang"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
-<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
-<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_huang</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span></code></pre>
+</details><pre><code><span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_huang</span><span class="op">)</span></span></code></pre>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: SFA Metafrontier [Huang et al. (2014), two-stage] </span></span>
 <span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
@@ -511,7 +524,7 @@ argument controls the number of classes.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:27 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:25 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
@@ -541,12 +554,13 @@ argument controls the number of classes.</p>
 <span><span class="co">#&gt; Total Log-likelihood: 820.9822 </span></span>
 <span><span class="co">#&gt; AIC: -1603.964   BIC: -1515.172   HQIC: -1569.836 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:27</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:25</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="method-4-lcm-sfa-odonnell">Method 4: LCM + SFA (O’Donnell)<a class="anchor" aria-label="anchor" href="#method-4-lcm-sfa-odonnell"></a>
 </h2>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_lcm_odonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">utility</span>,</span>
@@ -555,17 +569,21 @@ argument controls the number of classes.</p>
 <span>  lcmClasses  <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  metaMethod  <span class="op">=</span> <span class="st">"sfa"</span>,</span>
 <span>  sfaApproach <span class="op">=</span> <span class="st">"ordonnell"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
-<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
-<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span></code></pre>
+</details><pre><code><span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
 <span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
 <span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lcm_odonnell</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: 761 MTR value(s) &gt; 1 detected in O'Donnell SFA approach. This</span></span>
 <span><span class="co">#&gt; typically occurs when the second-stage SFA estimates near-zero inefficiency</span></span>
 <span><span class="co">#&gt; (sigma_u -&gt; 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group &gt; 1. Consider</span></span>
-<span><span class="co">#&gt; using metaMethod='lp' or sfaApproach='huang' instead.</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; using metaMethod='lp' or sfaApproach='huang' instead.</span></span></code></pre>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: SFA Metafrontier [O'Donnell et al. (2008), envelope] </span></span>
 <span><span class="co">#&gt; Stochastic Cost Frontier, e = v + u </span></span>
@@ -689,7 +707,7 @@ argument controls the number of classes.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:27 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:25 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
@@ -719,7 +737,8 @@ argument controls the number of classes.</p>
 <span><span class="co">#&gt; Total Log-likelihood: 2010.521 </span></span>
 <span><span class="co">#&gt; AIC: -3983.041   BIC: -3894.249   HQIC: -3948.913 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:27</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:25</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="choosing-the-number-of-classes">Choosing the Number of Classes<a class="anchor" aria-label="anchor" href="#choosing-the-number-of-classes"></a>
@@ -727,31 +746,40 @@ argument controls the number of classes.</p>
 <p>The number of latent classes (<code>lcmClasses</code>) should be
 guided by economic theory and information criteria. You can compare
 models with different numbers of classes:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_lcm_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>, S <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfalcmcross"</span>, lcmClasses <span class="op">=</span> <span class="fl">2</span>, metaMethod <span class="op">=</span> <span class="st">"lp"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
-<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span>
-<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 2 Classes Estimation...</span></span></code></pre>
+</details><pre><code><span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
 <span><span class="va">meta_lcm_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">tc</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wl</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">wk</span><span class="op">/</span><span class="va">wf</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">utility</span>, S <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>,</span>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfalcmcross"</span>, lcmClasses <span class="op">=</span> <span class="fl">3</span>, metaMethod <span class="op">=</span> <span class="st">"lp"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
-<span><span class="co">#&gt; LCM 3 Classes Estimation...</span></span>
-<span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
+<span><span class="op">)</span></span></code></pre>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; Initialization: SFA + halfnormal - normal distributions...</span></span>
+<span><span class="co">#&gt; LCM 3 Classes Estimation...</span></span></code></pre>
+</details><pre><code><span><span class="co">#&gt; Warning: hessian is singular for 'qr.solve' switching to 'ginv'</span></span>
 <span><span class="co"># Compare information criteria</span></span>
-<span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lcm_2</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         AIC       BIC      HQIC</span></span>
-<span><span class="co">#&gt; 1 -96.70649 -35.95362 -73.35552</span></span>
-<span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lcm_3</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         AIC       BIC      HQIC</span></span>
-<span><span class="co">#&gt; 1 -116.0641 -22.59815 -80.13954</span></span></code></pre></div>
-<p>Prefer the model with the lower AIC/BIC.</p>
+<span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lcm_2</span><span class="op">)</span></span></code></pre>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;         AIC       BIC      HQIC</span></span>
+<span><span class="co">#&gt; 1 -96.70649 -35.95362 -73.35552</span></span></code></pre>
+</details><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lcm_3</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;         AIC       BIC      HQIC</span></span>
+<span><span class="co">#&gt; 1 -116.0641 -22.59815 -80.13954</span></span></code></pre>
+</details><p>Prefer the model with the lower AIC/BIC.</p>
 </div>
 <div class="section level2">
 <h2 id="extracting-efficiencies-and-posterior-probabilities">Extracting Efficiencies and Posterior Probabilities<a class="anchor" aria-label="anchor" href="#extracting-efficiencies-and-posterior-probabilities"></a>
@@ -759,10 +787,12 @@ models with different numbers of classes:</p>
 <p>For LCM models, <code><a href="../reference/efficiencies.html">efficiencies()</a></code> returns extra columns for
 posterior class membership probabilities, which can be used for
 robustness checks or classification:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eff_lcm</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff_lcm</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff_lcm</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
 <span><span class="co">#&gt; 1  1       2 0.15842759     0.8534848   0.8557686               1.174838</span></span>
 <span><span class="co">#&gt; 2  2       2 0.11418774     0.8920905   0.8939942               1.123406</span></span>
 <span><span class="co">#&gt; 3  3       2 0.08540291     0.9181423   0.9196136               1.090950</span></span>
@@ -796,8 +826,9 @@ robustness checks or classification:</p>
 <span><span class="co">#&gt; 3 0.08540291    0.9181423  0.9196136        1      1</span></span>
 <span><span class="co">#&gt; 4 0.08020641    0.9229258  0.9243036        1      1</span></span>
 <span><span class="co">#&gt; 5 0.05774132    0.9438941  0.9448245        1      1</span></span>
-<span><span class="co">#&gt; 6 0.08181796    0.9214397  0.9228469        1      1</span></span>
-<span></span>
+<span><span class="co">#&gt; 6 0.08181796    0.9214397  0.9228469        1      1</span></span></code></pre>
+</details><div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="co"># Key LCM-specific columns:</span></span>
 <span><span class="co"># Group_c          — most likely class assignment</span></span>
 <span><span class="co"># PosteriorProb_c  — posterior probability of assigned class</span></span>
@@ -806,12 +837,12 @@ robustness checks or classification:</p>
 <div class="section level3">
 <h3 id="class-membership-summary">Class membership summary<a class="anchor" aria-label="anchor" href="#class-membership-summary"></a>
 </h3>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Proportion assigned to each class and mean posterior probability</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">eff_lcm</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">Group_c</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">eff_lcm</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>   <span class="co"># % in each class</span></span>
-<span><span class="co">#&gt; Group_c</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/with.html" class="external-link">with</a></span><span class="op">(</span><span class="va">eff_lcm</span>, <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">Group_c</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">eff_lcm</span><span class="op">)</span> <span class="op">*</span> <span class="fl">100</span>   <span class="co"># % in each class</span></span></code></pre></div>
+<pre class="plaintext"><code><span><span class="co">#&gt; Group_c</span></span>
 <span><span class="co">#&gt;        1        2 </span></span>
-<span><span class="co">#&gt; 25.53729 74.46271</span></span></code></pre></div>
+<span><span class="co">#&gt; 25.53729 74.46271</span></span></code></pre>
 </div>
 </div>
 <div class="section level2">

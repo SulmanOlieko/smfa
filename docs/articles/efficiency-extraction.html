@@ -163,8 +163,10 @@ example.</p>
 results, metafrontier coefficients (if available), and efficiency
 statistics by group.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: Linear Programming (LP) Metafrontier </span></span>
 <span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
@@ -236,7 +238,7 @@ statistics by group.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:26 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:24 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -300,7 +302,7 @@ statistics by group.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:26 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:24 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -364,7 +366,7 @@ statistics by group.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:26 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:24 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -392,7 +394,8 @@ statistics by group.</p>
 <span><span class="co">#&gt; Total Log-likelihood: -74.28939 </span></span>
 <span><span class="co">#&gt; AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 16:26</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 23:24</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="efficiencies-firm-level-efficiency-and-mtr-scores">
@@ -403,10 +406,12 @@ Scores<a class="anchor" aria-label="anchor" href="#efficiencies-firm-level-effic
 efficiency estimates and metatechnology ratios. All estimators are
 available for all <code>groupType</code> values, though the exact
 columns vary slightly by model type.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
 <span><span class="co">#&gt; 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036</span></span>
 <span><span class="co">#&gt; 2  2  large 0.3515642     0.7035867   0.7080897               1.430406</span></span>
 <span><span class="co">#&gt; 3  3  large 0.2774565     0.7577085   0.7623358               1.327899</span></span>
@@ -426,8 +431,8 @@ columns vary slightly by model type.</p>
 <span><span class="co">#&gt; 3    0.7371580  0.7416598 0.9728780 0.9728780</span></span>
 <span><span class="co">#&gt; 4    0.8427864  0.8461331 1.0000000 1.0000000</span></span>
 <span><span class="co">#&gt; 5    0.7882601  0.7925093 0.9743700 0.9743700</span></span>
-<span><span class="co">#&gt; 6    0.7192644  0.7261201 0.8774139 0.8774139</span></span></code></pre></div>
-<div class="section level3">
+<span><span class="co">#&gt; 6    0.7192644  0.7261201 0.8774139 0.8774139</span></span></code></pre>
+</details><div class="section level3">
 <h3 id="column-reference">Column Reference<a class="anchor" aria-label="anchor" href="#column-reference"></a>
 </h3>
 <table class="table">
@@ -535,38 +540,44 @@ columns vary slightly by model type.</p>
 <div class="section level3">
 <h3 id="subsetting-by-group">Subsetting by Group<a class="anchor" aria-label="anchor" href="#subsetting-by-group"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># All small farms</span></span>
 <span><span class="va">eff_small</span> <span class="op">&lt;-</span> <span class="va">eff</span><span class="op">[</span><span class="va">eff</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="st">"small"</span>, <span class="op">]</span></span>
 <span></span>
 <span><span class="co"># Descriptive statistics</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">eff_small</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TE_group_BC"</span>, <span class="st">"TE_meta_BC"</span>, <span class="st">"MTR_BC"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   TE_group_BC       TE_meta_BC         MTR_BC      </span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">eff_small</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TE_group_BC"</span>, <span class="st">"TE_meta_BC"</span>, <span class="st">"MTR_BC"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   TE_group_BC       TE_meta_BC         MTR_BC      </span></span>
 <span><span class="co">#&gt;  Min.   :0.1737   Min.   :0.1179   Min.   :0.5907  </span></span>
 <span><span class="co">#&gt;  1st Qu.:0.6217   1st Qu.:0.5678   1st Qu.:0.8313  </span></span>
 <span><span class="co">#&gt;  Median :0.7427   Median :0.6683   Median :0.9204  </span></span>
 <span><span class="co">#&gt;  Mean   :0.7107   Mean   :0.6413   Mean   :0.8998  </span></span>
 <span><span class="co">#&gt;  3rd Qu.:0.8165   3rd Qu.:0.7509   3rd Qu.:0.9908  </span></span>
-<span><span class="co">#&gt;  Max.   :0.9275   Max.   :0.8774   Max.   :1.0000</span></span>
-<span></span>
+<span><span class="co">#&gt;  Max.   :0.9275   Max.   :0.8774   Max.   :1.0000</span></span></code></pre>
+</details><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="co"># Group-level means</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">TE_group_BC</span>, <span class="va">TE_meta_BC</span>, <span class="va">MTR_BC</span><span class="op">)</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">eff</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    group TE_group_BC TE_meta_BC    MTR_BC</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">TE_group_BC</span>, <span class="va">TE_meta_BC</span>, <span class="va">MTR_BC</span><span class="op">)</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">eff</span>, FUN <span class="op">=</span> <span class="va">mean</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;    group TE_group_BC TE_meta_BC    MTR_BC</span></span>
 <span><span class="co">#&gt; 1  large   0.7477151  0.7218649 0.9652091</span></span>
 <span><span class="co">#&gt; 2 medium   0.7125305  0.6820435 0.9559674</span></span>
-<span><span class="co">#&gt; 3  small   0.7106507  0.6412620 0.8998140</span></span></code></pre></div>
+<span><span class="co">#&gt; 3  small   0.7106507  0.6412620 0.8998140</span></span></code></pre>
+</details>
 </div>
 <div class="section level3">
 <h3 id="visualising-the-distribution">Visualising the Distribution<a class="anchor" aria-label="anchor" href="#visualising-the-distribution"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># MTR distribution by group (base R)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html" class="external-link">boxplot</a></span><span class="op">(</span><span class="va">MTR_BC</span> <span class="op">~</span> <span class="va">group</span>, data <span class="op">=</span> <span class="va">eff</span>,</span>
 <span>        main <span class="op">=</span> <span class="st">"Metatechnology Ratio by Farm Size"</span>,</span>
 <span>        xlab <span class="op">=</span> <span class="st">"Group"</span>, ylab <span class="op">=</span> <span class="st">"MTR (BC)"</span>,</span>
 <span>        col  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"#e8f5ef"</span>, <span class="st">"#b2dfdb"</span>, <span class="st">"#80cbc4"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="efficiency-extraction_files/figure-html/plot-1.png" class="r-plt" alt="" width="700"></p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Histogram of TE_meta_BC</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">hist</a></span><span class="op">(</span><span class="va">eff</span><span class="op">$</span><span class="va">TE_meta_BC</span>, breaks <span class="op">=</span> <span class="fl">30</span>,</span>
@@ -581,16 +592,19 @@ columns vary slightly by model type.</p>
 </h2>
 <p>Returns the metafrontier coefficient vector (for QP and SFA methods;
 <code>NULL</code> for LP).</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># First fit a QP model</span></span>
 <span><span class="va">meta_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>, group <span class="op">=</span> <span class="st">"group"</span>, S <span class="op">=</span> <span class="fl">1</span>, udist <span class="op">=</span> <span class="st">"hnormal"</span>,</span>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfacross"</span>, metaMethod <span class="op">=</span> <span class="st">"qp"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/coef.html">coef</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; (Intercept)   log(AREA)  log(LABOR)    log(NPK) </span></span>
-<span><span class="co">#&gt;  -0.6117795   0.3937843   0.2791273   0.2409454</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/coef.html">coef</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; (Intercept)   log(AREA)  log(LABOR)    log(NPK) </span></span>
+<span><span class="co">#&gt;  -0.6117795   0.3937843   0.2791273   0.2409454</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="vcov-variance-covariance-matrix">
@@ -598,13 +612,16 @@ columns vary slightly by model type.</p>
 </h2>
 <p>Returns the variance-covariance matrix of the metafrontier
 coefficients (for models that estimate metafrontier parameters).</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/vcov.html">vcov</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                (Intercept)   `log(AREA)`  `log(LABOR)`    `log(NPK)`</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/vcov.html">vcov</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;                (Intercept)   `log(AREA)`  `log(LABOR)`    `log(NPK)`</span></span>
 <span><span class="co">#&gt; (Intercept)   8.514304e-04  1.954064e-04 -1.729963e-04 -3.730091e-05</span></span>
 <span><span class="co">#&gt; `log(AREA)`   1.954064e-04  5.359537e-05 -3.976453e-05 -9.599635e-06</span></span>
 <span><span class="co">#&gt; `log(LABOR)` -1.729963e-04 -3.976453e-05  5.962116e-05 -1.454127e-05</span></span>
-<span><span class="co">#&gt; `log(NPK)`   -3.730091e-05 -9.599635e-06 -1.454127e-05  2.194543e-05</span></span></code></pre></div>
+<span><span class="co">#&gt; `log(NPK)`   -3.730091e-05 -9.599635e-06 -1.454127e-05  2.194543e-05</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="loglik-log-likelihood">
@@ -613,39 +630,45 @@ coefficients (for models that estimate metafrontier parameters).</p>
 <p>Returns the total log-likelihood value of the model (sum of
 group-level log-likelihoods plus the metafrontier log-likelihood where
 applicable).</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/logLik.html">logLik</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 'log Lik.' -74.28939 (df=18)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/logLik.html">logLik</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; 'log Lik.' -74.28939 (df=18)</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="ic-information-criteria">
 <code>ic()</code> — Information Criteria<a class="anchor" aria-label="anchor" href="#ic-information-criteria"></a>
 </h2>
 <p>Returns all three information criteria: AIC, BIC, and HQIC.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="co">#&gt;        AIC      BIC    HQIC</span></span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span></code></pre></div>
+<pre class="plaintext"><code><span><span class="co">#&gt;        AIC      BIC    HQIC</span></span>
 <span><span class="co">#&gt; 1 184.5788 253.7103 212.113</span></span>
 <span><span class="co">#&gt;        AIC       BIC      HQIC</span></span>
-<span><span class="co">#&gt; 1  184.579  253.710   212.113</span></span></code></pre></div>
+<span><span class="co">#&gt; 1  184.579  253.710   212.113</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="nobs-number-of-observations">
 <code>nobs()</code> — Number of Observations<a class="anchor" aria-label="anchor" href="#nobs-number-of-observations"></a>
 </h2>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/nobs.html">nobs</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>  <span class="co"># Total observations across all groups</span></span>
-<span><span class="co">#&gt; [1] 344</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/nobs.html">nobs</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>  <span class="co"># Total observations across all groups</span></span></code></pre></div>
+<pre class="plaintext"><code><span><span class="co">#&gt; [1] 344</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="fitted-fitted-values">
 <code>fitted()</code> — Fitted Values<a class="anchor" aria-label="anchor" href="#fitted-fitted-values"></a>
 </h2>
 <p>Returns the fitted frontier values from the model.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fv</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fitted.html">fitted</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fv</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 2.469286 2.743912 2.626060 1.741342 2.413083 0.838672</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">fv</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; [1] 2.469286 2.743912 2.626060 1.741342 2.413083 0.838672</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="residuals-residuals">
@@ -653,17 +676,20 @@ applicable).</p>
 </h2>
 <p>Returns the composite error residuals from the group-level stochastic
 frontier models.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/residuals.html">residuals</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 5.400714 7.606088 7.353940 3.088658 6.326917 1.001328</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; [1] 5.400714 7.606088 7.353940 3.088658 6.326917 1.001328</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="comparing-multiple-models">Comparing Multiple Models<a class="anchor" aria-label="anchor" href="#comparing-multiple-models"></a>
 </h2>
 <p>You can compare information criteria across methods to select the
 best model:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_lp</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>                               data <span class="op">=</span> <span class="va">ricephil</span>, group <span class="op">=</span> <span class="st">"group"</span>, S <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>                               udist <span class="op">=</span> <span class="st">"hnormal"</span>, groupType <span class="op">=</span> <span class="st">"sfacross"</span>,</span>
@@ -685,11 +711,14 @@ best model:</p>
 <span>  <span class="va">ic_vals</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">models</span><span class="op">[[</span><span class="va">nm</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>Model <span class="op">=</span> <span class="va">nm</span>, AIC <span class="op">=</span> <span class="va">ic_vals</span><span class="op">[[</span><span class="st">"AIC"</span><span class="op">]</span><span class="op">]</span>,</span>
 <span>             BIC <span class="op">=</span> <span class="va">ic_vals</span><span class="op">[[</span><span class="st">"BIC"</span><span class="op">]</span><span class="op">]</span>, HQIC <span class="op">=</span> <span class="va">ic_vals</span><span class="op">[[</span><span class="st">"HQIC"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   Model       AIC       BIC      HQIC</span></span>
+<span><span class="op">}</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   Model       AIC       BIC      HQIC</span></span>
 <span><span class="co">#&gt; 1    LP  184.5788  253.7103  212.1130</span></span>
 <span><span class="co">#&gt; 2    QP  192.5788  277.0729  226.2318</span></span>
-<span><span class="co">#&gt; 3 Huang -910.1260 -817.9506 -873.4137</span></span></code></pre></div>
+<span><span class="co">#&gt; 3 Huang -910.1260 -817.9506 -873.4137</span></span></code></pre>
+</details>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

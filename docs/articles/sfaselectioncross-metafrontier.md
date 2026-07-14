@@ -82,6 +82,9 @@ dat <- as.data.frame(cbind(y = y, x1 = x1, x2 = x2,
 
 # About 50% of observations are selected
 table(dat$d)
+```
+
+``` plaintext
 #> 
 #>   0   1 
 #> 237 263
@@ -108,11 +111,24 @@ meta_sel_lp <- smfa(
   itermax    = 2000,
   metaMethod = "lp"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> First step probit model...
 #> Second step Frontier model...
 #> First step probit model...
 #> Second step Frontier model...
+```
+
+``` r
 summary(meta_sel_lp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Linear Programming (LP) Metafrontier 
@@ -180,7 +196,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:27 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -239,7 +255,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -265,7 +281,7 @@ summary(meta_sel_lp)
 #> Total Log-likelihood: -423.0023 
 #> AIC: 870.0045   BIC: 920.5798   HQIC: 889.8502 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25
 ```
 
 > **Note:** The `selectionF` argument is compulsory for
@@ -293,11 +309,24 @@ meta_sel_qp <- smfa(
   itermax    = 2000,
   metaMethod = "qp"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> First step probit model...
 #> Second step Frontier model...
 #> First step probit model...
 #> Second step Frontier model...
+```
+
+``` r
 summary(meta_sel_qp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Quadratic Programming (QP) Metafrontier 
@@ -365,7 +394,7 @@ summary(meta_sel_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -424,7 +453,7 @@ summary(meta_sel_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -455,7 +484,7 @@ summary(meta_sel_qp)
 #> Total Log-likelihood: -423.0023 
 #> AIC: 876.0045   BIC: 939.2237   HQIC: 900.8116 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26
 ```
 
 ## Method 3: sfaselectioncross + SFA (Huang)
@@ -478,11 +507,24 @@ meta_sel_huang <- smfa(
   metaMethod  = "sfa",
   sfaApproach = "huang"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> First step probit model...
 #> Second step Frontier model...
 #> First step probit model...
 #> Second step Frontier model...
+```
+
+``` r
 summary(meta_sel_huang)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: SFA Metafrontier [Huang et al. (2014), two-stage] 
@@ -551,7 +593,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -610,7 +652,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -681,7 +723,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -704,7 +746,7 @@ summary(meta_sel_huang)
 #> Total Log-likelihood: -117.5979 
 #> AIC: 269.1957   BIC: 340.8441   HQIC: 297.3104 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:28
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26
 ```
 
 ## Method 4: sfaselectioncross + SFA (O’Donnell)
@@ -727,17 +769,28 @@ meta_sel_odonnell <- smfa(
   metaMethod  = "sfa",
   sfaApproach = "ordonnell"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> First step probit model...
 #> Second step Frontier model...
 #> First step probit model...
 #> Second step Frontier model...
-#> Warning: The residuals of the OLS are right-skewed. This may indicate the absence of inefficiency or
-#>   model misspecification or sample 'bad luck'
-summary(meta_sel_odonnell)
-#> Warning: 263 MTR value(s) > 1 detected in O'Donnell SFA approach. This
-#> typically occurs when the second-stage SFA estimates near-zero inefficiency
-#> (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider
-#> using metaMethod='lp' or sfaApproach='huang' instead.
+```
+
+    #> Warning: The residuals of the OLS are right-skewed. This may indicate the absence of inefficiency or
+    #>   model misspecification or sample 'bad luck'
+    summary(meta_sel_odonnell)
+    #> Warning: 263 MTR value(s) > 1 detected in O'Donnell SFA approach. This
+    #> typically occurs when the second-stage SFA estimates near-zero inefficiency
+    #> (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider
+    #> using metaMethod='lp' or sfaApproach='huang' instead.
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: SFA Metafrontier [O'Donnell et al. (2008), envelope] 
@@ -806,7 +859,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:29 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -865,7 +918,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:29 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -936,7 +989,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:29 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -959,7 +1012,7 @@ summary(meta_sel_odonnell)
 #> Total Log-likelihood: 579.7905 
 #> AIC: -1125.581   BIC: -1053.933   HQIC: -1097.466 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:29
+#> Model was estimated on : Jul Tue 14, 2026 at 23:26
 ```
 
 ## Interpreting the Selection Correction
@@ -997,11 +1050,24 @@ eff_sel <- efficiencies(meta_sel_lp)
 
 # Non-selected observations have NA efficiencies
 sum(is.na(eff_sel$TE_group_BC))   # count of non-selected obs
+```
+
+Toggle to see the output
+
+``` plaintext
 #> [1] 237
+```
+
+``` r
 
 # Subset for selected observations in group 1
 sel_grp1 <- eff_sel[eff_sel$group == 1 & !is.na(eff_sel$TE_group_BC), ]
 summary(sel_grp1[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   TE_group_BC        TE_meta_BC          MTR_BC      
 #>  Min.   :0.01365   Min.   :0.01189   Min.   :0.7502  
 #>  1st Qu.:0.21013   1st Qu.:0.18598   1st Qu.:0.8450  

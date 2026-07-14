@@ -1,8 +1,6 @@
 smfa: Stochastic Metafrontier Analysis
 ================
 
-# smfa: Stochastic Metafrontier Analysis
-
 <img src="man/figures/logo.png" align="right" height="139" alt="smfa logo" />
 
 [![Lifecycle:
@@ -85,60 +83,7 @@ In addition, the package implements:
 
 ``` r
 install.packages("smfa")
-Installing package into '/private/var/folders/9n/3z6s443x6qbclmb32_05hn_r0000gp/T/RtmpnONjWc/temp_libpath155183d37dbb0'
-(as 'lib' is unspecified)
-```
-
-<details>
-
-<summary>
-
-Toggle to see the output
-</summary>
-
-``` plaintext
-
-The downloaded binary packages are in
-    /var/folders/9n/3z6s443x6qbclmb32_05hn_r0000gp/T//Rtmp4OvMIX/downloaded_packages
-```
-
-</details>
-
-``` r
 library("smfa")
-Loading required package: sfaR
-           ****           *******  
-          /**/           /**////** 
-  ****** ******  ******  /**   /** 
- **//// ///**/  //////** /*******  
-//*****   /**    ******* /**///**  
- /////**  /**   **////** /**  //** 
- ******   /**  //********/**   //**
-//////    //    //////// //     //    version 1.0.1
-
-* Please cite the 'sfaR' package as:
-  Dakpo KH., Desjeux Y., Henningsen A., and Latruffe L. (2024). sfaR: Stochastic Frontier Analysis Using R. R package version 1.0.1.
-
-See also: citation("sfaR")
-
-* For any questions, suggestions, or comments on the 'sfaR' package, you can contact directly the authors or visit:  https://github.com/hdakpo/sfaR/issues
-                        .d888         
-                       d88P"          
-                       888            
-.d8888b  88888b.d88b.  888888 8888b.  
-88K      888 "888 "88b 888       "88b 
- Y8888b. 888  888  888 888   .d888888  
-     X88 888  888  888 888   888  888 
- 88888P' 888  888  888 888   "Y888888 
-                          version 1.0.0
-
-* Please cite the 'smfa' package as:
-Owili, S. O. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.0.
-
-See also: citation("smfa")
-
-* For any questions, suggestions, or comments on the 'smfa' package, you can contact the authors directly or visit:
-  https://github.com/SulmanOlieko/smfa/issues
 # Install devtools if not already installed
 #if (!require("devtools")) #install.packages("devtools")
 
@@ -223,6 +168,13 @@ meta_sfacross_lp <- smfa(
 summary(meta_sfacross_lp)
 ```
 
+<details>
+
+<summary>
+
+Toggle to see the output
+</summary>
+
 ``` plaintext
 ============================================================ 
 Stochastic Metafrontier Analysis
@@ -296,7 +248,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -360,7 +312,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -424,7 +376,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -452,8 +404,10 @@ MTR_BC=0.9403     MTR_JLMS=0.9403
 Total Log-likelihood: -74.28939 
 AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
+
+</details>
 
 > **Note:** Since the metafrontier is estimated via linear programming,
 > no estimated parameters are returned.
@@ -1656,7 +1610,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -1720,7 +1674,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -1784,7 +1738,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -1818,7 +1772,7 @@ MTR_BC=0.9357     MTR_JLMS=0.9357
 Total Log-likelihood: -74.28939 
 AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
 
 </details>
@@ -1935,7 +1889,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -1999,7 +1953,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -2063,7 +2017,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -2136,7 +2090,7 @@ Zv_(Intercept)    -6.05510    0.07698 -78.658 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
@@ -2161,7 +2115,7 @@ MTR_BC=0.9995     MTR_JLMS=0.9995
 Total Log-likelihood: 479.063 
 AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
 
 </details>
@@ -2275,7 +2229,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -2339,7 +2293,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -2403,7 +2357,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -2476,7 +2430,7 @@ Zv_(Intercept)    -6.51356    0.07665 -84.978 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
@@ -2501,7 +2455,7 @@ MTR_BC=1.4701     MTR_JLMS=1.4829
 Total Log-likelihood: 557.9201 
 AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
 
 </details>
@@ -2675,7 +2629,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 61.35325 
 AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
 
 </details>
@@ -2686,6 +2640,13 @@ Retrieve efficiencies including per-class posterior probabilities
 # Retrieve efficiencies including per-class posterior probabilities
 head(efficiencies(meta_lcm_lp))
 ```
+
+<details>
+
+<summary>
+
+Toggle to see the output
+</summary>
 
 ``` plaintext
   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
@@ -2723,6 +2684,11 @@ head(efficiencies(meta_lcm_lp))
 4 0.08020641    0.9229258  0.9243036        1      1
 5 0.05774132    0.9438941  0.9448245        1      1
 6 0.08181796    0.9214397  0.9228469        1      1
+```
+
+</details>
+
+``` r
 # Columns include: Group_c, u_g, TE_group_JLMS, TE_group_BC, TE_group_BC_reciprocal,
 #                  PosteriorProb_c, PosteriorProb_c1, PosteriorProb_c2,
 #                  PriorProb_c1, PriorProb_c2, u_c1, u_c2,
@@ -2858,7 +2824,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 61.35325 
 AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
 
 </details>
@@ -3028,7 +2994,7 @@ Zv_(Intercept)    -7.29334    0.12966  -56.25 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
@@ -3058,7 +3024,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 820.9822 
 AIC: -1603.964   BIC: -1515.172   HQIC: -1569.836 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
 
 </details>
@@ -3233,7 +3199,7 @@ Zv_(Intercept)     -37.232      0.000 -4.2838e+13 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
@@ -3263,7 +3229,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 2010.521 
 AIC: -3983.041   BIC: -3894.249   HQIC: -3948.913 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:49 
+Model was estimated on : Jul Tue 14, 2026 at 23:17 
 ```
 
 </details>
@@ -3343,13 +3309,32 @@ meta_sel_lp <- smfa(
 )
 ```
 
+<details>
+
+<summary>
+
+Toggle to see the output
+</summary>
+
 ``` plaintext
 First step probit model...
 Second step Frontier model...
 First step probit model...
 Second step Frontier model...
+```
+
+</details>
+
+``` r
 summary(meta_sel_lp)
 ```
+
+<details>
+
+<summary>
+
+Toggle to see the output
+</summary>
 
 ``` plaintext
 ============================================================ 
@@ -3419,7 +3404,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:52 
+Model was estimated on : Jul Tue 14, 2026 at 23:18 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -3478,7 +3463,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:53 
+Model was estimated on : Jul Tue 14, 2026 at 23:18 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -3504,8 +3489,10 @@ MTR_BC=0.9526     MTR_JLMS=0.9526
 Total Log-likelihood: -1651.136 
 AIC: 3326.273   BIC: 3393.484   HQIC: 3350.951 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:53 
+Model was estimated on : Jul Tue 14, 2026 at 23:18 
 ```
+
+</details>
 
 ``` r
 # Efficiencies: non-selected observations have NA
@@ -3663,7 +3650,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:54 
+Model was estimated on : Jul Tue 14, 2026 at 23:19 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -3722,7 +3709,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:55 
+Model was estimated on : Jul Tue 14, 2026 at 23:19 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -3753,7 +3740,7 @@ MTR_BC=0.9491     MTR_JLMS=0.9491
 Total Log-likelihood: -1651.136 
 AIC: 3332.273   BIC: 3416.286   HQIC: 3363.121 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:55 
+Model was estimated on : Jul Tue 14, 2026 at 23:19 
 ```
 
 </details>
@@ -3884,7 +3871,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:57 
+Model was estimated on : Jul Tue 14, 2026 at 23:20 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -3943,7 +3930,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:58 
+Model was estimated on : Jul Tue 14, 2026 at 23:20 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -4014,7 +4001,7 @@ Zv_(Intercept)    -8.28377    0.17628 -46.992 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 15:58 
+Model was estimated on : Jul Tue 14, 2026 at 23:20 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
@@ -4037,7 +4024,7 @@ MTR_BC=0.9223     MTR_JLMS=0.9222
 Total Log-likelihood: -318.1426 
 AIC: 670.2853   BIC: 765.5006   HQIC: 705.2464 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 15:58 
+Model was estimated on : Jul Tue 14, 2026 at 23:20 
 ```
 
 </details>
@@ -4166,7 +4153,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 16:01 
+Model was estimated on : Jul Tue 14, 2026 at 23:21 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -4225,7 +4212,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 16:02 
+Model was estimated on : Jul Tue 14, 2026 at 23:22 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 
@@ -4296,7 +4283,7 @@ Zv_(Intercept)    -8.03105    0.04509 -178.12 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 -------------------------------------------------------------------------------- 
-Model was estimated on : Jul Tue 14, 2026 at 16:02 
+Model was estimated on : Jul Tue 14, 2026 at 23:22 
 Log likelihood status: successful convergence  
 --------------------------------------------------------------------------------  
 Log likelihood status: successful convergence  
@@ -4319,7 +4306,7 @@ MTR_BC=8.5729     MTR_JLMS=8.7385
 Total Log-likelihood: 911.6848 
 AIC: -1789.37   BIC: -1694.154   HQIC: -1754.409 
 ------------------------------------------------------------ 
-Model was estimated on : Jul Tue 14, 2026 at 16:02 
+Model was estimated on : Jul Tue 14, 2026 at 23:22 
 ```
 
 </details>
@@ -4356,6 +4343,13 @@ sel_grp1  <- ef_sel_lp[ef_sel_lp$group == 1 & !is.na(ef_sel_lp$TE_group_BC), ]
 summary(sel_grp1[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
 ```
 
+<details>
+
+<summary>
+
+Toggle to see the output
+</summary>
+
 ``` plaintext
   TE_group_BC         TE_meta_BC           MTR_BC      
  Min.   :0.001211   Min.   :0.001144   Min.   :0.8454  
@@ -4365,6 +4359,8 @@ summary(sel_grp1[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
  3rd Qu.:0.630272   3rd Qu.:0.620927   3rd Qu.:1.0000  
  Max.   :0.924528   Max.   :0.924528   Max.   :1.0000  
 ```
+
+</details>
 
 ------------------------------------------------------------------------
 

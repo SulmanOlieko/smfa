@@ -77,10 +77,21 @@ meta_lcm_lp <- smfa(
   lcmClasses = 2,           # number of latent classes
   metaMethod = "lp"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> Initialization: SFA + halfnormal - normal distributions...
 #> LCM 2 Classes Estimation...
-#> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
-summary(meta_lcm_lp)
+```
+
+    #> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
+    summary(meta_lcm_lp)
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Linear Programming (LP) Metafrontier 
@@ -164,7 +175,7 @@ summary(meta_lcm_lp)
 #> Total Log-likelihood: 61.35325 
 #> AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:26
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25
 ```
 
 > **Note:** The `group` argument is not needed when
@@ -183,10 +194,21 @@ meta_lcm_qp <- smfa(
   lcmClasses = 2,
   metaMethod = "qp"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> Initialization: SFA + halfnormal - normal distributions...
 #> LCM 2 Classes Estimation...
-#> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
-summary(meta_lcm_qp)
+```
+
+    #> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
+    summary(meta_lcm_qp)
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Quadratic Programming (QP) Metafrontier 
@@ -276,7 +298,7 @@ summary(meta_lcm_qp)
 #> Total Log-likelihood: 61.35325 
 #> AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:27
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25
 ```
 
 ## Method 3: LCM + SFA (Huang)
@@ -291,10 +313,21 @@ meta_lcm_huang <- smfa(
   metaMethod  = "sfa",
   sfaApproach = "huang"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> Initialization: SFA + halfnormal - normal distributions...
 #> LCM 2 Classes Estimation...
-#> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
-summary(meta_lcm_huang)
+```
+
+    #> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
+    summary(meta_lcm_huang)
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: SFA Metafrontier [Huang et al. (2014), two-stage] 
@@ -419,7 +452,7 @@ summary(meta_lcm_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:27 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -449,7 +482,7 @@ summary(meta_lcm_huang)
 #> Total Log-likelihood: 820.9822 
 #> AIC: -1603.964   BIC: -1515.172   HQIC: -1569.836 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:27
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25
 ```
 
 ## Method 4: LCM + SFA (O’Donnell)
@@ -464,15 +497,26 @@ meta_lcm_odonnell <- smfa(
   metaMethod  = "sfa",
   sfaApproach = "ordonnell"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> Initialization: SFA + halfnormal - normal distributions...
 #> LCM 2 Classes Estimation...
-#> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
-#> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
-summary(meta_lcm_odonnell)
-#> Warning: 761 MTR value(s) > 1 detected in O'Donnell SFA approach. This
-#> typically occurs when the second-stage SFA estimates near-zero inefficiency
-#> (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider
-#> using metaMethod='lp' or sfaApproach='huang' instead.
+```
+
+    #> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
+    #> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
+    summary(meta_lcm_odonnell)
+    #> Warning: 761 MTR value(s) > 1 detected in O'Donnell SFA approach. This
+    #> typically occurs when the second-stage SFA estimates near-zero inefficiency
+    #> (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider
+    #> using metaMethod='lp' or sfaApproach='huang' instead.
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: SFA Metafrontier [O'Donnell et al. (2008), envelope] 
@@ -597,7 +641,7 @@ summary(meta_lcm_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:27 
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -627,7 +671,7 @@ summary(meta_lcm_odonnell)
 #> Total Log-likelihood: 2010.521 
 #> AIC: -3983.041   BIC: -3894.249   HQIC: -3948.913 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 16:27
+#> Model was estimated on : Jul Tue 14, 2026 at 23:25
 ```
 
 ## Choosing the Number of Classes
@@ -642,22 +686,47 @@ meta_lcm_2 <- smfa(
   data       = utility, S = -1,
   groupType  = "sfalcmcross", lcmClasses = 2, metaMethod = "lp"
 )
+```
+
+Toggle to see the output
+
+``` plaintext
 #> Initialization: SFA + halfnormal - normal distributions...
 #> LCM 2 Classes Estimation...
-#> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
-meta_lcm_3 <- smfa(
-  formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
-  data       = utility, S = -1,
-  groupType  = "sfalcmcross", lcmClasses = 3, metaMethod = "lp"
-)
+```
+
+    #> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
+    meta_lcm_3 <- smfa(
+      formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+      data       = utility, S = -1,
+      groupType  = "sfalcmcross", lcmClasses = 3, metaMethod = "lp"
+    )
+
+Toggle to see the output
+
+``` plaintext
 #> Initialization: SFA + halfnormal - normal distributions...
 #> LCM 3 Classes Estimation...
-#> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
-# Compare information criteria
-ic(meta_lcm_2)
+```
+
+    #> Warning: hessian is singular for 'qr.solve' switching to 'ginv'
+    # Compare information criteria
+    ic(meta_lcm_2)
+
+Toggle to see the output
+
+``` plaintext
 #>         AIC       BIC      HQIC
 #> 1 -96.70649 -35.95362 -73.35552
+```
+
+``` r
 ic(meta_lcm_3)
+```
+
+Toggle to see the output
+
+``` plaintext
 #>         AIC       BIC      HQIC
 #> 1 -116.0641 -22.59815 -80.13954
 ```
@@ -674,6 +743,11 @@ which can be used for robustness checks or classification:
 ``` r
 eff_lcm <- efficiencies(meta_lcm_lp)
 head(eff_lcm)
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
 #> 1  1       2 0.15842759     0.8534848   0.8557686               1.174838
 #> 2  2       2 0.11418774     0.8920905   0.8939942               1.123406
@@ -709,6 +783,9 @@ head(eff_lcm)
 #> 4 0.08020641    0.9229258  0.9243036        1      1
 #> 5 0.05774132    0.9438941  0.9448245        1      1
 #> 6 0.08181796    0.9214397  0.9228469        1      1
+```
+
+``` r
 
 # Key LCM-specific columns:
 # Group_c          — most likely class assignment
@@ -722,6 +799,9 @@ head(eff_lcm)
 ``` r
 # Proportion assigned to each class and mean posterior probability
 with(eff_lcm, table(Group_c)) / nrow(eff_lcm) * 100   # % in each class
+```
+
+``` plaintext
 #> Group_c
 #>        1        2 
 #> 25.53729 74.46271
