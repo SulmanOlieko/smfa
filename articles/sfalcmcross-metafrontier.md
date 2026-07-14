@@ -52,10 +52,10 @@ library(smfa)
 #>  Y8888b. 888  888  888 888   .d888888  
 #>      X88 888  888  888 888   888  888 
 #>  88888P' 888  888  888 888   "Y888888 
-#>                           version 1.0.0
+#>                           version 1.0.1
 #> 
 #> * Please cite the 'smfa' package as:
-#> Owili, S. O. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.0.
+#> Owili, SO. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.1.
 #> 
 #> See also: citation("smfa")
 #> 
@@ -166,7 +166,7 @@ summary(meta_lcm_lp)
 #> Total Log-likelihood: 61.35324 
 #> AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : May Wed 06, 2026 at 19:48
+#> Model was estimated on : Jul Tue 14, 2026 at 13:38
 ```
 
 > **Note:** The `group` argument is not needed when
@@ -279,7 +279,7 @@ summary(meta_lcm_qp)
 #> Total Log-likelihood: 61.35324 
 #> AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : May Wed 06, 2026 at 19:48
+#> Model was estimated on : Jul Tue 14, 2026 at 13:38
 ```
 
 ## Method 3: LCM + SFA (Huang)
@@ -423,7 +423,7 @@ summary(meta_lcm_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : May Wed 06, 2026 at 19:48 
+#> Model was estimated on : Jul Tue 14, 2026 at 13:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -453,7 +453,7 @@ summary(meta_lcm_huang)
 #> Total Log-likelihood: 820.9828 
 #> AIC: -1603.966   BIC: -1515.173   HQIC: -1569.837 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : May Wed 06, 2026 at 19:48
+#> Model was estimated on : Jul Tue 14, 2026 at 13:38
 ```
 
 ## Method 4: LCM + SFA (O’Donnell)
@@ -602,7 +602,7 @@ summary(meta_lcm_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : May Wed 06, 2026 at 19:48 
+#> Model was estimated on : Jul Tue 14, 2026 at 13:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -632,7 +632,7 @@ summary(meta_lcm_odonnell)
 #> Total Log-likelihood: 2010.522 
 #> AIC: -3983.043   BIC: -3894.251   HQIC: -3948.915 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : May Wed 06, 2026 at 19:48
+#> Model was estimated on : Jul Tue 14, 2026 at 13:38
 ```
 
 ## Choosing the Number of Classes
