@@ -13,6 +13,29 @@ knitr::opts_chunk$set(
   comment   = "#>",
   eval      = TRUE
 )
+
+knitr::knit_hooks$set(output = function(x, options) {
+  if (isTRUE(options$fold.output)) {
+    paste0(
+      "
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+",
+      x,
+      "```
+
+</details>
+"
+    )
+  } else {
+    paste0("
+```plaintext
+", x, "```
+")
+  }
+})
 ```
 
 ## Overview
@@ -46,7 +69,7 @@ data("utility", package = "sfaR")
 Fit a 2-class latent class pooled SFA, then estimate the LP deterministic envelope over
 the inferred class frontiers.
 
-```{r lp}
+```{r lp, fold.output=TRUE}
 meta_lcm_lp <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility,
@@ -64,7 +87,7 @@ summary(meta_lcm_lp)
 
 ## Method 2: LCM + QP Metafrontier
 
-```{r qp}
+```{r qp, fold.output=TRUE}
 meta_lcm_qp <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility,
@@ -78,7 +101,7 @@ summary(meta_lcm_qp)
 
 ## Method 3: LCM + SFA (Huang)
 
-```{r huang}
+```{r huang, fold.output=TRUE}
 meta_lcm_huang <- smfa(
   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data        = utility,
@@ -93,7 +116,7 @@ summary(meta_lcm_huang)
 
 ## Method 4: LCM + SFA (O'Donnell)
 
-```{r odonnell}
+```{r odonnell, fold.output=TRUE}
 meta_lcm_odonnell <- smfa(
   formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data        = utility,
@@ -111,7 +134,7 @@ summary(meta_lcm_odonnell)
 The number of latent classes (`lcmClasses`) should be guided by economic theory and
 information criteria. You can compare models with different numbers of classes:
 
-```{r compare-classes}
+```{r compare-classes, fold.output=TRUE}
 meta_lcm_2 <- smfa(
   formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
   data       = utility, S = -1,
@@ -134,7 +157,7 @@ Prefer the model with the lower AIC/BIC.
 For LCM models, `efficiencies()` returns extra columns for posterior class membership
 probabilities, which can be used for robustness checks or classification:
 
-```{r eff}
+```{r eff, fold.output=TRUE}
 eff_lcm <- efficiencies(meta_lcm_lp)
 head(eff_lcm)
 

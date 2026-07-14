@@ -13,6 +13,29 @@ knitr::opts_chunk$set(
   comment   = "#>",
   eval      = TRUE
 )
+
+knitr::knit_hooks$set(output = function(x, options) {
+  if (isTRUE(options$fold.output)) {
+    paste0(
+      "
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+",
+      x,
+      "```
+
+</details>
+"
+    )
+  } else {
+    paste0("
+```plaintext
+", x, "```
+")
+  }
+})
 ```
 
 ## What is smfa?
@@ -91,7 +114,7 @@ table(ricephil$group)
 
 ### Step 2: Fit the metafrontier model
 
-```{r quickstart-fit}
+```{r quickstart-fit, fold.output=TRUE}
 meta_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
@@ -105,13 +128,13 @@ meta_lp <- smfa(
 
 ### Step 3: Summarise results
 
-```{r quickstart-summary}
+```{r quickstart-summary, fold.output=TRUE}
 summary(meta_lp)
 ```
 
 ### Step 4: Extract firm-level efficiencies
 
-```{r quickstart-eff}
+```{r quickstart-eff, fold.output=TRUE}
 eff <- efficiencies(meta_lp)
 head(eff)
 ```

@@ -13,6 +13,29 @@ knitr::opts_chunk$set(
   comment   = "#>",
   eval      = TRUE
 )
+
+knitr::knit_hooks$set(output = function(x, options) {
+  if (isTRUE(options$fold.output)) {
+    paste0(
+      "
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+",
+      x,
+      "```
+
+</details>
+"
+    )
+  } else {
+    paste0("
+```plaintext
+", x, "```
+")
+  }
+})
 ```
 
 ## Overview
@@ -49,7 +72,7 @@ The **linear programming (LP)** envelope minimises the sum of absolute deviation
 group frontier predictions while satisfying a convexity constraint. No stochastic
 parameters are estimated for the metafrontier itself.
 
-```{r lp}
+```{r lp, fold.output=TRUE}
 meta_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
@@ -72,7 +95,7 @@ The **quadratic programming (QP)** envelope minimises the sum of *squared* devia
 from group frontier predictions. Unlike LP, QP produces a smooth envelope that is
 differentiable everywhere, and it returns estimated coefficients with standard errors.
 
-```{r qp}
+```{r qp, fold.output=TRUE}
 meta_qp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
@@ -92,7 +115,7 @@ group-specific *fitted frontier values* as the dependent variable in a second-st
 pooled SFA. The technology gap U and noise V are estimated stochastically, which
 naturally bounds the metatechnology ratio MTR ∈ (0, 1].
 
-```{r huang}
+```{r huang, fold.output=TRUE}
 meta_huang <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
@@ -116,7 +139,7 @@ This mixed deterministic–stochastic approach embeds the envelope within an SFA
 > estimates near-zero inefficiency. If this occurs, consider using `metaMethod = "lp"` or
 > `sfaApproach = "huang"` instead.
 
-```{r odonnell}
+```{r odonnell, fold.output=TRUE}
 meta_ordonnell <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
@@ -146,7 +169,7 @@ metafrontier is computed:
 
 All models return firm-level efficiency estimates via `efficiencies()`:
 
-```{r eff}
+```{r eff, fold.output=TRUE}
 eff <- efficiencies(meta_lp)
 head(eff)
 
@@ -157,7 +180,7 @@ summary(eff_small[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
 
 ## Other Extractors
 
-```{r other}
+```{r other, fold.output=TRUE}
 coef(meta_qp)          # metafrontier coefficients
 vcov(meta_qp)          # variance-covariance matrix
 logLik(meta_lp)        # log-likelihood

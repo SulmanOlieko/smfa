@@ -13,6 +13,29 @@ knitr::opts_chunk$set(
   comment   = "#>",
   eval      = TRUE
 )
+
+knitr::knit_hooks$set(output = function(x, options) {
+  if (isTRUE(options$fold.output)) {
+    paste0(
+      "
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+",
+      x,
+      "```
+
+</details>
+"
+    )
+  } else {
+    paste0("
+```plaintext
+", x, "```
+")
+  }
+})
 ```
 
 ## Overview
@@ -67,7 +90,7 @@ table(dat$d)
 
 ## Method 1: sfaselectioncross + LP Metafrontier
 
-```{r lp}
+```{r lp, fold.output=TRUE}
 meta_sel_lp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,      # selection equation: d is the binary indicator
@@ -94,7 +117,7 @@ summary(meta_sel_lp)
 
 ## Method 2: sfaselectioncross + QP Metafrontier
 
-```{r qp}
+```{r qp, fold.output=TRUE}
 meta_sel_qp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,
@@ -116,7 +139,7 @@ summary(meta_sel_qp)
 
 ## Method 3: sfaselectioncross + SFA (Huang)
 
-```{r huang}
+```{r huang, fold.output=TRUE}
 meta_sel_huang <- smfa(
   formula     = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
@@ -139,7 +162,7 @@ summary(meta_sel_huang)
 
 ## Method 4: sfaselectioncross + SFA (O'Donnell)
 
-```{r odonnell}
+```{r odonnell, fold.output=TRUE}
 meta_sel_odonnell <- smfa(
   formula     = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
@@ -188,7 +211,7 @@ error and the frontier equation noise.
 
 Only selected observations (those with `d == 1`) receive efficiency estimates:
 
-```{r eff}
+```{r eff, fold.output=TRUE}
 eff_sel <- efficiencies(meta_sel_lp)
 
 # Non-selected observations have NA efficiencies

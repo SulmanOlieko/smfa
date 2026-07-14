@@ -13,6 +13,29 @@ knitr::opts_chunk$set(
   comment   = "#>",
   eval      = TRUE
 )
+
+knitr::knit_hooks$set(output = function(x, options) {
+  if (isTRUE(options$fold.output)) {
+    paste0(
+      "
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+",
+      x,
+      "```
+
+</details>
+"
+    )
+  } else {
+    paste0("
+```plaintext
+", x, "```
+")
+  }
+})
 ```
 
 ## Overview
@@ -23,7 +46,7 @@ extract and inspect results. This vignette demonstrates all of them using a simp
 
 ## Setup: Fit a Model
 
-```{r fit}
+```{r fit, fold.output=TRUE}
 library(smfa)
 data("ricephil", package = "sfaR")
 
@@ -50,7 +73,7 @@ meta_lp <- smfa(
 Prints the complete model output including group-specific SFA results, metafrontier
 coefficients (if available), and efficiency statistics by group.
 
-```{r summary}
+```{r summary, fold.output=TRUE}
 summary(meta_lp)
 ```
 
@@ -60,7 +83,7 @@ Returns a data frame with one row per observation containing all efficiency esti
 metatechnology ratios. All estimators are available for all `groupType` values, though
 the exact columns vary slightly by model type.
 
-```{r efficiencies}
+```{r efficiencies, fold.output=TRUE}
 eff <- efficiencies(meta_lp)
 head(eff)
 ```
@@ -86,7 +109,7 @@ head(eff)
 
 ### Subsetting by Group
 
-```{r subset}
+```{r subset, fold.output=TRUE}
 # All small farms
 eff_small <- eff[eff$group == "small", ]
 
@@ -99,7 +122,7 @@ aggregate(cbind(TE_group_BC, TE_meta_BC, MTR_BC) ~ group, data = eff, FUN = mean
 
 ### Visualising the Distribution
 
-```{r plot}
+```{r plot, fold.output=TRUE}
 # MTR distribution by group (base R)
 boxplot(MTR_BC ~ group, data = eff,
         main = "Metatechnology Ratio by Farm Size",
@@ -116,7 +139,7 @@ hist(eff$TE_meta_BC, breaks = 30,
 
 Returns the metafrontier coefficient vector (for QP and SFA methods; `NULL` for LP).
 
-```{r coef}
+```{r coef, fold.output=TRUE}
 # First fit a QP model
 meta_qp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
@@ -131,7 +154,7 @@ coef(meta_qp)
 Returns the variance-covariance matrix of the metafrontier coefficients (for models that
 estimate metafrontier parameters).
 
-```{r vcov}
+```{r vcov, fold.output=TRUE}
 vcov(meta_qp)
 ```
 
@@ -140,7 +163,7 @@ vcov(meta_qp)
 Returns the total log-likelihood value of the model (sum of group-level log-likelihoods
 plus the metafrontier log-likelihood where applicable).
 
-```{r loglik}
+```{r loglik, fold.output=TRUE}
 logLik(meta_lp)
 ```
 
@@ -164,7 +187,7 @@ nobs(meta_lp)  # Total observations across all groups
 
 Returns the fitted frontier values from the model.
 
-```{r fitted}
+```{r fitted, fold.output=TRUE}
 fv <- fitted(meta_lp)
 head(fv)
 ```
@@ -173,7 +196,7 @@ head(fv)
 
 Returns the composite error residuals from the group-level stochastic frontier models.
 
-```{r residuals}
+```{r residuals, fold.output=TRUE}
 res <- residuals(meta_lp)
 head(res)
 ```
@@ -182,7 +205,7 @@ head(res)
 
 You can compare information criteria across methods to select the best model:
 
-```{r compare}
+```{r compare, fold.output=TRUE}
 meta_lp    <- smfa(log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
                                data = ricephil, group = "group", S = 1,
                                udist = "hnormal", groupType = "sfacross",
