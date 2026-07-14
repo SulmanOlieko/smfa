@@ -919,7 +919,7 @@ summary(meta_sfacross_lp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -983,7 +983,7 @@ summary(meta_sfacross_lp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1047,7 +1047,7 @@ summary(meta_sfacross_lp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1075,7 +1075,7 @@ summary(meta_sfacross_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 # Retrieve individual efficiency and metatechnology ratio estimates:
 ef_lp <- efficiencies(meta_sfacross_lp)
 head(ef_lp)
@@ -1185,7 +1185,7 @@ summary(meta_sfacross_qp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1249,7 +1249,7 @@ summary(meta_sfacross_qp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1313,7 +1313,7 @@ summary(meta_sfacross_qp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1347,7 +1347,7 @@ summary(meta_sfacross_qp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 
 # \donttest{
 ## 1c. sfacross groups + Two-stage SFA metafrontier (Huang et al., 2014)
@@ -1439,7 +1439,7 @@ summary(meta_sfacross_huang)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1503,7 +1503,7 @@ summary(meta_sfacross_huang)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1567,7 +1567,7 @@ summary(meta_sfacross_huang)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1640,7 +1640,7 @@ summary(meta_sfacross_huang)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -1665,7 +1665,7 @@ summary(meta_sfacross_huang)
 #> Total Log-likelihood: 479.063 
 #> AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 ef_huang <- efficiencies(meta_sfacross_huang)
 head(ef_huang)
 #>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
@@ -1781,7 +1781,7 @@ summary(meta_sfacross_odonnell)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1845,7 +1845,7 @@ summary(meta_sfacross_odonnell)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1909,7 +1909,7 @@ summary(meta_sfacross_odonnell)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1982,7 +1982,7 @@ summary(meta_sfacross_odonnell)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -2007,7 +2007,7 @@ summary(meta_sfacross_odonnell)
 #> Total Log-likelihood: 557.9201 
 #> AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 # }
 
 ###########################################################################
@@ -2115,7 +2115,7 @@ summary(meta_lcm_lp)
 #> Total Log-likelihood: 61.35324 
 #> AIC: -96.70648   BIC: -35.9536   HQIC: -73.35551 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 ef_lcm_lp <- efficiencies(meta_lcm_lp)
 head(ef_lcm_lp)
 #>   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
@@ -2257,7 +2257,7 @@ summary(meta_lcm_qp)
 #> Total Log-likelihood: 61.35324 
 #> AIC: -88.70648   BIC: -9.26041   HQIC: -58.17059 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 
 ## 2c. sfalcmcross (pooled, 2 classes) + Two-stage SFA metafrontier
 ##     (Huang et al., 2014)
@@ -2398,7 +2398,7 @@ summary(meta_lcm_huang)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -2428,7 +2428,7 @@ summary(meta_lcm_huang)
 #> Total Log-likelihood: 820.985 
 #> AIC: -1603.97   BIC: -1515.177   HQIC: -1569.842 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 ef_lcm_huang <- efficiencies(meta_lcm_huang)
 head(ef_lcm_huang)
 #>   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
@@ -2607,7 +2607,7 @@ summary(meta_lcm_odonnell)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -2637,7 +2637,7 @@ summary(meta_lcm_odonnell)
 #> Total Log-likelihood: 2010.53 
 #> AIC: -3983.059   BIC: -3894.267   HQIC: -3948.931 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 # }
 
 ###########################################################################
@@ -2739,7 +2739,7 @@ summary(meta_toy)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -2797,7 +2797,7 @@ summary(meta_toy)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -2823,7 +2823,7 @@ summary(meta_toy)
 #> Total Log-likelihood: -95.27927 
 #> AIC: 210.5585   BIC: 236.6103   HQIC: 221.1021 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:37 
 
 # \donttest{
 ## 3b. More complex selection models
@@ -2932,7 +2932,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -2991,7 +2991,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -3017,6 +3017,6 @@ summary(meta_sel_lp)
 #> Total Log-likelihood: -1899.87 
 #> AIC: 3823.74   BIC: 3890.951   HQIC: 3848.419 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 # }
 ```

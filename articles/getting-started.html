@@ -267,15 +267,15 @@ three Filipino rice farm-size groups (small, medium, large).</p>
 <span>  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"small"</span>, <span class="st">"medium"</span>, <span class="st">"large"</span><span class="op">)</span>,</span>
 <span>  include.lowest <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">ricephil</span><span class="op">$</span><span class="va">group</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">ricephil</span><span class="op">$</span><span class="va">group</span><span class="op">)</span></span></code></pre></div>
+<pre class="plaintext"><code><span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  small medium  large </span></span>
-<span><span class="co">#&gt;    125    104    115</span></span></code></pre></div>
+<span><span class="co">#&gt;    125    104    115</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="step-2-fit-the-metafrontier-model">Step 2: Fit the metafrontier model<a class="anchor" aria-label="anchor" href="#step-2-fit-the-metafrontier-model"></a>
 </h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>,</span>
@@ -289,9 +289,11 @@ three Filipino rice farm-size groups (small, medium, large).</p>
 <div class="section level3">
 <h3 id="step-3-summarise-results">Step 3: Summarise results<a class="anchor" aria-label="anchor" href="#step-3-summarise-results"></a>
 </h3>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: Linear Programming (LP) Metafrontier </span></span>
 <span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
@@ -363,7 +365,7 @@ three Filipino rice farm-size groups (small, medium, large).</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -427,7 +429,7 @@ three Filipino rice farm-size groups (small, medium, large).</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -491,7 +493,7 @@ three Filipino rice farm-size groups (small, medium, large).</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -519,15 +521,18 @@ three Filipino rice farm-size groups (small, medium, large).</p>
 <span><span class="co">#&gt; Total Log-likelihood: -74.28939 </span></span>
 <span><span class="co">#&gt; AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38</span></span></code></pre>
+</details>
 </div>
 <div class="section level3">
 <h3 id="step-4-extract-firm-level-efficiencies">Step 4: Extract firm-level efficiencies<a class="anchor" aria-label="anchor" href="#step-4-extract-firm-level-efficiencies"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
 <span><span class="co">#&gt; 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036</span></span>
 <span><span class="co">#&gt; 2  2  large 0.3515642     0.7035867   0.7080897               1.430406</span></span>
 <span><span class="co">#&gt; 3  3  large 0.2774565     0.7577085   0.7623359               1.327899</span></span>
@@ -547,8 +552,8 @@ three Filipino rice farm-size groups (small, medium, large).</p>
 <span><span class="co">#&gt; 3    0.7371580  0.7416598 0.9728780 0.9728780</span></span>
 <span><span class="co">#&gt; 4    0.8427864  0.8461331 1.0000000 1.0000000</span></span>
 <span><span class="co">#&gt; 5    0.7882601  0.7925093 0.9743700 0.9743700</span></span>
-<span><span class="co">#&gt; 6    0.7192644  0.7261201 0.8774139 0.8774139</span></span></code></pre></div>
-<p>Key output columns:</p>
+<span><span class="co">#&gt; 6    0.7192644  0.7261201 0.8774139 0.8774139</span></span></code></pre>
+</details><p>Key output columns:</p>
 <table class="table">
 <thead><tr class="header">
 <th>Column</th>

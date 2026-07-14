@@ -61,6 +61,9 @@ ricephil$group <- cut(
 )
 
 table(ricephil$group)
+```
+
+``` plaintext
 #> 
 #>  small medium  large 
 #>    125    104    115
@@ -87,6 +90,11 @@ meta_lp <- smfa(
   metaMethod = "lp"
 )
 summary(meta_lp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Linear Programming (LP) Metafrontier 
@@ -159,7 +167,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -223,7 +231,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -287,7 +295,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -315,7 +323,7 @@ summary(meta_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38
 ```
 
 > **Note:** Since the LP metafrontier is estimated via linear
@@ -342,6 +350,11 @@ meta_qp <- smfa(
   metaMethod = "qp"
 )
 summary(meta_qp)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: Quadratic Programming (QP) Metafrontier 
@@ -414,7 +427,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -478,7 +491,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -542,7 +555,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -576,7 +589,7 @@ summary(meta_qp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38
 ```
 
 ## Method 3: Stochastic Metafrontier — Huang et al. (2014)
@@ -602,6 +615,11 @@ meta_huang <- smfa(
 #> Warning: The residuals of the OLS are right-skewed. This may indicate the absence of inefficiency or
 #>   model misspecification or sample 'bad luck'
 summary(meta_huang)
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: SFA Metafrontier [Huang et al. (2014), two-stage] 
@@ -675,7 +693,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -739,7 +757,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -803,7 +821,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -876,7 +894,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -901,7 +919,7 @@ summary(meta_huang)
 #> Total Log-likelihood: 479.063 
 #> AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38
 ```
 
 ## Method 4: Stochastic Envelope — O’Donnell et al. (2008)
@@ -934,6 +952,11 @@ summary(meta_ordonnell)
 #> typically occurs when the second-stage SFA estimates near-zero inefficiency
 #> (sigma_u -> 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group > 1. Consider
 #> using metaMethod='lp' or sfaApproach='huang' instead.
+```
+
+Toggle to see the output
+
+``` plaintext
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
 #> Metafrontier method: SFA Metafrontier [O'Donnell et al. (2008), envelope] 
@@ -1007,7 +1030,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1071,7 +1094,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1135,7 +1158,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1208,7 +1231,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52 
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -1233,7 +1256,7 @@ summary(meta_ordonnell)
 #> Total Log-likelihood: 557.9201 
 #> AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Jul Tue 14, 2026 at 13:52
+#> Model was estimated on : Jul Tue 14, 2026 at 20:38
 ```
 
 ## Comparing Methods
@@ -1257,6 +1280,11 @@ All models return firm-level efficiency estimates via
 
 eff <- efficiencies(meta_lp)
 head(eff)
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
 #> 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036
 #> 2  2  large 0.3515642     0.7035867   0.7080897               1.430406
@@ -1278,10 +1306,19 @@ head(eff)
 #> 4    0.8427864  0.8461331 1.0000000 1.0000000
 #> 5    0.7882601  0.7925093 0.9743700 0.9743700
 #> 6    0.7192644  0.7261201 0.8774139 0.8774139
+```
+
+``` r
+
 
 # Subset for a specific group
 eff_small <- eff[eff$group == "small", ]
 summary(eff_small[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   TE_group_BC       TE_meta_BC         MTR_BC      
 #>  Min.   :0.1737   Min.   :0.1179   Min.   :0.5907  
 #>  1st Qu.:0.6217   1st Qu.:0.5678   1st Qu.:0.8313  
@@ -1296,22 +1333,72 @@ summary(eff_small[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
 ``` r
 
 coef(meta_qp)          # metafrontier coefficients
+```
+
+Toggle to see the output
+
+``` plaintext
 #> (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
 #>  -0.6117795   0.3937843   0.2791273   0.2409454
+```
+
+``` r
+
 vcov(meta_qp)          # variance-covariance matrix
+```
+
+Toggle to see the output
+
+``` plaintext
 #>                (Intercept)   `log(AREA)`  `log(LABOR)`    `log(NPK)`
 #> (Intercept)   8.514304e-04  1.954064e-04 -1.729963e-04 -3.730091e-05
 #> `log(AREA)`   1.954064e-04  5.359537e-05 -3.976453e-05 -9.599635e-06
 #> `log(LABOR)` -1.729963e-04 -3.976453e-05  5.962116e-05 -1.454127e-05
 #> `log(NPK)`   -3.730091e-05 -9.599635e-06 -1.454127e-05  2.194543e-05
+```
+
+``` r
+
 logLik(meta_lp)        # log-likelihood
+```
+
+Toggle to see the output
+
+``` plaintext
 #> 'log Lik.' -74.28939 (df=18)
+```
+
+``` r
+
 ic(meta_lp)            # AIC, BIC, HQIC
+```
+
+Toggle to see the output
+
+``` plaintext
 #>        AIC      BIC    HQIC
 #> 1 184.5788 253.7103 212.113
+```
+
+``` r
+
 nobs(meta_lp)          # number of observations
+```
+
+Toggle to see the output
+
+``` plaintext
 #> [1] 344
+```
+
+``` r
+
 fitted(meta_lp)        # fitted values
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   [1] 2.4692860 2.7439118 2.6260597 1.7413418 2.4130830 0.8386720 2.1838447
 #>   [8] 2.1368249 2.5632590 2.6811266 1.0256316 0.1866309 1.6584919 2.3673143
 #>  [15] 0.5318491 1.0749268 2.9226606 3.1820088 2.7526696 2.7875600 2.2775942
@@ -1362,7 +1449,16 @@ fitted(meta_lp)        # fitted values
 #> [330] 2.0290368 0.1534083 1.1206897 1.3624220 1.1015321 1.5564064 2.3988119
 #> [337] 2.1502764 1.4867585 1.1304626 1.0437816 1.9765226 1.5564463 2.1815665
 #> [344] 2.0019192
+```
+
+``` r
+
 residuals(meta_lp)     # residuals
+```
+
+Toggle to see the output
+
+``` plaintext
 #>   [1]  5.40071399  7.60608821  7.35394035  3.08865821  6.32691704  1.00132803
 #>   [7]  5.17615529  4.53317508  6.63674105  6.60887340 -0.19563164  0.73336915
 #>  [13]  2.25150806  5.08268567  0.38815087  0.07507323  7.88733941 17.88799120

@@ -149,12 +149,12 @@ groups based on farm area terciles.</p>
 <span>  include.lowest <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">ricephil</span><span class="op">$</span><span class="va">group</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">ricephil</span><span class="op">$</span><span class="va">group</span><span class="op">)</span></span></code></pre></div>
+<pre class="plaintext"><code><span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;  small medium  large </span></span>
 <span><span class="co">#&gt;    125    104    115</span></span>
 <span><span class="co">#&gt;  small medium  large</span></span>
-<span><span class="co">#&gt;    125    104    115</span></span></code></pre></div>
+<span><span class="co">#&gt;    125    104    115</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="method-1-lp-metafrontier">Method 1: LP Metafrontier<a class="anchor" aria-label="anchor" href="#method-1-lp-metafrontier"></a>
@@ -163,7 +163,7 @@ groups based on farm area terciles.</p>
 sum of absolute deviations from group frontier predictions while
 satisfying a convexity constraint. No stochastic parameters are
 estimated for the metafrontier itself.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>,</span>
@@ -173,8 +173,10 @@ estimated for the metafrontier itself.</p>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfacross"</span>,</span>
 <span>  metaMethod <span class="op">=</span> <span class="st">"lp"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: Linear Programming (LP) Metafrontier </span></span>
 <span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
@@ -246,7 +248,7 @@ estimated for the metafrontier itself.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -310,7 +312,7 @@ estimated for the metafrontier itself.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -374,7 +376,7 @@ estimated for the metafrontier itself.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -402,8 +404,8 @@ estimated for the metafrontier itself.</p>
 <span><span class="co">#&gt; Total Log-likelihood: -74.28939 </span></span>
 <span><span class="co">#&gt; AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52</span></span></code></pre></div>
-<blockquote>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38</span></span></code></pre>
+</details><blockquote>
 <p><strong>Note:</strong> Since the LP metafrontier is estimated via
 linear programming, no estimated parameters are returned for the
 metafrontier level. The LP envelope is fully determined by the group
@@ -418,7 +420,7 @@ the sum of <em>squared</em> deviations from group frontier predictions.
 Unlike LP, QP produces a smooth envelope that is differentiable
 everywhere, and it returns estimated coefficients with standard
 errors.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_qp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula    <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data       <span class="op">=</span> <span class="va">ricephil</span>,</span>
@@ -428,8 +430,10 @@ errors.</p>
 <span>  groupType  <span class="op">=</span> <span class="st">"sfacross"</span>,</span>
 <span>  metaMethod <span class="op">=</span> <span class="st">"qp"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: Quadratic Programming (QP) Metafrontier </span></span>
 <span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
@@ -501,7 +505,7 @@ errors.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -565,7 +569,7 @@ errors.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -629,7 +633,7 @@ errors.</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -663,7 +667,8 @@ errors.</p>
 <span><span class="co">#&gt; Total Log-likelihood: -74.28939 </span></span>
 <span><span class="co">#&gt; AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="method-3-stochastic-metafrontier-huang-et-al--2014">Method 3: Stochastic Metafrontier — Huang et al. (2014)<a class="anchor" aria-label="anchor" href="#method-3-stochastic-metafrontier-huang-et-al--2014"></a>
@@ -673,7 +678,7 @@ Huang &amp; Liu (2014) uses the group-specific <em>fitted frontier
 values</em> as the dependent variable in a second-stage pooled SFA. The
 technology gap U and noise V are estimated stochastically, which
 naturally bounds the metatechnology ratio MTR ∈ (0, 1].</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">ricephil</span>,</span>
@@ -686,8 +691,10 @@ naturally bounds the metatechnology ratio MTR ∈ (0, 1].</p>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning: The residuals of the OLS are right-skewed. This may indicate the absence of inefficiency or</span></span>
 <span><span class="co">#&gt;   model misspecification or sample 'bad luck'</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_huang</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">meta_huang</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: SFA Metafrontier [Huang et al. (2014), two-stage] </span></span>
 <span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
@@ -760,7 +767,7 @@ naturally bounds the metatechnology ratio MTR ∈ (0, 1].</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -824,7 +831,7 @@ naturally bounds the metatechnology ratio MTR ∈ (0, 1].</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -888,7 +895,7 @@ naturally bounds the metatechnology ratio MTR ∈ (0, 1].</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -961,7 +968,7 @@ naturally bounds the metatechnology ratio MTR ∈ (0, 1].</p>
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
@@ -986,7 +993,8 @@ naturally bounds the metatechnology ratio MTR ∈ (0, 1].</p>
 <span><span class="co">#&gt; Total Log-likelihood: 479.063 </span></span>
 <span><span class="co">#&gt; AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="method-4-stochastic-envelope-odonnell-et-al--2008">Method 4: Stochastic Envelope — O’Donnell et al. (2008)<a class="anchor" aria-label="anchor" href="#method-4-stochastic-envelope-odonnell-et-al--2008"></a>
@@ -1002,7 +1010,7 @@ method when the second-stage SFA estimates near-zero inefficiency. If
 this occurs, consider using <code>metaMethod = "lp"</code> or
 <code>sfaApproach = "huang"</code> instead.</p>
 </blockquote>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">meta_ordonnell</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/smfa.html">smfa</a></span><span class="op">(</span></span>
 <span>  formula     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">PROD</span><span class="op">)</span> <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">AREA</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">LABOR</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">NPK</span><span class="op">)</span>,</span>
 <span>  data        <span class="op">=</span> <span class="va">ricephil</span>,</span>
@@ -1019,8 +1027,10 @@ this occurs, consider using <code>metaMethod = "lp"</code> or
 <span><span class="co">#&gt; Warning: 344 MTR value(s) &gt; 1 detected in O'Donnell SFA approach. This</span></span>
 <span><span class="co">#&gt; typically occurs when the second-stage SFA estimates near-zero inefficiency</span></span>
 <span><span class="co">#&gt; (sigma_u -&gt; 0), causing TE_meta ~= 1 and MTR = TE_meta/TE_group &gt; 1. Consider</span></span>
-<span><span class="co">#&gt; using metaMethod='lp' or sfaApproach='huang' instead.</span></span>
-<span><span class="co">#&gt; ============================================================ </span></span>
+<span><span class="co">#&gt; using metaMethod='lp' or sfaApproach='huang' instead.</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; ============================================================ </span></span>
 <span><span class="co">#&gt; Stochastic Metafrontier Analysis</span></span>
 <span><span class="co">#&gt; Metafrontier method: SFA Metafrontier [O'Donnell et al. (2008), envelope] </span></span>
 <span><span class="co">#&gt; Stochastic Production/Profit Frontier, e = v - u </span></span>
@@ -1093,7 +1103,7 @@ this occurs, consider using <code>metaMethod = "lp"</code> or
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1157,7 +1167,7 @@ this occurs, consider using <code>metaMethod = "lp"</code> or
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1221,7 +1231,7 @@ this occurs, consider using <code>metaMethod = "lp"</code> or
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -1294,7 +1304,7 @@ this occurs, consider using <code>metaMethod = "lp"</code> or
 <span><span class="co">#&gt; ---</span></span>
 <span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
 <span><span class="co">#&gt; -------------------------------------------------------------------------------- </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52 </span></span>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38 </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
 <span><span class="co">#&gt; --------------------------------------------------------------------------------  </span></span>
 <span><span class="co">#&gt; Log likelihood status: successful convergence  </span></span>
@@ -1319,7 +1329,8 @@ this occurs, consider using <code>metaMethod = "lp"</code> or
 <span><span class="co">#&gt; Total Log-likelihood: 557.9201 </span></span>
 <span><span class="co">#&gt; AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 </span></span>
 <span><span class="co">#&gt; ------------------------------------------------------------ </span></span>
-<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 13:52</span></span></code></pre></div>
+<span><span class="co">#&gt; Model was estimated on : Jul Tue 14, 2026 at 20:38</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="comparing-methods">Comparing Methods<a class="anchor" aria-label="anchor" href="#comparing-methods"></a>
@@ -1361,10 +1372,12 @@ arise only in how the metafrontier is computed:</p>
 </h2>
 <p>All models return firm-level efficiency estimates via
 <code><a href="../reference/efficiencies.html">efficiencies()</a></code>:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eff</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">eff</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span></span>
 <span><span class="co">#&gt; 1  1 medium 0.2697165     0.7635959   0.7673345               1.316036</span></span>
 <span><span class="co">#&gt; 2  2  large 0.3515642     0.7035867   0.7080897               1.430406</span></span>
 <span><span class="co">#&gt; 3  3  large 0.2774565     0.7577085   0.7623359               1.327899</span></span>
@@ -1384,41 +1397,62 @@ arise only in how the metafrontier is computed:</p>
 <span><span class="co">#&gt; 3    0.7371580  0.7416598 0.9728780 0.9728780</span></span>
 <span><span class="co">#&gt; 4    0.8427864  0.8461331 1.0000000 1.0000000</span></span>
 <span><span class="co">#&gt; 5    0.7882601  0.7925093 0.9743700 0.9743700</span></span>
-<span><span class="co">#&gt; 6    0.7192644  0.7261201 0.8774139 0.8774139</span></span>
-<span></span>
+<span><span class="co">#&gt; 6    0.7192644  0.7261201 0.8774139 0.8774139</span></span></code></pre>
+</details><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
 <span><span class="co"># Subset for a specific group</span></span>
 <span><span class="va">eff_small</span> <span class="op">&lt;-</span> <span class="va">eff</span><span class="op">[</span><span class="va">eff</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="st">"small"</span>, <span class="op">]</span></span>
-<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">eff_small</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TE_group_BC"</span>, <span class="st">"TE_meta_BC"</span>, <span class="st">"MTR_BC"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   TE_group_BC       TE_meta_BC         MTR_BC      </span></span>
+<span><span class="fu"><a href="../reference/summary.html">summary</a></span><span class="op">(</span><span class="va">eff_small</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"TE_group_BC"</span>, <span class="st">"TE_meta_BC"</span>, <span class="st">"MTR_BC"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   TE_group_BC       TE_meta_BC         MTR_BC      </span></span>
 <span><span class="co">#&gt;  Min.   :0.1737   Min.   :0.1179   Min.   :0.5907  </span></span>
 <span><span class="co">#&gt;  1st Qu.:0.6217   1st Qu.:0.5678   1st Qu.:0.8313  </span></span>
 <span><span class="co">#&gt;  Median :0.7427   Median :0.6683   Median :0.9204  </span></span>
 <span><span class="co">#&gt;  Mean   :0.7107   Mean   :0.6413   Mean   :0.8998  </span></span>
 <span><span class="co">#&gt;  3rd Qu.:0.8165   3rd Qu.:0.7509   3rd Qu.:0.9908  </span></span>
-<span><span class="co">#&gt;  Max.   :0.9275   Max.   :0.8774   Max.   :1.0000</span></span></code></pre></div>
+<span><span class="co">#&gt;  Max.   :0.9275   Max.   :0.8774   Max.   :1.0000</span></span></code></pre>
+</details>
 </div>
 <div class="section level2">
 <h2 id="other-extractors">Other Extractors<a class="anchor" aria-label="anchor" href="#other-extractors"></a>
 </h2>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/coef.html">coef</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span>          <span class="co"># metafrontier coefficients</span></span>
-<span><span class="co">#&gt; (Intercept)   log(AREA)  log(LABOR)    log(NPK) </span></span>
-<span><span class="co">#&gt;  -0.6117795   0.3937843   0.2791273   0.2409454</span></span>
-<span><span class="fu"><a href="../reference/vcov.html">vcov</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span>          <span class="co"># variance-covariance matrix</span></span>
-<span><span class="co">#&gt;                (Intercept)   `log(AREA)`  `log(LABOR)`    `log(NPK)`</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/coef.html">coef</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span>          <span class="co"># metafrontier coefficients</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; (Intercept)   log(AREA)  log(LABOR)    log(NPK) </span></span>
+<span><span class="co">#&gt;  -0.6117795   0.3937843   0.2791273   0.2409454</span></span></code></pre>
+</details><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/vcov.html">vcov</a></span><span class="op">(</span><span class="va">meta_qp</span><span class="op">)</span>          <span class="co"># variance-covariance matrix</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;                (Intercept)   `log(AREA)`  `log(LABOR)`    `log(NPK)`</span></span>
 <span><span class="co">#&gt; (Intercept)   8.514304e-04  1.954064e-04 -1.729963e-04 -3.730091e-05</span></span>
 <span><span class="co">#&gt; `log(AREA)`   1.954064e-04  5.359537e-05 -3.976453e-05 -9.599635e-06</span></span>
 <span><span class="co">#&gt; `log(LABOR)` -1.729963e-04 -3.976453e-05  5.962116e-05 -1.454127e-05</span></span>
-<span><span class="co">#&gt; `log(NPK)`   -3.730091e-05 -9.599635e-06 -1.454127e-05  2.194543e-05</span></span>
-<span><span class="fu"><a href="../reference/logLik.html">logLik</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>        <span class="co"># log-likelihood</span></span>
-<span><span class="co">#&gt; 'log Lik.' -74.28939 (df=18)</span></span>
-<span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>            <span class="co"># AIC, BIC, HQIC</span></span>
-<span><span class="co">#&gt;        AIC      BIC    HQIC</span></span>
-<span><span class="co">#&gt; 1 184.5788 253.7103 212.113</span></span>
-<span><span class="fu"><a href="../reference/nobs.html">nobs</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>          <span class="co"># number of observations</span></span>
-<span><span class="co">#&gt; [1] 344</span></span>
-<span><span class="fu"><a href="../reference/fitted.html">fitted</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>        <span class="co"># fitted values</span></span>
-<span><span class="co">#&gt;   [1] 2.4692860 2.7439118 2.6260597 1.7413418 2.4130830 0.8386720 2.1838447</span></span>
+<span><span class="co">#&gt; `log(NPK)`   -3.730091e-05 -9.599635e-06 -1.454127e-05  2.194543e-05</span></span></code></pre>
+</details><div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/logLik.html">logLik</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>        <span class="co"># log-likelihood</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; 'log Lik.' -74.28939 (df=18)</span></span></code></pre>
+</details><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ic.html">ic</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>            <span class="co"># AIC, BIC, HQIC</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;        AIC      BIC    HQIC</span></span>
+<span><span class="co">#&gt; 1 184.5788 253.7103 212.113</span></span></code></pre>
+</details><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/nobs.html">nobs</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>          <span class="co"># number of observations</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt; [1] 344</span></span></code></pre>
+</details><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/fitted.html">fitted</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>        <span class="co"># fitted values</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   [1] 2.4692860 2.7439118 2.6260597 1.7413418 2.4130830 0.8386720 2.1838447</span></span>
 <span><span class="co">#&gt;   [8] 2.1368249 2.5632590 2.6811266 1.0256316 0.1866309 1.6584919 2.3673143</span></span>
 <span><span class="co">#&gt;  [15] 0.5318491 1.0749268 2.9226606 3.1820088 2.7526696 2.7875600 2.2775942</span></span>
 <span><span class="co">#&gt;  [22] 1.8328112 2.9712349 2.3411190 2.9540079 1.5904844 2.4159250 1.8695405</span></span>
@@ -1467,9 +1501,12 @@ arise only in how the metafrontier is computed:</p>
 <span><span class="co">#&gt; [323] 1.9027268 3.3379239 2.6178754 2.7099038 1.6341968 2.3195787 1.1575454</span></span>
 <span><span class="co">#&gt; [330] 2.0290368 0.1534083 1.1206897 1.3624220 1.1015321 1.5564064 2.3988119</span></span>
 <span><span class="co">#&gt; [337] 2.1502764 1.4867585 1.1304626 1.0437816 1.9765226 1.5564463 2.1815665</span></span>
-<span><span class="co">#&gt; [344] 2.0019192</span></span>
-<span><span class="fu"><a href="../reference/residuals.html">residuals</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>     <span class="co"># residuals</span></span>
-<span><span class="co">#&gt;   [1]  5.40071399  7.60608821  7.35394035  3.08865821  6.32691704  1.00132803</span></span>
+<span><span class="co">#&gt; [344] 2.0019192</span></span></code></pre>
+</details><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/residuals.html">residuals</a></span><span class="op">(</span><span class="va">meta_lp</span><span class="op">)</span>     <span class="co"># residuals</span></span></code></pre></div>
+<details><summary>
+Toggle to see the output
+</summary><pre class="plaintext"><code><span><span class="co">#&gt;   [1]  5.40071399  7.60608821  7.35394035  3.08865821  6.32691704  1.00132803</span></span>
 <span><span class="co">#&gt;   [7]  5.17615529  4.53317508  6.63674105  6.60887340 -0.19563164  0.73336915</span></span>
 <span><span class="co">#&gt;  [13]  2.25150806  5.08268567  0.38815087  0.07507323  7.88733941 17.88799120</span></span>
 <span><span class="co">#&gt;  [19] 10.81733041  9.45244004  2.83240578  3.59718878  6.68876505  4.87888104</span></span>
@@ -1526,7 +1563,8 @@ arise only in how the metafrontier is computed:</p>
 <span><span class="co">#&gt; [325]  2.53212457 13.34009620  2.64580324  7.02042126  1.60245457  4.02096320</span></span>
 <span><span class="co">#&gt; [331] -0.06340833  2.49931032  4.79757796  1.69846793  0.37359360  8.32118806</span></span>
 <span><span class="co">#&gt; [337]  5.48972358  1.73324152  2.54953741  0.47621841  3.52347738  3.73355374</span></span>
-<span><span class="co">#&gt; [343]  5.49843347  5.72808077</span></span></code></pre></div>
+<span><span class="co">#&gt; [343]  5.49843347  5.72808077</span></span></code></pre>
+</details>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
