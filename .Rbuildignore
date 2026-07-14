@@ -16,3 +16,6 @@
 ^pandoc$
 ^pandoc-.*$
 ^.*\.pdf$
+^README\.Rmd$
+^README\.html$
+^sitemap\.xml$

@@ -23,7 +23,7 @@ frontier analysis (sfalcmcross)."><meta property="og:image" content="https://Sul
 
     <a class="navbar-brand me-2" href="../index.html">smfa</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -233,7 +233,8 @@ pooled latent class model is estimated and class assignments serve as groups
 <dd><p>Character string. Distribution for the one-sided error term
 \(u_i \ge 0\). The following distributions are available for
 <code>groupType = "sfacross"</code>:</p><ul><li><p><code>"hnormal"</code> (default): half-normal distribution
-(Aigner <em>et al.</em>, 1977; Meeusen and van den Broeck, 1977).</p></li>
+(Aigner <em>et al.</em>, 1977; Meeusen and van den Broeck, 1977;
+Papadopoulos, 2015).</p></li>
 <li><p><code>"exponential"</code>: exponential distribution.</p></li>
 <li><p><code>"tnormal"</code>: truncated normal distribution (Stevenson, 1980).</p></li>
 <li><p><code>"rayleigh"</code>: Rayleigh distribution (Hajargasht, 2015).</p></li>
@@ -245,7 +246,7 @@ simulated likelihood (Migon and Medici, 2001; Wang and Ye, 2020).</p></li>
 <li><p><code>"weibull"</code>: Weibull distribution, estimated by maximum
 simulated likelihood (Tsionas, 2007).</p></li>
 <li><p><code>"genexponential"</code>: generalised exponential distribution
-(Papadopoulos, 2020).</p></li>
+(Papadopoulos, 2021).</p></li>
 <li><p><code>"tslaplace"</code>: truncated skewed Laplace distribution
 (Wang, 2012).</p></li>
 </ul><p>For <code>groupType = "sfaselectioncross"</code> and <code>"sfalcmcross"</code>, only
@@ -724,12 +725,18 @@ gaps for firms operating under different technologies.
 stochastic frontier function. <em>Journal of Productivity Analysis</em>,
 <b>19</b>(2-3), 179–190.
 <a href="https://doi.org/10.1023/A%3A1022853416499" class="external-link">doi:10.1023/A:1022853416499</a></p>
-<p>Greene, W. 2010. A stochastic frontier model with correction for sample
-selection. <em>Journal of Productivity Analysis</em>, <b>34</b>(1), 15–24.
-<a href="https://doi.org/10.1007/s11123-009-0159-1" class="external-link">doi:10.1007/s11123-009-0159-1</a></p>
+<p>Papadopoulos, A. 2015. The half-normal specification for the two-tier
+stochastic frontier model. <em>Journal of Productivity Analysis</em>,
+<b>43</b>(2), 225–230. <a href="https://doi.org/10.1007/s11123-014-0389-8" class="external-link">doi:10.1007/s11123-014-0389-8</a></p>
+<p>Papadopoulos, A. 2021. Stochastic frontier models using the generalized
+exponential distribution. <em>Journal of Productivity Analysis</em>,
+<b>55</b>(1), 15–29. <a href="https://doi.org/10.1007/s11123-020-00591-9" class="external-link">doi:10.1007/s11123-020-00591-9</a></p>
 <p>Hajargasht, G. 2015. Stochastic frontiers with a Rayleigh distribution.
 <em>Journal of Productivity Analysis</em>, <b>44</b>(2), 199–208.
 <a href="https://doi.org/10.1007/s11123-014-0417-8" class="external-link">doi:10.1007/s11123-014-0417-8</a></p>
+<p>Greene, W. 2010. A stochastic frontier model with correction for sample
+selection. <em>Journal of Productivity Analysis</em>, <b>34</b>(1), 15–24.
+<a href="https://doi.org/10.1007/s11123-009-0159-1" class="external-link">doi:10.1007/s11123-009-0159-1</a></p>
 <p>Heckman, J. J. 1979. Sample selection bias as a specification error.
 <em>Econometrica</em>, <b>47</b>(1), 153–161.
 <a href="https://doi.org/10.2307/1912352" class="external-link">doi:10.2307/1912352</a></p>
@@ -765,9 +772,6 @@ pollution-generating technologies in performance benchmarking: Recent
 developments, limits and future prospects in the nonparametric framework.
 <em>European Journal of Operational Research</em>, <b>250</b>(2), 347–359.
 <a href="https://doi.org/10.1016/j.ejor.2015.07.024" class="external-link">doi:10.1016/j.ejor.2015.07.024</a></p>
-<p>Papadopoulos, A. 2015. The half-normal specification for the two-tier
-stochastic frontier model. <em>Journal of Productivity Analysis</em>,
-<b>43</b>(2), 225–230. <a href="https://doi.org/10.1007/s11123-014-0389-8" class="external-link">doi:10.1007/s11123-014-0389-8</a></p>
 <p>Stevenson, R. E. 1980. Likelihood functions for generalised stochastic
 frontier estimation. <em>Journal of Econometrics</em>, <b>13</b>(1), 57–66.
 <a href="https://doi.org/10.1016/0304-4076%2880%2990042-1" class="external-link">doi:10.1016/0304-4076(80)90042-1</a></p>
@@ -899,7 +903,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -963,7 +967,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1027,7 +1031,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1055,7 +1059,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: -74.28939 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span><span class="co"># Retrieve individual efficiency and metatechnology ratio estimates:</span></span></span>
 <span class="r-in"><span><span class="va">ef_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_sfacross_lp</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ef_lp</span><span class="op">)</span></span></span>
@@ -1165,7 +1169,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1229,7 +1233,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1293,7 +1297,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1327,7 +1331,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: -74.28939 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co">## 1c. sfacross groups + Two-stage SFA metafrontier (Huang et al., 2014)</span></span></span>
@@ -1419,7 +1423,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1483,7 +1487,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1547,7 +1551,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1620,7 +1624,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
@@ -1645,7 +1649,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: 479.063 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span><span class="va">ef_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_sfacross_huang</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ef_huang</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span>
@@ -1761,7 +1765,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1825,7 +1829,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1889,7 +1893,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -1962,7 +1966,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
@@ -1987,7 +1991,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: 557.9201 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">###########################################################################</span></span></span>
@@ -2095,7 +2099,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: 61.35325 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span><span class="va">ef_lcm_lp</span> <span class="op">&lt;-</span> <span class="fu"><a href="efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lcm_lp</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ef_lcm_lp</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span>
@@ -2237,7 +2241,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: 61.35325 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">## 2c. sfalcmcross (pooled, 2 classes) + Two-stage SFA metafrontier</span></span></span>
 <span class="r-in"><span><span class="co">##     (Huang et al., 2014)</span></span></span>
@@ -2378,7 +2382,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
@@ -2408,7 +2412,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: 820.9822 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: -1603.964   BIC: -1515.172   HQIC: -1569.836 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span><span class="va">ef_lcm_huang</span> <span class="op">&lt;-</span> <span class="fu"><a href="efficiencies.html">efficiencies</a></span><span class="op">(</span><span class="va">meta_lcm_huang</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">ef_lcm_huang</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   id Group_c        u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal</span>
@@ -2587,7 +2591,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
@@ -2617,7 +2621,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: 2010.521 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: -3983.041   BIC: -3894.249   HQIC: -3948.913 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co">###########################################################################</span></span></span>
@@ -2627,10 +2631,14 @@ Analysis using R. R package version 1.0.1.
 <span class="r-in"><span><span class="co">## 3a. Small toy example for automatic testing (&lt; 5s)</span></span></span>
 <span class="r-in"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">100</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">12345</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">z1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">v1</span>; <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ds</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">z1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">v1</span></span></span>
+<span class="r-in"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ds</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">g</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x1</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x1</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, x1 <span class="op">=</span> <span class="va">x1</span>, z1 <span class="op">=</span> <span class="va">z1</span>, d <span class="op">=</span> <span class="va">d</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">meta_toy</span> <span class="op">&lt;-</span> <span class="fu">smfa</span><span class="op">(</span></span></span>
@@ -2715,7 +2723,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -2773,7 +2781,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -2799,7 +2807,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: -95.27927 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: 210.5585   BIC: 236.6103   HQIC: 221.1021 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:23 </span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co">## 3b. More complex selection models</span></span></span>
@@ -2807,11 +2815,19 @@ Analysis using R. R package version 1.0.1.
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">N</span> <span class="op">&lt;-</span> <span class="fl">2000</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">12345</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">z1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">e1</span> <span class="op">&lt;-</span> <span class="va">v1</span>; <span class="va">e2</span> <span class="op">&lt;-</span> <span class="fl">0.7071</span> <span class="op">*</span> <span class="op">(</span><span class="va">v1</span> <span class="op">+</span> <span class="va">v2</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">z2</span> <span class="op">+</span> <span class="va">e1</span>; <span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ds</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">z1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">z2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">v1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">v2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">g</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">e1</span> <span class="op">&lt;-</span> <span class="va">v1</span></span></span>
+<span class="r-in"><span><span class="va">e2</span> <span class="op">&lt;-</span> <span class="fl">0.7071</span> <span class="op">*</span> <span class="op">(</span><span class="va">v1</span> <span class="op">+</span> <span class="va">v2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="va">z1</span> <span class="op">+</span> <span class="va">z2</span> <span class="op">+</span> <span class="va">e1</span></span></span>
+<span class="r-in"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">ds</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">g</span> <span class="op">&gt;</span> <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span>; <span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>; <span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">u</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">x2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span> <span class="op">+</span> <span class="va">e2</span> <span class="op">-</span> <span class="va">u</span></span></span>
 <span class="r-in"><span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, x1 <span class="op">=</span> <span class="va">x1</span>, x2 <span class="op">=</span> <span class="va">x2</span>, z1 <span class="op">=</span> <span class="va">z1</span>, z2 <span class="op">=</span> <span class="va">z2</span>, d <span class="op">=</span> <span class="va">d</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
@@ -2900,7 +2916,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:24 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -2959,7 +2975,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> -------------------------------------------------------------------------------- </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:25 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Log likelihood status: successful convergence  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> --------------------------------------------------------------------------------  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -2985,7 +3001,7 @@ Analysis using R. R package version 1.0.1.
 <span class="r-out co"><span class="r-pr">#&gt;</span> Total Log-likelihood: -1899.87 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: 3823.74   BIC: 3890.951   HQIC: 3848.419 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Apr Fri 24, 2026 at 17:42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Model was estimated on : Jul Tue 14, 2026 at 16:25 </span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

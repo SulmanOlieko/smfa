@@ -59,7 +59,6 @@ And three group frontier types (`groupType`):
 ## Installation
 
 ``` r
-
 # Install smfa from CRAN
 install.packages("smfa")
 
@@ -80,7 +79,6 @@ groups (small, medium, large).
 ### Step 1: Load data and create groups
 
 ``` r
-
 library(smfa)
 #> Loading required package: sfaR
 #>            ****           *******  
@@ -106,10 +104,10 @@ library(smfa)
 #>  Y8888b. 888  888  888 888   .d888888  
 #>      X88 888  888  888 888   888  888 
 #>  88888P' 888  888  888 888   "Y888888 
-#>                           version 1.0.0
+#>                           version 1.0.1
 #> 
 #> * Please cite the 'smfa' package as:
-#> Owili, S. O. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.0.
+#> Owili, SO. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.1.
 #> 
 #> See also: citation("smfa")
 #> 
@@ -133,7 +131,6 @@ table(ricephil$group)
 ### Step 2: Fit the metafrontier model
 
 ``` r
-
 meta_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
@@ -148,7 +145,6 @@ meta_lp <- smfa(
 ### Step 3: Summarise results
 
 ``` r
-
 summary(meta_lp)
 #> ============================================================ 
 #> Stochastic Metafrontier Analysis
@@ -222,7 +218,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -286,7 +282,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -350,7 +346,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -378,13 +374,12 @@ summary(meta_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26
 ```
 
 ### Step 4: Extract firm-level efficiencies
 
 ``` r
-
 eff <- efficiencies(meta_lp)
 head(eff)
 #>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal

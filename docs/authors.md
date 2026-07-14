@@ -11,12 +11,12 @@ Source:
 [`inst/CITATION`](https://github.com/SulmanOlieko/smfa/blob/HEAD/inst/CITATION)
 
 Owili SO. (2026). smfa: Stochastic Metafrontier Analysis. R package
-version 1.0.0.
+version 1.0.1.
 
     @Manual{,
       title = {smfa: Stochastic Metafrontier Analysis.},
       author = {Sulman Olieko Owili},
       year = {2026},
-      note = {R package version 1.0.0},
+      note = {R package version 1.0.1},
       url = {https://github.com/SulmanOlieko/smfa},
     }

@@ -131,7 +131,8 @@ pooled latent class model is estimated and class assignments serve as groups
 \code{groupType = "sfacross"}:
 \itemize{
 \item \code{"hnormal"} (default): half-normal distribution
-(Aigner \emph{et al.}, 1977; Meeusen and van den Broeck, 1977).
+(Aigner \emph{et al.}, 1977; Meeusen and van den Broeck, 1977;
+Papadopoulos, 2015).
 \item \code{"exponential"}: exponential distribution.
 \item \code{"tnormal"}: truncated normal distribution (Stevenson, 1980).
 \item \code{"rayleigh"}: Rayleigh distribution (Hajargasht, 2015).
@@ -143,7 +144,7 @@ simulated likelihood (Migon and Medici, 2001; Wang and Ye, 2020).
 \item \code{"weibull"}: Weibull distribution, estimated by maximum
 simulated likelihood (Tsionas, 2007).
 \item \code{"genexponential"}: generalised exponential distribution
-(Papadopoulos, 2020).
+(Papadopoulos, 2021).
 \item \code{"tslaplace"}: truncated skewed Laplace distribution
 (Wang, 2012).
 }
@@ -687,10 +688,14 @@ summary(meta_lcm_odonnell)
 ## 3a. Small toy example for automatic testing (< 5s)
 N <- 100
 set.seed(12345)
-z1 <- rnorm(N); v1 <- rnorm(N); g <- rnorm(N)
-ds <- z1 + v1; d <- ifelse(ds > 0, 1, 0)
+z1 <- rnorm(N)
+v1 <- rnorm(N)
+g <- rnorm(N)
+ds <- z1 + v1
+d <- ifelse(ds > 0, 1, 0)
 group <- ifelse(g > 0, 1, 0)
-x1 <- rnorm(N); y <- x1 + rnorm(N) - abs(rnorm(N))
+x1 <- rnorm(N)
+y <- x1 + rnorm(N) - abs(rnorm(N))
 dat <- data.frame(y = y, x1 = x1, z1 = z1, d = d, group = group)
 
 meta_toy <- smfa(
@@ -712,11 +717,19 @@ summary(meta_toy)
 
 N <- 2000
 set.seed(12345)
-z1 <- rnorm(N); z2 <- rnorm(N); v1 <- rnorm(N); v2 <- rnorm(N); g <- rnorm(N)
-e1 <- v1; e2 <- 0.7071 * (v1 + v2)
-ds <- z1 + z2 + e1; d <- ifelse(ds > 0, 1, 0)
+z1 <- rnorm(N)
+z2 <- rnorm(N)
+v1 <- rnorm(N)
+v2 <- rnorm(N)
+g <- rnorm(N)
+e1 <- v1
+e2 <- 0.7071 * (v1 + v2)
+ds <- z1 + z2 + e1
+d <- ifelse(ds > 0, 1, 0)
 group <- ifelse(g > 0, 1, 0)
-u <- abs(rnorm(N)); x1 <- rnorm(N); x2 <- rnorm(N)
+u <- abs(rnorm(N))
+x1 <- rnorm(N)
+x2 <- rnorm(N)
 y <- x1 + x2 + e2 - u
 dat <- data.frame(y = y, x1 = x1, x2 = x2, z1 = z1, z2 = z2, d = d, group = group)
 
@@ -759,13 +772,21 @@ stochastic frontier function. \emph{Journal of Productivity Analysis},
 \bold{19}(2-3), 179--190.
 \doi{10.1023/A:1022853416499}
 
-Greene, W. 2010. A stochastic frontier model with correction for sample
-selection. \emph{Journal of Productivity Analysis}, \bold{34}(1), 15--24.
-\doi{10.1007/s11123-009-0159-1}
+Papadopoulos, A. 2015. The half-normal specification for the two-tier
+stochastic frontier model. \emph{Journal of Productivity Analysis},
+\bold{43}(2), 225--230. \doi{10.1007/s11123-014-0389-8}
+
+Papadopoulos, A. 2021. Stochastic frontier models using the generalized
+exponential distribution. \emph{Journal of Productivity Analysis},
+\bold{55}(1), 15--29. \doi{10.1007/s11123-020-00591-9}
 
 Hajargasht, G. 2015. Stochastic frontiers with a Rayleigh distribution.
 \emph{Journal of Productivity Analysis}, \bold{44}(2), 199--208.
 \doi{10.1007/s11123-014-0417-8}
+
+Greene, W. 2010. A stochastic frontier model with correction for sample
+selection. \emph{Journal of Productivity Analysis}, \bold{34}(1), 15--24.
+\doi{10.1007/s11123-009-0159-1}
 
 Heckman, J. J. 1979. Sample selection bias as a specification error.
 \emph{Econometrica}, \bold{47}(1), 153--161.
@@ -811,10 +832,6 @@ pollution-generating technologies in performance benchmarking: Recent
 developments, limits and future prospects in the nonparametric framework.
 \emph{European Journal of Operational Research}, \bold{250}(2), 347--359.
 \doi{10.1016/j.ejor.2015.07.024}
-
-Papadopoulos, A. 2015. The half-normal specification for the two-tier
-stochastic frontier model. \emph{Journal of Productivity Analysis},
-\bold{43}(2), 225--230. \doi{10.1007/s11123-014-0389-8}
 
 Stevenson, R. E. 1980. Likelihood functions for generalised stochastic
 frontier estimation. \emph{Journal of Econometrics}, \bold{13}(1), 57--66.

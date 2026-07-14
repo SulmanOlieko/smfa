@@ -11,7 +11,7 @@ smfaStartupMessage <- function() {
   )
   base_msg <- paste0(
     "\n\n* Please cite the 'smfa' package as:\n",
-    "Owili, S. O. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.0.\n\n",
+    "Owili, SO. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.1.\n\n",
     "See also: citation(\"smfa\")\n\n",
     "* For any questions, suggestions, or comments on the 'smfa' package, you can contact the authors directly or visit:\n",
     "  https://github.com/SulmanOlieko/smfa/issues\n"
@@ -47,7 +47,7 @@ smfaStartupMessage <- function() {
   # 4. Pad the version text so it hits the exact right edge
   version_msg <- paste0(
     "\n",
-    sprintf(paste0("%", align_width, "s"), "version 1.0.0")
+    sprintf(paste0("%", align_width, "s"), "version 1.0.1")
   )
 
   return(paste0(art_msg, version_msg, base_msg))
@@ -62,7 +62,7 @@ smfaStartupMessage <- function() {
   } else {
     msg <- paste0(
       "\n* Please cite the 'smfa' package as:\n",
-      "Owili, SO. (2026). smfa: Metafrontier Analysis in R. R package version 1.0.0.\n\n",
+      "Owili, SO. (2026). smfa: Metafrontier Analysis in R. R package version 1.0.1.\n\n",
       "See also: citation(\"smfa\")\n\n",
       "* For any questions, suggestions, or comments on the 'smfa' package, you can contact the authors directly or visit:\n",
       "  https://github.com/SulmanOlieko/smfa/issues\n"

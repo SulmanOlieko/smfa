@@ -1,0 +1,497 @@
+---
+title: "smfa: Stochastic Metafrontier Analysis"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = ""
+)
+
+knitr::knit_hooks$set(output = function(x, options) {
+  if (isTRUE(options$fold.output)) {
+    paste0(
+      "
+<details>
+  <summary>Toggle to see the output</summary>
+
+```plaintext
+",
+      x,
+      "```
+
+</details>
+"
+    )
+  } else {
+    paste0("
+```plaintext
+", x, "```
+")
+  }
+})
+```
+
+# smfa: Stochastic Metafrontier Analysis
+<img src="man/figures/logo.png" align="right" height="139" alt="smfa logo" />
+
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![R version](https://img.shields.io/badge/R->=%203.5.0-blue.svg)](https://cran.r-project.org/)
+[![Last commit](https://img.shields.io/github/last-commit/SulmanOlieko/smfa.svg)](https://github.com/SulmanOlieko/smfa/commits/main)
+[![Issues](https://img.shields.io/github/issues/SulmanOlieko/smfa.svg)](https://github.com/SulmanOlieko/smfa/issues)
+[![R-CMD-check](https://github.com/SulmanOlieko/smfa/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SulmanOlieko/smfa/actions/workflows/R-CMD-check.yaml)
+
+[![License](https://img.shields.io/badge/license-GPL-blue)](https://github.com/SulmanOlieko/smfa)
+[![Code size](https://img.shields.io/github/languages/code-size/SulmanOlieko/smfa.svg)](https://github.com/SulmanOlieko/smfa)
+[![Visitors](https://visitor-badge.laobi.icu/badge?page_id=sulmanolieko.smfa)](https://github.com/SulmanOlieko/smfa)
+
+[![CRAN Total Downloads](https://cranlogs.r-pkg.org/badges/grand-total/smfa)](https://cran.r-project.org/package=smfa)
+[![CRAN Monthly Downloads](https://cranlogs.r-pkg.org/badges/smfa)](https://cran.r-project.org/package=smfa)
+[![CRAN Weekly Downloads](https://cranlogs.r-pkg.org/badges/last-week/smfa)](https://cran.r-project.org/package=smfa)
+[![CRAN Daily Downloads](https://cranlogs.r-pkg.org/badges/last-day/smfa)](https://cran.r-project.org/package=smfa)
+
+[![Development version](https://img.shields.io/badge/devel%20version-1.0.1-darkred.svg)](https://github.com/SulmanOlieko/smfa)
+[![smfa status badge](https://sulmanolieko.r-universe.dev/smfa/badges/version)](https://sulmanolieko.r-universe.dev/smfa)
+[![CRAN status](https://www.r-pkg.org/badges/version/smfa)](https://CRAN.R-project.org/package=smfa)
+
+> **Stochastic Metafrontier Analysis**
+
+An R package for implementing various deterministic and stochastic metafrontier analyses for efficiency and performance benchmarking, assessing technical efficiencies (TE), metafrontier technical efficiencies (MTE), and computing metatechnology ratios (MTRs) for firms operating under different technologies.
+
+The package is available on CRAN: [10.32614/CRAN.package.smfa](https://doi.org/10.32614/CRAN.package.smfa)
+
+`smfa` provides routines for:
+
+1. **Deterministic envelope metafrontier** via **linear programming (LP)** and **quadratic programming (QP)**, following [Battese, Rao & O'Donnell (2004)](https://doi.org/10.1023/B:PROD.0000012454.06094.29) and [O'Donnell, Rao & Battese (2008)](https://doi.org/10.1007/s00181-007-0119-4).
+2. **Stochastic two-stage metafrontier** following [Huang, Huang & Liu (2014)](https://doi.org/10.1007/s11123-014-0402-2).
+
+In addition, the package implements:
+
+- **Latent class stochastic metafrontier analysis** — when technology groups are unobserved, the latent class model (LCM) robustly identifies classes and routes them to the metafrontier for benchmarking following [Greene and Hensher (2003)](https://doi.org/10.1016/S0191-2615(02)00046-2), [Orea and Kumbhakar (2004)](https://doi.org/10.1007/s00181-003-0184-2), [Greene (2005)](https://doi.org/10.1007/s11123-004-8545-1), [Parmeter and Kumbhakar (2014)](https://doi.org/10.1561/0800000023).
+- **Sample selection correction metafrontier models** — corrects for sample selection bias following [Heckman (1979)](https://doi.org/10.2307/1912352), [Greene (2010)](https://doi.org/10.1007/s11123-009-0159-1), [Greene (2003)](https://elibrary.pearson.de/book/99.150005/9781292231150).
+
+> **Dependency:** `smfa` depends on the [`sfaR`](https://CRAN.R-project.org/package=sfaR) package by [Dakpo, Desjeux & Latruffe (2023)](https://CRAN.R-project.org/package=sfaR), which provides the underlying stochastic frontier estimation routines for all group-level models.
+
+---
+
+## Installation
+
+```{r, fold.output=TRUE}
+install.packages("smfa")
+library("smfa")
+# Install devtools if not already installed
+#if (!require("devtools")) #install.packages("devtools")
+
+# Install smfa from GitHub
+#devtools::install_github("SulmanOlieko/smfa")
+```
+>**Note** You do not need to install `sfaR` manually, `smfa` takes care of that automatically.
+
+---
+
+## Usage Examples
+
+The following sections provide comprehensive examples covering all three group-level model types and all four metafrontier methods. Each section demonstrates the full workflow: data preparation → group frontier estimation → metafrontier → efficiency and MTR extraction.
+
+---
+
+## Section 1: Standard SFA Group Frontier (`groupType = "sfacross"`)
+
+Let's use the `ricephil` data from `sfaR`. In this data, group boundaries are observed (a farm-size variable). If we assume that the production technology varies by farm size, we can try to estimate three frontiers that correspond to three types of farm sizes, namely small, medium and large. We can create a group variable `group` that captures these groups. We can then estimate each group's frontier separately using `sfacross`  from the `sfaR` package. So, we will specify the option `groupType  = "sfacross"` in the `smfa()`. 
+
+### Data Preparation
+
+```{r}
+library(smfa)
+data("ricephil")
+
+# Create three technology groups based on farm area terciles
+ricephil$group <- cut(ricephil$AREA,
+  breaks = quantile(ricephil$AREA, probs = c(0, 1/3, 2/3, 1), na.rm = TRUE),
+  labels = c("small", "medium", "large"),
+  include.lowest = TRUE
+)
+table(ricephil$group)
+```
+This is the distrubition of the various farm types:
+```plaintext
+ small medium  large 
+   125    104    115 
+```
+
+---
+
+### 1a. LP Metafrontier (`groupType = "sfacross"`, `metaMethod = "lp"`)
+
+We can begin by estimating a deterministic linear programming envelope (Battese, Rao & O'Donnell, 2004) over the three group frontiers. The metafrontier parameter vector minimises the sum of absolute deviations while staying at or above all group frontier predictions. We will be using a Cobb-Douglas functional form with rice production `PROD` as the response variable, and `AREA`, `LABOR` and `NPK` as the inputs.
+
+```{r}
+meta_sfacross_lp <- smfa(
+  formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
+  data       = ricephil,
+  group      = "group",
+  S          = 1,
+  udist      = "hnormal",
+  groupType  = "sfacross",
+  metaMethod = "lp"
+)
+summary(meta_sfacross_lp)
+```
+
+>**Note:** Since the metafrontier is estimated via linear programming, no estimated parameters are returned.
+
+To harvest individual efficiency, metafrontier efficiency and MTR estimates:
+```{r, fold.output=TRUE}
+efficiencies(meta_sfacross_lp)
+head(efficiencies(meta_sfacross_lp))
+
+#To subset only for small farms
+#head(efficiencies(meta_sfacross_lp)[efficiencies(meta_sfacross_lp)$group == "small", ])
+```
+
+---
+
+### 1b. QP Metafrontier (`groupType = "sfacross"`, `metaMethod = "qp"`)
+
+We can also estimate a quadratic programming envelope that minimises the sum of squared deviations from group frontier predictions subject to the envelope constraint. We now switch to `metaMethod = "qp"`.
+
+```{r, fold.output=TRUE}
+meta_sfacross_qp <- smfa(
+  formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
+  data       = ricephil,
+  group      = "group",
+  S          = 1,
+  udist      = "hnormal",
+  groupType  = "sfacross",
+  metaMethod = "qp"
+)
+summary(meta_sfacross_qp)
+```
+
+As expected, the two approaches produce almost identical outputs. 
+
+>**Note:** The estimation of the group frontiers use the same method, `sfacross`, and the only difference is in how we compute the metafrontier. QP estimates a deterministic frontier, no stochastic variance parameters are returned.
+
+---
+
+### 1c. Two-stage SFA Metafrontier — Huang et al. (2014) (`sfaApproach = "huang"`)
+
+In this approach, the group-specific fitted frontier values are pooled together and serve as the dependent variable in a second-stage pooled SFA. The technology gap `U` and noise `V` are estimated stochastically. 
+
+```{r, fold.output=TRUE}
+meta_sfacross_huang <- smfa(
+  formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
+  data        = ricephil,
+  group       = "group",
+  S           = 1,
+  udist       = "hnormal",
+  groupType   = "sfacross",
+  metaMethod  = "sfa",
+  sfaApproach = "huang"
+)
+summary(meta_sfacross_huang)
+```
+
+---
+
+### 1d. Two-stage SFA Metafrontier — O'Donnell et al. (2008) (`sfaApproach = "ordonnell"`)
+
+In this approach, the LP deterministic envelope is used as the response variable in the second stage and the SFA quantifies the stochastic variation around this envelope.
+
+```{r, fold.output=TRUE}
+meta_sfacross_odonnell <- smfa(
+  formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
+  data        = ricephil,
+  group       = "group",
+  S           = 1,
+  udist       = "hnormal",
+  groupType   = "sfacross",
+  metaMethod  = "sfa",
+  sfaApproach = "ordonnell"
+)
+summary(meta_sfacross_odonnell)
+```
+
+O'Donnell et al. (2008) approach involves taking the deterministic envelope (the maximum) of all group frontier values at each data point (yMeta = apply(groupFrontierMat, 1, max)). Because this new yMeta surface is the maximum of several hyperplanes, its shape is purely convex and completely lacks statistical noise. When the second-stage sfacross tries to fit a single straight line (hyperplane) through this convex envelope, the residuals predominantly curve upward away from the line. In production frontiers, this results in right-skewed OLS residuals. SFA models naturally interpret right-skewed residuals as having near-zero inefficiency (sigma_u -> 0). Because the meta-inefficiency is estimated as near zero (u_meta -> 0), the meta-efficiency approaches 1 (TE_meta ~= 1). Because TE_meta = TE_group * MTR, we get MTR = TE_meta / TE_group. Since TE_meta is ~1 and TE_group < 1, this mathematically forces MTR > 1.
+Why does this happen? Because fitting a stochastic frontier via Maximum Likelihood onto a purely mathematical LP envelope does not strictly enforce the bounding constraint MTR <= 1 at every individual data point. The SFA line will inevitably cut through the LP envelope rather than sitting strictly above it for all points. This is a well-known theoretical and computational limitation of the producing MTR value(s) > 1, which is partly why Huang et al. (2014) proposed their alternative method.
+
+How to solve it? This is exactly why the warning message was added to the code. If you require MTR <= 1 bounds:
+(1) Use metaMethod = "lp" or "qp" (which explicitly enforce the mathematical envelope constraints).
+(2) Use sfaApproach = "huang", which avoids this "wrong skewness" problem by using the actual observations' own-group fitted values (yhat_group) as the SFA dependent variable, and directly estimating the technology gap U_i, inherently bounding MTR = exp(-U_i) <= 1.
+
+---
+
+## Section 2: Latent Class SFA Group Frontier (`groupType = "sfalcmcross"`)
+
+When technology groups are unobserved, a pooled latent class model (`sfalcmcross`) is fitted on all data. The resulting class assignments (by maximum posterior probability) serve as the technology groups for the metafrontier.
+
+### Data Preparation
+
+```{r, fold.output=TRUE}
+data("utility", package = "sfaR")
+# No group variable needed for pooled LCM (groupType = "sfalcmcross" with no group argument)
+```
+
+---
+
+### 2a. LCM + LP Metafrontier
+
+```{r, fold.output=TRUE}
+meta_lcm_lp <- smfa(
+  formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  data       = utility,
+  S          = -1,
+  groupType  = "sfalcmcross",
+  lcmClasses = 2,
+  metaMethod = "lp"
+)
+summary(meta_lcm_lp)
+```
+
+
+Retrieve efficiencies including per-class posterior probabilities
+```{r}
+# Retrieve efficiencies including per-class posterior probabilities
+head(efficiencies(meta_lcm_lp))
+# Columns include: Group_c, u_g, TE_group_JLMS, TE_group_BC, TE_group_BC_reciprocal,
+#                  PosteriorProb_c, PosteriorProb_c1, PosteriorProb_c2,
+#                  PriorProb_c1, PriorProb_c2, u_c1, u_c2,
+#                  teBC_c1, teBC_c2, u_meta, TE_meta_JLMS, TE_meta_BC, MTR_JLMS, MTR_BC
+```
+
+---
+
+### 2b. LCM + QP Metafrontier
+
+```{r, fold.output=TRUE}
+meta_lcm_qp <- smfa(
+  formula    = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  data       = utility,
+  S          = -1,
+  groupType  = "sfalcmcross",
+  lcmClasses = 2,
+  metaMethod = "qp"
+)
+summary(meta_lcm_qp)
+```
+
+---
+
+### 2c. LCM + Two-stage SFA Metafrontier — Huang et al. (2014)
+
+```{r, fold.output=TRUE}
+meta_lcm_huang <- smfa(
+  formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  data        = utility,
+  S           = -1,
+  groupType   = "sfalcmcross",
+  lcmClasses  = 2,
+  metaMethod  = "sfa",
+  sfaApproach = "huang"
+)
+summary(meta_lcm_huang)
+```
+
+---
+
+### 2d. LCM + O'Donnell et al. (2008) Stochastic Metafrontier
+
+```{r, fold.output=TRUE}
+meta_lcm_odonnell <- smfa(
+  formula     = log(tc/wf) ~ log(y) + log(wl/wf) + log(wk/wf),
+  data        = utility,
+  S           = -1,
+  groupType   = "sfalcmcross",
+  lcmClasses  = 2,
+  metaMethod  = "sfa",
+  sfaApproach = "ordonnell"
+)
+summary(meta_lcm_odonnell)
+```
+
+---
+
+## Section 3: Sample Selection SFA Group Frontier (`groupType = "sfaselectioncross"`)
+
+When the observed sample is not random (e.g., only firms above a revenue threshold are surveyed), sample selection bias can distort frontier estimates. `sfaselectioncross` corrects for this using the two-step approach of Greene (2010). Only selected observations (`d == 1`) participate in the frontier and metafrontier; efficiency estimates for non-selected observations are `NA`. Here is a simulated example (adapted from `sfaR`): 
+
+### Data Preparation (Simulated)
+
+```{r, fold.output=TRUE}
+N <- 2000; set.seed(12345)
+z1 <- rnorm(N); z2 <- rnorm(N)
+v1 <- rnorm(N); v2 <- rnorm(N)
+g  <- rnorm(N)
+e1 <- v1
+e2 <- 0.7071 * (v1 + v2)
+ds <- z1 + z2 + e1
+d  <- ifelse(ds > 0, 1, 0)        # binary selection indicator: 1 = selected
+group <- ifelse(g > 0, 1, 0)      # two technology groups
+u  <- abs(rnorm(N))
+x1 <- abs(rnorm(N)); x2 <- abs(rnorm(N))
+y  <- abs(x1 + x2 + e2 - u)
+dat <- as.data.frame(cbind(y=y, x1=x1, x2=x2, z1=z1, z2=z2, d=d, group=group))
+# About 50% of observations are selected:
+table(dat$d)
+```
+
+```plaintext
+     0    1 
+  1013  987
+```
+
+---
+
+### 3a. sfaselectioncross + LP Metafrontier
+
+```{r}
+meta_sel_lp <- smfa(
+  formula    = log(y) ~ log(x1) + log(x2),
+  selectionF = d ~ z1 + z2,
+  data       = dat,
+  group      = "group",
+  S          = 1L,
+  udist      = "hnormal",
+  groupType  = "sfaselectioncross",
+  modelType  = "greene10",
+  lType      = "kronrod",
+  Nsub       = 100,
+  uBound     = Inf,
+  method     = "bfgs",
+  itermax    = 2000,
+  metaMethod = "lp"
+)
+summary(meta_sel_lp)
+```
+
+```{r, fold.output=TRUE}
+# Efficiencies: non-selected observations have NA
+ef_sel_lp <- efficiencies(meta_sel_lp)
+head(ef_sel_lp)
+
+# Selected observations in group 0:
+#head(ef_sel_lp[ef_sel_lp$group == 0 & !is.na(ef_sel_lp$TE_group_BC), ])
+```
+  
+---
+
+### 3b. sfaselectioncross + QP Metafrontier
+
+```{r, fold.output=TRUE}
+meta_sel_qp <- smfa(
+  formula    = log(y) ~ log(x1) + log(x2),
+  selectionF = d ~ z1 + z2,
+  data       = dat,
+  group      = "group",
+  S          = 1L,
+  udist      = "hnormal",
+  groupType  = "sfaselectioncross",
+  modelType  = "greene10",
+  lType      = "kronrod",
+  Nsub       = 100,
+  uBound     = Inf,
+  method     = "bfgs",
+  itermax    = 2000,
+  metaMethod = "qp"
+)
+summary(meta_sel_qp)
+```
+
+---
+
+### 3c. sfaselectioncross + Two-stage SFA Metafrontier — Huang et al. (2014)
+
+```{r, fold.output=TRUE}
+meta_sel_huang <- smfa(
+  formula    = log(y) ~ log(x1) + log(x2),
+  selectionF  = d ~ z1 + z2,
+  data        = dat,
+  group       = "group",
+  S           = 1L,
+  udist       = "hnormal",
+  groupType   = "sfaselectioncross",
+  modelType   = "greene10",
+  lType       = "kronrod",
+  Nsub        = 100,
+  uBound      = Inf,
+  simType     = "halton",
+  Nsim        = 300,
+  prime       = 2L,
+  burn        = 10,
+  antithetics = FALSE,
+  seed        = 12345,
+  method      = "bfgs",
+  itermax     = 2000,
+  metaMethod  = "sfa",
+  sfaApproach = "huang"
+)
+summary(meta_sel_huang)
+```
+
+---
+
+### 3d. sfaselectioncross + O'Donnell et al. (2008) Stochastic Metafrontier
+
+```{r, fold.output=TRUE}
+meta_sel_odonnell <- smfa(
+  formula    = log(y) ~ log(x1) + log(x2),
+  selectionF  = d ~ z1 + z2,
+  data        = dat,
+  group       = "group",
+  S           = 1L,
+  udist       = "hnormal",
+  groupType   = "sfaselectioncross",
+  modelType   = "greene10",
+  lType       = "kronrod",
+  Nsub        = 100,
+  uBound      = Inf,
+  method      = "bfgs",
+  itermax     = 2000,
+  metaMethod  = "sfa",
+  sfaApproach = "ordonnell"
+)
+summary(meta_sel_odonnell)
+```
+---
+
+## Output: Efficiency and Metatechnology Ratio Extraction
+
+The `efficiencies()` function returns a data frame with one row per observation containing group-specific and metafrontier efficiency estimates and MTRs. The columns present depend on `groupType`:
+
+| Column | Description |
+|---|----|
+| `id` | Observation identifier |
+| `group` / `Group_c` | Technology group identifier |
+| `u_g` | Group-specific inefficiency — Jondrow et al. (1982) |
+| `TE_group_JLMS` | Group TE — Jondrow et al. (1982): exp(−*u*) |
+| `TE_group_BC` | Group TE — Battese & Coelli (1988): E[exp(−*u*)\|*ε*] |
+| `TE_group_BC_reciprocal` | Reciprocal of Battese & Coelli (1988) group TE |
+| `uLB_g`, `uUB_g` | Confidence bounds for *u* (*sfacross* only) |
+| `m_g`, `TE_group_mode` | Mode-based inefficiency and TE (*sfacross* only) |
+| `PosteriorProb_c`, `PosteriorProb_c1` … | Posterior class probabilities (*sfalcmcross* only) |
+| `u_meta` | Metafrontier technology gap *U* |
+| `TE_meta_JLMS` | Metafrontier TE (JLMS basis): TE_group_JLMS × MTR |
+| `TE_meta_BC` | Metafrontier TE (BC basis): TE_group_BC × MTR |
+| `MTR_JLMS` | Metatechnology ratio (JLMS basis) |
+| `MTR_BC` | Metatechnology ratio (BC basis) |
+
+```{r}
+# Example: extract and print for group 1 selected farms only
+ef_sel_lp <- efficiencies(meta_sel_lp)
+sel_grp1  <- ef_sel_lp[ef_sel_lp$group == 1 & !is.na(ef_sel_lp$TE_group_BC), ]
+summary(sel_grp1[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
+```
+
+---
+
+## References
+
+- Battese, G. E., & Coelli, T. J. (1988). Prediction of firm-level technical efficiencies with a generalized frontier production function and panel data. *Journal of Econometrics*, 38(3), 387–399. <https://doi.org/10.1016/0304-4076(88)90053-X>
+- Battese, G. E., Rao, D. S. P., & O'Donnell, C. J. (2004). A metafrontier production function for estimation of technical efficiencies and technology gaps for firms operating under different technologies. *Journal of Productivity Analysis*, 21(1), 91–103. <https://doi.org/10.1023/B:PROD.0000012454.06094.29>
+- Dakpo, K. H., Desjeux, Y., & Latruffe, L. (2023). sfaR: Stochastic Frontier Analysis using R. R package version 1.0.1. <https://CRAN.R-project.org/package=sfaR>
+- Greene, W. (2010). A stochastic frontier model with correction for sample selection. *Journal of Productivity Analysis*, 34(1), 15–24. <https://doi.org/10.1007/s11123-009-0159-1>
+- Huang, C. J., Huang, T.-H., & Liu, N.-H. (2014). A new approach to estimating the metafrontier production function based on a stochastic frontier framework. *Journal of Productivity Analysis*, 42(3), 241–254. <https://doi.org/10.1007/s11123-014-0402-2>
+- Jondrow, J., Lovell, C. A. K., Materov, I. S., & Schmidt, P. (1982). On the estimation of technical inefficiency in the stochastic frontier production function model. *Journal of Econometrics*, 19(2–3), 233–238. <https://doi.org/10.1016/0304-4076(82)90004-5>
+- O'Donnell, C. J., Rao, D. S. P., & Battese, G. E. (2008). Metafrontier frameworks for the study of firm-level efficiencies and technology ratios. *Empirical Economics*, 34(2), 231–255. <https://doi.org/10.1007/s00181-007-0119-4>
+- Orea, L., & Kumbhakar, S. C. (2004). Efficiency measurement using a latent class stochastic frontier model. *Empirical Economics*, 29(1), 169–183. <https://doi.org/10.1007/s00181-003-0184-2>

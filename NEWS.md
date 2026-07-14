@@ -1,5 +1,13 @@
 # NEWS.md
 
+# smfa v1.0.1
+
+* Updated the reference for the generalised exponential distribution to Papadopoulos (2021) in the documentation.
+* Fixed duplicated citation of Papadopoulos (2015) in documentation.
+* Added comprehensive, CRAN-compliant unit tests via `testthat`.
+* Fixed missing alt text for badges in README files.
+* Refactored `README.Rmd` code examples to execute dynamically via `knitr` rather than using static mock outputs.
+
 # smfa v1.0.0: Imitation is the sincerest form of flattery
 
 The definitive, original implementation of stochastic metafrontier analysis for R is officially stable. 

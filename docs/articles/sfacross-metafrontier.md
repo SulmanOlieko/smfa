@@ -16,7 +16,6 @@ rice farms. We create three technology groups based on farm area
 terciles.
 
 ``` r
-
 library(smfa)
 #> Loading required package: sfaR
 #>            ****           *******  
@@ -42,10 +41,10 @@ library(smfa)
 #>  Y8888b. 888  888  888 888   .d888888  
 #>      X88 888  888  888 888   888  888 
 #>  88888P' 888  888  888 888   "Y888888 
-#>                           version 1.0.0
+#>                           version 1.0.1
 #> 
 #> * Please cite the 'smfa' package as:
-#> Owili, S. O. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.0.
+#> Owili, SO. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.1.
 #> 
 #> See also: citation("smfa")
 #> 
@@ -76,7 +75,6 @@ constraint. No stochastic parameters are estimated for the metafrontier
 itself.
 
 ``` r
-
 meta_lp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
@@ -159,7 +157,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -223,7 +221,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -287,7 +285,7 @@ summary(meta_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -315,7 +313,7 @@ summary(meta_lp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 184.5788   BIC: 253.7103   HQIC: 212.113 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26
 ```
 
 > **Note:** Since the LP metafrontier is estimated via linear
@@ -331,7 +329,6 @@ produces a smooth envelope that is differentiable everywhere, and it
 returns estimated coefficients with standard errors.
 
 ``` r
-
 meta_qp <- smfa(
   formula    = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data       = ricephil,
@@ -414,7 +411,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -478,7 +475,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -542,7 +539,7 @@ summary(meta_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -576,7 +573,7 @@ summary(meta_qp)
 #> Total Log-likelihood: -74.28939 
 #> AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26
 ```
 
 ## Method 3: Stochastic Metafrontier — Huang et al. (2014)
@@ -588,7 +585,6 @@ are estimated stochastically, which naturally bounds the metatechnology
 ratio MTR ∈ (0, 1\].
 
 ``` r
-
 meta_huang <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
@@ -675,7 +671,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -739,7 +735,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -803,7 +799,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -876,7 +872,7 @@ summary(meta_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -901,7 +897,7 @@ summary(meta_huang)
 #> Total Log-likelihood: 479.063 
 #> AIC: -910.126   BIC: -817.9506   HQIC: -873.4137 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26
 ```
 
 ## Method 4: Stochastic Envelope — O’Donnell et al. (2008)
@@ -916,7 +912,6 @@ approach embeds the envelope within an SFA framework.
 > consider using `metaMethod = "lp"` or `sfaApproach = "huang"` instead.
 
 ``` r
-
 meta_ordonnell <- smfa(
   formula     = log(PROD) ~ log(AREA) + log(LABOR) + log(NPK),
   data        = ricephil,
@@ -1007,7 +1002,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1071,7 +1066,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1135,7 +1130,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -1208,7 +1203,7 @@ summary(meta_ordonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -1233,7 +1228,7 @@ summary(meta_ordonnell)
 #> Total Log-likelihood: 557.9201 
 #> AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:43
+#> Model was estimated on : Jul Tue 14, 2026 at 16:26
 ```
 
 ## Comparing Methods
@@ -1254,7 +1249,6 @@ All models return firm-level efficiency estimates via
 [`efficiencies()`](https://SulmanOlieko.github.io/smfa/reference/efficiencies.md):
 
 ``` r
-
 eff <- efficiencies(meta_lp)
 head(eff)
 #>   id  group       u_g TE_group_JLMS TE_group_BC TE_group_BC_reciprocal
@@ -1294,7 +1288,6 @@ summary(eff_small[, c("TE_group_BC", "TE_meta_BC", "MTR_BC")])
 ## Other Extractors
 
 ``` r
-
 coef(meta_qp)          # metafrontier coefficients
 #> (Intercept)   log(AREA)  log(LABOR)    log(NPK) 
 #>  -0.6117795   0.3937843   0.2791273   0.2409454

@@ -30,7 +30,6 @@ non-selected observations is `NA`.
 We simulate data following the approach in the `sfaR` documentation:
 
 ``` r
-
 library(smfa)
 #> Loading required package: sfaR
 #>            ****           *******  
@@ -56,10 +55,10 @@ library(smfa)
 #>  Y8888b. 888  888  888 888   .d888888  
 #>      X88 888  888  888 888   888  888 
 #>  88888P' 888  888  888 888   "Y888888 
-#>                           version 1.0.0
+#>                           version 1.0.1
 #> 
 #> * Please cite the 'smfa' package as:
-#> Owili, S. O. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.0.
+#> Owili, SO. (2026). smfa: Stochastic Metafrontier Analysis. R package version 1.0.1.
 #> 
 #> See also: citation("smfa")
 #> 
@@ -93,7 +92,6 @@ table(dat$d)
 ## Method 1: sfaselectioncross + LP Metafrontier
 
 ``` r
-
 meta_sel_lp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,      # selection equation: d is the binary indicator
@@ -182,7 +180,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:27 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -241,7 +239,7 @@ summary(meta_sel_lp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -267,7 +265,7 @@ summary(meta_sel_lp)
 #> Total Log-likelihood: -423.0023 
 #> AIC: 870.0045   BIC: 920.5798   HQIC: 889.8502 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28
 ```
 
 > **Note:** The `selectionF` argument is compulsory for
@@ -279,7 +277,6 @@ summary(meta_sel_lp)
 ## Method 2: sfaselectioncross + QP Metafrontier
 
 ``` r
-
 meta_sel_qp <- smfa(
   formula    = log(y) ~ log(x1) + log(x2),
   selectionF = d ~ z1 + z2,
@@ -368,7 +365,7 @@ summary(meta_sel_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -427,7 +424,7 @@ summary(meta_sel_qp)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -458,13 +455,12 @@ summary(meta_sel_qp)
 #> Total Log-likelihood: -423.0023 
 #> AIC: 876.0045   BIC: 939.2237   HQIC: 900.8116 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28
 ```
 
 ## Method 3: sfaselectioncross + SFA (Huang)
 
 ``` r
-
 meta_sel_huang <- smfa(
   formula     = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
@@ -555,7 +551,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -614,7 +610,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -685,7 +681,7 @@ summary(meta_sel_huang)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -708,13 +704,12 @@ summary(meta_sel_huang)
 #> Total Log-likelihood: -117.5979 
 #> AIC: 269.1957   BIC: 340.8441   HQIC: 297.3104 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44
+#> Model was estimated on : Jul Tue 14, 2026 at 16:28
 ```
 
 ## Method 4: sfaselectioncross + SFA (O’Donnell)
 
 ``` r
-
 meta_sel_odonnell <- smfa(
   formula     = log(y) ~ log(x1) + log(x2),
   selectionF  = d ~ z1 + z2,
@@ -811,7 +806,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:29 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -870,7 +865,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:29 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> 
@@ -941,7 +936,7 @@ summary(meta_sel_odonnell)
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> -------------------------------------------------------------------------------- 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44 
+#> Model was estimated on : Jul Tue 14, 2026 at 16:29 
 #> Log likelihood status: successful convergence  
 #> --------------------------------------------------------------------------------  
 #> Log likelihood status: successful convergence  
@@ -964,7 +959,7 @@ summary(meta_sel_odonnell)
 #> Total Log-likelihood: 579.7905 
 #> AIC: -1125.581   BIC: -1053.933   HQIC: -1097.466 
 #> ------------------------------------------------------------ 
-#> Model was estimated on : Apr Fri 24, 2026 at 17:44
+#> Model was estimated on : Jul Tue 14, 2026 at 16:29
 ```
 
 ## Interpreting the Selection Correction
@@ -975,7 +970,6 @@ correlation between the selection equation error and the frontier
 equation noise.
 
 ``` r
-
 # The rho parameter appears in the summary output:
 # ----------------------------------------------------------------
 #              Selection bias parameter
@@ -999,7 +993,6 @@ Only selected observations (those with `d == 1`) receive efficiency
 estimates:
 
 ``` r
-
 eff_sel <- efficiencies(meta_sel_lp)
 
 # Non-selected observations have NA efficiencies
