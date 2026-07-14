@@ -128,15 +128,9 @@ ricephil$group <- cut(ricephil$AREA,
   labels = c("small", "medium", "large"),
   include.lowest = TRUE
 )
+#This is the distrubition of the various farm types:
 table(ricephil$group)
 ```
-
-``` plaintext
- small medium  large
-   125    104    115 
-```
-
-This is the distrubition of the various farm types:
 
 ``` plaintext
  small medium  large
@@ -242,7 +236,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -306,7 +300,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -370,7 +364,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -398,7 +392,7 @@ MTR_BC=0.9403     MTR_JLMS=0.9403
 Total Log-likelihood: -74.28939
 AIC: 184.5788   BIC: 253.7103   HQIC: 212.113
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
 > **Note:** Since the metafrontier is estimated via linear programming,
@@ -1583,7 +1577,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -1647,7 +1641,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -1711,7 +1705,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -1745,7 +1739,7 @@ MTR_BC=0.9357     MTR_JLMS=0.9357
 Total Log-likelihood: -74.28939
 AIC: 192.5788   BIC: 277.0729   HQIC: 226.2318
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
 As expected, the two approaches produce almost identical outputs.
@@ -1855,7 +1849,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -1919,7 +1913,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -1983,7 +1977,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -2056,7 +2050,7 @@ Zv_(Intercept)    -6.05510    0.07698 -78.658 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 Log likelihood status: successful convergence
@@ -2081,7 +2075,7 @@ MTR_BC=0.9995     MTR_JLMS=0.9995
 Total Log-likelihood: 479.063
 AIC: -910.126   BIC: -817.9506   HQIC: -873.4137
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
 ------------------------------------------------------------------------
@@ -2188,7 +2182,7 @@ Zv_(Intercept)    -2.93406    0.35401  -8.288 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -2252,7 +2246,7 @@ Zv_(Intercept)    -4.54846    0.76429 -5.9512 2.661e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -2316,7 +2310,7 @@ Zv_(Intercept)    -4.26963    0.40584 -10.521 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -2389,7 +2383,7 @@ Zv_(Intercept)    -6.51356    0.07665 -84.978 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 Log likelihood status: successful convergence
@@ -2414,30 +2408,30 @@ MTR_BC=1.4701     MTR_JLMS=1.4829
 Total Log-likelihood: 557.9201
 AIC: -1067.84   BIC: -975.6648   HQIC: -1031.128
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
-O’Donnell et al. (2008) approach involves taking the deterministic
-envelope (the maximum) of all group frontier values at each data point
-(yMeta = apply(groupFrontierMat, 1, max)). Because this new yMeta
-surface is the maximum of several hyperplanes, its shape is purely
-convex and completely lacks statistical noise. When the second-stage
-sfacross tries to fit a single straight line (hyperplane) through this
-convex envelope, the residuals predominantly curve upward away from the
-line. In production frontiers, this results in right-skewed OLS
-residuals. SFA models naturally interpret right-skewed residuals as
-having near-zero inefficiency (sigma_u -\> 0). Because the
-meta-inefficiency is estimated as near zero (u_meta -\> 0), the
-meta-efficiency approaches 1 (TE_meta ~= 1). Because TE_meta = TE_group
-\* MTR, we get MTR = TE_meta / TE_group. Since TE_meta is ~1 and
-TE_group \< 1, this mathematically forces MTR \> 1. Why does this
-happen? Because fitting a stochastic frontier via Maximum Likelihood
-onto a purely mathematical LP envelope does not strictly enforce the
-bounding constraint MTR \<= 1 at every individual data point. The SFA
-line will inevitably cut through the LP envelope rather than sitting
-strictly above it for all points. This is a well-known theoretical and
-computational limitation of the producing MTR value(s) \> 1, which is
-partly why Huang et al. (2014) proposed their alternative method.
+> O’Donnell et al. (2008) approach involves taking the deterministic
+> envelope (the maximum) of all group frontier values at each data point
+> (yMeta = apply(groupFrontierMat, 1, max)). Because this new yMeta
+> surface is the maximum of several hyperplanes, its shape is purely
+> convex and completely lacks statistical noise. When the second-stage
+> sfacross tries to fit a single straight line (hyperplane) through this
+> convex envelope, the residuals predominantly curve upward away from
+> the line. In production frontiers, this results in right-skewed OLS
+> residuals. SFA models naturally interpret right-skewed residuals as
+> having near-zero inefficiency (sigma_u -\> 0). Because the
+> meta-inefficiency is estimated as near zero (u_meta -\> 0), the
+> meta-efficiency approaches 1 (TE_meta ~= 1). Because TE_meta =
+> TE_group \* MTR, we get MTR = TE_meta / TE_group. Since TE_meta is ~1
+> and TE_group \< 1, this mathematically forces MTR \> 1. Why does this
+> happen? Because fitting a stochastic frontier via Maximum Likelihood
+> onto a purely mathematical LP envelope does not strictly enforce the
+> bounding constraint MTR \<= 1 at every individual data point. The SFA
+> line will inevitably cut through the LP envelope rather than sitting
+> strictly above it for all points. This is a well-known theoretical and
+> computational limitation of the producing MTR value(s) \> 1, which is
+> partly why Huang et al. (2014) proposed their alternative method.
 
 How to solve it? This is exactly why the warning message was added to
 the code. If you require MTR \<= 1 bounds: (1) Use metaMethod = “lp” or
@@ -2576,7 +2570,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 61.35325
 AIC: -96.70649   BIC: -35.95362   HQIC: -73.35552
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
 Retrieve efficiencies including per-class posterior probabilities
@@ -2752,7 +2746,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 61.35325
 AIC: -88.70649   BIC: -9.26042   HQIC: -58.17061
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
 ------------------------------------------------------------------------
@@ -2910,7 +2904,7 @@ Zv_(Intercept)    -7.29334    0.12966  -56.25 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 Log likelihood status: successful convergence
@@ -2940,7 +2934,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 820.9822
 AIC: -1603.964   BIC: -1515.172   HQIC: -1569.836
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
 ------------------------------------------------------------------------
@@ -3103,7 +3097,7 @@ Zv_(Intercept)     -37.232      0.000 -4.2838e+13 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17
+Model was estimated on : Jul Wed 15, 2026 at 00:12
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 Log likelihood status: successful convergence
@@ -3133,7 +3127,7 @@ Class 2       74.5            0.646
 Total Log-likelihood: 2010.521
 AIC: -3983.041   BIC: -3894.249   HQIC: -3948.913
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:17 
+Model was estimated on : Jul Wed 15, 2026 at 00:12 
 ```
 
 ------------------------------------------------------------------------
@@ -3173,11 +3167,6 @@ Toggle to see the output
 ``` plaintext
    0    1
 1013  987 
-```
-
-``` plaintext
-     0    1
-  1013  987
 ```
 
 ------------------------------------------------------------------------
@@ -3286,7 +3275,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:18
+Model was estimated on : Jul Wed 15, 2026 at 00:13
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -3345,7 +3334,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:18
+Model was estimated on : Jul Wed 15, 2026 at 00:13
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -3371,7 +3360,7 @@ MTR_BC=0.9526     MTR_JLMS=0.9526
 Total Log-likelihood: -1651.136
 AIC: 3326.273   BIC: 3393.484   HQIC: 3350.951
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:18 
+Model was estimated on : Jul Wed 15, 2026 at 00:13 
 ```
 
 ``` r
@@ -3511,7 +3500,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:19
+Model was estimated on : Jul Wed 15, 2026 at 00:14
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -3570,7 +3559,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:19
+Model was estimated on : Jul Wed 15, 2026 at 00:14
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -3601,7 +3590,7 @@ MTR_BC=0.9491     MTR_JLMS=0.9491
 Total Log-likelihood: -1651.136
 AIC: 3332.273   BIC: 3416.286   HQIC: 3363.121
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:19 
+Model was estimated on : Jul Wed 15, 2026 at 00:14 
 ```
 
 ------------------------------------------------------------------------
@@ -3718,7 +3707,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:20
+Model was estimated on : Jul Wed 15, 2026 at 00:15
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -3777,7 +3766,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:20
+Model was estimated on : Jul Wed 15, 2026 at 00:16
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -3848,7 +3837,7 @@ Zv_(Intercept)    -8.28377    0.17628 -46.992 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:20
+Model was estimated on : Jul Wed 15, 2026 at 00:16
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 Log likelihood status: successful convergence
@@ -3871,7 +3860,7 @@ MTR_BC=0.9223     MTR_JLMS=0.9222
 Total Log-likelihood: -318.1426
 AIC: 670.2853   BIC: 765.5006   HQIC: 705.2464
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:20 
+Model was estimated on : Jul Wed 15, 2026 at 00:16 
 ```
 
 ------------------------------------------------------------------------
@@ -3988,7 +3977,7 @@ rho                0.89550    0.28696  3.1207 0.001804 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:21
+Model was estimated on : Jul Wed 15, 2026 at 00:17
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -4047,7 +4036,7 @@ rho                0.40516    0.35322   1.147   0.2514
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:22
+Model was estimated on : Jul Wed 15, 2026 at 00:17
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 
@@ -4118,7 +4107,7 @@ Zv_(Intercept)    -8.03105    0.04509 -178.12 < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 --------------------------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:22
+Model was estimated on : Jul Wed 15, 2026 at 00:17
 Log likelihood status: successful convergence
 --------------------------------------------------------------------------------
 Log likelihood status: successful convergence
@@ -4141,7 +4130,7 @@ MTR_BC=8.5729     MTR_JLMS=8.7385
 Total Log-likelihood: 911.6848
 AIC: -1789.37   BIC: -1694.154   HQIC: -1754.409
 ------------------------------------------------------------
-Model was estimated on : Jul Tue 14, 2026 at 23:22 
+Model was estimated on : Jul Wed 15, 2026 at 00:17 
 ```
 
 ------------------------------------------------------------------------

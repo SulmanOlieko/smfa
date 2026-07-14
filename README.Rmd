@@ -111,12 +111,8 @@ ricephil$group <- cut(ricephil$AREA,
   labels = c("small", "medium", "large"),
   include.lowest = TRUE
 )
+#This is the distrubition of the various farm types:
 table(ricephil$group)
-```
-This is the distrubition of the various farm types:
-```plaintext
- small medium  large 
-   125    104    115 
 ```
 
 ---
@@ -212,8 +208,8 @@ meta_sfacross_odonnell <- smfa(
 summary(meta_sfacross_odonnell)
 ```
 
-O'Donnell et al. (2008) approach involves taking the deterministic envelope (the maximum) of all group frontier values at each data point (yMeta = apply(groupFrontierMat, 1, max)). Because this new yMeta surface is the maximum of several hyperplanes, its shape is purely convex and completely lacks statistical noise. When the second-stage sfacross tries to fit a single straight line (hyperplane) through this convex envelope, the residuals predominantly curve upward away from the line. In production frontiers, this results in right-skewed OLS residuals. SFA models naturally interpret right-skewed residuals as having near-zero inefficiency (sigma_u -> 0). Because the meta-inefficiency is estimated as near zero (u_meta -> 0), the meta-efficiency approaches 1 (TE_meta ~= 1). Because TE_meta = TE_group * MTR, we get MTR = TE_meta / TE_group. Since TE_meta is ~1 and TE_group < 1, this mathematically forces MTR > 1.
-Why does this happen? Because fitting a stochastic frontier via Maximum Likelihood onto a purely mathematical LP envelope does not strictly enforce the bounding constraint MTR <= 1 at every individual data point. The SFA line will inevitably cut through the LP envelope rather than sitting strictly above it for all points. This is a well-known theoretical and computational limitation of the producing MTR value(s) > 1, which is partly why Huang et al. (2014) proposed their alternative method.
+>O'Donnell et al. (2008) approach involves taking the deterministic envelope (the maximum) of all group frontier values at each data point (yMeta = apply(groupFrontierMat, 1, max)). Because this new yMeta surface is the maximum of several hyperplanes, its shape is purely convex and completely lacks statistical noise. When the second-stage sfacross tries to fit a single straight line (hyperplane) through this convex envelope, the residuals predominantly curve upward away from the line. In production frontiers, this results in right-skewed OLS residuals. SFA models naturally interpret right-skewed residuals as having near-zero inefficiency (sigma_u -> 0). Because the meta-inefficiency is estimated as near zero (u_meta -> 0), the meta-efficiency approaches 1 (TE_meta ~= 1). Because TE_meta = TE_group * MTR, we get MTR = TE_meta / TE_group. Since TE_meta is ~1 and TE_group < 1, this mathematically forces MTR > 1.
+>Why does this happen? Because fitting a stochastic frontier via Maximum Likelihood onto a purely mathematical LP envelope does not strictly enforce the bounding constraint MTR <= 1 at every individual data point. The SFA line will inevitably cut through the LP envelope rather than sitting strictly above it for all points. This is a well-known theoretical and computational limitation of the producing MTR value(s) > 1, which is partly why Huang et al. (2014) proposed their alternative method.
 
 How to solve it? This is exactly why the warning message was added to the code. If you require MTR <= 1 bounds:
 (1) Use metaMethod = "lp" or "qp" (which explicitly enforce the mathematical envelope constraints).
@@ -335,10 +331,6 @@ dat <- as.data.frame(cbind(y=y, x1=x1, x2=x2, z1=z1, z2=z2, d=d, group=group))
 table(dat$d)
 ```
 
-```plaintext
-     0    1 
-  1013  987
-```
 
 ---
 

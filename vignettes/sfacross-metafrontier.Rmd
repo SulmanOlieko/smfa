@@ -62,8 +62,6 @@ ricephil$group <- cut(
 )
 
 table(ricephil$group)
-#>  small medium  large
-#>    125    104    115
 ```
 
 ## Method 1: LP Metafrontier

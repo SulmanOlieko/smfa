@@ -84,8 +84,6 @@ dat <- as.data.frame(cbind(y = y, x1 = x1, x2 = x2,
 
 # About 50% of observations are selected
 table(dat$d)
-#>    0    1
-#> 1013  987
 ```
 
 ## Method 1: sfaselectioncross + LP Metafrontier
