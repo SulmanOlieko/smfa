@@ -1,6 +1,6 @@
 # Changelog
 
-## smfa v1.0.1
+## smfa v1.0.1: Come along come
 
 - Updated the reference for the generalised exponential distribution to
   Papadopoulos (2021) in the documentation.
